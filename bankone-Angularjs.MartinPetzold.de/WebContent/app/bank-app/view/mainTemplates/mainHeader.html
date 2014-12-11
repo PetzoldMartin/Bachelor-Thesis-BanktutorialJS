@@ -1,0 +1,19 @@
+<div ng-app="bankapp.mainview" class="setBackground">
+	<div ng-controller="headerCtrl" >
+		<nav class="navbar navbar-inverse" role="navigation"
+			ng-style="{'background-color':'darkblue','margin-bottom': '0px'}">
+			<div class="row">
+				<div class="col-md-2">
+					<img class="img-responsive" ng-src="{{logoNavyBlue_url}}"
+						ng-style="{'width':'50px',
+							'margin-top': '0%',
+							'margin-left': 'auto',
+    						'margin-right': 'auto'}">
+				</div>
+				<div class="col-md-10 ">
+					<h2 ng-style="{'color':'white', 'margin-top': '1%'}">{{headerText}}</h2>
+				</div>
+			</div>
+		</nav>
+	</div>
+</div>

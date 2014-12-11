@@ -1,0 +1,14 @@
+<div ng-app="bankapp.mainview" class="setBackground">
+	<div ng-controller="sidebarCtrl">
+
+		<div class="list-group">
+			<div ng-repeat="topic in topics" ng-mouseover="hover(topic)"
+				ng-mouseleave="leave(topic)" ng-click="click(topic)">
+				<a href=#  class={{topic.class}} >
+				<span class={{topic.icon}}></span>
+					{{topic.name}}</a>
+			</div>
+
+		</div>
+
+	</div>

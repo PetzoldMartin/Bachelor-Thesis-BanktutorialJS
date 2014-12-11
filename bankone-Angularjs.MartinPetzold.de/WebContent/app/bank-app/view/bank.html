@@ -1,0 +1,74 @@
+<!doctype html>
+
+<html lang="en" ng-app="bankapp">
+<meta charset="utf-8">
+
+<link rel="stylesheet" href="../../../libraries/dist/css/bootstrap.css">
+<script src="../../../libraries/angular-1.3.4/angular.js"></script>
+<script src="../../../libraries/angular-1.3.4/angular-route.js"></script>
+<script src="../controller/mainController.js"></script>
+<script src="../controller/mainPageController.js"></script>
+<script src="../controller/bankController.js"></script>
+
+<head >
+
+
+
+<title>Bank Page</title>
+
+</head>
+
+
+<body>
+<div ng-controller="headerComponentCtrl">
+	<div ng-include='headerTemplate_url'></div>
+</div>
+	<div ng-controller="bankListCtrl">
+<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-2">
+					<!--Sidebar content-->
+
+					Search: <input ng-model="query"> Sort by: <select
+						ng-model="orderProp">
+						<option value="name">Alphabetical</option>
+						<option value="id">id</option>
+					</select>
+					<form name="newBankForm">
+						name: <input ng-model="name" placeholder="Enter a Bankname here">
+
+					</form>
+
+					<!-- Input of a Template with function -->
+					<form name=blzInput>
+						<div ng-include="'Templates/blzInput.html'"></div>
+					</form>
+
+					<button ng-click="add()">addtestBank</button>
+					<button ng-click="refresh()">refresh</button>
+					<p></p>
+					id: <input ng-model="id" type="number"
+						placeholder="Enter a Bankid here">
+					<button ng-click="del()">delete Bank</button>
+					<button ng-click="put()">updatetestBank</button>
+				</div>
+
+
+				<div class="col-lg-10">
+					<!--Body content-->
+					{{test}}
+					<p>{{status}}</p>
+					<ul ng-class="banks">
+
+						<li ng-repeat="bank in banks | filter:query | orderBy:orderProp">
+							<span>Name: {{bank.name}}</span>
+							<p>id: {{bank.id}}</p>
+							<p>BLZ: {{bank.sortCode}}</p>
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

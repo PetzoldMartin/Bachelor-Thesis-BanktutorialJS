@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="bankone-Angularjs.MartinPetzold.de">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="java-output-path" value="/bankone-Angularjs.MartinPetzold.de/build/classes"/>
+        <property name="context-root" value="bankone-Angularjs.MartinPetzold.de"/>
+    </wb-module>
+</project-modules>
