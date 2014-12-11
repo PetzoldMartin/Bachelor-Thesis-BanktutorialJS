@@ -1,0 +1,17 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+	<h:panelGroup id="menuId1" layout="block">
+		<h:panelGrid>
+			<h:outputText value="Navigation" />
+			<h:link outcome="/bank/bank.xhtml" value="Bank" />
+			<h:link outcome="/customer/customer.xhtml" value="Customer" />
+			<h:link outcome="/account/account.xhtml" value="Account" />
+			<h:link outcome="/home.xhtml" value="HOME" />
+		</h:panelGrid>
+	</h:panelGroup>
+	
+</ui:composition>

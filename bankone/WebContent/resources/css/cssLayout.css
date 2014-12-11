@@ -1,0 +1,132 @@
+/* MASTER */
+body {
+    background-color: #f3f1f1;
+    color: #000000;  
+    font-family: Tahoma, Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size: 12px;
+    margin: 0px;
+    overflow: scroll;
+}
+
+#master {
+    min-width: 1000px;
+}
+
+/* TOP */
+#top {
+    background-color: #000f19;
+	height: 42px;
+    min-width: 1000px;
+    position: fixed;
+    width: 100% !important;
+}
+
+#header_logo {
+    background-image: url(images/logo.png);
+    height: 42px;
+    float: left;
+    margin-right: 50px;
+    width: 200px;
+}
+
+#shadow {
+	background-image: url(images/shadow.png);
+	height: 10px;
+	position: fixed;
+	top:42px;
+	width: 310px;
+}
+
+/* BOTTOM */
+#bottom {
+    background-color: #000f19;
+    bottom: 0;
+    color: #ffffff;
+    height: 25px;
+    min-width: 1000px;
+    padding: 10px 0px 0px 0px;
+    position: fixed;
+    width: 100% !important;
+}
+
+#whz_logo {
+    background-image: url(images/logo_whz.png);
+    float: left;
+    height: 25px;
+    margin: -5px 5px 0px 5px;
+    width: 25px;
+}
+
+/* CONTENT */
+#content {
+    background-color: #ffffff;
+    bottom: 0px;
+    height: 100%;
+    min-width: 1000px;
+    padding: 42px 0px 0px 0px;
+    position: absolute;
+    top: 0px;
+    width: 100% !important;
+}
+
+#left {
+    background-color: #e8e1d9;
+    padding: 5px;
+    width: 300px;
+    vertical-align: top;
+}
+
+#right {
+    padding: 5px;
+    vertical-align: top;
+}
+
+#title {
+	background-color: transparent;
+	color: #261e16;
+	font-size: 2.5em;
+	margin: 5px -5px 0px -5px;
+	padding: 0px 0px 0px 5px;
+}
+
+/* NO SCRIPT */
+#noscript {
+    background-color: #c31e1e;
+    bottom: 0;
+    color: #ffffff;
+    height: 25px;
+    font-weight: bold;
+    min-width: 1000px;
+    padding: 10px 0px 0px 0px;
+    position: fixed;
+    text-align: center;
+    width: 100% !important;
+}
+
+#inactive {
+    background-color: #ffffff;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: none;
+    z-index: 1000;
+    /* MSIE - PC */
+    filter: alpha(opacity=75);
+    /* Mozilla 1.6 und frueher */
+    -moz-opacity: 0.75;
+    opacity: 0.75;
+}
+
+.choose_area {
+    border: 20px #000f19 solid;
+    position: fixed;
+    width: 800px;
+    height: 400px;
+    z-index: 1001;
+    background-color: #ffffff;
+    display: none;
+    padding: 5px;
+    margin: -230px 0px 0px -430px;
+    top: 50%; 
+    left: 50%;
+}

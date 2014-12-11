@@ -1,0 +1,358 @@
+a:link, a:visited {
+    color: #045491;
+    font-weight : bold;
+    text-decoration: none;
+}
+
+a:link:hover, a:visited:hover  {
+    color: #045491;
+    font-weight : bold;
+    text-decoration : none;
+}
+
+h2 {
+	margin: 0px;
+	padding: 0px;
+}
+
+h3 {
+	font-size: 1em;
+	font-weight: bold;
+	margin: 0px;
+	padding: 0px;
+}
+
+hr {
+    width: 100%;
+    border: 0;
+    height: 0px;
+    border-top: 1px #a08f7c dotted;
+    clear: both;
+}
+
+input {
+	background-color: #ffffff;
+	border: 1px #a08f7c solid;
+	font-family: inherit;
+    font-size: 1em;
+	width: 100%;
+}
+
+input[disabled] {
+    background-color: transparent;
+}
+
+.action_link {
+	text-align: right;
+	font-size: 0.8em;
+}
+
+.button {
+    background-color: transparent;
+    background-image: url(images/button.png);
+    border: 0;
+    color: #261e16;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    height: 24px;
+    margin: 3px 0px 0px 3px;
+    padding-top: 0px;
+	width: 104px;
+}
+
+.button:hover {
+	background-image: url(images/button_mouseover.png);
+}
+
+.button_box {
+	text-align: right;
+	padding: 5px 0px 5px 0px;
+}
+
+.close_box {
+	float: right;
+    text-align: right;
+}
+
+.column_input {
+    vertical-align: top;
+    width: 70%;
+}
+
+.column_text {
+    padding: 3px 8px 0px 0px;
+	vertical-align: top;
+    width: 30%;
+}
+
+.column_text_left {
+    width: 30%;
+}
+
+.column_text_right {
+    width: 70%;
+}
+
+.date {
+	color: #9c9c9c;
+}
+
+.function_box {
+    text-align: right;
+}
+
+#info_box {
+	color: #ffffff;
+    background-color: #007cb5;
+    display: none;
+    font-size: 0.9em;
+    text-align: center;
+    padding: 5px;
+    position: absolute;
+    width: 100px;
+    -moz-border-radius: 4px;
+    z-index: 1000;
+}
+
+.interest_activated {
+	color: #5e7262;
+	margin: 0px 0px 0px 5px;
+}
+
+.interest_deactivated {
+	color: #c31e1e;
+	margin: 0px 0px 0px 5px;
+}
+
+.input_error {
+	color: #c31e1e;
+    margin: 0;
+}
+
+.inputGrid {
+    clear: both;
+    font-size: 0.9em;
+    width: 100%;
+}
+
+.list {
+    clear: both;
+    font-size: 0.9em;
+    width: 100%;
+}
+
+.list tr td, .list_devices tr td {
+    vertical-align: top;
+}
+
+.list_header {
+	border-bottom: 1px #d8d2d2 dotted;
+    padding-bottom: 4px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.list_row {
+    background-color: #ffffff;
+}
+
+.list_row2 {
+    background-color: #f3f1f1;
+}
+
+.list_row:hover, .list_row2:hover {
+    background-color: #d8d2d2;
+}
+.list_row td a:link, .list_row td a:link:hover, .list_row td a:visited, .list_row td a:visited:hover,
+.list_row2 td a:link, .list_row2 td a:link:hover, .list_row2 td a:visited, .list_row2 td a:visited:hover {
+    display: block;
+    font-weight: normal;
+}
+
+.menu_line {
+	border-left: 1px #e8e1d9 solid;
+	height: 24px;
+	width: 0px;
+}
+
+.menu_button {
+    background-color: transparent;
+    border: 0;
+    color: #261e16;
+    cursor: pointer;
+	height: 24px;
+    margin: 11px 0px 0px 5px;
+    width: 25px;
+}
+
+.submenu_button {
+    background-color: transparent;
+    border: 0;
+    color: #261e16;
+    cursor: pointer;
+	height: 24px;
+    margin: 0px 0px 0px 5px;
+    width: 25px;
+}
+
+.submenu_button_small {
+    background-color: transparent;
+    border: 0;
+    color: #261e16;
+    cursor: pointer;
+	height: 14px;
+    margin: 0px 0px 0px 5px;
+    width: 15px;
+}
+
+.menu_account {
+	background-image: url(images/menu_account.png);
+}
+
+.menu_bank {
+	background-image: url(images/menu_bank.png);
+}
+
+.menu_branch {
+	background-image: url(images/menu_branch.png);
+}
+
+.menu_choose {
+	background-image: url(images/menu_choose.png);
+}
+
+.menu_close {
+	background-image: url(images/menu_close.png);
+}
+
+.menu_customer {
+	background-image: url(images/menu_customer.png);
+}
+
+.menu_deposit {
+	background-image: url(images/menu_deposit.png);
+}
+
+.menu_interest_start {
+	background-image: url(images/menu_interest_start.png);
+}
+
+.menu_interest_stop {
+	background-image: url(images/menu_interest_stop.png);
+}
+
+.menu_transfer {
+	background-image: url(images/menu_transfer.png);
+}
+
+.menu_withdraw {
+	background-image: url(images/menu_withdraw.png);
+}
+
+.menu_savingsAccount {
+	background-image: url(images/menu_savingsaccount.png);
+}
+
+.menu_flexibleSavingsAccount {
+	background-image: url(images/menu_flexiblesavingsaccount.png);
+}
+
+.menu_checkingAccount {
+	background-image: url(images/menu_checkingaccount.png);
+}
+
+.menu_account:hover {
+	background-image: url(images/menu_account_active.png);
+}
+
+.menu_bank:hover {
+	background-image: url(images/menu_bank_active.png);
+}
+
+.menu_branch:hover {
+	background-image: url(images/menu_branch_active.png);
+}
+
+.menu_choose:hover {
+	background-image: url(images/menu_choose_active.png);
+}
+
+.menu_close:hover {
+	background-image: url(images/menu_close_active.png);
+}
+
+.menu_customer:hover {
+	background-image: url(images/menu_customer_active.png);
+}
+
+.menu_deposit:hover {
+	background-image: url(images/menu_deposit_active.png);
+}
+
+.menu_interest_start:hover {
+	background-image: url(images/menu_interest_start_active.png);
+}
+
+.menu_interest_stop:hover {
+	background-image: url(images/menu_interest_stop_active.png);
+}
+
+.menu_transfer:hover {
+	background-image: url(images/menu_transfer_active.png);
+}
+
+.menu_withdraw:hover {
+	background-image: url(images/menu_withdraw_active.png);
+}
+
+.menu_savingsAccount:hover {
+	background-image: url(images/menu_savingsaccount_active.png);
+}
+
+.menu_flexibleSavingsAccount:hover {
+	background-image: url(images/menu_flexiblesavingsaccount_active.png);
+}
+
+.menu_checkingAccount:hover {
+	background-image: url(images/menu_checkingaccount_active.png);
+}
+
+.negative_balance {
+	color: #c31e1e;
+}
+
+.not_found {
+	clear: both;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.note_bad {
+    background-color: #c31e1e;
+    color: #ffffff;
+    font-weight: bold;
+    margin: 3px -5px 3px -5px;
+    padding: 5px 5px 5px 5px;
+	position: relative;
+    text-align: left;
+}
+
+.note_good {
+    background-color: #5e7262;
+    color: #ffffff;
+    font-weight: bold;
+    margin: 3px -5px 3px -5px;
+    padding: 5px 5px 5px 5px;
+	position: relative;
+    text-align: left;
+}
+
+.select_field {
+	background-color: #ffffff;
+	border: 1px #a08f7c solid;
+    font-family: inherit;
+    font-size: 1em;
+    width: 100%;
+}

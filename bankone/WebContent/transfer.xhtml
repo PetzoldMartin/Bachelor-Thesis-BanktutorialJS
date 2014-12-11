@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:body>
+    <ui:composition template="WEB-INF/template/master_admin.xhtml">
+    	
+    	<ui:param name="title" value="Transfer"/>
+    	<ui:param name="transaction" value="#{transactionResultService.transactionResultString}"/>
+    	<ui:param name="transferMode" value="#{transferPM.transferMode}"/>
+    	   	
+    	<ui:define name="left">  
+    		<h:form id="transfer_form"> 
+			    <div class="button_box">
+			    	<h:commandButton styleClass="button" value="Abbrechen" actionListener="#{transferPM.cancel}"
+			    					 action="customer" immediate="true"/>
+			    </div>
+			    
+			    <c:if test="#{transaction == 'SAVED'}">
+			    	<div class="note_good">
+			    		<h:outputText value="Der Betrag wurde eingezahlt." rendered="#{transferMode == 'DEPOSIT'}"/>
+			    		<h:outputText value="Der Betrag wurde ausgezahlt." rendered="#{transferMode == 'WITHDRAW'}"/>
+			    		<h:outputText value="Der Betrag wurde überwiesen." rendered="#{transferMode == 'TRANSFER'}"/>
+			    	</div>
+	    		</c:if>
+		    	<c:if test="#{transaction == 'NOT_SAVED' and transferMode == 'TRANSFER'}">
+	    			<div class="note_bad">Das Zielkonto wurde nicht gefunden.</div>
+	    		</c:if>
+	    		<hr/>  
+			    		    
+		    	<h:panelGrid id="account_output" columnClasses="column_text_left, column_text_right" 
+		    				 cellspacing="0" styleClass="inputGrid" columns="2" rendered="#{not empty transferPM.instance}">  
+		    		<h:column><h3>Konto</h3></h:column>
+		    		<h:column>
+		    			<h:outputText value="Sparkonto" rendered="#{transferPM.instance.accountType == 'SavingsAccount'}"/>
+						<h:outputText value="Tagesgeldkonto" rendered="#{transferPM.instance.accountType == 'FlexibleSavingsAccount'}"/>
+						<h:outputText value="Girokonto" rendered="#{transferPM.instance.accountType == 'CheckingAccount'}"/>
+		    		</h:column>
+		    		
+		    		<h:column>Kontonummer</h:column>
+		    		<h:column>#{transferPM.instance.id}</h:column>
+		    		
+		    		<h:column>Betrag</h:column>
+		    		<h:column>
+		    			<h:outputText value="#{transferPM.instance.balance}" rendered="#{transferPM.instance.balance >= 0}">
+	               			<f:convertNumber type="number" maxFractionDigits="2" minFractionDigits="2" currencySymbol="€"/>
+	               		</h:outputText>
+	               		<h:outputText value="#{transferPM.instance.balance}" rendered="#{not (transferPM.instance.balance >= 0)}" styleClass="negative_balance">
+	               			<f:convertNumber type="number" maxFractionDigits="2" minFractionDigits="2" currencySymbol="€"/>
+	               		</h:outputText>
+		    		</h:column>
+				</h:panelGrid>
+				<hr/>
+				
+		    	<div class="function_box">
+		    		<h:commandButton alt="Einzahlen" action="#{transferPM.startDeposit}" styleClass="submenu_button menu_deposit"
+		                   			 onmouseover="showInfo(this, 'Einzahlen')" onmouseout="hideInfo()"/>
+		    		<h:commandButton alt="Auszahlen" action="#{transferPM.startWithdraw}" styleClass="submenu_button menu_withdraw"
+		                   			 onmouseover="showInfo(this, 'Auszahlen')" onmouseout="hideInfo()"/>
+		    		<h:commandButton alt="Überweisung" action="#{transferPM.startTransfer}" styleClass="submenu_button menu_transfer"
+		                   			 onmouseover="showInfo(this, 'Überweisung')" onmouseout="hideInfo()"/>
+		    	</div>
+		    	<br/>
+		    	
+		    	<c:if test="#{not empty transferMode}">
+	    			<h:panelGrid columnClasses="column_text, column_input" 
+	    						 cellspacing="0" styleClass="inputGrid" columns="2">  	    				                    
+		    			<h:column>Betrag</h:column>
+		    			<h:column>
+		    				<h:inputText id="input_transfer_balance" value="#{transferPM.balance}" label="Betrag">
+		    					<f:convertNumber type="number" maxFractionDigits="2" minFractionDigits="2"/>
+		    				</h:inputText>
+		    				<h:message for="input_transfer_balance" styleClass="input_error"/>
+		    			</h:column>
+		    			
+		    			<c:if test="#{transferMode == 'TRANSFER'}">
+			    			<h:column>Bankleitzahl</h:column>
+			    			<h:column>
+			    				<h:inputText id="input_transfer_bankNumber" value="#{transferPM.bankNumber}" label="Bankleitzahl">
+			    					<f:convertNumber type="number" integerOnly="true"/>
+			    				</h:inputText>
+			    				<h:message for="input_transfer_bankNumber" styleClass="input_error"/>
+			    			</h:column>	
+		    			
+			    			<h:column>Kontonummer</h:column>
+			    			<h:column>
+			    				<h:inputText id="input_transfer_accountNumber" value="#{transferPM.accountNumber}" label="Kontonummer">
+			    					<f:convertNumber type="number" integerOnly="true"/>
+			    				</h:inputText>
+			    				<h:message for="input_transfer_accountNumber" styleClass="input_error"/>
+			    			</h:column>	
+		    			</c:if>
+	                </h:panelGrid>
+                </c:if>
+                
+	    		<div class="button_box">
+	    			<h:commandButton styleClass="button" value="Einzahlen" action="#{transferPM.deposit}" rendered="#{transferMode == 'DEPOSIT'}"/>
+	    			<h:commandButton styleClass="button" value="Auszahlen" action="#{transferPM.withdraw}" rendered="#{transferMode == 'WITHDRAW'}"/>
+	    			<h:commandButton styleClass="button" value="Überweisen" action="#{transferPM.transfer}" rendered="#{transferMode == 'TRANSFER'}"/>
+	    		</div>
+		    </h:form>	
+    	</ui:define>
+
+		<ui:define name="right">
+			<h:form>
+		        <h:outputLabel rendered="#{empty transferPM.statementList}">
+                	<div class="not_found">Keine Kontoauszüge gefunden!</div>
+                </h:outputLabel>
+			
+				<h:dataTable value="#{transferPM.statementList}" var="statement"
+							 styleClass="list" headerClass="list_header"
+							 rowClasses="list_row, list_row2" cellspacing="0"
+							 rendered="#{not empty transferPM.statementList}">
+					<h:column>
+						<f:facet name="header">Kontoauszüge</f:facet>
+						<h:outputText value="#{statement.date}" styleClass="date">
+							<f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss"/>
+						</h:outputText>
+						#{statement.content}
+	           		</h:column>
+				</h:dataTable>
+			</h:form>
+		</ui:define>
+
+	</ui:composition>
+    </h:body>
+</html>

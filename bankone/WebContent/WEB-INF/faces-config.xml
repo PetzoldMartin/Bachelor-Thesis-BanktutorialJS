@@ -1,0 +1,35 @@
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+ <navigation-rule>
+  <from-view-id>*</from-view-id>
+  <navigation-case>
+   <from-outcome>branch</from-outcome>
+   <to-view-id>/branch.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>account</from-outcome>
+   <to-view-id>/account.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>client</from-outcome>
+   <to-view-id>/client.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>customeraccount</from-outcome>
+   <to-view-id>/customeraccount.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>customer</from-outcome>
+   <to-view-id>/customer.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>bank</from-outcome>
+   <to-view-id>/bank.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ <application>
+  <message-bundle>de.java.BankTutorial.properties.messages</message-bundle>
+ </application>
+</faces-config>

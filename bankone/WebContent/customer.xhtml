@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:body>
+    <ui:composition template="WEB-INF/template/master_admin.xhtml">
+    	    	
+    	<ui:param name="title" value="Personen"/>
+    	<ui:param name="transaction" value="#{transactionResultService.transactionResultString}"/>
+    	
+    	<ui:define name="left">   	
+	    	<h:form id="form_input_customer">
+	    		<c:if test="#{transaction == 'SAVED'}">
+	    			<div class="note_good">Person erfolgreich gespeichert.</div>
+	    		</c:if>
+	    		<c:if test="#{transaction == 'REMOVED'}">
+	    			<div class="note_good">Person erfolgreich gelöscht.</div>
+	    		</c:if>
+	    	
+	    		<c:if test="#{customerPM.managed}">
+	    			Sie möchten eine bestehende Person bearbeiten.
+		    		<div class="button_box">
+		    			<h:commandButton styleClass="button" value="neue Person" action="#{customerPM.reset}" immediate="true"/>
+		    		</div>
+		    		<hr/>
+		    		
+		    		<div class="function_box">
+		    			<h:commandButton alt="Konten" action="#{accountPM.startWithCustomer(customerPM.instance.id)}" styleClass="submenu_button menu_account"
+		                     			 onmouseover="showInfo(this, 'Konten')" onmouseout="hideInfo()"/>
+		    		</div>
+		    		<hr/>
+		    	</c:if>
+	    	
+	    		<h:panelGrid columnClasses="column_text, column_input" cellspacing="0" styleClass="inputGrid" columns="2">  
+	    			<c:if test="#{customerPM.instance.id > 0}">
+	    				<h:column>ID</h:column>
+	    				<h:column>
+	    					<h:inputText value="#{customerPM.instance.id}" disabled="true" immediate="true"/>
+	    				</h:column>
+	    			</c:if> 		
+	    				    		
+	    			<h:column>Vorname*</h:column>
+	    			<h:column>
+	    				<h:inputText id="input_customer_firstname" value="#{customerPM.instance.firstname}" label="Vorname">
+							<f:validateRequired />
+	    				</h:inputText>
+	    				<h:message for="input_customer_firstname" errorClass="input_error"/>
+	    			</h:column>
+	    			
+	    			<h:column>Nachname*</h:column>
+	    			<h:column>
+	    				<h:inputText id="input_customer_surname" value="#{customerPM.instance.surname}" label="Nachname">
+	    					<f:validateRequired />
+	    				</h:inputText>
+	    				<h:message for="input_customer_surname" errorClass="input_error"/>
+	    			</h:column>
+	    		</h:panelGrid>
+	    		
+    			<hr/>    		
+		    	<h:panelGrid columnClasses="column_text, column_input" cellspacing="0" styleClass="inputGrid" columns="2"> 
+		    		<h:column>Telefon*</h:column>
+		    		<h:column>
+		    			<h:inputText id="input_contact_phone" value="#{customerPM.instance.contact.phone}" label="Telefonnummer">
+		    				<f:validateRequired />
+		    			</h:inputText>
+		    			<h:message for="input_contact_phone" errorClass="input_error"/>
+		    		</h:column>
+		    		
+		    		<h:column>Mobil</h:column>
+		    		<h:column>
+		    			<h:inputText id="input_contact_mobile" value="#{customerPM.instance.contact.mobilePhone}" label="Mobilfunknummer"/>
+		    			<h:message for="input_contact_mobile" errorClass="input_error"/>
+		    		</h:column>
+		    		
+		    		<h:column>Fax</h:column>
+		    		<h:column>
+		    			<h:inputText id="input_contact_fax" value="#{customerPM.instance.contact.telefax}" label="Faxnummer"/>
+		    			<h:message for="input_contact_fax" errorClass="input_error"/>
+		    		</h:column>
+		    		
+		    		<h:column>Mail</h:column>
+		    		<h:column>
+		    			<h:inputText id="input_contact_mail" value="#{customerPM.instance.contact.email}" label="Email-Adresse"/>
+		    			<h:message for="input_contact_mail" errorClass="input_error"/>
+		    		</h:column>
+		    	</h:panelGrid>
+
+		    	<hr/>    
+	    		<h:panelGrid columnClasses="column_text, column_input" cellspacing="0" styleClass="inputGrid" columns="2"> 
+	    			<h:column>Straße*</h:column>
+	    			<h:column>
+	    				<h:inputText id="input_address_street" value="#{customerPM.instance.contact.address.street}" label="Straße">
+	    					<f:validateRequired/>
+	    				</h:inputText>
+	    				<h:message for="input_address_street" errorClass="input_error"/>
+	    			</h:column>
+	    			
+	    			<h:column>Hausnummer*</h:column>
+	    			<h:column>
+	    				<h:inputText id="input_address_houseNumber" value="#{customerPM.instance.contact.address.houseNumber}" label="Hausnummer">
+	    					<f:validateRequired/>
+	    				</h:inputText>
+	    				<h:message for="input_address_houseNumber" errorClass="input_error"/>
+	    			</h:column>
+	    			
+	    			<h:column>Postleitzahl*</h:column>
+	    			<h:column>
+	    				<h:inputText id="input_address_zipCode" value="#{customerPM.instance.contact.address.zipCode}" label="Postleitzahl">
+	    					<f:validateRequired/>
+	    				</h:inputText>
+	    				<h:message for="input_address_zipCode" errorClass="input_error"/>
+	    			</h:column>
+	    			
+	    			<h:column>Ort*</h:column>
+	    			<h:column>
+	    				<h:inputText id="input_address_city" value="#{customerPM.instance.contact.address.city}" label="Ort">
+	    					<f:validateRequired/>
+	    				</h:inputText>
+	    				<h:message for="input_address_city" styleClass="input_error"/>
+	    			</h:column>
+	    		</h:panelGrid>
+   		
+	    		<c:if test="#{not customerPM.managed}">
+		    		<div class="button_box">
+		    			<h:commandButton styleClass="button" value="Erstellen" action="#{customerPM.save}" />
+		    		</div>
+		    	</c:if>
+	    		<c:if test="#{customerPM.managed}">
+		    		<div class="button_box">
+		    			<h:commandButton styleClass="button" value="Löschen" action="#{customerPM.delete}" immediate="true" />
+		    			<h:commandButton styleClass="button" value="Speichern" action="#{customerPM.save}" />
+		    		</div>
+		    	</c:if>
+	    	</h:form>
+    	</ui:define>
+
+		<ui:define name="right">
+			<h:form>
+                <h:outputLabel rendered="#{empty customerPM.list}">
+                	<div class="not_found">Keine Ergebnisse gefunden!</div>
+                </h:outputLabel>
+			
+				<h:dataTable value="#{customerPM.list}" var="customer"
+							 styleClass="list" headerClass="list_header"
+							 rowClasses="list_row, list_row2" cellspacing="0"
+							 rendered="#{not empty customerPM.list}">
+					<h:column>
+						<f:facet name="header">ID</f:facet>
+	                	<h:commandLink value="#{customer.id}" action="#{customerPM.loadInstance(customer.id)}" />
+	           		</h:column>
+	           		
+					<h:column>
+						<f:facet name="header">Name</f:facet>
+						<h:commandLink value="#{customer.surname}, #{customer.firstname}" action="#{customerPM.loadInstance(customer.id)}" />
+	            	</h:column>
+				</h:dataTable>
+			</h:form>
+		</ui:define>
+
+	</ui:composition>
+    </h:body>
+</html>

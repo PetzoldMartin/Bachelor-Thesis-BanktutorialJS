@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:body>
+    <ui:composition template="WEB-INF/template/master_admin.xhtml">
+    	
+    	<ui:param name="title" value="Kunden"/>
+    	<ui:param name="transaction" value="#{transactionResultService.transactionResultString}"/>
+    	
+    	<ui:define name="left">  
+    		<h:form> 	
+			    <div class="button_box">
+			    	<h:commandButton styleClass="button" value="Abbrechen" actionListener="#{branchPM.cancel}"
+			    	  				 action="bank" immediate="true"/>
+			    </div>
+			    
+		    	<c:if test="#{transaction == 'REMOVED'}">
+	    			<div class="note_good">Die Kundschaft wurde aufgelöst.</div>
+	    		</c:if>
+	    		<hr/>  
+	    		
+	    		<h:panelGrid id="bank_output" columnClasses="column_text_left, column_text_right" 
+	    					 cellspacing="0" styleClass="inputGrid" columns="2">  
+	    			<h:column><h3>Bank</h3></h:column>
+	    			<h:column>#{clientPM.bank.name}</h:column>
+	    			<h:column>Bankleitzahl</h:column>
+	    			<h:column>#{clientPM.bank.sortCode}</h:column>
+				</h:panelGrid>
+			    
+	    		<c:if test="#{clientPM.managed}">
+			    	<hr/>
+	    			<h:panelGrid id="customer_output" columnClasses="column_text_left, column_text_right" 
+	    						 cellspacing="0" styleClass="inputGrid" columns="2">  
+	    				<h:column><h3>Person</h3></h:column>
+	    				<h:column>#{clientPM.instance.firstname} #{clientPM.instance.surname}</h:column>
+	    				<h:column></h:column>
+	    				<h:column>&nbsp;</h:column>
+	    				<h:column></h:column>
+	    				<h:column>#{clientPM.instance.contact.address.street} #{clientPM.instance.contact.address.houseNumber}</h:column>
+	    				<h:column></h:column>
+	    				<h:column>#{clientPM.instance.contact.address.zipCode} #{clientPM.instance.contact.address.city}</h:column>
+					</h:panelGrid>
+					
+		    		<div class="function_box">
+		    			<h:commandButton alt="weitere Konten anlegen" action="#{accountPM.startWithBankAndCustomer(clientPM.bank.id, clientPM.instance.id)}" styleClass="submenu_button menu_account"
+		                     			 onmouseover="showInfo(this, 'weitere Konten anlegen')" onmouseout="hideInfo()"/>
+		    		</div>
+					<hr/>
+
+		    		<div class="button_box">
+		    			<h:commandButton styleClass="button" value="Entfernen" action="#{clientPM.removeFromBank}" immediate="true" />
+		    		</div>
+		    	</c:if>
+		    </h:form>
+    	</ui:define>
+
+		<ui:define name="right">
+			<h:form>
+                <h:outputLabel rendered="#{empty clientPM.bank.customers}">
+                	<div class="not_found">Keine Ergebnisse gefunden!</div>
+                </h:outputLabel>
+			
+				<h:dataTable value="#{clientPM.bank.customers}" var="customer"
+							 styleClass="list" headerClass="list_header"
+							 rowClasses="list_row, list_row2" cellspacing="0"
+							 rendered="#{not empty clientPM.bank.customers}">
+					<h:column>
+						<f:facet name="header">ID</f:facet>
+	                	<h:commandLink value="#{customer.id}" action="#{clientPM.loadInstance(customer.id)}" />
+	           		</h:column>
+	           		
+					<h:column>
+						<f:facet name="header">Name</f:facet>
+	                	<h:commandLink value="#{customer.firstname} #{customer.surname}" action="#{clientPM.loadInstance(customer.id)}" />
+	           		</h:column>
+	           		
+
+				</h:dataTable>
+			</h:form>
+		</ui:define>
+
+	</ui:composition>
+    </h:body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="branch::#branch.xhtml" NAME="output"
+    PATH="/branch.xhtml" TARGET="rules:#branch.xhtml" TITLE="branch" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="account::#account.xhtml" NAME="output1"
+    PATH="/account.xhtml" TARGET="rules:#account.xhtml" TITLE="account" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="client::#client.xhtml" NAME="output2"
+    PATH="/client.xhtml" TARGET="rules:#client.xhtml" TITLE="client" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="customeraccount::#customeraccount.xhtml"
+    NAME="output3" PATH="/customeraccount.xhtml"
+    TARGET="rules:#customeraccount.xhtml" TITLE="customeraccount" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="customer::#customer.xhtml" NAME="output4"
+    PATH="/customer.xhtml" TARGET="rules:#customer.xhtml"
+    TITLE="customer" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="bank::#bank.xhtml" NAME="output5"
+    PATH="/bank.xhtml" TARGET="rules:#bank.xhtml" TITLE="bank" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#bank.xhtml" PATH="/bank.xhtml"
+  SHAPE="304,753,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#customer.xhtml" PATH="/customer.xhtml"
+  SHAPE="304,641,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#customeraccount.xhtml"
+  PATH="/customeraccount.xhtml" SHAPE="304,529,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#account.xhtml" PATH="/account.xhtml"
+  SHAPE="304,305,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#client.xhtml" PATH="/client.xhtml"
+  SHAPE="304,417,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#branch.xhtml" PATH="/branch.xhtml"
+  SHAPE="304,33,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

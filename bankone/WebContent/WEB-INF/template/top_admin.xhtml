@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <h:body>       
+    	<div>
+        	<div id="header_logo">&nbsp;</div>
+        </div>
+        
+	    <h:form>
+		    <h:commandButton alt="Banken" action="bank" styleClass="menu_button menu_bank" actionListener="#{bankPM.cancel()}"
+		                     onmouseover="showInfo(this, 'Banken')" onmouseout="hideInfo()"/>
+		                     
+		    <h:commandButton alt="Personen" action="customer" styleClass="menu_button menu_customer" actionListener="#{customerPM.cancel()}"
+		                     onmouseover="showInfo(this, 'Personen')" onmouseout="hideInfo()"/>
+          
+		    <span class="menu_line"/>
+		                     
+		    <h:commandButton alt="Zinsüberweisung beginnen" action="#{interestPM.startInterest}" styleClass="menu_button menu_interest_start"
+		                     onmouseover="showInfo(this, 'Zinsüberweisung beginnen')" onmouseout="hideInfo()" rendered="#{not interestPM.interestActive}"/>
+
+		    <h:commandButton alt="Zinsüberweisung beenden" action="#{interestPM.stopInterest}" styleClass="menu_button menu_interest_stop"
+		                     onmouseover="showInfo(this, 'Zinsüberweisung beenden')" onmouseout="hideInfo()" rendered="#{interestPM.interestActive}"/>
+		                     
+		    <h:outputText value="Zinsüberweisung ist aktiv" styleClass="interest_activated" rendered="#{interestPM.interestActive}" />
+		    <h:outputText value="Zinsüberweisung ist nicht aktiv" styleClass="interest_deactivated" rendered="#{not interestPM.interestActive}" />
+	    </h:form>
+	    
+	    <div id="info_box">
+	    	<div id="info_text"/>        
+	    </div>
+    </h:body>
+</html>

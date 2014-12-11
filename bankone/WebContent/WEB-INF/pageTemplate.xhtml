@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<!-- link href="css/default.css" rel="stylesheet" type="text/css" /> 
+        <link href="resources/css/cssLayout.css" rel="stylesheet" type="text/css" /> --> 
+	 <h:outputStylesheet name="css/cssLayout.css" />
+	<title>Bank-Beispiel</title>
+</h:head>
+
+<h:body>
+		<div id="top">
+			<ui:include src="top.xhtml" />
+		</div>
+		<table>
+<tr>
+  <td class="sidemenu">
+	<!-- This demonstrates that the entire content region of the displayed
+		page is controlled in this file which is why we titled this file,
+		"content.xhtml." In this example the side menu is considered part
+		of the content. Whether it is or should be is debatable, of course.
+	  -->
+    		<div id="left">
+				<ui:include src="menu.xhtml" />
+			</div> 
+  </td>
+  <td class="sidemenu">
+    		<div id="maincontent">
+				<ui:insert name="content" />
+			</div>
+	
+  </td>
+</tr>
+</table>
+		<!-- <div id="footer2">
+		<h:form><h:panelGroup id="menuId2">
+		    <h:panelGrid columns="3">    
+		        <h:outputText id="menuWelcomeId" value="signed in as: #{currentUser.username}" rendered="#{login.loggedIn}"/>
+		        <ui:remove><h:outputLink id="menuLoginId"  rendered="#{!login.loggedIn}">Login</h:outputLink></ui:remove>
+		        <h:commandLink style="padding-left: 10px;" id="menuLogoutId" value="Logout" action="#{login.logout}" rendered="#{login.loggedIn}"/>                           
+		    </h:panelGrid>	
+		</h:panelGroup></h:form></div>   -->
+    <div id="footer">BankSoft CoKG, Copyright (c): King Lui, 2012</div>
+</h:body>
+
+
+
+
+</html>

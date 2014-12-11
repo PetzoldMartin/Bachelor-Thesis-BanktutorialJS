@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:body>
+    <ui:composition template="WEB-INF/template/master_admin.xhtml">
+    	
+    	<ui:param name="title" value="Banken"/>
+    	<ui:param name="transaction" value="#{transactionResultService.transactionResultString}"/>
+    	
+    	<ui:define name="left">   	
+	    	<h:form>
+	    		<c:if test="#{transaction == 'SAVED'}">
+	    			<div class="note_good">Bank erfolgreich gespeichert.</div>
+	    		</c:if>
+	    		<c:if test="#{transaction == 'REMOVED'}">
+	    			<div class="note_good">Bank erfolgreich gelöscht.</div>
+	    		</c:if>
+	    	
+	    		<c:if test="#{bankPM.managed}">
+	    			Sie möchten eine bestehende Bank bearbeiten.
+		    		<div class="button_box">
+		    			<h:commandButton styleClass="button" value="neue Bank" action="#{bankPM.reset}" immediate="true"/>
+		    		</div>
+		    		<hr/>
+		    		
+		    		<div class="function_box">
+		    			<h:commandButton alt="Filialen" action="#{branchPM.startWithBank(bankPM.instance.id)}" styleClass="submenu_button menu_branch"
+		                     			 onmouseover="showInfo(this, 'Filialen')" onmouseout="hideInfo()"/>
+		    			<h:commandButton alt="Kunden" action="#{clientPM.startWithBank(bankPM.instance.id)}" styleClass="submenu_button menu_customer"
+		                     			 onmouseover="showInfo(this, 'Kunden')" onmouseout="hideInfo()"/>
+		    			<h:commandButton alt="Konten" action="#{accountPM.startWithBank(bankPM.instance.id)}" styleClass="submenu_button menu_account"
+		                     			 onmouseover="showInfo(this, 'Konten')" onmouseout="hideInfo()"/>
+		    		</div>
+		    		<hr/>
+		    	</c:if>
+		    	    	
+	    		<h:panelGrid columnClasses="column_text, column_input" cellspacing="0" styleClass="inputGrid" columns="2">  
+	    			<c:if test="#{bankPM.instance.id > 0}">
+	    				<h:column>ID</h:column>
+	    				<h:column>
+	    					<h:inputText value="#{bankPM.instance.id}" disabled="true" immediate="true"/>
+	    				</h:column>
+	    			</c:if> 		
+	    				    		
+	    			<h:column>Name*</h:column>
+	    			<h:column>
+	    				<h:inputText id="input_bank_name" value="#{bankPM.instance.name}" label="Bankname">
+							<f:validateRequired />
+	    				</h:inputText>
+	    				<h:message for="input_bank_name" styleClass="input_error"/>
+	    			</h:column>
+	    			
+	    			<c:if test="#{bankPM.instance.id > 0}">
+	    				<h:column>Bankleitzahl</h:column>
+	    				<h:column>
+	    					<h:inputText value="#{bankPM.instance.sortCode}" disabled="true" immediate="true"/>
+	    				</h:column>
+	    			</c:if> 	
+	    		</h:panelGrid>
+	    		
+	    		<c:if test="#{not bankPM.managed}">
+		    		<div class="button_box">
+		    			<h:commandButton styleClass="button" value="Erstellen" action="#{bankPM.save}" />
+		    		</div>
+		    	</c:if>
+	    		<c:if test="#{bankPM.managed}">
+		    		<div class="button_box">
+		    			<h:commandButton styleClass="button" value="Löschen" action="#{bankPM.delete}" immediate="true" />
+		    			<h:commandButton styleClass="button" value="Speichern" action="#{bankPM.save}" />
+		    		</div>
+		    	</c:if>
+	    	</h:form>
+    	</ui:define>
+
+		<ui:define name="right">
+			<h:form>
+                <h:outputLabel rendered="#{empty bankPM.list}">
+                	<div class="not_found">Keine Ergebnisse gefunden!</div>
+                </h:outputLabel>
+			
+				<h:dataTable value="#{bankPM.list}" var="bank"
+							 styleClass="list" headerClass="list_header"
+							 rowClasses="list_row, list_row2" cellspacing="0"
+							 rendered="#{not empty bankPM.list}">
+					<h:column>
+						<f:facet name="header">ID</f:facet>
+	                	<h:commandLink value="#{bank.id}" action="#{bankPM.loadInstance(bank.id)}" />
+	           		</h:column>
+	           		
+					<h:column>
+						<f:facet name="header">Bankleitzahl</f:facet>
+						<h:commandLink value="#{bank.sortCode}" action="#{bankPM.loadInstance(bank.id)}" />
+	            	</h:column>
+	            	
+					<h:column>
+						<f:facet name="header">Name</f:facet>
+	                	<h:commandLink value="#{bank.name}" action="#{bankPM.loadInstance(bank.id)}" />
+	            	</h:column>
+				</h:dataTable>
+			</h:form>
+		</ui:define>
+
+	</ui:composition>
+    </h:body>
+</html>

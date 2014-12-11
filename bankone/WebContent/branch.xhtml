@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:body>
+    <ui:composition template="WEB-INF/template/master_admin.xhtml">
+    	
+    	<ui:param name="title" value="Filialen"/>
+    	<ui:param name="transaction" value="#{transactionResultService.transactionResultString}"/>
+    	
+    	<ui:define name="left">  
+    		<h:form> 	
+			    <div class="button_box">
+			    	<h:commandButton styleClass="button" value="Abbrechen" actionListener="#{branchPM.cancel}"
+			    					 action="bank" immediate="true"/>
+			    </div>
+			    
+	    		<c:if test="#{transaction == 'SAVED'}">
+	    			<div class="note_good">Filiale erfolgreich gespeichert.</div>
+	    		</c:if>
+	    		<c:if test="#{transaction == 'REMOVED'}">
+	    			<div class="note_good">Filiale erfolgreich gelöscht.</div>
+	    		</c:if>
+	    		<hr/>  
+	    		
+	    		<h:panelGrid id="bank_output" columnClasses="column_text_left, column_text_right" 
+	    					 cellspacing="0" styleClass="inputGrid" columns="2">  
+	    			<h:column><h3>Bank</h3></h:column>
+	    			<h:column>#{branchPM.bank.name}</h:column>
+	    			<h:column>Bankleitzahl</h:column>
+	    			<h:column>#{branchPM.bank.sortCode}</h:column>
+	    			<h:column></h:column>
+	    			<h:column>
+                    	<h:inputHidden value="#{branchPM.bank}" id="input_bank" converter="#{bankConverter}" 
+                    				   label="Bank" immediate="true">
+                        	<f:validateRequired/>
+                        </h:inputHidden>
+                        <h:message for="input_bank" errorClass="input_error"/>
+	    			</h:column>
+				</h:panelGrid>
+				<hr/>
+    		
+	    		<c:if test="#{branchPM.managed}">
+	    			Sie möchten eine bestehende Filiale bearbeiten.
+		    		<div class="button_box">
+		    			<h:commandButton styleClass="button" value="neue Filiale" action="#{branchPM.reset}" immediate="true"/>
+		    		</div>
+		    		<hr/>
+		    	</c:if>
+		   	    	 		
+		    	<h:panelGrid columnClasses="column_text, column_input" cellspacing="0" styleClass="inputGrid" columns="2"> 
+	    			<c:if test="#{branchPM.instance.id > 0}">
+	    				<h:column>ID</h:column>
+	    				<h:column>
+	    					<h:inputText value="#{branchPM.instance.id}" disabled="true" immediate="true"/>
+	    				</h:column>
+	    			</c:if> 	
+		    	
+		    		<h:column>Telefon*</h:column>
+		    		<h:column>
+		    			<h:inputText id="input_contact_phone" value="#{branchPM.instance.phone}" label="Telefonnummer">
+		    				<f:validateRequired />
+		    			</h:inputText>
+		    			<h:message for="input_contact_phone" errorClass="input_error"/>
+		    		</h:column>
+		    		
+		    		<h:column>Mobil</h:column>
+		    		<h:column>
+		    			<h:inputText id="input_contact_mobile" value="#{branchPM.instance.mobilePhone}" label="Mobilfunknummer"/>
+		    			<h:message for="input_contact_mobile" errorClass="input_error"/>
+		    		</h:column>
+		    		
+		    		<h:column>Fax</h:column>
+		    		<h:column>
+		    			<h:inputText id="input_contact_fax" value="#{branchPM.instance.telefax}" label="Faxnummer"/>
+		    			<h:message for="input_contact_fax" errorClass="input_error"/>
+		    		</h:column>
+		    		
+		    		<h:column>Mail</h:column>
+		    		<h:column>
+		    			<h:inputText id="input_contact_mail" value="#{branchPM.instance.email}" label="Email-Adresse"/>
+		    			<h:message for="input_contact_mail" errorClass="input_error"/>
+		    		</h:column>
+		    	</h:panelGrid>
+	    		<hr/>    
+	    		
+	    		<h:panelGrid columnClasses="column_text, column_input" cellspacing="0" styleClass="inputGrid" columns="2"> 
+	    			<h:column>Straße*</h:column>
+	    			<h:column>
+	    				<h:inputText id="input_address_street" value="#{branchPM.instance.address.street}" label="Straße">
+	    					<f:validateRequired/>
+	    				</h:inputText>
+	    				<h:message for="input_address_street" errorClass="input_error"/>
+	    			</h:column>
+	    			
+	    			<h:column>Hausnummer*</h:column>
+	    			<h:column>
+	    				<h:inputText id="input_address_houseNumber" value="#{branchPM.instance.address.houseNumber}" label="Hausnummer">
+	    					<f:validateRequired/>
+	    				</h:inputText>
+	    				<h:message for="input_address_houseNumber" errorClass="input_error"/>
+	    			</h:column>
+	    			
+	    			<h:column>Postleitzahl*</h:column>
+	    			<h:column>
+	    				<h:inputText id="input_address_zipCode" value="#{branchPM.instance.address.zipCode}" label="Postleitzahl">
+	    					<f:validateRequired/>
+	    				</h:inputText>
+	    				<h:message for="input_address_zipCode" errorClass="input_error"/>
+	    			</h:column>
+	    			
+	    			<h:column>Ort*</h:column>
+	    			<h:column>
+	    				<h:inputText id="input_address_city" value="#{branchPM.instance.address.city}" label="Ort">
+	    					<f:validateRequired/>
+	    				</h:inputText>
+	    				<h:message for="input_address_city" styleClass="input_error"/>
+	    			</h:column>
+	    		</h:panelGrid>
+		    	
+	    		<c:if test="#{not branchPM.managed}">
+		    		<div class="button_box">
+		    			<h:commandButton styleClass="button" value="Erstellen" action="#{branchPM.save}" />
+		    		</div>
+		    	</c:if>
+	    		<c:if test="#{branchPM.managed}">
+		    		<div class="button_box">
+		    			<h:commandButton styleClass="button" value="Löschen" action="#{branchPM.delete}" immediate="true" />
+		    			<h:commandButton styleClass="button" value="Speichern" action="#{branchPM.save}" />
+		    		</div>
+		    	</c:if>
+		    </h:form>
+    	</ui:define>
+
+		<ui:define name="right">
+			<h:form>
+                <h:outputLabel rendered="#{empty branchPM.bank.contacts}">
+                	<div class="not_found">Keine Ergebnisse gefunden!</div>
+                </h:outputLabel>
+			
+				<h:dataTable value="#{branchPM.bank.contacts}" var="contact"
+							 styleClass="list" headerClass="list_header"
+							 rowClasses="list_row, list_row2" cellspacing="0"
+							 rendered="#{not empty branchPM.bank.contacts}">
+					<h:column>
+						<f:facet name="header">ID</f:facet>
+	                	<h:commandLink value="#{contact.id}" action="#{branchPM.loadInstance(contact.id)}" />
+	           		</h:column>
+	           		
+					<h:column>
+						<f:facet name="header">Telefon</f:facet>
+	                	<h:commandLink value="#{contact.phone}" action="#{branchPM.loadInstance(contact.id)}" />
+	           		</h:column>
+	           		
+					<h:column>
+						<f:facet name="header">Adresse</f:facet>
+	                	<h:commandLink value="#{contact.address.street} #{contact.address.houseNumber}, #{contact.address.zipCode} #{contact.address.city}" 
+	                				   action="#{branchPM.loadInstance(contact.id)}" />
+	           		</h:column>
+				</h:dataTable>
+			</h:form>
+		</ui:define>
+
+	</ui:composition>
+    </h:body>
+</html>

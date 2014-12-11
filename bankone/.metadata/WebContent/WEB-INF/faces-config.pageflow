@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13990438478560" configfile="/bankone/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="bankgroup/bankgroup.xhtml" id="pf13992168727340" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" outlinks="pf13992168727341 pf13992168727342" inlinks="pf13992168727343 pf13992168727344" path="/bankgroup/bankgroup.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="bankgroup/bankgroupedit.xhtml" id="pf13992168727345" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf13992168727343 pf13992168727344" inlinks="pf13992168727341 pf13992168727342" path="/bankgroup/bankgroupedit.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="bank/bank.xhtml" id="pf13992168727346" referenceLink="//@navigationRule.9/@navigationCase.1/@toViewId|" outlinks="pf13992168727347 pf13992168727348" inlinks="pf13992168727349 pf139921687273410 pf139921687273411 pf139921687273412" path="/bank/bank.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="bank/bankedit.xhtml" id="pf139921687273413" referenceLink="//@navigationRule.9/@fromViewId|" outlinks="pf13992168727349 pf139921687273410 pf139921687273411 pf139921687273412" inlinks="pf13992168727347 pf13992168727348 pf139921687273414 pf139921687273415" path="/bank/bankedit.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="customer/customer.xhtml" id="pf139921687273416" referenceLink="//@navigationRule.5/@navigationCase.1/@toViewId|" outlinks="pf139921687273417 pf139921687273418" inlinks="pf139921687273419 pf139921687273420" path="/customer/customer.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="customer/customeredit.xhtml" x="480" y="360" id="pf139921687273421" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf139921687273419 pf139921687273420" inlinks="pf139921687273417 pf139921687273418" path="/customer/customeredit.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="account/account.xhtml" id="pf139921687273422" referenceLink="//@navigationRule.7/@navigationCase.1/@toViewId|" outlinks="pf139921687273423 pf139921687273424" inlinks="pf139921687273425 pf139921687273426" path="/account/account.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="account/accountedit.xhtml" id="pf139921687273427" referenceLink="//@navigationRule.7/@fromViewId|" outlinks="pf139921687273425 pf139921687273426" inlinks="pf139921687273423 pf139921687273424" path="/account/accountedit.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="test.xhtml" id="pf139921687273428" referenceLink="//@navigationRule.8/@fromViewId|" outlinks="pf139921687273414 pf139921687273415" path="/test.xhtml"/>
+  <links id="pf13992168727341" target="pf13992168727345" source="pf13992168727340" outcome="newBankgroup"/>
+  <links id="pf13992168727342" target="pf13992168727345" source="pf13992168727340" outcome="changeBankgroup"/>
+  <links id="pf13992168727343" target="pf13992168727340" source="pf13992168727345" outcome="saveBankgroup"/>
+  <links id="pf13992168727344" target="pf13992168727340" source="pf13992168727345" outcome="cancelBankgroup"/>
+  <links id="pf13992168727347" target="pf139921687273413" source="pf13992168727346" outcome="newBank"/>
+  <links id="pf13992168727348" target="pf139921687273413" source="pf13992168727346" outcome="changeBank"/>
+  <links id="pf13992168727349" target="pf13992168727346" source="pf139921687273413" outcome="saveBank"/>
+  <links id="pf139921687273410" target="pf13992168727346" source="pf139921687273413" outcome="cancelBank"/>
+  <links id="pf139921687273417" target="pf139921687273421" source="pf139921687273416" outcome="newCustomer"/>
+  <links id="pf139921687273418" target="pf139921687273421" source="pf139921687273416" outcome="changeCustomer"/>
+  <links id="pf139921687273419" target="pf139921687273416" source="pf139921687273421" outcome="saveCustomer"/>
+  <links id="pf139921687273420" target="pf139921687273416" source="pf139921687273421" outcome="cancelCustomer"/>
+  <links id="pf139921687273423" target="pf139921687273427" source="pf139921687273422" outcome="newAccount"/>
+  <links id="pf139921687273424" target="pf139921687273427" source="pf139921687273422" outcome="changeAccount"/>
+  <links id="pf139921687273425" target="pf139921687273422" source="pf139921687273427" outcome="saveAccount"/>
+  <links id="pf139921687273426" target="pf139921687273422" source="pf139921687273427" outcome="cancelAccount"/>
+  <links id="pf139921687273414" target="pf139921687273413" source="pf139921687273428" outcome="newBank"/>
+  <links id="pf139921687273415" target="pf139921687273413" source="pf139921687273428" outcome="changeBank"/>
+  <links id="pf139921687273411" target="pf13992168727346" source="pf139921687273413" outcome="saveBank"/>
+  <links id="pf139921687273412" target="pf13992168727346" source="pf139921687273413" outcome="cancelBank"/>
+</pageflow:Pageflow>

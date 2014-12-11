@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:body>
+    <ui:composition template="WEB-INF/template/master_admin.xhtml">
+    	
+        <ui:param name="title" value="Konten"/>
+        <ui:param name="transaction" value="#{transactionResultService.transactionResultString}"/>
+    	
+        <ui:define name="box">      
+       		#{accountPM.setLoadBox(false)}    
+            <div id ="customer_choose_area" class="choose_area">
+                <h:form id="customer_choose_form">
+                    <h2>
+                        Person wählen
+						<div class="close_box">
+				    		<input type="button" class="submenu_button_small menu_close" value="&nbsp;" 
+				    			   onclick="hideElements('customer_choose_area', 'inactive')"/>
+				    	</div>
+                    </h2>
+
+                    <h:outputLabel id="customer_choose">
+                        <hr />
+
+                        <div class="choose_table">
+                            <h:outputLabel rendered="#{empty accountPM.customerList}">
+                                <div class="not_found">Keine Ergebnisse gefunden!</div>
+                            </h:outputLabel>
+
+                            <h:dataTable value="#{accountPM.customerList}" var="customer"
+                                         styleClass="list" rowClasses="list_row, list_row2"
+                                         headerClass="list_header" cellspacing="0"
+                                         rendered="#{accountPM.loadBox and not empty accountPM.customerList}">
+                                <h:column>
+                                    <f:facet name="header">Name</f:facet>
+                                    <h:commandLink actionListener="#{accountPM.loadCustomer(customer.id)}"
+                                                   onclick="hideElements('customer_choose_area', 'inactive')">
+                                        #{customer.firstname} #{customer.surname}&nbsp;
+                                        <f:ajax execute="@this" render=":account_form:customer_output"/>
+                                    </h:commandLink>
+                                </h:column>
+                            </h:dataTable>
+                        </div>
+                    </h:outputLabel>
+                </h:form>
+            </div>
+        </ui:define>
+    	
+    	<ui:define name="left">  
+    		<h:form id="account_form"> 
+			    <div class="button_box">
+			    	<h:commandButton styleClass="button" value="Abbrechen" actionListener="#{branchPM.cancel}"
+			    					 action="bank" immediate="true"/>
+			    </div>
+			    
+	    		<c:if test="#{transaction == 'SAVED'}">
+	    			<div class="note_good">Konto erfolgreich gespeichert.</div>
+	    		</c:if>
+	    		<c:if test="#{transaction == 'REMOVED'}">
+	    			<div class="note_good">Konto erfolgreich gelöscht.</div>
+	    		</c:if>
+	    		<c:if test="#{transaction == 'SCHUFA_FAILED'}">
+	    			<div class="note_bad">Die Person ist nicht kreditwürdig.</div>
+	    		</c:if>
+	    		<hr/>  
+	    		
+	    		<h:panelGrid id="bank_output" columnClasses="column_text_left, column_text_right" 
+	    					 cellspacing="0" styleClass="inputGrid" columns="2">  
+	    			<h:column><h3>Bank</h3></h:column>
+	    			<h:column>#{accountPM.bank.name}</h:column>
+	    			<h:column>Bankleitzahl</h:column>
+	    			<h:column>#{accountPM.bank.sortCode}</h:column>
+	    			<h:column></h:column>
+	    			<h:column>
+                    	<h:inputHidden value="#{accountPM.bank}" id="input_bank" converter="#{bankConverter}" 
+                    				   label="Bank" immediate="true">
+                        	<f:validateRequired/>
+                        </h:inputHidden>
+                        <h:message for="input_bank" errorClass="input_error"/>
+	    			</h:column>
+				</h:panelGrid>
+				
+			   	<hr/>  
+			    
+    			<h:panelGrid id="customer_output" columnClasses="column_text_left, column_text_right" 
+    						 cellspacing="0" styleClass="inputGrid" columns="2">  
+    				<h:column><h3>Person</h3></h:column>
+    				<h:column>#{accountPM.customer.firstname} #{accountPM.customer.surname}</h:column>
+    				<h:column></h:column>
+    				<h:column>&nbsp;</h:column>
+    				<h:column></h:column>
+    				<h:column>#{accountPM.customer.contact.address.street} #{accountPM.customer.contact.address.houseNumber}</h:column>
+    				<h:column></h:column>
+    				<h:column>#{accountPM.customer.contact.address.zipCode} #{accountPM.customer.contact.address.city}</h:column>
+	    			<h:column></h:column>
+	    			<h:column>
+                    	<h:inputHidden value="#{accountPM.customer}" id="input_customer" converter="#{customerConverter}" 
+                    				   label="Person" immediate="true">
+                        	<f:validateRequired/>
+                        </h:inputHidden>
+                        <h:message for="input_customer" errorClass="input_error"/>
+	    			</h:column>
+				</h:panelGrid>
+			    
+				<div class="function_box">
+		    		<h:commandButton alt="Person wählen" actionListener="#{accountPM.setLoadBox(true)}"
+		    						 styleClass="submenu_button_small menu_choose" onmouseover="showInfo(this, 'Person wählen')" 
+		    						 onmouseout="hideInfo()" onclick="showElements('customer_choose_area', 'inactive');">
+		    			<f:ajax execute="@this" render=":customer_choose_form:customer_choose"/>
+		    		</h:commandButton>
+		    	</div>
+		    	<hr/>  
+		    	
+	    		<c:if test="#{accountPM.managed}">
+	    			Sie möchten eine bestehendes Konto bearbeiten.
+		    		<div class="button_box">
+		    			<h:commandButton styleClass="button" value="neues Konto" action="#{accountPM.reset}" immediate="true"/>
+		    		</div>
+		    		<hr/>
+		    	</c:if>
+		    	    	
+		    	<c:if test="#{not accountPM.managed}">
+			    	<div class="function_box">
+			    		<h:commandButton alt="Sparkonto" action="#{accountPM.createSavingsAccount}" styleClass="submenu_button menu_savingsAccount"
+			                   			 onmouseover="showInfo(this, 'Sparkonto')" onmouseout="hideInfo()" immediate="true"/>
+			    		<h:commandButton alt="Tagesgeldkonto" action="#{accountPM.createFlexibleSavingsAccount}" styleClass="submenu_button menu_flexibleSavingsAccount"
+			                   			 onmouseover="showInfo(this, 'Tagesgeldkonto')" onmouseout="hideInfo()" immediate="true"/>
+			    		<h:commandButton alt="Girokonto" action="#{accountPM.createCheckingAccount}" styleClass="submenu_button menu_checkingAccount"
+			                   			 onmouseover="showInfo(this, 'Girokonto')" onmouseout="hideInfo()" immediate="true"/>
+			    	</div>
+			    	<br/>
+	    		</c:if>  	
+		    			    	
+    			<h:panelGrid columnClasses="column_text_left, column_text_right" 
+    						 cellspacing="0" styleClass="inputGrid" columns="2" rendered="#{not empty accountPM.instance}">  
+	    			<c:if test="#{accountPM.instance.id > 0}">
+	    				<h:column>Kontonummer</h:column>
+	    				<h:column>
+	    					<h:inputText value="#{accountPM.instance.id}" disabled="true" immediate="true"/>
+	    				</h:column>
+	    			</c:if> 	
+	    			
+    				<h:column>Kontoart</h:column>
+    				<h:column>
+						<h:outputText value="Sparkonto" rendered="#{accountPM.instance.accountType == 'SavingsAccount'}" immediate="true"/>
+						<h:outputText value="Tagesgeldkonto" rendered="#{accountPM.instance.accountType == 'FlexibleSavingsAccount'}" immediate="true"/>
+						<h:outputText value="Girokonto" rendered="#{accountPM.instance.accountType == 'CheckingAccount'}" immediate="true"/>
+                    </h:column>
+                    
+	    			<h:column>Guthaben</h:column>
+	    			<h:column>
+	    				<h:inputText id="input_account_balance" value="#{accountPM.instance.balance}" label="Guthaben">
+	    					<f:convertNumber type="number" maxFractionDigits="2" minFractionDigits="2"/>
+	    				</h:inputText>
+	    				<h:message for="input_account_balance" styleClass="input_error"/>
+	    			</h:column>
+                </h:panelGrid>
+                
+                <c:if test="#{not accountPM.managed and not empty accountPM.instance}">
+		    		<div class="button_box">
+		    			<h:commandButton styleClass="button" value="Erstellen" action="#{accountPM.save}" />
+		    		</div>
+		    	</c:if>
+	    		<c:if test="#{accountPM.managed}">
+		    		<div class="button_box">
+		    			<h:commandButton styleClass="button" value="Löschen" action="#{accountPM.delete}" immediate="true" />
+		    		</div>
+		    	</c:if>
+		    </h:form>	
+    	</ui:define>
+
+		<ui:define name="right">
+			<h:form>
+                <h:outputLabel rendered="#{empty accountPM.listByBank}">
+                	<div class="not_found">Keine Ergebnisse gefunden!</div>
+                </h:outputLabel>
+			
+				<h:dataTable value="#{accountPM.listByBank}" var="account"
+							 styleClass="list" headerClass="list_header"
+							 rowClasses="list_row, list_row2" cellspacing="0"
+							 rendered="#{not empty accountPM.listByBank}">
+					<h:column>
+						<f:facet name="header">Kontonummer</f:facet>
+	                	<h:commandLink value="#{account.id}" action="#{accountPM.loadInstance(account.id)}"/>
+	           		</h:column>
+	           		
+					<h:column>
+						<f:facet name="header">Kontoart</f:facet>
+						<h:commandLink action="#{accountPM.loadInstance(account.id)}">
+							<h:outputText value="Sparkonto" rendered="#{account.accountType == 'SavingsAccount'}"/>
+							<h:outputText value="Tagesgeldkonto" rendered="#{account.accountType == 'FlexibleSavingsAccount'}"/>
+							<h:outputText value="Girokonto" rendered="#{account.accountType == 'CheckingAccount'}"/>
+						</h:commandLink>
+	           		</h:column>
+	           		
+					<h:column>
+						<f:facet name="header">Bank</f:facet>
+	                	<h:commandLink value="#{account.bank.name}" action="#{accountPM.loadInstance(account.id)}"/>
+	           		</h:column>
+	           		
+					<h:column>
+						<f:facet name="header">Inhaber</f:facet>
+	                	<h:commandLink value="#{account.owner.firstname} #{account.owner.surname}" action="#{accountPM.loadInstance(account.id)}"/>
+	           		</h:column>
+	           			           		
+					<h:column>
+						<f:facet name="header">Guthaben</f:facet>
+                		<h:outputText value="#{account.balance}" rendered="#{account.balance >= 0}">
+                			<f:convertNumber type="number" maxFractionDigits="2" minFractionDigits="2" currencySymbol="€"/>
+                		</h:outputText>
+                		<h:outputText value="#{account.balance}" rendered="#{not (account.balance >= 0)}" styleClass="negative_balance">
+                			<f:convertNumber type="number" maxFractionDigits="2" minFractionDigits="2" currencySymbol="€"/>
+                		</h:outputText>
+	           		</h:column>           		
+				</h:dataTable>
+			</h:form>
+		</ui:define>
+
+	</ui:composition>
+    </h:body>
+</html>
