@@ -7,11 +7,12 @@
 <script src="../../../libraries/angular-1.3.4/angular-route.js"></script>
 <script src="../controller/mainController.js"></script>
 <script src="../controller/mainPageController.js"></script>
+<script src="../controller/breadcrumController.js"></script>
 <script src="../controller/bankControllerold.js"></script>
 
 <head>
 
-<title>Main Page</title>
+<title ng-controller="titleCtrl">{{name}}</title>
 
 </head>
 <body>
@@ -25,6 +26,12 @@
 				<div ng-controller="sidebarComponentCtrl"
 					ng-style="{'margin-top': '0px'}">
 					<div ng-include='sidebarTemplate_url'></div>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div ng-controller="searchbarComponentCtrl"
+					ng-style="{'margin-top': '0px'}">
+					<div ng-include='searchbarTemplate_url'></div>
 				</div>
 			</div>
 		</div>

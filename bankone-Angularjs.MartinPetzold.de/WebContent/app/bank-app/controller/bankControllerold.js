@@ -1,7 +1,7 @@
 'use strict';
 
 /* Controllers */
-var BankappBankview = angular.module('bankapp.bankview', []);
+var BankappBankview = angular.module('bankapp.bankviewold', []);
 
 BankappBankview
 		.controller(
