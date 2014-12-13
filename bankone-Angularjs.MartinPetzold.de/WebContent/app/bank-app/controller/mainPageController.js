@@ -2,7 +2,7 @@
 
 /* Controllers */
 var BankappMainview = angular.module('bankapp.mainview',
-		[ 'bankapp.breadcrum' ]);
+		[ 'bankapp.breadcrumb' ]);
 
 BankappMainview.controller('headerCtrl', [ '$scope', 'mainPageService',
 		function($scope, mainPageService) {
@@ -20,7 +20,8 @@ BankappMainview
 				[
 						'$scope',
 						'mainPageService',
-						function($scope, mainPageService) {
+						'BreadcrumbService',
+						function($scope, mainPageService, BreadcrumbService) {
 							$scope.topics = [ {
 								"id" : 1,
 								"name" : "BankTutorial",
@@ -74,12 +75,14 @@ BankappMainview
 									value.class = "list-group-item";
 								})
 								topic.clicked = true;
-								mainPageService.setData(topic.name);
+								mainPageService.setData(topic);
+								BreadcrumbService.setBreadcrumbLvl1(topic);
 								return topic.class = "list-group-item active";
 
 							};
-							mainPageService.setData("BankTutorial");
-
+							mainPageService.setData($scope.topics[0]);
+							BreadcrumbService
+									.setBreadcrumbLvl1($scope.topics[0]);
 						} ]);
 
 BankappMainview.controller('titleCtrl', [ '$scope', 'mainPageService',
@@ -88,6 +91,14 @@ BankappMainview.controller('titleCtrl', [ '$scope', 'mainPageService',
 			$scope.$watch(function() {
 				return $scope.name = mainPageService.getData();
 			});
+		} ]);
+
+BankappMainview.controller('searchCtrl', [ '$scope', 'mainPageService',
+		function($scope, mainPageService) {
+	$scope.search;
+	$scope.$watch('search',function(newValue, oldValue) {
+		mainPageService.setSearchColumn(search);;
+	});
 		} ]);
 
 BankappMainview.controller('headerComponentCtrl', [ '$scope', function($scope) {
@@ -101,13 +112,14 @@ BankappMainview.controller('sidebarComponentCtrl', [ '$scope',
 
 		} ]);
 BankappMainview.controller('searchbarComponentCtrl', [ '$scope',
-		'BreadcrumService', function($scope, BreadcrumService) {
+		function($scope) {
 			$scope.searchbarTemplate_url = 'mainTemplates/mainSearchbar.html'
 
 		} ]);
 
 BankappMainview.factory('mainPageService', function() {
 	var data = "";
+	var searchColumn = "";
 	return {
 		setData : function(str) {
 			data = str;
@@ -115,6 +127,13 @@ BankappMainview.factory('mainPageService', function() {
 
 		getData : function() {
 			return data;
+		},
+		setSearchColumn : function(str) {
+			searchColumn = str;
+		},
+
+		getSearchColumn : function() {
+			return searchColumn;
 		}
 	}
 })
