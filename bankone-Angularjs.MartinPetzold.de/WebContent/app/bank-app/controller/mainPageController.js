@@ -2,7 +2,7 @@
 
 /* Controllers */
 var BankappMainview = angular.module('bankapp.mainview',
-		[ 'bankapp.breadcrumb' ]);
+		[ 'bankapp.breadcrumb','bankapp.search' ]);
 
 BankappMainview.controller('headerCtrl', [ '$scope', 'mainPageService',
 		function($scope, mainPageService) {
@@ -28,35 +28,35 @@ BankappMainview
 								"class" : "list-group-item active",
 								"icon" : "glyphicon glyphicon-home",
 								"clicked" : true,
-								"url" : "#"
+								"url" : 'mainTopicTemplates/welcomeSubpage.html'
 							}, {
 								"id" : 2,
 								"name" : "Bank",
 								"class" : "list-group-item",
 								"icon" : "glyphicon glyphicon-lock",
 								"clicked" : false,
-								"url" : "#"
+								"url" : 'mainTopicTemplates/bankSubpage.html'
 							}, {
 								"id" : 3,
 								"name" : "Kunde",
 								"class" : "list-group-item",
 								"icon" : "glyphicon glyphicon-phone-alt",
 								"clicked" : false,
-								"url" : "#"
+								"url" : 'mainTopicTemplates/customerSubpage.html'
 							}, {
 								"id" : 4,
 								"name" : "Konto",
 								"class" : "list-group-item",
 								"icon" : "glyphicon glyphicon-usd",
 								"clicked" : false,
-								"url" : "#"
+								"url" : 'mainTopicTemplates/accountSubpage.html'
 							}, {
 								"id" : 5,
 								"name" : "Überweisung",
 								"class" : "list-group-item",
 								"icon" : "glyphicon glyphicon-transfer",
 								"clicked" : false,
-								"url" : "#"
+								"url" : 'mainTopicTemplates/transferSubpage.html'
 							} ];
 							$scope.hover = function(topic) {
 								if (topic.clicked == false) {
@@ -93,13 +93,17 @@ BankappMainview.controller('titleCtrl', [ '$scope', 'mainPageService',
 			});
 		} ]);
 
-BankappMainview.controller('searchCtrl', [ '$scope', 'mainPageService',
-		function($scope, mainPageService) {
+
+
+BankappMainview.controller('searchCtrl', [ '$scope', 'searchService',
+		function($scope, searchService) {
 	$scope.search;
 	$scope.$watch('search',function(newValue, oldValue) {
-		mainPageService.setSearchColumn(search);;
+		searchService.setSearchColumn($scope.search);
 	});
 		} ]);
+
+
 
 BankappMainview.controller('headerComponentCtrl', [ '$scope', function($scope) {
 	$scope.headerTemplate_url = 'mainTemplates/mainHeader.html'
@@ -117,9 +121,16 @@ BankappMainview.controller('searchbarComponentCtrl', [ '$scope',
 
 		} ]);
 
+BankappMainview.controller('subpageComponentCtrl', [ '$scope', 'mainPageService',
+                                    		function($scope, mainPageService) {
+                                    			$scope.topic = mainPageService.getData();
+                                    			$scope.$watch(function() {
+                                    				return $scope.topic = mainPageService.getData();
+                                    			});
+                                    		} ]);
+
 BankappMainview.factory('mainPageService', function() {
 	var data = "";
-	var searchColumn = "";
 	return {
 		setData : function(str) {
 			data = str;
@@ -127,13 +138,6 @@ BankappMainview.factory('mainPageService', function() {
 
 		getData : function() {
 			return data;
-		},
-		setSearchColumn : function(str) {
-			searchColumn = str;
-		},
-
-		getSearchColumn : function() {
-			return searchColumn;
 		}
 	}
 })

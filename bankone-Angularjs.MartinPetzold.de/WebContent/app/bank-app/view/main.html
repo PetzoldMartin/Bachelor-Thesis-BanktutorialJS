@@ -9,7 +9,7 @@
 <script src="../controller/mainPageController.js"></script>
 <script src="../controller/breadcrumbController.js"></script>
 <script src="../controller/bankController.js"></script>
-
+<script src="../controller/searchController.js"></script>
 <head>
 
 <title ng-controller="titleCtrl">{{name.name}}</title>
@@ -29,9 +29,11 @@
 				</div>
 			</div>
 			<div class="col-md-10" ng-style="{'padding-left':'0px'}">
-				<div ng-style="{'margin-top': '0px','margin-left': '0px'}"
-					ng-controller="searchbarComponentCtrl">
+				<div ng-controller="searchbarComponentCtrl">
 					<div ng-include='searchbarTemplate_url'></div>
+				</div>
+				<div ng-controller="subpageComponentCtrl">
+					<div ng-include=topic.url></div>
 				</div>
 			</div>
 		</div>
