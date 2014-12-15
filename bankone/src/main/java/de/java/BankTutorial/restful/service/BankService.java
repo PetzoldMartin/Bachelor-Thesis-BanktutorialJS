@@ -26,6 +26,7 @@ import javax.ws.rs.core.UriInfo;
 import org.hibernate.Hibernate;
 
 import de.java.BankTutorial.entity.Bank;
+import de.java.BankTutorial.entity.Customer;
 
 @Path("/bankREST")
 @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
@@ -73,15 +74,17 @@ public class BankService {
 		if (bank == null) {
 			throw new NotFoundException();
 		}
+		
 		Hibernate.initialize(bank.getContacts());
-
-		
-		
+		Hibernate.initialize(bank.getCustomers());
+		List<Customer> customers=bank.getCustomers();
+		for (Customer c : customers) {
+			Hibernate.initialize(c.getBanks());
+		}
 		return Response.ok(bank).build();
 	}
 
 	@SuppressWarnings("unchecked")
-	
 	@GET
 	public Response getBanks() {
 

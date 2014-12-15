@@ -8,7 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlInlineBinaryData;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * repräsentiert eine Adresse
@@ -38,6 +40,7 @@ public class Address implements Serializable {
 	
 	// Kontaktdaten
 	@OneToOne(mappedBy="address")
+	@XmlTransient
 	private Contact contact;
 	
 	// -- generated constructors --------------------------------------------

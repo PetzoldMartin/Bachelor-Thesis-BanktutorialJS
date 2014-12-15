@@ -12,6 +12,7 @@ import javax.persistence.ManyToMany;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * repräsentiert eine Bank
@@ -39,6 +40,7 @@ public class Bank implements IEntityBase, Serializable {
 	
 	// Kunden
 	@ManyToMany(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+	@XmlTransient
 	private List<Customer> customers = new LinkedList<Customer>();
 	
 	// -- generated constructors --------------------------------------------

@@ -90,7 +90,7 @@ public class AdressService {
 				"SELECT a FROM Address a ORDER BY a.id", Address.class);
 		List<Address> addresss = new ArrayList<Address>(query.getResultList());
 		for (Address a : addresss) {
-			Hibernate.initialize(a.getContact());
+//			Hibernate.initialize(a.getContact());
 		}
 		GenericEntity<List<Address>> entity = new GenericEntity<List<Address>>(addresss) {
 		};

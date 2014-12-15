@@ -1,10 +1,10 @@
 'use strict';
 
 /* Controllers */
-var BankappBankview = angular.module('bankapp.subview', [ 
+var BankappSubview = angular.module('bankapp.subview', [ 
 		'bankapp.breadcrumb' ]);
 
-BankappBankview
+BankappSubview
 		.factory(
 				'subComponentService',['BreadcrumbService',
 				function(BreadcrumbService) {
