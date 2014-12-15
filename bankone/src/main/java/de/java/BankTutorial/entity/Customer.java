@@ -13,6 +13,7 @@ import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * repräsentiert eine Person (bspw. einen Kunden einer Bank)
@@ -40,6 +41,7 @@ public class Customer implements IEntityBase, Serializable {
 	
 	// Banken bei der die Person Kunde ist
 	@ManyToMany(mappedBy="customers")
+	@XmlTransient
 	private List<Bank> banks = new LinkedList<Bank>();
 	
 	// -- generated constructors --------------------------------------------

@@ -5,13 +5,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div ng-controller="bankListCtrl">
-<li ng-repeat="bank in banks | filter:query | orderBy:orderProp">
-							<span>Name: {{bank.name}}</span>
-							<p>id: {{bank.id}}</p>
-							<p>BLZ: {{bank.sortCode}}</p>
-						</li>
-</div>
-Bankoverview
+	<div class="container-fluid">
+		<div ng-controller="bankListCtrl">
+			<div class="row">
+				<div class="col-md-3">
+					<span>Bank Hinzufügen</span>
+				</div>
+				<div ng-repeat="bank in banks | orderBy:orderProp">
+					<div class="col-md-3">
+						<span>Name: {{bank.name}}</span>
+						<p>id: {{bank.id}}</p>
+						<p>BLZ: {{bank.sortCode}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

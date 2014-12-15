@@ -40,7 +40,7 @@ public class Bank implements IEntityBase, Serializable {
 	
 	// Kunden
 	@ManyToMany(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
-	@XmlTransient
+	
 	private List<Customer> customers = new LinkedList<Customer>();
 	
 	// -- generated constructors --------------------------------------------

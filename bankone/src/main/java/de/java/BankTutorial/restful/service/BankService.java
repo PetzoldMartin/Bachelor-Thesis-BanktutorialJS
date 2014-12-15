@@ -77,10 +77,7 @@ public class BankService {
 		
 		Hibernate.initialize(bank.getContacts());
 		Hibernate.initialize(bank.getCustomers());
-		List<Customer> customers=bank.getCustomers();
-		for (Customer c : customers) {
-			Hibernate.initialize(c.getBanks());
-		}
+	
 		return Response.ok(bank).build();
 	}
 
