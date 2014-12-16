@@ -7,13 +7,12 @@ var BankappSubview = angular.module('bankapp.subview', [
 BankappSubview
 		.factory(
 				'subComponentService',['BreadcrumbService',
-				function(BreadcrumbService) {
+				function() {
 					var Component_Lvl1 = '';
 					var Component_Lvl2 = '';
 					return {
 						setComponent_Lvl1 : function(str) {
 							Component_Lvl1 = str;
-							BreadcrumbService.setBreadcrumbLvl2(str);
 						},
 
 						getComponent_Lvl1 : function() {
@@ -22,7 +21,6 @@ BankappSubview
 
 						setComponent_Lvl2 : function(str) {
 							Component_Lvl2 = str;
-							BreadcrumbService.setBreadcrumbLvl3(str);
 						},
 
 						getComponent_Lvl2 : function() {
