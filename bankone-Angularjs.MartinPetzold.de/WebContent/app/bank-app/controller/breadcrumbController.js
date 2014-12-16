@@ -1,12 +1,26 @@
 'use strict';
 
 /* Controllers */
-var BankappBreadcrum = angular.module('bankapp.breadcrumb', []);
+var BankappBreadcrum = angular.module('bankapp.breadcrumb',
+		[ 'bankapp.subview' ]);
 
 BankappBreadcrum.controller('breadcrumbCtrl', [
 		'$scope',
 		'BreadcrumbService',
-		function($scope, BreadcrumbService) {
+		'subComponentService',
+		function($scope, BreadcrumbService, subComponentService) {
+			$scope.setSubComponentLvl1 = function() {
+				subComponentService.setComponent_Lvl1(BreadcrumbService
+						.getBreadcrumbLvl1());
+				BreadcrumbService.setBreadcrumbLvl2("");
+				BreadcrumbService.setBreadcrumbLvl3("");
+			}
+			$scope.setSubComponentLvl2 = function() {
+				subComponentService.setComponent_Lvl1(BreadcrumbService
+						.getBreadcrumbLvl2());
+				BreadcrumbService.setBreadcrumbLvl3("");
+				BreadcrumbService.setBreadcrumbLvl4("");
+			}
 			$scope.$watch(function() {
 				return $scope.breadcrumbLvl1 = BreadcrumbService
 						.getBreadcrumbLvl1();
