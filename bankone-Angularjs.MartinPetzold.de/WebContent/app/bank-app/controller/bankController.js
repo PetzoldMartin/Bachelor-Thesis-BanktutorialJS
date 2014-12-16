@@ -73,6 +73,7 @@ BankappBankview.controller('bankListCtrl', [
 			$scope.orderProp = 'name';
 			$scope.loadData();
 		} ]);
+
 BankappBankview.controller('bankviewCtrl', [
 		'$scope',
 		'$http',

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="bankapp.bankview">
+<meta charset="utf-8">
+<div class="col-xs-14 col-sm-8 col-md-6 col-lg-6">
+	<h3>
+		Allgemeine Daten
+		<hr
+			ng-style="{'color':'#424242','height':'2px','background-color':'#424242'}">
+	</h3>
+	<div ng-style="{'float': 'right'}" class="input-group">
+		<span ng-style="{'width': '200px'}" class="input-group-addon">Name
+			der Bank : <span class="glyphicon glyphicon-asterisk"
+			ng-style="{'color':'red'}"></span>
+		</span> <input class="form-control" placeholder="Name" ng-model="bank.name">
+	</div>
+	<br> <br>
+	<div ng-style="{'float': 'right'}" class="input-group">
+		<span ng-style="{'width': '200px'}" class="input-group-addon">Bankleitzahl
+			: <span class="glyphicon glyphicon-asterisk"
+			ng-style="{'color':'red'}"></span>
+		</span> <input class="
+							form-control" placeholder="BLZ"
+			ng-model="bank.sortCode">
+	</div>
+	<br> <br>
+	<div ng-style="{'float': 'right'}" class="input-group">
+		<span class="glyphicon glyphicon-asterisk" ng-style="{'color':'red'}"></span>
+		<span>Pflichtfelder</span>
+	</div>
+</div>
+</html>
