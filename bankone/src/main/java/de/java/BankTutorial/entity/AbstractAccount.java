@@ -37,6 +37,9 @@ public abstract class AbstractAccount implements IEntityBase, Serializable {
 	// Zinsperiode
 	private long interestPeriod;
 	
+	//Accountype
+	private String accountType;
+	
 	// zugehörige Bank
 	@ManyToOne
 	private Bank bank;
@@ -54,6 +57,7 @@ public abstract class AbstractAccount implements IEntityBase, Serializable {
 	 * Default-Konstruktor
 	 */
 	public AbstractAccount() {
+		accountType=this.getClass().getSimpleName();
 	}
 	
 	// -- generated association + attribute accessors -----------------------
@@ -136,6 +140,7 @@ public abstract class AbstractAccount implements IEntityBase, Serializable {
 	 * @return AccountTyp
 	 */
 	public String getAccountType() {
+		accountType=this.getClass().getSimpleName();
 		return this.getClass().getSimpleName();
 	}
 	
