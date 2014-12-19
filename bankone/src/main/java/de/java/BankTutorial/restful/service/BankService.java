@@ -42,6 +42,8 @@ public class BankService {
 
 	@POST
 	public Response createBank(Bank bank) {
+		System.out.println("nun in create mit ID=" + bank.getName());
+
 		entityManager.persist(bank);
 		URI uri = uriInfo.getAbsolutePathBuilder()
 				.path(Long.toString(bank.getId())).build();

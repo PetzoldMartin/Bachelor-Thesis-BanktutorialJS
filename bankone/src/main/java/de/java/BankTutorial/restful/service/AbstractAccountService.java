@@ -104,5 +104,47 @@ public class AbstractAccountService {
 		};
 		return Response.ok(entity).build();
 	}
+	
+@SuppressWarnings("unchecked")
+	
+	@GET
+	@Path("bank/{id}")
+	public Response getAbstractAccountsByBankId(@PathParam("id") long id) {
+
+		TypedQuery<AbstractAccount> query = entityManager.createQuery(
+				"select a from AbstractAccount a where a.bank.id = " + id + " order by a.id", AbstractAccount.class);
+		List<AbstractAccount> abstractAccounts = new ArrayList<AbstractAccount>(query.getResultList());
+		for (AbstractAccount a : abstractAccounts) {
+			Hibernate.initialize(a.getStatements());
+			Hibernate.initialize(a.getBank());
+			Hibernate.initialize(a.getBank().getContacts());
+			Hibernate.initialize(a.getBank().getCustomers());
+			Hibernate.initialize(a.getAccountType());
+		}
+		GenericEntity<List<AbstractAccount>> entity = new GenericEntity<List<AbstractAccount>>(abstractAccounts) {
+		};
+		return Response.ok(entity).build();
+	}
+
+@SuppressWarnings("unchecked")
+
+@GET
+@Path("customer/{id}")
+public Response getAbstractAccountsByCustomerId(@PathParam("id") long id) {
+
+	TypedQuery<AbstractAccount> query = entityManager.createQuery(
+			"select a from AbstractAccount a where a.owner.id = " + id + " order by a.id", AbstractAccount.class);
+	List<AbstractAccount> abstractAccounts = new ArrayList<AbstractAccount>(query.getResultList());
+	for (AbstractAccount a : abstractAccounts) {
+		Hibernate.initialize(a.getStatements());
+		Hibernate.initialize(a.getBank());
+		Hibernate.initialize(a.getBank().getContacts());
+		Hibernate.initialize(a.getBank().getCustomers());
+		Hibernate.initialize(a.getAccountType());
+	}
+	GenericEntity<List<AbstractAccount>> entity = new GenericEntity<List<AbstractAccount>>(abstractAccounts) {
+	};
+	return Response.ok(entity).build();
+}
 
 }

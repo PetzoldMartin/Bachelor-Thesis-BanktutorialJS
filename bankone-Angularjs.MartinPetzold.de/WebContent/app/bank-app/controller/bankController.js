@@ -60,7 +60,13 @@ BankappBankview
 BankappBankview.controller('bankListCtrl', [
 		'$scope',
 		'$http',
-		function($scope, $http) {
+		'searchService',
+		function($scope, $http,searchService) {
+			$scope.query="";
+			$scope
+			.$watch(function() {
+				return $scope.query = searchService.getSearchColumn()
+			});
 			$scope.loadData = function() {
 				$http.get('http://localhost:8080/bankone/rest/bankREST')
 						.success(function(data) {
@@ -78,8 +84,15 @@ BankappBankview.controller('bankviewCtrl', [
 		'$scope',
 		'$http',
 		'subComponentService',
-		function($scope, $http, subComponentService) {
+		'BreadcrumbService',
+		function($scope, $http, subComponentService,BreadcrumbService) {
 			$scope.iddata = subComponentService.getComponent_Lvl1();
+			$scope.customerCount=0;
+			$scope.accountCount=0;
+			$scope.bank={
+					"name" : "",
+					"sortCode" : ""
+			};
 			$scope.loadData = function() {
 				if (($scope.iddata.id) != "undefined") {
 					$http.get(
@@ -87,6 +100,17 @@ BankappBankview.controller('bankviewCtrl', [
 									+ $scope.iddata.id).success(function(data) {
 						$scope.bank = data;
 						$scope.status = true;
+						angular.forEach($scope.bank.customers, function(value, key) {
+							$scope.customerCount=$scope.customerCount+1;});
+						$http.get('http://localhost:8080/bankone/rest/abstractAccountREST/bank/'+
+								$scope.iddata.id).success(function(data) {
+									$scope.accounts=data;
+									angular.forEach($scope.accounts, function(value, key) {
+										$scope.accountCount=$scope.accountCount+1;});
+								}).error(function(data, status, headers, config) {
+									$scope.status = false;
+								})	
+						
 					}).error(function(data, status, headers, config) {
 						$scope.status = false;
 					});
@@ -94,4 +118,42 @@ BankappBankview.controller('bankviewCtrl', [
 			};
 			$scope.orderProp = 'name';
 			$scope.loadData();
+			$scope.setSubComponentLvl2 = function() {
+				subComponentService.setComponent_Lvl1(BreadcrumbService
+						.getBreadcrumbLvl2());
+				BreadcrumbService.setBreadcrumbLvl3("");
+				BreadcrumbService.setBreadcrumbLvl4("");
+			}
+			$scope.saveBank=function(){
+				alert($scope.bank.name)
+				if (($scope.iddata.id) == "undefined") {
+					$http({
+						withCredentials : false,
+						method : 'post',
+						url : 'http://localhost:8080/bankone/rest/bankREST',
+						data : {
+							name : $scope.bank.name,
+							sortCode : $scope.bank.sortCode
+						}
+					
+					}).success(function() {
+						$scope.loadData();
+					})
+				}else{
+					$http({
+						withCredentials : false,
+						method : 'put',
+						url : 'http://localhost:8080/bankone/rest/bankREST',
+						data : {
+							id : $scope.bank.id,
+							name : $scope.bank.name,
+							sortCode : $scope.bank.sortCode
+						}
+					
+					}).success(function() {
+						$scope.loadData();
+					})
+				}
+				
+			}
 		} ]);
