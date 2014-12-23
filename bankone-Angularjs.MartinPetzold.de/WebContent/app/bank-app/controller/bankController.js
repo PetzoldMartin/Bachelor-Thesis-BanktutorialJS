@@ -61,10 +61,9 @@ BankappBankview.controller('bankListCtrl', [
 		'$scope',
 		'$http',
 		'searchService',
-		function($scope, $http,searchService) {
-			$scope.query="";
-			$scope
-			.$watch(function() {
+		function($scope, $http, searchService) {
+			$scope.query = "";
+			$scope.$watch(function() {
 				return $scope.query = searchService.getSearchColumn()
 			});
 			$scope.loadData = function() {
@@ -80,80 +79,177 @@ BankappBankview.controller('bankListCtrl', [
 			$scope.loadData();
 		} ]);
 
-BankappBankview.controller('bankviewCtrl', [
-		'$scope',
-		'$http',
-		'subComponentService',
-		'BreadcrumbService',
-		function($scope, $http, subComponentService,BreadcrumbService) {
-			$scope.iddata = subComponentService.getComponent_Lvl1();
-			$scope.customerCount=0;
-			$scope.accountCount=0;
-			$scope.bank={
-					"name" : "",
-					"sortCode" : ""
-			};
-			$scope.loadData = function() {
-				if (($scope.iddata.id) != "undefined") {
-					$http.get(
-							'http://localhost:8080/bankone/rest/bankREST' + '/'
-									+ $scope.iddata.id).success(function(data) {
-						$scope.bank = data;
-						$scope.status = true;
-						angular.forEach($scope.bank.customers, function(value, key) {
-							$scope.customerCount=$scope.customerCount+1;});
-						$http.get('http://localhost:8080/bankone/rest/abstractAccountREST/bank/'+
-								$scope.iddata.id).success(function(data) {
-									$scope.accounts=data;
-									angular.forEach($scope.accounts, function(value, key) {
-										$scope.accountCount=$scope.accountCount+1;});
-								}).error(function(data, status, headers, config) {
-									$scope.status = false;
-								})	
-						
-					}).error(function(data, status, headers, config) {
-						$scope.status = false;
-					});
-				}
-			};
-			$scope.orderProp = 'name';
-			$scope.loadData();
-			$scope.setSubComponentLvl2 = function() {
-				subComponentService.setComponent_Lvl1(BreadcrumbService
-						.getBreadcrumbLvl2());
-				BreadcrumbService.setBreadcrumbLvl3("");
-				BreadcrumbService.setBreadcrumbLvl4("");
-			}
-			$scope.saveBank=function(){
-				alert($scope.bank.name)
-				if (($scope.iddata.id) == "undefined") {
-					$http({
-						withCredentials : false,
-						method : 'post',
-						url : 'http://localhost:8080/bankone/rest/bankREST',
-						data : {
-							name : $scope.bank.name,
-							sortCode : $scope.bank.sortCode
-						}
-					
-					}).success(function() {
-						$scope.loadData();
-					})
-				}else{
-					$http({
-						withCredentials : false,
-						method : 'put',
-						url : 'http://localhost:8080/bankone/rest/bankREST',
-						data : {
-							id : $scope.bank.id,
-							name : $scope.bank.name,
-							sortCode : $scope.bank.sortCode
-						}
-					
-					}).success(function() {
-						$scope.loadData();
-					})
-				}
-				
-			}
-		} ]);
+BankappBankview
+		.controller(
+				'bankviewCtrl',
+				[
+						'$scope',
+						'$http',
+						'subComponentService',
+						'BreadcrumbService',
+						function($scope, $http, subComponentService,
+								BreadcrumbService) {
+							// Initialization of the Controller
+							$scope.iddata = subComponentService
+									.getComponent_Lvl1();
+							$scope.customerCount = 0;
+							$scope.accountCount = 0;
+							$scope.addnew = false;
+							$scope.newContact = {
+									"phone" : "",
+									"mobilePhone" : "",
+									"email" : "",
+									"address" : {
+										"street" : "",
+										"houseNumber" : "",
+										"zipCode" : "",
+										"city" : ""
+									}
+								};
+							$scope.bank = {
+								"name" : "",
+								"sortCode" : "",
+								"contacts" : []
+							};
+							// Function for Triggering new Contact View
+							$scope.triggerAddNew = function() {
+								$scope.tempContact= {
+										"phone" : "",
+										"mobilePhone" : "",
+										"email" : "",
+										"address" : {
+											"street" : "",
+											"houseNumber" : "",
+											"zipCode" : "",
+											"city" : ""
+										}
+									};
+								$scope.bank.contacts
+								.push($scope.tempContact);
+							}
+							// Function for loading Showing Data
+							$scope.loadData = function() {
+								if (($scope.iddata.id) != "undefined") {
+									$http
+											.get(
+													'http://localhost:8080/bankone/rest/bankREST'
+															+ '/'
+															+ $scope.iddata.id)
+											.success(
+													function(data) {
+														$scope.bank = data;
+														$scope.status = true;
+														angular
+																.forEach(
+																		$scope.bank.customers,
+																		function(
+																				value,
+																				key) {
+																			$scope.customerCount = $scope.customerCount + 1;
+																		});
+														$http
+																.get(
+																		'http://localhost:8080/bankone/rest/abstractAccountREST/bank/'
+																				+ $scope.iddata.id)
+																.success(
+																		function(
+																				data) {
+																			$scope.accounts = data;
+																			angular
+																					.forEach(
+																							$scope.accounts,
+																							function(
+																									value,
+																									key) {
+																								$scope.accountCount = $scope.accountCount + 1;
+																							});
+																		})
+																.error(
+																		function(
+																				data,
+																				status,
+																				headers,
+																				config) {
+																			$scope.status = false;
+																		})
+
+													}).error(
+													function(data, status,
+															headers, config) {
+														$scope.status = false;
+													});
+								}
+							};
+							// Initialize and Loaddata
+							$scope.orderProp = 'name';
+							$scope.loadData();
+							// function for cancel
+							$scope.setSubComponentLvl2 = function() {
+								subComponentService
+										.setComponent_Lvl1(BreadcrumbService
+												.getBreadcrumbLvl2());
+								BreadcrumbService.setBreadcrumbLvl3("");
+								BreadcrumbService.setBreadcrumbLvl4("");
+							}
+							// save Function
+							$scope.saveBank = function() {
+								
+								if (($scope.iddata.id) == "undefined") {
+									$http(
+											{
+												withCredentials : false,
+												method : 'post',
+												url : 'http://localhost:8080/bankone/rest/bankREST',
+												data : {
+													name : $scope.bank.name,
+													sortCode : $scope.bank.sortCode,
+													contacts : $scope.bank.contacts
+
+												}
+
+											}).success(function() {
+										$scope.loadData();
+									})
+								} else {
+									$http(
+											{
+												withCredentials : false,
+												method : 'put',
+												url : 'http://localhost:8080/bankone/rest/bankREST',
+												data : {
+													id : $scope.bank.id,
+													name : $scope.bank.name,
+													sortCode : $scope.bank.sortCode,
+													contacts : $scope.bank.contacts
+												}
+
+											}).success(function() {
+										$scope.loadData();
+									})
+								}
+								
+							}
+							$scope.deleteContact = function($index) {
+								$scope.bank.contacts.splice($index, 1);
+							}
+							$scope.deleteBank = function() {
+								$http(
+										{
+											withCredentials : false,
+											method : 'delete',
+											url : 'http://localhost:8080/bankone/rest/bankREST'
+													+ '/' + $scope.bank.id,
+
+										})
+										.success(
+												function() {
+													subComponentService
+															.setComponent_Lvl1(BreadcrumbService
+																	.getBreadcrumbLvl2());
+													BreadcrumbService
+															.setBreadcrumbLvl3("");
+													BreadcrumbService
+															.setBreadcrumbLvl4("");
+												})
+							}
+						} ]);
