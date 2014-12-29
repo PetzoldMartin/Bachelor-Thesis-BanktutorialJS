@@ -31,7 +31,7 @@ import de.java.BankTutorial.entity.Customer;
 @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 @Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 @Stateless
-public class CustomerService {
+public class CustomerServiceREST {
 
 	@PersistenceContext
 	// (unitName="LibraryServer_JAXRS")
