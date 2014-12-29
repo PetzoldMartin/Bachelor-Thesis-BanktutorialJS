@@ -21,7 +21,8 @@ BankappMainview
 						'$scope',
 						'mainPageService',
 						'BreadcrumbService',
-						function($scope, mainPageService, BreadcrumbService) {
+						'searchService',
+						function($scope, mainPageService, BreadcrumbService,searchService) {
 							$scope.topics = [ {
 								"id" : 1,
 								"name" : "BankTutorial",
@@ -77,6 +78,8 @@ BankappMainview
 								topic.clicked = true;
 								mainPageService.setData(topic);
 								BreadcrumbService.setBreadcrumbLvl1(topic);
+								BreadcrumbService.setBreadcrumbLvl2("");
+								BreadcrumbService.setBreadcrumbLvl3("");
 								return topic.class = "list-group-item active";
 
 							};
@@ -98,9 +101,17 @@ BankappMainview.controller('titleCtrl', [ '$scope', 'mainPageService',
 BankappMainview.controller('searchCtrl', [ '$scope', 'searchService',
 		function($scope, searchService) {
 	$scope.search;
+	$scope.clicked=false;
+	$scope.$watch(function() {
+		if(searchService.getSearchColumn()==""&& $scope.clicked){
+		return $scope.search=""}
+		
+	});
+	
 	$scope.$watch('search',function(newValue, oldValue) {
 		searchService.setSearchColumn($scope.search);
 	});
+
 		} ]);
 
 

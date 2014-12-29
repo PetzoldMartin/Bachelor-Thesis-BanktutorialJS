@@ -2,12 +2,13 @@
 
 /* Controllers */
 var BankappBreadcrum = angular.module('bankapp.breadcrumb',
-		[ 'bankapp.subview' ]);
+		[ 'bankapp.subview' ,'bankapp.search']);
 
 BankappBreadcrum.controller('breadcrumbCtrl', [
 		'$scope',
 		'BreadcrumbService',
 		'subComponentService',
+		 
 		function($scope, BreadcrumbService, subComponentService) {
 			$scope.setSubComponentLvl1 = function() {
 				subComponentService.setComponent_Lvl1(BreadcrumbService
@@ -43,7 +44,7 @@ BankappBreadcrum.controller('breadcrumbCtrl', [
 			$scope.breadcrumbLvl4 = BreadcrumbService.getBreadcrumbLvl4();
 		} ]);
 
-BankappBreadcrum.factory('BreadcrumbService', function() {
+BankappBreadcrum.factory('BreadcrumbService',[ 'searchService', function(searchService) {
 	var breadcrumbLvl1 = "";
 	var breadcrumbLvl2 = "";
 	var breadcrumbLvl3 = "";
@@ -51,6 +52,7 @@ BankappBreadcrum.factory('BreadcrumbService', function() {
 	return {
 		setBreadcrumbLvl1 : function(str) {
 			breadcrumbLvl1 = str;
+			searchService.setSearchColumn("");
 		},
 
 		getBreadcrumbLvl1 : function() {
@@ -59,6 +61,7 @@ BankappBreadcrum.factory('BreadcrumbService', function() {
 
 		setBreadcrumbLvl2 : function(str) {
 			breadcrumbLvl2 = str;
+			searchService.setSearchColumn("");
 		},
 
 		getBreadcrumbLvl2 : function() {
@@ -67,6 +70,7 @@ BankappBreadcrum.factory('BreadcrumbService', function() {
 
 		setBreadcrumbLvl3 : function(str) {
 			breadcrumbLvl3 = str;
+			searchService.setSearchColumn("");
 		},
 
 		getBreadcrumbLvl3 : function() {
@@ -75,10 +79,11 @@ BankappBreadcrum.factory('BreadcrumbService', function() {
 
 		setBreadcrumbLvl4 : function(str) {
 			breadcrumbLvl4 = str;
+			searchService.setSearchColumn("");
 		},
 
 		getBreadcrumbLvl4 : function() {
 			return breadcrumbLvl4;
 		}
 	}
-})
+}])

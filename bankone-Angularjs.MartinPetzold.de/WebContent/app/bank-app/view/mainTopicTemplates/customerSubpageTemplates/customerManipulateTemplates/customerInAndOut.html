@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="bankapp.customerview">
+<meta charset="utf-8">
+<div class="col-xs-14 col-sm-12 col-md-12 col-lg-12">
+	<h3>
+		Allgemeine Daten
+		<hr
+			ng-style="{'color':'#424242','height':'2px','background-color':'#424242'}">
+	</h3>
+
+	<div ng-style="{'float': 'right'}" class="input-group">
+		<span ng-style="{'width': '200px'}" class="input-group-addon"><span
+			ng-style="{'float': 'right'}">Vorname <span class="glyphicon glyphicon-asterisk"
+			ng-style="{'color':'red'}"></span>:</span>
+		</span> <input class="form-control" placeholder="Firstname" ng-model="customer.firstname">
+	</div>
+
+	<br> <br>
+
+	<div ng-style="{'float': 'right'}" class="input-group">
+		<span ng-style="{'width': '200px'}" class="input-group-addon"><span
+			ng-style="{'float': 'right'}">Nachname <span
+				class="glyphicon glyphicon-asterisk" ng-style="{'color':'red'}"></span>:
+		</span> </span> <input class="
+							form-control" placeholder="Surname"
+			ng-model="customer.surname">
+	</div>
+
+	<br> <br>
+	<div ng-style="{'float': 'right'}" class="input-group">
+		<span class="glyphicon glyphicon-asterisk" ng-style="{'color':'red'}"></span>
+		<span>Pflichtfelder</span>
+	</div>
+</div>
+</html>

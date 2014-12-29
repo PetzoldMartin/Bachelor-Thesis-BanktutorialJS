@@ -204,11 +204,16 @@ BankappBankview
 													name : $scope.bank.name,
 													sortCode : $scope.bank.sortCode,
 													contacts : $scope.bank.contacts
-
 												}
 
 											}).success(function() {
-										$scope.loadData();
+												subComponentService
+												.setComponent_Lvl1(BreadcrumbService
+														.getBreadcrumbLvl2());
+										BreadcrumbService
+												.setBreadcrumbLvl3("");
+										BreadcrumbService
+												.setBreadcrumbLvl4("");
 									})
 								} else {
 									$http(
@@ -220,7 +225,9 @@ BankappBankview
 													id : $scope.bank.id,
 													name : $scope.bank.name,
 													sortCode : $scope.bank.sortCode,
-													contacts : $scope.bank.contacts
+													contacts : $scope.bank.contacts,
+													customers : $scope.bank.customers
+
 												}
 
 											}).success(function() {

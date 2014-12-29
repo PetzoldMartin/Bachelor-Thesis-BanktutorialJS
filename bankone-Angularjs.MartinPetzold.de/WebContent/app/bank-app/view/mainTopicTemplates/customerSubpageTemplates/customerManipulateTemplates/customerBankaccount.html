@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html ng-app="bankapp.customerview">
 <meta charset="utf-8">
-<head>
-<title>Insert title here</title>
-</head>
-<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<h3>
+		Bankkonten
+		<hr
+			ng-style="{'color':'#424242','height':'2px','background-color':'#424242'}">
+	</h3>
 	<div class="container-fluid" >
 		<div ng-controller="customerListCtrl">
 			<div class="row">
-				<div class="col-xs-7 col-sm-4 col-md-3 col-lg-3" ng-click="click('undefined')">
+				<div class="col-xs-8 col-sm-8 col-md-6 col-lg-6" ng-click="">
 					<div  class="btn btn-default" ng-style="{'height':'200px','width':'200px',
 					'margin' : '30px'}">
-						<span>Kunde Hinzufügen</span>
+						<span>Konto Hinzufügen</span>
 					</div>
 				</div>
-				<div ng-repeat="customer in customers | orderBy:orderProp | filter:query" ng-click="click(customer.id)">
-					<div class="col-xs-7 col-sm-4 col-md-3 col-lg-3">
+				<div ng-repeat="customer in customers | orderBy:orderProp | filter:query" ng-click="">
+					<div class="col-xs-8 col-sm-8 col-md-6 col-lg-6">
 						<div " class="btn btn-default" ng-style="{'height':'200px','width':'200px',
 						'margin' : '30px'}">
 							<span>Name: {{customer.firstname}}</span>
@@ -27,5 +29,4 @@
 			</div>
 		</div>
 	</div>
-</body>
 </html>
