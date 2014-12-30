@@ -1,4 +1,6 @@
 'use strict';
 
 /* Controllers */
-var bankapp=angular.module('bankapp', ['bankapp.bankview','bankapp.mainview','bankapp.welcomeview','bankapp.customerview']);
+var bankapp = angular.module( 'bankapp', [
+		'bankapp.bankview', 'bankapp.mainview', 'bankapp.welcomeview', 'bankapp.customerview'
+] );

@@ -1,29 +1,29 @@
 'use strict';
 
 /* Controllers */
-var BankappFunctions = angular.module('bankapp.function', []);
+var BankappFunctions = angular.module( 'bankapp.function', [] );
 
-BankappFunctions.factory('arreyspliceByObjectId', function() {
+BankappFunctions.factory( 'arreyspliceByObjectId', function () {
 	var toSplice;
-	var newArrey=[];
+	var newArrey = [];
 	return {
-		spliceByID : function(arreyToSplice, idArrey) {
-			newArrey=[];
-			angular.forEach(arreyToSplice, function(spliceObject) {
+		spliceByID : function ( arreyToSplice, idArrey ) {
+			newArrey = [];
+			angular.forEach( arreyToSplice, function ( spliceObject ) {
 				toSplice = true
-				angular.forEach(idArrey, function(id) {
-					if (spliceObject.id == id) {
+				angular.forEach( idArrey, function ( id ) {
+					if ( spliceObject.id == id ) {
 						toSplice = false
 					}
-				})
-				if (!toSplice) {
-					newArrey.push(spliceObject)
+				} )
+				if ( !toSplice ) {
+					newArrey.push( spliceObject )
 				}
-				
-			})
-				return newArrey;
+
+			} )
+			return newArrey;
 		}
 
 	}
 
-})
+} )

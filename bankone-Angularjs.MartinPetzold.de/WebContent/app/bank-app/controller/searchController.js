@@ -1,25 +1,25 @@
 'use strict';
 
 /* Controllers */
-var BankappSearch = angular.module('bankapp.search', []);
+var BankappSearch = angular.module( 'bankapp.search', [] );
 
-BankappMainview.factory('searchService', function() {
-	
+BankappMainview.factory( 'searchService', function () {
+
 	var searchColumn = "";
-	var ids="";
+	var ids = "";
 	return {
-		setSearchColumn : function(str) {
+		setSearchColumn : function ( str ) {
 			searchColumn = str;
 		},
 
-		getSearchColumn : function() {
+		getSearchColumn : function () {
 			return searchColumn;
 		},
-		setIds : function(str){
-			ids=str;
+		setIds : function ( str ) {
+			ids = str;
 		},
-		getIds : function(){
+		getIds : function () {
 			return ids;
 		}
 	}
-})
+} )
