@@ -2,7 +2,7 @@
 
 /* Controllers */
 var BankappCustomerview = angular.module('bankapp.customerview', [
-		'bankapp.search', 'bankapp.breadcrumb', 'bankapp.subview' ]);
+		'bankapp.search', 'bankapp.breadcrumb', 'bankapp.subview','bankapp.function' ]);
 
 BankappCustomerview
 		.controller(
@@ -57,27 +57,41 @@ BankappCustomerview
 									});
 						} ]);
 
-BankappCustomerview.controller('customerListCtrl', [
-		'$scope',
-		'$http',
-		'searchService',
-		function($scope, $http, searchService) {
-			$scope.query = "";
-			$scope.$watch(function() {
-				return $scope.query = searchService.getSearchColumn()
-			});
-			$scope.loadData = function() {
-				$http.get('http://localhost:8080/bankone/rest/customerREST')
-						.success(function(data) {
-							$scope.customers = data;
-							$scope.status = true;
-						}).error(function(data, status, headers, config) {
-							$scope.status = false;
-						});
-			};
-			$scope.orderProp = 'name';
-			$scope.loadData();
-		} ]);
+BankappCustomerview
+		.controller(
+				'customerListCtrl',
+				[
+						'$scope',
+						'$http',
+						'searchService',
+						'arreyspliceByObjectId',
+						function($scope, $http, searchService,arreyspliceByObjectId) {
+							$scope.query = "";
+							$scope.$watch(function() {
+								return $scope.query = searchService
+										.getSearchColumn()
+							});
+							$scope.loadData = function() {
+								$http
+										.get(
+												'http://localhost:8080/bankone/rest/customerREST')
+										.success(
+												function(data) {
+													$scope.customers = data;
+													//Filter the data by Id's
+													if (searchService.getIds() != "") {
+														$scope.customers = arreyspliceByObjectId.spliceByID($scope.customers, searchService.getIds());}
+
+													$scope.status = true;
+												}).error(
+												function(data, status, headers,
+														config) {
+													$scope.status = false;
+												});
+							};
+							$scope.orderProp = 'name';
+							$scope.loadData();
+						} ]);
 
 BankappCustomerview
 		.controller(
@@ -121,8 +135,8 @@ BankappCustomerview
 														$scope.status = false;
 													});
 
-								}else{
-									$scope.customer.contact=$scope.newContact
+								} else {
+									$scope.customer.contact = $scope.newContact
 								}
 							};
 							$scope.orderProp = 'name';
@@ -144,24 +158,25 @@ BankappCustomerview
 												method : 'post',
 												url : 'http://localhost:8080/bankone/rest/customerREST',
 												data : $scope.customer
-												
 
-											}).success(function() {
-												subComponentService
-												.setComponent_Lvl1(BreadcrumbService
-														.getBreadcrumbLvl2());
-										BreadcrumbService
-												.setBreadcrumbLvl3("");
-										BreadcrumbService
-												.setBreadcrumbLvl4("");
-									})
+											})
+											.success(
+													function() {
+														subComponentService
+																.setComponent_Lvl1(BreadcrumbService
+																		.getBreadcrumbLvl2());
+														BreadcrumbService
+																.setBreadcrumbLvl3("");
+														BreadcrumbService
+																.setBreadcrumbLvl4("");
+													})
 								} else {
 									$http(
 											{
 												withCredentials : false,
 												method : 'put',
 												url : 'http://localhost:8080/bankone/rest/customerREST',
-												data :$scope.customer
+												data : $scope.customer
 
 											}).success(function() {
 										$scope.loadData();

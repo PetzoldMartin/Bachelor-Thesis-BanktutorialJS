@@ -2,7 +2,7 @@
 
 /* Controllers */
 var BankappBankview = angular.module('bankapp.bankview', [ 'bankapp.search',
-		'bankapp.breadcrumb', 'bankapp.subview' ]);
+		'bankapp.breadcrumb', 'bankapp.subview','bankapp.mainview' ]);
 
 BankappBankview
 		.controller(
@@ -87,15 +87,36 @@ BankappBankview
 						'$http',
 						'subComponentService',
 						'BreadcrumbService',
+						'mainPageService',
+						'searchService',
 						function($scope, $http, subComponentService,
-								BreadcrumbService) {
+								BreadcrumbService, mainPageService,searchService) {
 							// Initialization of the Controller
 							$scope.iddata = subComponentService
 									.getComponent_Lvl1();
 							$scope.customerCount = 0;
 							$scope.accountCount = 0;
 							$scope.addnew = false;
+							$scope.customerIds=[0];
 							$scope.newContact = {
+								"phone" : "",
+								"mobilePhone" : "",
+								"email" : "",
+								"address" : {
+									"street" : "",
+									"houseNumber" : "",
+									"zipCode" : "",
+									"city" : ""
+								}
+							};
+							$scope.bank = {
+								"name" : "",
+								"sortCode" : "",
+								"contacts" : []
+							};
+							// Function for Triggering new Contact View
+							$scope.triggerAddNew = function() {
+								$scope.tempContact = {
 									"phone" : "",
 									"mobilePhone" : "",
 									"email" : "",
@@ -106,26 +127,7 @@ BankappBankview
 										"city" : ""
 									}
 								};
-							$scope.bank = {
-								"name" : "",
-								"sortCode" : "",
-								"contacts" : []
-							};
-							// Function for Triggering new Contact View
-							$scope.triggerAddNew = function() {
-								$scope.tempContact= {
-										"phone" : "",
-										"mobilePhone" : "",
-										"email" : "",
-										"address" : {
-											"street" : "",
-											"houseNumber" : "",
-											"zipCode" : "",
-											"city" : ""
-										}
-									};
-								$scope.bank.contacts
-								.push($scope.tempContact);
+								$scope.bank.contacts.push($scope.tempContact);
 							}
 							// Function for loading Showing Data
 							$scope.loadData = function() {
@@ -142,10 +144,9 @@ BankappBankview
 														angular
 																.forEach(
 																		$scope.bank.customers,
-																		function(
-																				value,
-																				key) {
+																		function(c) {
 																			$scope.customerCount = $scope.customerCount + 1;
+																			$scope.customerIds.push(c.id);
 																		});
 														$http
 																.get(
@@ -193,7 +194,7 @@ BankappBankview
 							}
 							// save Function
 							$scope.saveBank = function() {
-								
+
 								if (($scope.iddata.id) == "undefined") {
 									$http(
 											{
@@ -206,15 +207,17 @@ BankappBankview
 													contacts : $scope.bank.contacts
 												}
 
-											}).success(function() {
-												subComponentService
-												.setComponent_Lvl1(BreadcrumbService
-														.getBreadcrumbLvl2());
-										BreadcrumbService
-												.setBreadcrumbLvl3("");
-										BreadcrumbService
-												.setBreadcrumbLvl4("");
-									})
+											})
+											.success(
+													function() {
+														subComponentService
+																.setComponent_Lvl1(BreadcrumbService
+																		.getBreadcrumbLvl2());
+														BreadcrumbService
+																.setBreadcrumbLvl3("");
+														BreadcrumbService
+																.setBreadcrumbLvl4("");
+													})
 								} else {
 									$http(
 											{
@@ -234,7 +237,7 @@ BankappBankview
 										$scope.loadData();
 									})
 								}
-								
+
 							}
 							$scope.deleteContact = function($index) {
 								$scope.bank.contacts.splice($index, 1);
@@ -258,5 +261,9 @@ BankappBankview
 													BreadcrumbService
 															.setBreadcrumbLvl4("");
 												})
+							}
+							$scope.showCustomerByBank = function() {
+								mainPageService.setTopicid(3);
+								searchService.setIds($scope.customerIds);
 							}
 						} ]);

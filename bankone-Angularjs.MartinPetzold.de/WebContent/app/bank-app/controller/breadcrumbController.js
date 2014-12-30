@@ -49,6 +49,7 @@ BankappBreadcrum.factory('BreadcrumbService',[ 'searchService', function(searchS
 	var breadcrumbLvl2 = "";
 	var breadcrumbLvl3 = "";
 	var breadcrumbLvl4 = "";
+	var breadcrumbLvl5 = "";
 	return {
 		setBreadcrumbLvl1 : function(str) {
 			breadcrumbLvl1 = str;
@@ -84,6 +85,15 @@ BankappBreadcrum.factory('BreadcrumbService',[ 'searchService', function(searchS
 
 		getBreadcrumbLvl4 : function() {
 			return breadcrumbLvl4;
+		},
+		
+		setBreadcrumbLvl5 : function(str) {
+			breadcrumbLvl5 = str;
+			searchService.setSearchColumn("");
+		},
+
+		getBreadcrumbLvl5 : function() {
+			return breadcrumbLvl5;
 		}
 	}
 }])

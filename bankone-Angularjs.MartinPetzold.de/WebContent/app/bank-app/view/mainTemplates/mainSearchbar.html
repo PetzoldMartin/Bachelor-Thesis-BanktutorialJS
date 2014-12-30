@@ -20,6 +20,10 @@
 							href="#">{{breadcrumbLvl3.name}}</a></li>
 						<li ng-if="breadcrumbLvl3!='' && breadcrumbLvl4==''"
 							class="active">{{breadcrumbLvl3.name}}</li>
+						<li ng-if="breadcrumbLvl4!='' && breadcrumbLvl5==''"><a
+							href="#">{{breadcrumbLvl4.name}}</a></li>
+						<li ng-if="breadcrumbLvl4!='' && breadcrumbLvl5!=''"
+							class="active">{{breadcrumbLvl4.name}}</li>
 					</ol>	
 			</div>
 			<div ng-controller="searchCtrl" 
