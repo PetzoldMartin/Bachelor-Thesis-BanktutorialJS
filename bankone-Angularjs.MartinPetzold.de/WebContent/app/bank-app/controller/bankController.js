@@ -55,6 +55,10 @@ BankappBankview.controller( 'bankListCtrl', [
 			$scope.loadData = function () {
 				$http.get( 'http://localhost:8080/bankone/rest/bankREST' ).success( function ( data ) {
 					$scope.banks = data;
+					if ( searchService.getBankIds() != "" ) {
+						$scope.customers = arreyspliceByObjectId.spliceByID( $scope.banks, searchService.getBankIds() );
+						$scope.newAvaible = false;
+					}
 					$scope.status = true;
 				} ).error( function ( data, status, headers, config ) {
 					$scope.status = false;
@@ -75,6 +79,10 @@ BankappBankview.controller( 'bankviewCtrl', [
 			$scope.customerIds = [
 				0
 			];
+			$scope.accountIds = [
+				0
+			];
+
 			$scope.newContact = {
 				"phone" : "",
 				"mobilePhone" : "",
@@ -118,8 +126,9 @@ BankappBankview.controller( 'bankviewCtrl', [
 						} );
 						$http.get( 'http://localhost:8080/bankone/rest/abstractAccountREST/bank/' + $scope.iddata.id ).success( function ( data ) {
 							$scope.accounts = data;
-							angular.forEach( $scope.accounts, function ( value, key ) {
+							angular.forEach( $scope.accounts, function ( a ) {
 								$scope.accountCount = $scope.accountCount + 1;
+								$scope.accountIds.push( a.id );
 							} );
 						} ).error( function ( data, status, headers, config ) {
 							$scope.status = false;
@@ -191,7 +200,11 @@ BankappBankview.controller( 'bankviewCtrl', [
 			}
 			$scope.showCustomerByBank = function () {
 				mainPageService.setTopicid( 3 );
-				searchService.setIds( $scope.customerIds );
+				searchService.setCustomerIds( $scope.customerIds );
+			}
+			$scope.showAccountByBank = function () {
+				mainPageService.setTopicid( 4 );
+				searchService.setAccountIds( $scope.accountIds );
 			}
 		}
 ] );

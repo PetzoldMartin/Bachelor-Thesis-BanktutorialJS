@@ -58,8 +58,8 @@ BankappCustomerview.controller( 'customerListCtrl', [
 					$scope.customers = data;
 					$scope.newAvaible = true;
 					// Filter the data by Id's
-					if ( searchService.getIds() != "" ) {
-						$scope.customers = arreyspliceByObjectId.spliceByID( $scope.customers, searchService.getIds() );
+					if ( searchService.getCustomerIds() != "" ) {
+						$scope.customers = arreyspliceByObjectId.spliceByID( $scope.customers, searchService.getCustomerIds() );
 						$scope.newAvaible = false;
 					}
 					$scope.status = true;
@@ -69,12 +69,21 @@ BankappCustomerview.controller( 'customerListCtrl', [
 			};
 			$scope.orderProp = 'name';
 			$scope.loadData();
+			
 		}
 ] );
 
 BankappCustomerview.controller( 'customerviewCtrl', [
-		'$scope', '$http', 'subComponentService', 'BreadcrumbService', function ( $scope, $http, subComponentService, BreadcrumbService ) {
+		'$scope', '$http', 'subComponentService', 'BreadcrumbService', 'searchService', function ( $scope, $http, subComponentService, BreadcrumbService ,searchService) {
 			$scope.iddata = subComponentService.getComponent_Lvl1();
+
+			$scope.accountIds = [
+				     				0
+				     			];
+			$scope.accountByCustomer=''
+
+			$scope.acd=false;
+
 			$scope.newContact = {
 				"phone" : "",
 				"mobilePhone" : "",
@@ -91,12 +100,48 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 				"surname" : "",
 				"contact" : []
 			};
+			var manipulate = {
+					"name" : "Account des Kunden"
+				
+				}
+			
+			//Overide of the Click Method from customer for the account subview
+			$scope.click = function ( oid ) {
+				$scope.accountByCustomer='mainTopicTemplates/accountSubpageTemplates/accountManipulate.html'
+					manipulate.id = oid;
+				BreadcrumbService.setBreadcrumbLvl4( manipulate );
+				$scope.acd=true;
+			}
+			$scope.accback = function () {
+				$scope.accountByCustomer='mainTopicTemplates/accountSubpageTemplates/accountOverView.html'
+					$scope.acd=false;
+				BreadcrumbService.setBreadcrumbLvl4("");
+
+
+			}
+			//Load Function
 			$scope.loadData = function () {
 				if ( ( $scope.iddata.id ) != "undefined" ) {
+					
 					$http.get( 'http://localhost:8080/bankone/rest/customerREST' + '/' + $scope.iddata.id ).success( function ( data ) {
 						$scope.customer = data;
 						$scope.status = true;
-					} ).error( function ( data, status, headers, config ) {
+						
+					} ).success(function(data, status, headers, config) {
+						
+						$http.get( 'http://localhost:8080/bankone/rest/abstractAccountREST/customer/' + $scope.iddata.id ).success( function ( data ) {
+							$scope.accounts = data;
+							angular.forEach( $scope.accounts, function ( a ) {
+								$scope.accountCount = $scope.accountCount + 1;
+								$scope.accountIds.push( a.id );
+							} );
+							searchService.setAccountIds( $scope.accountIds );
+							$scope.accountByCustomer='mainTopicTemplates/accountSubpageTemplates/accountOverView.html'
+
+						} ).error( function ( data, status, headers, config ) {
+							$scope.status = false;
+						} )
+					}).error( function ( data, status, headers, config ) {
 						$scope.status = false;
 					} );
 
@@ -106,12 +151,15 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 			};
 			$scope.orderProp = 'name';
 			$scope.loadData();
-			// function for cancel
+			
+			// Cancel Function
 			$scope.setSubComponentLvl2 = function () {
 				subComponentService.setComponent_Lvl1( BreadcrumbService.getBreadcrumbLvl2() );
 				BreadcrumbService.setBreadcrumbLvl3( "" );
 				BreadcrumbService.setBreadcrumbLvl4( "" );
 			}
+			
+			//Save Function
 			$scope.saveCustomer = function () {
 				if ( ( $scope.iddata.id ) == "undefined" ) {
 
@@ -122,6 +170,7 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 						data : $scope.customer
 
 					} ).success( function () {
+						
 						$scope.setSubComponentLvl2()
 					} )
 				} else {
@@ -132,10 +181,13 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 						data : $scope.customer
 
 					} ).success( function () {
+						
 						$scope.loadData();
 					} )
 				}
 			}
+			
+			//Delete Function
 			$scope.deleteCustomer = function () {
 				$http( {
 					withCredentials : false,

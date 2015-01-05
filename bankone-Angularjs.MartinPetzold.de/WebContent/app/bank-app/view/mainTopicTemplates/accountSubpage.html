@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="bankapp.accountview">
+<meta charset="utf-8">
 <head>
-<meta charset="ISO-8859-1">
+
 <title>Insert title here</title>
 </head>
 <body>
-account
+<div ng-controller="accountComponentCtrl">
+		<div ng-include=Component_Lvl1.url ng-style="{'overflow-y': 'scroll','height': '80vh'}">xx</div>
+		<div ng-include=Component_Lvl2.url>xx</div>
+	</div>
 </body>
 </html>

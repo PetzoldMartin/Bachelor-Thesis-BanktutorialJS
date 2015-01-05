@@ -69,10 +69,14 @@ BankappMainview.controller( 'sidebarCtrl', [
 			$scope.click = function ( topic, realc ) {
 				if ( !realc ) {
 					searchService.setIds( "" );
+					searchService.setAccountIds( "" );
+					searchService.setBankIds( "" );
+					searchService.setCustomerIds( "" );
 				}
 				if ( topic.clicked == false ) {
 					BreadcrumbService.setBreadcrumbLvl2( "" );
 					BreadcrumbService.setBreadcrumbLvl3( "" );
+					BreadcrumbService.setBreadcrumbLvl4( "" );
 
 				}
 				angular.forEach( $scope.topics, function ( value, index ) {

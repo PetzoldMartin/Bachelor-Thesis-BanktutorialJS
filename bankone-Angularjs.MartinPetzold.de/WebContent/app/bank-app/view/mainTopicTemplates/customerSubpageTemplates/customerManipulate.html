@@ -18,8 +18,9 @@
 								ng-include="'mainTopicTemplates/customerSubpageTemplates/customerManipulateTemplates/customerContact.html'"></div>
 						</td>
 						<td width="60%">
-							<div
-								ng-include="'mainTopicTemplates/customerSubpageTemplates/customerManipulateTemplates/customerBankaccount.html'"></div>
+							<div ng-include='accountByCustomer'>
+							</div>
+						<button ng-if="acd" ng-click="accback()">Accountübersicht</button>
 						</td>
 					</tr>
 				</table>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="bankapp.accountview">
+<meta charset="utf-8">
+<head>
+
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container-fluid" >
+		<div ng-controller="accountListCtrl">
+			<div class="row">
+				<div ng-if="newAvaible" class="col-xs-7 col-sm-4 col-md-3 col-lg-3" ng-click="click('undefined')">
+					<div  class="btn btn-default" ng-style="{'height':'200px','width':'200px',
+					'margin' : '30px'}">
+						<span>Account Hinzufügen</span>
+					</div>
+				</div>
+				<div ng-repeat="account in accounts | orderBy:orderProp | filter:query" ng-click="click(account.id)">
+					<div class="col-xs-7 col-sm-4 col-md-3 col-lg-3">
+						<div " class="btn btn-default" ng-style="{'height':'200px','width':'200px',
+						'margin' : '30px'}">
+							<span>Balance: {{account.balance}}</span>
+							<p>id: {{account.id}}</p>
+							<p ng-if="account.accountType=='CheckingAccount'">Type: Girokonto</p>
+							<p ng-if="account.accountType=='SavingsAccount'">Type: Sparkonto</p>
+							<p ng-if="account.accountType=='FlexibleSavingsAccount'">Type: TagesgeldKonto</p>
+							
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
