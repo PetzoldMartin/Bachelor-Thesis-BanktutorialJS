@@ -60,7 +60,7 @@ BankappAccountview.controller( 'accountComponentCtrl', [
 ] );
 
 BankappAccountview.controller( 'accountListCtrl', [
-		'$scope', '$http', 'searchService', 'arreyspliceByObjectId', 'subComponentService', 'BreadcrumbService', function ( $scope, $http, searchService, arreyspliceByObjectId, subComponentService, BreadcrumbService ) {
+		'$scope', '$http', 'searchService', 'arreyspliceByObjectId', 'subComponentService', 'BreadcrumbService', function ( $scope, $http, searchService, arreyspliceByObjectId, subComponentService, BreadcrumbService) {
 			$scope.query = "";
 
 			$scope.$watch( function () {
@@ -88,7 +88,7 @@ BankappAccountview.controller( 'accountListCtrl', [
 ] );
 
 BankappAccountview.controller( 'accountViewCtrl', [
-		'$scope', '$http', 'subComponentService', 'BreadcrumbService', function ( $scope, $http, subComponentService, BreadcrumbService ) {
+		'$scope', '$http', 'subComponentService', 'BreadcrumbService','mainPageService','searchService', function ( $scope, $http, subComponentService, BreadcrumbService,mainPageService,searchService ) {
 			$scope.iddata = subComponentService.getComponent_Lvl1();
 
 			$scope.newAccount = {
@@ -97,7 +97,11 @@ BankappAccountview.controller( 'accountViewCtrl', [
 				"bank" : [],
 				"owner" : []
 			};
-
+			$scope.summ=0;
+			$scope.addition = function(number){
+				//alert("add")
+				$scope.summ=$scope.summ+parseInt(number);
+			};
 			// Load Function
 			$scope.loadData = function () {
 				if ( $scope.iddata.name == "Konto bearbeiten" ) {
@@ -149,6 +153,14 @@ BankappAccountview.controller( 'accountViewCtrl', [
 					$scope.setSubComponentLvl2()
 				} )
 			}
+			$scope.showCustomerByAccount = function () {
+				mainPageService.setTopicid( 3 );
+				searchService.setCustomerIds( [$scope.account.owner.id] );
+			}
+			$scope.showBankByAccount = function () {
+				mainPageService.setTopicid( 2 );
+				searchService.setBankIds( [$scope.account.bank.id] );
+			}
 		}
 ] )
 
@@ -171,6 +183,7 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 			searchService.setCustomerIds( "all" );
 			searchService.setBankIds( "all" );
 			//$scope.typeQuery;
+			
 			$scope.set = function ( type ) {
 				$scope.typeQuery = type
 			}
