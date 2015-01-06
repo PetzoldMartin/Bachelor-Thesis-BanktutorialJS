@@ -97,10 +97,11 @@ BankappAccountview.controller( 'accountViewCtrl', [
 				"bank" : [],
 				"owner" : []
 			};
-			$scope.summ=0;
+			$scope.summ=0.0;
 			$scope.addition = function(number){
 				//alert("add")
-				$scope.summ=$scope.summ+parseInt(number);
+				$scope.summ=$scope.summ+parseFloat(number);
+				
 			};
 			// Load Function
 			$scope.loadData = function () {
