@@ -26,6 +26,10 @@ import javax.ws.rs.core.UriInfo;
 import org.hibernate.Hibernate;
 
 import de.java.BankTutorial.entity.AbstractAccount;
+import de.java.BankTutorial.entity.CheckingAccount;
+import de.java.BankTutorial.entity.FlexibleSavingsAccount;
+import de.java.BankTutorial.entity.SavingsAccount;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Path("/abstractAccountREST")
@@ -49,6 +53,66 @@ public class AbstractAccountService {
 		return Response.created(uri).build();
 	}
 	
+	@POST
+	@Path("CheckingAccount")
+	public Response createCheckingAccount(CheckingAccount checkingAccount) {
+		entityManager.persist(checkingAccount);
+		URI uri = uriInfo.getAbsolutePathBuilder()
+				.path(Long.toString(checkingAccount.getId())).build();
+		return Response.created(uri).build();
+	}
+	
+	@PUT
+	@Path("CheckingAccount")
+	public Response updateCheckingAccount(CheckingAccount checkingAccount) {
+		System.out.println("nun in update mit ID=" + checkingAccount.getId());
+		entityManager.merge(checkingAccount);
+		
+		URI uri = uriInfo.getAbsolutePathBuilder()
+				.path(Long.toString(checkingAccount.getId())).build();
+		return Response.created(uri).build();
+	}
+	
+	@POST
+	@Path("SavingsAccount")
+	public Response createSavingsAccount(SavingsAccount savingsAccount) {
+		entityManager.persist(savingsAccount);
+		URI uri = uriInfo.getAbsolutePathBuilder()
+				.path(Long.toString(savingsAccount.getId())).build();
+		return Response.created(uri).build();
+	}
+	
+	@PUT
+	@Path("SavingsAccount")
+	public Response updateSavingsAccount(SavingsAccount savingsAccount) {
+		System.out.println("nun in update mit ID=" + savingsAccount.getId());
+		entityManager.merge(savingsAccount);
+		
+		URI uri = uriInfo.getAbsolutePathBuilder()
+				.path(Long.toString(savingsAccount.getId())).build();
+		return Response.created(uri).build();
+	}
+	
+	@POST
+	@Path("FlexibleSavingsAccount")
+	public Response createFlexibleSavingsAccount(FlexibleSavingsAccount flexibleSavingsAccount) {
+		entityManager.persist(flexibleSavingsAccount);
+		URI uri = uriInfo.getAbsolutePathBuilder()
+				.path(Long.toString(flexibleSavingsAccount.getId())).build();
+		return Response.created(uri).build();
+	}
+	
+	@PUT
+	@Path("FlexibleSavingsAccount")
+	public Response updateFlexibleSavingsAccount(FlexibleSavingsAccount flexibleSavingsAccount) {
+		System.out.println("nun in update mit ID=" + flexibleSavingsAccount.getId());
+		entityManager.merge(flexibleSavingsAccount);
+		
+		URI uri = uriInfo.getAbsolutePathBuilder()
+				.path(Long.toString(flexibleSavingsAccount.getId())).build();
+		return Response.created(uri).build();
+	}
+	
 	@PUT
 	public Response updateAbstractAccount(AbstractAccount abstractAccount) {
 		System.out.println("nun in update mit ID=" + abstractAccount.getId());
@@ -59,6 +123,7 @@ public class AbstractAccountService {
 		return Response.created(uri).build();
 	}
 
+	
 	@DELETE
 	@Path("{id}")
 	public Response deleteAbstractAccount(@PathParam("id") long id) {

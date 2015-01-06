@@ -15,7 +15,7 @@
 						</span>
 					</div>
 				</div>
-				<div ng-repeat="customer in customers | orderBy:orderProp | filter:query" ng-click="click(customer.id)">
+				<div ng-repeat="customer in customers | orderBy:orderProp | filter:query" ng-click="click(customer.id,'customer')">
 					<div class="col-xs-7 col-sm-4 col-md-3 col-lg-3">
 						<div " class="btn btn-default" ng-style="{'height':'200px','width':'200px',
 						'margin' : '30px'}">

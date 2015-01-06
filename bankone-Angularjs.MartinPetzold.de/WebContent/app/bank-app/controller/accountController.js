@@ -25,7 +25,7 @@ BankappAccountview.controller( 'accountComponentCtrl', [
 			}
 			var makeNew = {
 				"id" : "undefined",
-				"name" : "Konto bearbeiten",
+				"name" : "Konto erstellen",
 				"class" : "list-group-item active",
 				"icon" : "glyphicon glyphicon-home",
 				"clicked" : true,
@@ -134,33 +134,12 @@ BankappAccountview.controller( 'accountViewCtrl', [
 			}
 
 			// Save Function
-			$scope.saveCustomer = function () {
-				if ( ( $scope.iddata.id ) == "undefined" ) {
-
-					$http( {
-						withCredentials : false,
-						method : 'post',
-						url : 'http://localhost:8080/bankone/rest/abstractAccountREST',
-						data : $scope.account
-
-					} ).success( function () {
-						$scope.setSubComponentLvl2()
-					} )
-				} else {
-					$http( {
-						withCredentials : false,
-						method : 'put',
-						url : 'http://localhost:8080/bankone/rest/abstractAccountREST',
-						data : $scope.account
-
-					} ).success( function () {
-						$scope.loadData();
-					} )
-				}
+			$scope.saveAccount = function () {
+				alert("save")
 			}
 
 			// Delete Function
-			$scope.deleteCustomer = function () {
+			$scope.deleteAccount = function () {
 				$http( {
 					withCredentials : false,
 					method : 'delete',
@@ -172,3 +151,98 @@ BankappAccountview.controller( 'accountViewCtrl', [
 			}
 		}
 ] )
+
+BankappAccountview.controller( 'accountMakeCtrl', [
+		'$scope', '$http', 'subComponentService', 'BreadcrumbService', 'searchService', function ( $scope, $http, subComponentService, BreadcrumbService, searchService ) {
+			$scope.customer = 'mainTopicTemplates/customerSubpageTemplates/customerOverView.html'
+			$scope.bank = 'mainTopicTemplates/bankSubpageTemplates/bankOverView.html'
+			$scope.newAccount = {
+				'balance' : 0,
+				'bank' : {
+					'id' : 0
+				},
+				'owner' : {
+					'id' : 0
+				}
+			};
+			$scope.accountType = [
+					"CheckingAccount", "SavingsAccount", "FlexibleSavingsAccount"
+			];
+			searchService.setCustomerIds( "all" );
+			searchService.setBankIds( "all" );
+			//$scope.typeQuery;
+			$scope.set = function ( type ) {
+				$scope.typeQuery = type
+			}
+			$scope.newacc = function () {
+				if ( $scope.typeQuery == "CheckingAccount" ) {
+					$http( {
+						withCredentials : false,
+						method : 'post',
+						url : 'http://localhost:8080/bankone/rest/abstractAccountREST/CheckingAccount',
+						data : $scope.newAccount
+
+					} ).success( function () {
+						subComponentService.setComponent_Lvl1( BreadcrumbService.getBreadcrumbLvl2() );
+						BreadcrumbService.setBreadcrumbLvl3( "" );
+						BreadcrumbService.setBreadcrumbLvl4( "" );
+					} )
+				} else {
+					if ( $scope.typeQuery == "SavingsAccount" ) {
+						$http( {
+							withCredentials : false,
+							method : 'post',
+							url : 'http://localhost:8080/bankone/rest/abstractAccountREST/SavingsAccount',
+							data : $scope.newAccount
+
+						} ).success( function () {
+							subComponentService.setComponent_Lvl1( BreadcrumbService.getBreadcrumbLvl2() );
+							BreadcrumbService.setBreadcrumbLvl3( "" );
+							BreadcrumbService.setBreadcrumbLvl4( "" );
+						} )
+					} else {
+						if ( $scope.typeQuery == "FlexibleSavingsAccount" ) {
+							$http( {
+								withCredentials : false,
+								method : 'post',
+								url : 'http://localhost:8080/bankone/rest/abstractAccountREST/FlexibleSavingsAccount',
+								data : $scope.newAccount
+
+							} ).success( function () {
+								subComponentService.setComponent_Lvl1( BreadcrumbService.getBreadcrumbLvl2() );
+								BreadcrumbService.setBreadcrumbLvl3( "" );
+								BreadcrumbService.setBreadcrumbLvl4( "" );
+							} )
+						} else {
+							alert( "kein Accounttype Gewählt" )
+						}
+					}
+
+				}
+			}
+
+			$scope.click = function ( bid, kind ) {
+				if ( kind == "customer" ) {
+					$scope.customer = null
+					searchService.setCustomerIds( [
+						bid
+					] );
+					$scope.newAccount.owner.id = bid;
+					setTimeout( function () {
+						$scope.customer = 'mainTopicTemplates/customerSubpageTemplates/customerOverView.html'
+					}, 1 )
+				}
+				if ( kind == "bank" ) {
+					$scope.bank = null
+					searchService.setBankIds( [
+						bid
+					] );
+					$scope.newAccount.bank.id = bid;
+					setTimeout( function () {
+						$scope.bank = 'mainTopicTemplates/bankSubpageTemplates/bankOverView.html'
+
+					}, 1 )
+				}
+			}
+		}
+] );

@@ -5,9 +5,16 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body >
-<div ng-controller="accountViewCtrl">
-<div ng-include="'mainTopicTemplates/accountSubpageTemplates/accountManipulateTemplates/accountInAndOut.html'"></div>
-</div>
+<body>
+	<div ng-controller="accountViewCtrl">
+		<div
+			ng-include="'mainTopicTemplates/accountSubpageTemplates/accountManipulateTemplates/accountInAndOut.html'"></div>
+	<div
+			ng-include="'mainTopicTemplates/accountSubpageTemplates/accountManipulateTemplates/accountStatements.html'"></div>
+	<div
+		ng-include="'mainTopicTemplates/accountSubpageTemplates/accountManipulateTemplates/accountControl.html'"></div>
+	</div>
+	
+	
 </body>
 </html>

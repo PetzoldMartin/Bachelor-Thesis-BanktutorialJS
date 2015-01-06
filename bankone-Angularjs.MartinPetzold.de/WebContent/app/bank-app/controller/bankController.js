@@ -2,7 +2,7 @@
 
 /* Controllers */
 var BankappBankview = angular.module( 'bankapp.bankview', [
-		'bankapp.search', 'bankapp.breadcrumb', 'bankapp.subview', 'bankapp.mainview'
+		'bankapp.search', 'bankapp.breadcrumb', 'bankapp.subview', 'bankapp.mainview', 'bankapp.function'
 ] );
 
 BankappBankview.controller( 'bankComponentCtrl', [
@@ -47,7 +47,7 @@ BankappBankview.controller( 'bankComponentCtrl', [
 ] );
 
 BankappBankview.controller( 'bankListCtrl', [
-		'$scope', '$http', 'searchService', function ( $scope, $http, searchService ) {
+		'$scope', '$http', 'searchService','arreyspliceByObjectId', function ( $scope, $http, searchService ,arreyspliceByObjectId) {
 			$scope.query = "";
 			$scope.$watch( function () {
 				return $scope.query = searchService.getSearchColumn()
@@ -55,8 +55,10 @@ BankappBankview.controller( 'bankListCtrl', [
 			$scope.loadData = function () {
 				$http.get( 'http://localhost:8080/bankone/rest/bankREST' ).success( function ( data ) {
 					$scope.banks = data;
+					$scope.newAvaible = true;
+
 					if ( searchService.getBankIds() != "" ) {
-						$scope.customers = arreyspliceByObjectId.spliceByID( $scope.banks, searchService.getBankIds() );
+						$scope.banks = arreyspliceByObjectId.spliceByID( $scope.banks, searchService.getBankIds() );
 						$scope.newAvaible = false;
 					}
 					$scope.status = true;

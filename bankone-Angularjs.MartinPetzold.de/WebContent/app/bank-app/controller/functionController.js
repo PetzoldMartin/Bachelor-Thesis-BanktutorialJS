@@ -8,6 +8,7 @@ BankappFunctions.factory( 'arreyspliceByObjectId', function () {
 	var newArrey = [];
 	return {
 		spliceByID : function ( arreyToSplice, idArrey ) {
+			if(idArrey!="all"){
 			//alert(idArrey)
 			newArrey = [];
 			angular.forEach( arreyToSplice, function ( spliceObject ) {
@@ -23,8 +24,10 @@ BankappFunctions.factory( 'arreyspliceByObjectId', function () {
 
 			} )
 			return newArrey;
+		}else{
+			return arreyToSplice
 		}
-
+		}
 	}
 
 } )
