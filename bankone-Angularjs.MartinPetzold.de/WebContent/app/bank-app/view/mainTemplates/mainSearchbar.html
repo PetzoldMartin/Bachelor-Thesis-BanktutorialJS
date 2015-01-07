@@ -4,13 +4,15 @@
 
 <div class="setBackground">
 	<div>
-	<nav class="navbar navbar-default" role="navigation"
+		<nav class="navbar navbar-default" role="navigation"
 			ng-style="{'background-color':'white','margin-bottom': '0px'
 			,'min-height':'42px','max-height':'42px'}">
-		<form class="form-inline" role="form">
-			<div class="form-group">
-			<ol ng-controller="breadcrumbCtrl" class="breadcrumb">
-						<li ng-if="breadcrumbLvl2!=''" ><a href="#" ng-click="setSubComponentLvl1()">{{breadcrumbLvl1.name}}</a></li>
+			<form class="form-inline" role="form">
+				<div class="form-group">
+					<ol ng-controller="breadcrumbCtrl" class="breadcrumb">
+						<li><a href=# ng-click="tomain()" >Home</a></li>
+						<li ng-if="breadcrumbLvl2!=''"><a href="#"
+							ng-click="setSubComponentLvl1()">{{breadcrumbLvl1.name}}</a></li>
 						<li ng-if="breadcrumbLvl2==''" class="active">{{breadcrumbLvl1.name}}</li>
 						<li ng-if="breadcrumbLvl2!='' && breadcrumbLvl3!=''"><a
 							href="#" ng-click="setSubComponentLvl2()">{{breadcrumbLvl2.name}}</a></li>
@@ -24,18 +26,21 @@
 							href="#">{{breadcrumbLvl4.name}}</a></li>
 						<li ng-if="breadcrumbLvl4!='' && breadcrumbLvl5!=''"
 							class="active">{{breadcrumbLvl4.name}}</li>
-					</ol>	
-			</div>
-			<div ng-controller="searchCtrl" 
-			 class="form-group " ng-style="{'float': 'right'}">
-				<div class="input-group">
-					<input class="form-control" ng-model="search" ng-click="clicked=false" ng-mouseleave="clicked=true"
-						placeholder="Search"><div class="input-group-addon">
-						<span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+					</ol>
 				</div>
-			</div>
-			
-		</form>
+				<div ng-controller="searchCtrl" class="form-group "
+					ng-style="{'float': 'right'}">
+					<div class="input-group">
+						<input class="form-control" ng-model="search"
+							ng-click="clicked=false" ng-mouseleave="clicked=true"
+							placeholder="Search">
+						<div class="input-group-addon">
+							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+						</div>
+					</div>
+				</div>
+
+			</form>
 		</nav>
 	</div>
 </div>

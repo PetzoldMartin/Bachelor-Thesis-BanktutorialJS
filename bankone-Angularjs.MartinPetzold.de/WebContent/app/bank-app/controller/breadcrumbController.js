@@ -6,9 +6,12 @@ var BankappBreadcrum = angular.module( 'bankapp.breadcrumb', [
 ] );
 
 BankappBreadcrum.controller( 'breadcrumbCtrl', [
-		'$scope', 'BreadcrumbService', 'subComponentService',
+		'$scope', 'BreadcrumbService', 'subComponentService','mainPageService',
 
-		function ( $scope, BreadcrumbService, subComponentService ) {
+		function ( $scope, BreadcrumbService, subComponentService,mainPageService ) {
+			$scope.tomain=function(){
+				mainPageService.setTopicid( 1 );
+			}
 			$scope.setSubComponentLvl1 = function () {
 				subComponentService.setComponent_Lvl1( BreadcrumbService.getBreadcrumbLvl1() );
 				BreadcrumbService.setBreadcrumbLvl2( "" );
