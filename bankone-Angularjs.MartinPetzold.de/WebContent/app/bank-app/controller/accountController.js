@@ -162,6 +162,10 @@ BankappAccountview.controller( 'accountViewCtrl', [
 				mainPageService.setTopicid( 2 );
 				searchService.setBankIds( [$scope.account.bank.id] );
 			}
+			$scope.accountTransfer = function () {
+				mainPageService.setTopicid( 5 );
+				searchService.setAccountIds( [$scope.account.id] );
+			}
 		}
 ] )
 
