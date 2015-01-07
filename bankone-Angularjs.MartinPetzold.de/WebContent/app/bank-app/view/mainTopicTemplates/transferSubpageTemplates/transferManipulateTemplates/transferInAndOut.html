@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html ng-app="bankapp.customerview">
+<html ng-app="bankapp.transfer">
 <meta charset="utf-8">
+
 <div class="col-xs-14 col-sm-8 col-md-6 col-lg-6">
 
 	<h2>Transferoptionen</h2>
@@ -44,6 +45,11 @@
 
 	<div ng-style="{'float': 'right'}" class="input-group">
 		<span ng-style="{'width': '200px'}" class="input-group-addon"><span
+			ng-style="{'float': 'right'}">Kontonummer : </span> </span>
+		<p ng-style="{'width': '195px'}" class="form-control" placeholder="0">{{account.id}}</p>
+	</div>
+	<div ng-style="{'float': 'right'}" class="input-group">
+		<span ng-style="{'width': '200px'}" class="input-group-addon"><span
 			ng-style="{'float': 'right'}">Guthaben : </span> </span>
 		<p ng-style="{'width': '195px'}" class="form-control" placeholder="0">{{account.balance}}</p>
 	</div>
@@ -51,7 +57,8 @@
 		<span ng-style="{'width': '200px'}" class="input-group-addon"><span
 			ng-style="{'float': 'right'}">Betrag <span
 				class="glyphicon glyphicon-asterisk" ng-style="{'color':'red'}"></span>:
-		</span> </span> <input class="form-control" placeholder="Name" ng-model="ammount">
+		</span> </span> <input class="form-control" placeholder="0" ng-model="ammount.value">
+		
 	</div>
 </div>
 </html>

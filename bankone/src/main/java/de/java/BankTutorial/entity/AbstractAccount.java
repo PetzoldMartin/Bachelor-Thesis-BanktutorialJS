@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.hibernate.annotations.*;
 
 /**
  * abstrakte Klasse für ein Konto
@@ -49,7 +50,7 @@ public abstract class AbstractAccount implements IEntityBase, Serializable {
 	private Customer owner;
 	
 	// Kontoauszüge
-	@OneToMany(cascade = CascadeType.REMOVE)
+	@OneToMany(cascade = CascadeType.ALL)
 	private  List<Statement> statements = new LinkedList<Statement>();
 	
 	// -- generated constructors --------------------------------------------

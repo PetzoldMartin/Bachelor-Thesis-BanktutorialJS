@@ -6,14 +6,19 @@
 		<div class="row">
 			<div
 				ng-include="'mainTopicTemplates/transferSubpageTemplates/transferManipulateTemplates/transferInAndOut.html'"></div>
-		
-		<div class="col-xs-14 col-sm-8 col-md-6 col-lg-6" ng-include="accountto" ></div>
-		
-		
-		<div
-		ng-include="'mainTopicTemplates/transferSubpageTemplates/transferManipulateTemplates/transferControl.html'"></div>
+
+			<div ng-if="accChoosen" class="col-xs-14 col-sm-8 col-md-6 col-lg-6">
+				<h2>Zielkonto</h2>
+				<hr
+					ng-style="{'color':'#424242','height':'2px','background-color':'#424242'}">
+				<div ng-include="accountto"></div>
+			</div>
+
+
+			<div
+				ng-include="'mainTopicTemplates/transferSubpageTemplates/transferManipulateTemplates/transferControl.html'"></div>
 		</div>
 	</div>
-	</div>
+</div>
 </div>
 </html>
