@@ -3,7 +3,7 @@
 /* Controllers */
 var BankappSearch = angular.module( 'bankapp.search', [] );
 
-BankappMainview.factory( 'searchService', function () {
+BankappSearch.factory( 'searchService', function () {
 
 	var searchColumn = "";
 	var ids = "";
