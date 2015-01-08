@@ -17,11 +17,7 @@ BankappBreadcrum.controller( 'breadcrumbCtrl', [
 				BreadcrumbService.setBreadcrumbLvl2( "" );
 				BreadcrumbService.setBreadcrumbLvl3( "" );
 			}
-			$scope.setSubComponentLvl2 = function () {
-				subComponentService.setComponent_Lvl1( BreadcrumbService.getBreadcrumbLvl2() );
-				BreadcrumbService.setBreadcrumbLvl3( "" );
-				BreadcrumbService.setBreadcrumbLvl4( "" );
-			}
+			
 			$scope.$watch( function () {
 				return $scope.breadcrumbLvl1 = BreadcrumbService.getBreadcrumbLvl1();
 			} );
