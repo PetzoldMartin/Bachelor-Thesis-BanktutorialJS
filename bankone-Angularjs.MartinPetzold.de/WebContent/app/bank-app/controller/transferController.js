@@ -2,7 +2,7 @@
 
 /* Controllers */
 var BankappTransfer = angular.module( 'bankapp.transfer', [
-		'bankapp.search', 'bankapp.breadcrumb', 'bankapp.subview', 'bankapp.function', 'bankapp.accountview'
+		'bankapp.search', 'bankapp.breadcrumb', 'bankapp.subview', 'bankapp.function'
 ] );
 
 BankappTransfer.controller( 'transferComponentCtrl', [
