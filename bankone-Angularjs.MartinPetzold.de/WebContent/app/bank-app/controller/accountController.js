@@ -60,7 +60,7 @@ BankappAccountview.controller( 'accountComponentCtrl', [
 ] );
 
 BankappAccountview.controller( 'accountListCtrl', [
-		'$scope', '$http', 'searchService', 'arreyspliceByObjectId', 'subComponentService', 'BreadcrumbService', function ( $scope, $http, searchService, arreyspliceByObjectId, subComponentService, BreadcrumbService) {
+		'$scope', '$http', 'searchService', 'arreyspliceByObjectId', 'subComponentService', 'BreadcrumbService', function ( $scope, $http, searchService, arreyspliceByObjectId, subComponentService, BreadcrumbService ) {
 			$scope.query = "";
 
 			$scope.$watch( function () {
@@ -88,7 +88,7 @@ BankappAccountview.controller( 'accountListCtrl', [
 ] );
 
 BankappAccountview.controller( 'accountViewCtrl', [
-		'$scope', '$http', 'subComponentService', 'BreadcrumbService','mainPageService','searchService', function ( $scope, $http, subComponentService, BreadcrumbService,mainPageService,searchService ) {
+		'$scope', '$http', 'subComponentService', 'BreadcrumbService', 'mainPageService', 'searchService', function ( $scope, $http, subComponentService, BreadcrumbService, mainPageService, searchService ) {
 			$scope.iddata = subComponentService.getComponent_Lvl1();
 
 			$scope.newAccount = {
@@ -97,11 +97,11 @@ BankappAccountview.controller( 'accountViewCtrl', [
 				"bank" : [],
 				"owner" : []
 			};
-			$scope.summ=0.0;
-			$scope.addition = function(number){
-				//alert("add")
-				$scope.summ=$scope.summ+parseFloat(number);
-				
+			$scope.summ = 0.0;
+			$scope.addition = function ( number ) {
+				// alert("add")
+				$scope.summ = $scope.summ + parseFloat( number );
+
 			};
 			// Load Function
 			$scope.loadData = function () {
@@ -140,7 +140,7 @@ BankappAccountview.controller( 'accountViewCtrl', [
 
 			// Save Function
 			$scope.saveAccount = function () {
-				alert("save")
+				alert( "save" )
 			}
 
 			// Delete Function
@@ -156,15 +156,21 @@ BankappAccountview.controller( 'accountViewCtrl', [
 			}
 			$scope.showCustomerByAccount = function () {
 				mainPageService.setTopicid( 3 );
-				searchService.setCustomerIds( [$scope.account.owner.id] );
+				searchService.setCustomerIds( [
+					$scope.account.owner.id
+				] );
 			}
 			$scope.showBankByAccount = function () {
 				mainPageService.setTopicid( 2 );
-				searchService.setBankIds( [$scope.account.bank.id] );
+				searchService.setBankIds( [
+					$scope.account.bank.id
+				] );
 			}
 			$scope.accountTransfer = function () {
 				mainPageService.setTopicid( 5 );
-				searchService.setAccountIds( [$scope.account.id] );
+				searchService.setAccountIds( [
+					$scope.account.id
+				] );
 			}
 		}
 ] )
@@ -187,8 +193,8 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 			];
 			searchService.setCustomerIds( "all" );
 			searchService.setBankIds( "all" );
-			//$scope.typeQuery;
-			
+			// $scope.typeQuery;
+
 			$scope.set = function ( type ) {
 				$scope.typeQuery = type
 			}
@@ -201,6 +207,7 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 						data : $scope.newAccount
 
 					} ).success( function () {
+						$scope.autoregisterCustomerAtBank( $scope.newAccount.bank.id, $scope.newAccount.owner.id );
 						subComponentService.setComponent_Lvl1( BreadcrumbService.getBreadcrumbLvl2() );
 						BreadcrumbService.setBreadcrumbLvl3( "" );
 						BreadcrumbService.setBreadcrumbLvl4( "" );
@@ -214,6 +221,7 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 							data : $scope.newAccount
 
 						} ).success( function () {
+							$scope.autoregisterCustomerAtBank( $scope.newAccount.bank.id, $scope.newAccount.owner.id );
 							subComponentService.setComponent_Lvl1( BreadcrumbService.getBreadcrumbLvl2() );
 							BreadcrumbService.setBreadcrumbLvl3( "" );
 							BreadcrumbService.setBreadcrumbLvl4( "" );
@@ -227,6 +235,7 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 								data : $scope.newAccount
 
 							} ).success( function () {
+								$scope.autoregisterCustomerAtBank( $scope.newAccount.bank.id, $scope.newAccount.owner.id );
 								subComponentService.setComponent_Lvl1( BreadcrumbService.getBreadcrumbLvl2() );
 								BreadcrumbService.setBreadcrumbLvl3( "" );
 								BreadcrumbService.setBreadcrumbLvl4( "" );
@@ -261,6 +270,33 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 
 					}, 1 )
 				}
+			}
+			$scope.autoregisterCustomerAtBank = function ( bankid, customerid ) {
+
+				$http.get( 'http://localhost:8080/bankone/rest/bankREST' + '/' + bankid ).success( function ( data ) {
+					$scope.bank = data;
+					$scope.hit = false
+					angular.forEach( $scope.bank.customers, function ( c ) {
+						if ( c.id == customerid ) {
+							$scope.hit = true
+						}
+					} )
+					if ( $scope.hit == false ) {
+						$http.get( 'http://localhost:8080/bankone/rest/customerREST' + '/' + customerid ).success( function ( data ) {
+							$scope.customer = data;
+
+							$scope.bank.customers.push( customer )
+							$http( {
+								withCredentials : false,
+								method : 'put',
+								url : 'http://localhost:8080/bankone/rest/bankREST',
+								data : $scope.bank
+
+							} )
+						} )
+					}
+				} );
+
 			}
 		}
 ] );
