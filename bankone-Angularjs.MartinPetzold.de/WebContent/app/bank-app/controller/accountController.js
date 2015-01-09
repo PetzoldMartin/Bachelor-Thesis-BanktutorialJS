@@ -281,6 +281,7 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 							$scope.hit = true
 						}
 					} )
+					
 					if ( $scope.hit == false ) {
 						$http.get( 'http://localhost:8080/bankone/rest/customerREST' + '/' + customerid ).success( function ( data ) {
 							$scope.customer = data;
