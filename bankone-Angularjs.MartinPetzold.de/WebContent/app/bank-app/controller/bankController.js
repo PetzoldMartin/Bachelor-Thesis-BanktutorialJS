@@ -40,9 +40,7 @@ BankappBankview.controller( 'bankComponentCtrl', [
 
 			}
 
-			$scope.$watch( function () {
-				return $scope.Component_Lvl2 = subComponentService.getComponent_Lvl2();
-			} );
+			
 		}
 ] );
 
