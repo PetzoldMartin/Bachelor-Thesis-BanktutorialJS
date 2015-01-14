@@ -16,6 +16,7 @@
 <script src="../controller/functionController.js"></script>
 <script src="../controller/accountController.js"></script>
 <script src="../controller/transferController.js"></script>
+<script src="../controller/bankStyle.js"></script>
 
 
 <head>
@@ -24,19 +25,20 @@
 
 </head>
 <body>
+<div ng-controller="bankStyles" >
 	<div ng-controller="headerComponentCtrl"
-		ng-style="{'margin-bottom': '0px'}">
+		ng-style="headerTemplateStyle">
 		<div ng-include='headerTemplate_url'></div>
 	</div>
 	<div class="setBackground">
 		<div class="row">
-			<div class="col-md-2" ng-style="{'padding-right':'0px'}">
-				<div ng-style="{'margin-top': '0px','margin-right': '0px'}" 
+			<div class="col-md-2" ng-style="sidebarColumnStyle">
+				<div ng-style="sidebarTemplateStyle" 
 					ng-controller="sidebarComponentCtrl">
 					<div ng-include='sidebarTemplate_url'></div>
 				</div>
 			</div>
-			<div class="col-md-10" ng-style="{'padding-left':'0px'}">
+			<div class="col-md-10" ng-style="searchbarColumnStyle">
 				<div ng-controller="searchbarComponentCtrl">
 					<div ng-include='searchbarTemplate_url'></div>
 				</div>
@@ -45,6 +47,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </body>
 </html>

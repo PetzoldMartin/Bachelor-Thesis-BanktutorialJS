@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html ng-app="bankapp.transfer">
 <meta charset="utf-8">
+
+<html ng-app="bankapp.transfer">
 <div ng-controller="transferAccounts">
 <h2>Wähle das Konto für die Überweisung</h2>
 		<hr
-			ng-style="{'color':'#424242','height':'2px','background-color':'#424242'}">
+			ng-style="headerUnderlineStyle">
 		<div ng-include="account"></div>
 		</div>
 </html>

@@ -1,34 +1,33 @@
 <!DOCTYPE html>
-<html ng-app="bankapp.accountview">
 <meta charset="utf-8">
+
+<html ng-app="bankapp.accountview">
 <head>
-<meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
 	<div ng-controller="accountMakeCtrl">
 		<h2>Wähle den Kunden</h2>
 		<hr
-			ng-style="{'color':'#424242','height':'2px','background-color':'#424242'}">
+			ng-style="headerUnderlineStyle">
 		<div ng-include="customer"></div>
 				<h2>Wähle die Bank</h2>
 		
 		<hr
-			ng-style="{'color':'#424242','height':'2px','background-color':'#424242'}">
+			ng-style="headerUnderlineStyle">
 
 		<div ng-include="bank"></div>
 				<h2>Wähle den Kontotyp</h2>
 		
 		<hr
-			ng-style="{'color':'#424242','height':'2px','background-color':'#424242'}">
+			ng-style="headerUnderlineStyle">
 		<div class="container-fluid">
 			<div class="row">
 				<div ng-repeat="type in accountType | filter:typeQuery:true" 
 					ng-click="set(type)">
-					<div class="col-xs-7 col-sm-4 col-md-3 col-lg-3">
+					<div ng-class="tileClass">
 						<div " class="btn btn-default"
-							ng-style="{'height':'200px','width':'200px',
-						'margin' : '30px'}">
+							ng-style="tileStyle">
 							<p ng-if="type=='CheckingAccount'">Girokonto</p>
 							<p ng-if="type=='SavingsAccount'">Sparkonto</p>
 							<p ng-if="type=='FlexibleSavingsAccount'">TagesgeldKonto</p>
@@ -39,7 +38,7 @@
 			</div>
 		</div>
 		<hr
-			ng-style="{'color':'#424242','height':'2px','background-color':'#424242'}">
+			ng-style="headerUnderlineStyle">
 		<button ng-click="newacc()">save</button>
 	</div>
 </body>

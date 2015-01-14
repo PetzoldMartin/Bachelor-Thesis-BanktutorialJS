@@ -1,32 +1,34 @@
 <!DOCTYPE html>
+<meta charset="utf-8">
+
 <html ng-app="bankapp.customerview">
 <meta charset="utf-8">
-<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+<div ng-class="statementTemplateClass">
 	<h3>
 		Kontoauszüge
 		<hr
-			ng-style="{'color':'#424242','height':'2px','background-color':'#424242'}">
+			ng-style="headerUnderlineStyle">
 	</h3>
 	<div ng-repeat="x in account.statements | limitTo: -10" ng-init="addition(x.content)">
 		<div class="alert alert-success" ng-if="x.content > 0"
-			ng-style="{'margin-bottom': '0px','height':'20px'}">
-			<div ng-style="{'margin-top': '-10px'}">{{x.date
-				| date:'dd.MM.yyyy - HH:mm :'}}<tab ng-style="{'padding-left':'30%'}" > <<<+{{x.content}}(Einzahlung)</div>
+			ng-style="statementBoxstyle">
+			<div ng-style="statementOutputStyle">{{x.date
+				| date:'dd.MM.yyyy - HH:mm :'}}<tab ng-style="statementTextStyle" > <<<+{{x.content}}(Einzahlung)</div>
 				
 		</div>
 		<div class="alert alert-danger" ng-if="x.content < 0"
-			ng-style="{'margin-bottom': '0px','height':'20px'}">
-			<div ng-style="{'margin-top': '-10px'}">{{x.date
-				| date:'dd.MM.yyyy - HH:mm :'}}<tab ng-style="{'padding-left':'30%'}" > >>>{{x.content}}(Auszahlung)</div>
+			ng-style="statementBoxstyle">
+			<div ng-style="statementOutputStyle">{{x.date
+				| date:'dd.MM.yyyy - HH:mm :'}}<tab ng-style="statementTextStyle" > >>>{{x.content}}(Auszahlung)</div>
 		</div>
 	</div>
 	<hr
-		ng-style="{'color':'#424242','height':'2px','background-color':'#424242'}">
-		<div ng-style="{'font-weight': 'bold'}">Guthaben<tab ng-style="{'padding-left':'11%'} " > : <tab ng-style="{'padding-left':'45%'} " > {{summ | number}}/{{account.balance | number}}€
+		ng-style="headerUnderlineStyle">
+		<div ng-style="statementSumStyle">Guthaben<tab ng-style="statementSumTab1Style" > : <tab ng-style="$scope.statementSumTab2Style" > {{summ | number}}/{{account.balance | number}}€
 		</div>
 	<hr
-		ng-style="{'color':'#424242','height':'1px','background-color':'#424242'}">
+		ng-style="headerUnderlineThinStyle">
 	<hr
-		ng-style="{'color':'#424242','height':'1px','background-color':'#424242'}">
+		ng-style="headerUnderlineThinStyle">
 </div>
 </html>

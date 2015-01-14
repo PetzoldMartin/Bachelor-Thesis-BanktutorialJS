@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html ng-app="bankapp.bankview">
 <meta charset="utf-8">
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+<html ng-app="bankapp.bankview">
+<div class="controllClass">
 	<h3>
 		Filialen
 		<hr
-			ng-style="{'color':'#424242','height':'2px','background-color':'#424242'}">
+			ng-style="headerUnderlineStyle">
 	</h3>
 	<div ng-repeat="contact in bank.contacts">
-		<div class="col-xs-8 col-sm-6 col-md-4 col-lg-4">
+		<div ng-class="contactClass">
 			<table>
-				<th ng-style="{'vertical-align': 'top'}">
+				<th ng-style="contactAlignClass">
 					<button>
-						<span ng-click="deleteContact($index)" class="glyphicon glyphicon-trash" ng-style="{'color':'red'}"></span>
+						<span ng-click="deleteContact($index)" class="glyphicon glyphicon-trash" ng-style="nio"></span>
 					</button>
 				</th>
 				<td ng-include="'mainTopicTemplates/bankSubpageTemplates/bankManipulateTemplates/contactRow.html'">
@@ -22,9 +23,9 @@
 		</div>
 	</div>
 	<table >
-	<th ng-style="{'vertical-align': 'top'}">
+	<th ng-style="contactAlignClass">
 	<button ng-click="triggerAddNew()">
-		<span class="glyphicon glyphicon-plus" ng-style="{'color':'green'}"></span>
+		<span class="glyphicon glyphicon-plus" ng-style="ok"></span>
 	</button>
 	
 	</th>	

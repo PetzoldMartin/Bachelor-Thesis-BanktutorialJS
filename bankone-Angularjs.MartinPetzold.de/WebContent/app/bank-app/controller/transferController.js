@@ -64,29 +64,30 @@ BankappTransfer.controller( 'transferType', [
 			$http.get( 'http://localhost:8080/bankone/rest/abstractAccountREST' + '/' + subComponentService.getComponent_Lvl1().id ).success( function ( data ) {
 				$scope.account = data;
 				$scope.status = true;
+				{
+					$http.get( 'http://localhost:8080/bankone/rest/abstractAccountREST' ).success( function ( data ) {
+						$scope.accov = data;
+
+						$scope.status = true;
+					} ).success( function () {
+						angular.forEach( $scope.accov, function ( acc ) {
+
+							if ( acc.id != $scope.account.id ) {
+								$scope.filter.push( acc.id )
+							}
+						} )
+					} ).error( function ( data, status, headers, config ) {
+
+						$scope.status = false;
+					} );
+
+				}
 			} ).error( function ( data, status, headers, config ) {
 
 				$scope.status = false;
 			} );
-			$scope.exfilter = function () {
-				$http.get( 'http://localhost:8080/bankone/rest/abstractAccountREST' ).success( function ( data ) {
-					$scope.accov = data;
-
-					$scope.status = true;
-				} ).success( function () {
-					angular.forEach( $scope.accov, function ( acc ) {
-
-						if ( acc.id != $scope.account.id ) {
-							$scope.filter.push( acc.id )
-						}
-					} )
-				} ).error( function ( data, status, headers, config ) {
-
-					$scope.status = false;
-				} );
-
-			}
-			$scope.exfilter()
+			
+			//$scope.exfilter()
 			searchService.setAccountIds( $scope.filter );
 			//
 			$scope.ammount = {
