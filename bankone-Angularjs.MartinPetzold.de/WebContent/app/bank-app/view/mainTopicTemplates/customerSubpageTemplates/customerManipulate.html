@@ -18,11 +18,14 @@
 							<div
 								ng-include="'mainTopicTemplates/customerSubpageTemplates/customerManipulateTemplates/customerContact.html'"></div>
 						</td>
-						<td width="55%">
+						<td width="65%">
+						
+						<button class="panel panel-success" ng-style="{'width': '78.5%','height':'40px'}" ng-if="acd" ng-click="accback()">Accountübersicht</button>
 							<div ng-include='accountByCustomer'>
 							</div>
-						<button ng-if="acd" ng-click="accback()">Accountübersicht</button>
+						
 						</td>
+						
 					</tr>
 				</table>
 
