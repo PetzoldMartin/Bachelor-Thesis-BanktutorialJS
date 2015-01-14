@@ -8,10 +8,10 @@
 			<div
 				ng-include="'mainTopicTemplates/transferSubpageTemplates/transferManipulateTemplates/transferInAndOut.html'"></div>
 
-			<div ng-if="accChoosen" class="col-xs-14 col-sm-8 col-md-6 col-lg-6">
+			<div ng-if="accChoosen" ng-class="manipulateTemplateClass">
 				<h2>Zielkonto</h2>
 				<hr
-					ng-style="{'color':'#424242','height':'2px','background-color':'#424242'}">
+					ng-style="headerUnderlineStyle">
 				<div ng-include="accountto"></div>
 			</div>
 

@@ -2,30 +2,30 @@
 <meta charset="utf-8">
 
 <html ng-app="bankapp.customerview">
-<div class="col-xs-14 col-sm-8 col-md-8 col-lg-8">
+<div ng-class="transfertemplClass">
 
-	<div ng-style="{'float': 'left'}" class="input-group">
-		<span ng-style="{'width': '200px'}" class="input-group-addon"><span
-			ng-style="{'float': 'right'}">ID <span></span>:
+	<div ng-style="lStyle" class="input-group">
+		<span ng-style="outputStyle" class="input-group-addon"><span
+			ng-style="rStyle">ID <span></span>:
 		</span> </span>
-		<p ng-style="{'width': '195px'}" class="form-control" placeholder="0">{{accountTwo.id}}</p>
+		<p ng-style="outputStyle" class="form-control" placeholder="0">{{accountTwo.id}}</p>
 	</div>
-	<div ng-style="{'float': 'left'}" class="input-group">
-		<span ng-style="{'width': '200px'}" class="input-group-addon"><span
-			ng-style="{'float': 'right'}">Betrag <span></span>:
+	<div ng-style="lStyle" class="input-group">
+		<span ng-style="outputStyle" class="input-group-addon"><span
+			ng-style="rStyle">Betrag <span></span>:
 		</span> </span>
-		<p ng-style="{'width': '195px'}" class="form-control" placeholder="0">{{accountTwo.balance}}</p>
+		<p ng-style="outputStyle" class="form-control" placeholder="0">{{accountTwo.balance}}</p>
 	</div>
-	<div ng-style="{'float': 'left'}" class="input-group">
-		<span ng-style="{'width': '200px'}" class="input-group-addon"><span
-			ng-style="{'float': 'right'}">Type <span></span>:
+	<div ng-style="lStyle" class="input-group">
+		<span ng-style="outputStyle" class="input-group-addon"><span
+			ng-style="rStyle">Type <span></span>:
 		</span> </span>
 		<p ng-if="accountTwo.accountType=='CheckingAccount'"
-			ng-style="{'width': '195px'}" class="form-control" placeholder="0">Girokonto</p>
+			ng-style="outputStyle" class="form-control" placeholder="0">Girokonto</p>
 		<p ng-if="accountTwo.accountType=='SavingsAccount'"
-			ng-style="{'width': '195px'}" class="form-control" placeholder="0">Sparkonto</p>
+			ng-style="outputStyle" class="form-control" placeholder="0">Sparkonto</p>
 		<p ng-if="accountTwo.accountType=='FlexibleSavingsAccount'"
-			ng-style="{'width': '195px'}" class="form-control" placeholder="0">
+			ng-style="outputStyle" class="form-control" placeholder="0">
 			TagesgeldKonto</p>
 	</div>
 

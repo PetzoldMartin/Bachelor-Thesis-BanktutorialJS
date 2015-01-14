@@ -56,6 +56,8 @@ BankappTransfer.controller( 'transferAccounts', [
 
 BankappTransfer.controller( 'transferType', [
 		'$scope', '$http', 'subComponentService', 'BreadcrumbService', 'searchService', function ( $scope, $http, subComponentService, BreadcrumbService, searchService ) {
+			$scope.hasSub=true
+
 			$scope.transferway = "transfer";
 			$scope.tempids = searchService.getAccountIds();
 			$scope.filter = [];
@@ -76,6 +78,7 @@ BankappTransfer.controller( 'transferType', [
 								$scope.filter.push( acc.id )
 							}
 						} )
+						searchService.setAccountIds( $scope.filter );
 					} ).error( function ( data, status, headers, config ) {
 
 						$scope.status = false;
@@ -88,7 +91,6 @@ BankappTransfer.controller( 'transferType', [
 			} );
 			
 			//$scope.exfilter()
-			searchService.setAccountIds( $scope.filter );
 			//
 			$scope.ammount = {
 				"value" : 0
@@ -106,8 +108,8 @@ BankappTransfer.controller( 'transferType', [
 			} )
 
 			$scope.accoverview = function () {
-				$scope.accChoosen = false
 				$scope.accountto = 'mainTopicTemplates/accountSubpageTemplates/accountOverView.html';
+				$scope.accChoosen=true;
 			}
 			$scope.click = function ( id ) {
 				$scope.accChoosen = true;

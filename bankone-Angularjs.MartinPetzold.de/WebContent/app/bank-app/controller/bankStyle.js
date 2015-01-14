@@ -14,6 +14,8 @@ BankappStyle.controller('bankStyles',['$scope', function($scope) {
 		$scope.componentStyle={'overflow-y': 'scroll','height': '80vh'}
 		//Overview
 		$scope.tileClass="col-xs-7 col-sm-4 col-md-3 col-lg-3"
+		$scope.tileAlternateClass="col-xs-9 col-sm-7 col-md-5 col-lg-5"
+
 		$scope.tileStyle={'height':'200px','width':'200px',
 				'margin' : '30px'}
 		//Header
@@ -26,10 +28,12 @@ BankappStyle.controller('bankStyles',['$scope', function($scope) {
 		$scope.controllClass="col-xs-12 col-sm-12 col-md-12 col-lg-12"
 		$scope.inAndOutClass="col-xs-12 col-sm-12 col-md-8 col-lg-6"
 		$scope.manipulateTemplateClass="col-xs-12 col-sm-8 col-md-6 col-lg-6"
+		$scope.transfertemplClass="col-xs-12 col-sm-8 col-md-8 col-lg-8"
 		
 		
 		//in-output Group
 		$scope.rStyle={'float': 'right'}
+		$scope.lStyle={'float': 'left'}
 		$scope.contactClass="col-xs-10 col-sm-8 col-md-4 col-lg-4"
 		$scope.contactAlignClass={'vertical-align': 'top'}
 		$scope.ioStyle={'width': '10.2vw'}
@@ -54,4 +58,8 @@ BankappStyle.controller('bankStyles',['$scope', function($scope) {
 		$scope.nio={'color':'red'}
 		//buttons
 		$scope.buttonLeftMarginStyle={'margin-left': '15%'}
+		$scope.bigGlyphStyle={'transform': 'scale(10)','margin-top': '50%'}
+		$scope.bigbuttonStyle={'height':'13.2vw','width':'13.2vw',
+				'margin' : '30px','margin-left' : '-15px'}
+		$scope.bigbuttonClass="col-xs-6 col-sm-5 col-md-4 col-lg-4"
 }])

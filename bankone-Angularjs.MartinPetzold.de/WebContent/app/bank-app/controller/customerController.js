@@ -74,6 +74,7 @@ BankappCustomerview.controller( 'customerListCtrl', [
 BankappCustomerview.controller( 'customerviewCtrl', [
 		'$scope', '$http', 'subComponentService', 'BreadcrumbService', 'searchService', function ( $scope, $http, subComponentService, BreadcrumbService ,searchService) {
 			$scope.iddata = subComponentService.getComponent_Lvl1();
+			$scope.hasSub=true
 
 			$scope.accountIds = [
 				     				0

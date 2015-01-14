@@ -2,37 +2,26 @@
 <html ng-app="bankapp.transfer">
 <meta charset="utf-8">
 
-<div class="col-xs-14 col-sm-8 col-md-6 col-lg-6">
+<div ng-class="manipulateTemplateClass">
 
 	<h2>Transferoptionen</h2>
-	<hr
-		ng-style="{'color':'#424242','height':'2px','background-color':'#424242'}">
+	<hr ng-style="headerUnderlineStyle">
 	<div class="row">
-		<div class="col-xs-6 col-sm-5 col-md-4 col-lg-4"
-			ng-click="settype('withdraw')">
-			<div class="btn btn-default"
-				ng-style="{'height':'200px','width':'200px',
-					'margin' : '30px','margin-left' : '-15px'}">
-				<span ng-style="{'transform': 'scale(10)','margin-top': '50%'}"
+		<div ng-class="bigbuttonClass" ng-click="settype('withdraw')">
+			<div class="btn btn-default" ng-style="bigbuttonStyle">
+				<span ng-style="bigGlyphStyle"
 					class="glyphicon glyphicon-circle-arrow-down"></span>
 			</div>
 		</div>
-		<div class="col-xs-6 col-sm-5 col-md-4 col-lg-4"
-			ng-click="settype('deposit')">
-			<div class="btn btn-default"
-				ng-style="{'height':'200px','width':'200px',
-					'margin' : '30px','margin-left' : '-15px'}">
-				<span ng-style="{'transform': 'scale(10)','margin-top': '50%'}"
+		<div ng-class="bigbuttonClass" ng-click="settype('deposit')">
+			<div class="btn btn-default" ng-style="bigbuttonStyle">
+				<span ng-style="bigGlyphStyle"
 					class="glyphicon glyphicon-circle-arrow-up"></span>
 			</div>
 		</div>
-		<div class="col-xs-6 col-sm-5 col-md-4 col-lg-4"
-			ng-click="settype('transfer')">
-			<div class="btn btn-default"
-				ng-style="{'height':'200px','width':'200px',
-					'margin' : '30px','margin-left' : '-15px'}">
-				<span ng-style="{'transform': 'scale(10)','margin-top': '50%'}"
-					class="glyphicon glyphicon-refresh"></span>
+		<div ng-class="bigbuttonClass" ng-click="settype('transfer')">
+			<div class="btn btn-default" ng-style="bigbuttonStyle">
+				<span ng-style="bigGlyphStyle" class="glyphicon glyphicon-refresh"></span>
 			</div>
 		</div>
 	</div>
@@ -40,25 +29,25 @@
 	<h2 ng-if="transferway=='withdraw'">Abheben</h2>
 	<h2 ng-if="transferway=='deposit'">Einzahlen</h2>
 
-	<hr
-		ng-style="{'color':'#424242','height':'2px','background-color':'#424242'}">
+	<hr ng-style="headerUnderlineStyle">
 
-	<div ng-style="{'float': 'right'}" class="input-group">
-		<span ng-style="{'width': '200px'}" class="input-group-addon"><span
-			ng-style="{'float': 'right'}">Kontonummer : </span> </span>
-		<p ng-style="{'width': '195px'}" class="form-control" placeholder="0">{{account.id}}</p>
+	<div ng-style="rStyle" class="input-group">
+		<span ng-style="outputStyle" class="input-group-addon"><span
+			ng-style="rStyle">Kontonummer : </span> </span>
+		<p ng-style="outputStyle" class="form-control" placeholder="0">{{account.id}}</p>
 	</div>
-	<div ng-style="{'float': 'right'}" class="input-group">
-		<span ng-style="{'width': '200px'}" class="input-group-addon"><span
-			ng-style="{'float': 'right'}">Guthaben : </span> </span>
-		<p ng-style="{'width': '195px'}" class="form-control" placeholder="0">{{account.balance}}</p>
+	<div ng-style="rStyle" class="input-group">
+		<span ng-style="outputStyle" class="input-group-addon"><span
+			ng-style="rStyle">Guthaben : </span> </span>
+		<p ng-style="outputStyle" class="form-control" placeholder="0">{{account.balance}}</p>
 	</div>
-	<div ng-style="{'float': 'right'}" class="input-group">
-		<span ng-style="{'width': '200px'}" class="input-group-addon"><span
-			ng-style="{'float': 'right'}">Betrag <span
-				class="glyphicon glyphicon-asterisk" ng-style="{'color':'red'}"></span>:
-		</span> </span> <input class="form-control" placeholder="0" ng-model="ammount.value">
-		
+	<div ng-style="rStyle" class="input-group">
+		<span ng-style="outputStyle" class="input-group-addon"><span
+			ng-style="rStyle">Betrag <span
+				class="glyphicon glyphicon-asterisk" ng-style="nio"></span>:
+		</span> </span> <input ng-style="outputStyle" class="form-control" placeholder="0"
+			ng-model="ammount.value">
+
 	</div>
 </div>
 </html>

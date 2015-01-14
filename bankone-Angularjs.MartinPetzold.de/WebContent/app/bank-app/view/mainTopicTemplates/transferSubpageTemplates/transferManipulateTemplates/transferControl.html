@@ -2,10 +2,10 @@
 <meta charset="utf-8">
 
 <html ng-app="bankapp.accountview">
-<div class="col-xs-14 col-sm-12 col-md-12 col-lg-12">
+<div ng-class="controllClass">
 	
 		<hr
-			ng-style="{'color':'#424242','height':'2px','background-color':'#424242'}">
+			ng-style="headerUnderlineStyle">
 	<button ng-click="save()">Speichern</button>
 	<button ng-click="setSubComponentLvl2()">Abrechen</button>
 	
