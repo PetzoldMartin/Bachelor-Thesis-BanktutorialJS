@@ -10,17 +10,11 @@ BankappTransfer.controller( 'transferComponentCtrl', [
 			var overview = {
 				"id" : 1,
 				"name" : "Verfügbare Konten",
-				"class" : "list-group-item active",
-				"icon" : "glyphicon glyphicon-home",
-				"clicked" : true,
 				"url" : 'mainTopicTemplates/transferSubpageTemplates/transferOverView.html'
 			}
 			var manipulate = {
 				"id" : "undefined",
 				"name" : "Geldtransfer ausführen",
-				"class" : "list-group-item active",
-				"icon" : "glyphicon glyphicon-home",
-				"clicked" : true,
 				"url" : 'mainTopicTemplates/transferSubpageTemplates/transferManipulate.html'
 			}
 
@@ -32,11 +26,9 @@ BankappTransfer.controller( 'transferComponentCtrl', [
 			} );
 
 			$scope.click = function ( oid ) {
-
 				manipulate.id = oid;
 				subComponentService.setComponent_Lvl1( manipulate );
 				BreadcrumbService.setBreadcrumbLvl3( manipulate );
-
 			}
 
 			
@@ -57,11 +49,9 @@ BankappTransfer.controller( 'transferAccounts', [
 BankappTransfer.controller( 'transferType', [
 		'$scope', '$http', 'subComponentService', 'BreadcrumbService', 'searchService', function ( $scope, $http, subComponentService, BreadcrumbService, searchService ) {
 			$scope.hasSub=true
-
 			$scope.transferway = "";
 			$scope.tempids = searchService.getAccountIds();
 			$scope.filter = [];
-
 			// better filter
 			$http.get( 'http://localhost:8080/bankone/rest/abstractAccountREST' + '/' + subComponentService.getComponent_Lvl1().id ).success( function ( data ) {
 				$scope.account = data;
@@ -69,24 +59,19 @@ BankappTransfer.controller( 'transferType', [
 				{
 					$http.get( 'http://localhost:8080/bankone/rest/abstractAccountREST' ).success( function ( data ) {
 						$scope.accov = data;
-
 						$scope.status = true;
 					} ).success( function () {
 						angular.forEach( $scope.accov, function ( acc ) {
-
 							if ( acc.id != $scope.account.id ) {
 								$scope.filter.push( acc.id )
 							}
 						} )
 						searchService.setAccountIds( $scope.filter );
 					} ).error( function ( data, status, headers, config ) {
-
 						$scope.status = false;
 					} );
-
 				}
 			} ).error( function ( data, status, headers, config ) {
-
 				$scope.status = false;
 			} );
 			
@@ -122,7 +107,6 @@ BankappTransfer.controller( 'transferType', [
 					$scope.status = false;
 				} );
 			}
-
 			$scope.settype = function ( type ) {
 				$scope.transferway = type;
 			}
@@ -164,18 +148,15 @@ BankappTransfer.controller( 'transferType', [
 							alert( "kein Accounttype Gewählt" )
 						}
 					}
-
 				}
 			}
 			//vereinfachen renundanz
 			$scope.save = function () {
-
 				if ( $scope.transferway == "deposit" ) {
 					$scope.account.balance = parseFloat( $scope.account.balance ) + parseFloat( $scope.ammount.value );
 					$scope.newStatement = {
 						"date" : Date.now(),
 						"content" : $scope.ammount.value
-
 					};
 					$scope.account.statements.push( $scope.newStatement );
 					$scope.newacc( $scope.account.accountType, $scope.account );
@@ -186,7 +167,6 @@ BankappTransfer.controller( 'transferType', [
 					$scope.newStatement = {
 						"date" : Date.now(),
 						"content" : -$scope.ammount.value
-
 					};
 					$scope.account.statements.push( $scope.newStatement );
 					$scope.newacc( $scope.account.accountType, $scope.account );

@@ -10,25 +10,16 @@ BankappAccountview.controller( 'accountComponentCtrl', [
 			var overview = {
 				"id" : 1,
 				"name" : "Kontenübersicht",
-				"class" : "list-group-item active",
-				"icon" : "glyphicon glyphicon-home",
-				"clicked" : true,
 				"url" : 'mainTopicTemplates/accountSubpageTemplates/accountOverView.html'
 			}
 			var manipulate = {
 				"id" : "undefined",
 				"name" : "Konto bearbeiten",
-				"class" : "list-group-item active",
-				"icon" : "glyphicon glyphicon-home",
-				"clicked" : true,
 				"url" : 'mainTopicTemplates/accountSubpageTemplates/accountManipulate.html'
 			}
 			var makeNew = {
 				"id" : "undefined",
 				"name" : "Konto erstellen",
-				"class" : "list-group-item active",
-				"icon" : "glyphicon glyphicon-home",
-				"clicked" : true,
 				"url" : 'mainTopicTemplates/accountSubpageTemplates/newAccount.html'
 			}
 			subComponentService.setComponent_Lvl1( overview );
@@ -39,21 +30,18 @@ BankappAccountview.controller( 'accountComponentCtrl', [
 			} );
 
 			$scope.click = function ( oid ) {
+				manipulate.id = oid;
 				if ( oid != "undefined" ) {
-					manipulate.id = oid;
 					subComponentService.setComponent_Lvl1( manipulate );
 					BreadcrumbService.setBreadcrumbLvl3( manipulate );
-
 					$scope.Component_Lvl1 = subComponentService.getComponent_Lvl1();
 				} else {
-					manipulate.id = oid;
 					subComponentService.setComponent_Lvl1( makeNew );
 					BreadcrumbService.setBreadcrumbLvl3( makeNew );
 				}
 
 			}
 
-			
 		}
 ] );
 
@@ -78,10 +66,8 @@ BankappAccountview.controller( 'accountListCtrl', [
 					$scope.status = false;
 				} );
 			};
-
-			$scope.orderProp = 'name';
+			$scope.orderProp = 'id';
 			$scope.loadData();
-
 		}
 ] );
 
@@ -89,44 +75,16 @@ BankappAccountview.controller( 'accountViewCtrl', [
 		'$scope', '$http', 'subComponentService', 'BreadcrumbService', 'mainPageService', 'searchService', function ( $scope, $http, subComponentService, BreadcrumbService, mainPageService, searchService ) {
 			$scope.iddata = subComponentService.getComponent_Lvl1();
 
-			$scope.newAccount = {
-				"balance" : 0,
-				"accountType" : "",
-				"bank" : [],
-				"owner" : []
-			};
-			$scope.summ = 0.0;
-			$scope.addition = function ( number ) {
-				// alert("add")
-				$scope.summ = $scope.summ + parseFloat( number );
-
-			};
 			// Load Function
-			$scope.loadData = function () {
-				if ( $scope.iddata.name == "Konto bearbeiten" ) {
-					if ( ( $scope.iddata.id ) != "undefined" ) {
+			$scope.loadData = function () {			
 						$http.get( 'http://localhost:8080/bankone/rest/abstractAccountREST' + '/' + $scope.iddata.id ).success( function ( data ) {
 							$scope.account = data;
 							$scope.status = true;
 						} ).error( function ( data, status, headers, config ) {
 
 							$scope.status = false;
-						} );
-
-					} else {
-						$scope.account = $scope.newAccount
-					}
-				} else {
-					$http.get( 'http://localhost:8080/bankone/rest/abstractAccountREST' + '/' + BreadcrumbService.getBreadcrumbLvl4().id ).success( function ( data ) {
-						$scope.account = data;
-						$scope.status = true;
-					} ).error( function ( data, status, headers, config ) {
-
-						$scope.status = false;
-					} );
-				}
+						} )			
 			};
-			$scope.orderProp = 'name';
 			$scope.loadData();
 
 			// Cancel Function
@@ -134,11 +92,6 @@ BankappAccountview.controller( 'accountViewCtrl', [
 				subComponentService.setComponent_Lvl1( BreadcrumbService.getBreadcrumbLvl2() );
 				BreadcrumbService.setBreadcrumbLvl3( "" );
 				BreadcrumbService.setBreadcrumbLvl4( "" );
-			}
-
-			// Save Function
-			$scope.saveAccount = function () {
-				alert( "save" )
 			}
 
 			// Delete Function
@@ -242,7 +195,6 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 							alert( "kein Accounttype Gewählt" )
 						}
 					}
-
 				}
 			}
 
@@ -279,7 +231,7 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 							$scope.hit = true
 						}
 					} )
-					
+
 					if ( $scope.hit == false ) {
 						$http.get( 'http://localhost:8080/bankone/rest/customerREST' + '/' + customerid ).success( function ( data ) {
 							$scope.customer = data;

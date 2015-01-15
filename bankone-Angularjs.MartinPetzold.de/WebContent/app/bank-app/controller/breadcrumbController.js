@@ -19,21 +19,12 @@ BankappBreadcrum.controller( 'breadcrumbCtrl', [
 			}
 			
 			$scope.$watch( function () {
-				return $scope.breadcrumbLvl1 = BreadcrumbService.getBreadcrumbLvl1();
+					$scope.breadcrumbLvl1 = BreadcrumbService.getBreadcrumbLvl1()
+					$scope.breadcrumbLvl2 = BreadcrumbService.getBreadcrumbLvl2()
+					$scope.breadcrumbLvl3 = BreadcrumbService.getBreadcrumbLvl3()
+					$scope.breadcrumbLvl4 = BreadcrumbService.getBreadcrumbLvl4()	
 			} );
-			$scope.breadcrumbLvl1 = BreadcrumbService.getBreadcrumbLvl1();
-			$scope.$watch( function () {
-				return $scope.breadcrumbLvl2 = BreadcrumbService.getBreadcrumbLvl2();
-			} );
-			$scope.breadcrumbLvl2 = BreadcrumbService.getBreadcrumbLvl2();
-			$scope.$watch( function () {
-				return $scope.breadcrumbLvl3 = BreadcrumbService.getBreadcrumbLvl3();
-			} );
-			$scope.breadcrumbLvl3 = BreadcrumbService.getBreadcrumbLvl3();
-			$scope.$watch( function () {
-				return $scope.breadcrumbLvl4 = BreadcrumbService.getBreadcrumbLvl4();
-			} );
-			$scope.breadcrumbLvl4 = BreadcrumbService.getBreadcrumbLvl4();
+			
 		}
 ] );
 

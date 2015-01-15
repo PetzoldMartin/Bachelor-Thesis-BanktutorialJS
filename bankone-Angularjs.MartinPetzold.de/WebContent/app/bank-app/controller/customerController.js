@@ -10,17 +10,11 @@ BankappCustomerview.controller( 'customerComponentCtrl', [
 			var overview = {
 				"id" : 1,
 				"name" : "Kundenübersicht",
-				"class" : "list-group-item active",
-				"icon" : "glyphicon glyphicon-home",
-				"clicked" : true,
 				"url" : 'mainTopicTemplates/customerSubpageTemplates/customerOverView.html'
 			}
 			var manipulate = {
 				"id" : "undefined",
 				"name" : "Kunde bearbeiten",
-				"class" : "list-group-item active",
-				"icon" : "glyphicon glyphicon-home",
-				"clicked" : true,
 				"url" : 'mainTopicTemplates/customerSubpageTemplates/customerManipulate.html'
 			}
 
@@ -75,14 +69,11 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 		'$scope', '$http', 'subComponentService', 'BreadcrumbService', 'searchService', function ( $scope, $http, subComponentService, BreadcrumbService ,searchService) {
 			$scope.iddata = subComponentService.getComponent_Lvl1();
 			$scope.hasSub=true
-
 			$scope.accountIds = [
 				     				0
 				     			];
 			$scope.accountByCustomer=''
-
 			$scope.acd=false;
-
 			$scope.newContact = {
 				"phone" : "",
 				"mobilePhone" : "",
@@ -103,7 +94,6 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 					"name" : "Account des Kunden"
 				
 				}
-			
 			//Overide of the Click Method from customer for the account subview
 			$scope.click = function ( oid ) {
 				$scope.accountByCustomer='mainTopicTemplates/accountSubpageTemplates/accountManipulate.html'
@@ -115,19 +105,14 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 				$scope.accountByCustomer='mainTopicTemplates/accountSubpageTemplates/accountOverView.html'
 					$scope.acd=false;
 				BreadcrumbService.setBreadcrumbLvl4("");
-
-
 			}
 			//Load Function
 			$scope.loadData = function () {
-				if ( ( $scope.iddata.id ) != "undefined" ) {
-					
+				if ( ( $scope.iddata.id ) != "undefined" ) {					
 					$http.get( 'http://localhost:8080/bankone/rest/customerREST' + '/' + $scope.iddata.id ).success( function ( data ) {
 						$scope.customer = data;
-						$scope.status = true;
-						
-					} ).success(function(data, status, headers, config) {
-						
+						$scope.status = true;						
+					} ).success(function(data, status, headers, config) {						
 						$http.get( 'http://localhost:8080/bankone/rest/abstractAccountREST/customer/' + $scope.iddata.id ).success( function ( data ) {
 							$scope.accounts = data;
 							angular.forEach( $scope.accounts, function ( a ) {
@@ -136,14 +121,12 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 							} );
 							searchService.setAccountIds( $scope.accountIds );
 							$scope.accountByCustomer='mainTopicTemplates/accountSubpageTemplates/accountOverView.html'
-
 						} ).error( function ( data, status, headers, config ) {
 							$scope.status = false;
 						} )
 					}).error( function ( data, status, headers, config ) {
 						$scope.status = false;
 					} );
-
 				} else {
 					$scope.customer.contact = $scope.newContact
 				}
@@ -161,16 +144,14 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 			//Save Function
 			$scope.saveCustomer = function () {
 				if ( ( $scope.iddata.id ) == "undefined" ) {
-
 					$http( {
 						withCredentials : false,
 						method : 'post',
 						url : 'http://localhost:8080/bankone/rest/customerREST',
 						data : $scope.customer
-
-					} ).success( function () {
-						
+					} ).success( function () {						
 						$scope.setSubComponentLvl2()
+						alert("Kunde gespeichert")
 					} )
 				} else {
 					$http( {
@@ -178,9 +159,7 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 						method : 'put',
 						url : 'http://localhost:8080/bankone/rest/customerREST',
 						data : $scope.customer
-
-					} ).success( function () {
-						
+					} ).success( function () {						
 						$scope.loadData();
 					} )
 				}
@@ -192,9 +171,9 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 					withCredentials : false,
 					method : 'delete',
 					url : 'http://localhost:8080/bankone/rest/customerREST' + '/' + $scope.customer.id,
-
 				} ).success( function () {
 					$scope.setSubComponentLvl2()
+					alert("Kunde gelöscht")
 				} )
 			}
 		}

@@ -11,17 +11,11 @@ BankappBankview.controller( 'bankComponentCtrl', [
 			var overview = {
 				"id" : 1,
 				"name" : "Bankenübersicht",
-				"class" : "list-group-item active",
-				"icon" : "glyphicon glyphicon-home",
-				"clicked" : true,
 				"url" : 'mainTopicTemplates/bankSubpageTemplates/bankOverView.html'
 			}
 			var manipulate = {
 				"id" : "undefined",
 				"name" : "Bank bearbeiten",
-				"class" : "list-group-item active",
-				"icon" : "glyphicon glyphicon-home",
-				"clicked" : true,
 				"url" : 'mainTopicTemplates/bankSubpageTemplates/bankManipulate.html'
 			}
 			subComponentService.setComponent_Lvl1( overview );
@@ -83,17 +77,7 @@ BankappBankview.controller( 'bankviewCtrl', [
 				0
 			];
 
-			$scope.newContact = {
-				"phone" : "",
-				"mobilePhone" : "",
-				"email" : "",
-				"address" : {
-					"street" : "",
-					"houseNumber" : "",
-					"zipCode" : "",
-					"city" : ""
-				}
-			};
+
 			$scope.bank = {
 				"name" : "",
 				"sortCode" : "",
@@ -163,6 +147,7 @@ BankappBankview.controller( 'bankviewCtrl', [
 						}
 
 					} ).success( function () {
+						alert("Bank gespeichert")
 						$scope.setSubComponentLvl2()
 					} )
 				} else {
@@ -196,6 +181,7 @@ BankappBankview.controller( 'bankviewCtrl', [
 
 				} ).success( function () {
 					$scope.setSubComponentLvl2()
+					alert("Bank wurde gelöscht")
 				} )
 			}
 			$scope.showCustomerByBank = function () {

@@ -10,7 +10,6 @@ BankappSubview.factory( 'subComponentService', [
 			setComponent_Lvl1 : function ( str ) {
 				Component_Lvl1 = str;
 			},
-
 			getComponent_Lvl1 : function () {
 				return Component_Lvl1;
 			}

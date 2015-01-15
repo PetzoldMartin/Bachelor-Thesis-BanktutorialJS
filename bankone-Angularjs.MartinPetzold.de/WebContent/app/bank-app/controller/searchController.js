@@ -14,7 +14,6 @@ BankappSearch.factory( 'searchService', function () {
 		setSearchColumn : function ( str ) {
 			searchColumn = str;
 		},
-
 		getSearchColumn : function () {
 			return searchColumn;
 		},

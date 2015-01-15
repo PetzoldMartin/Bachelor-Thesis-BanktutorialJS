@@ -87,18 +87,14 @@ BankappMainview.controller( 'sidebarCtrl', [
 				topic.clicked = true;
 				mainPageService.setData( topic );
 				BreadcrumbService.setBreadcrumbLvl1( topic );
-
 				return topic.class = "list-group-item active";
-
 			};
 			mainPageService.setData( $scope.topics[ 0 ] );
 			BreadcrumbService.setBreadcrumbLvl1( $scope.topics[ 0 ] );
-
 			$scope.$watch( function () {
 				return mainPageService.getTopicid()
 			}, function ( newValue, oldValue ) {
 				$scope.click( $scope.topics[ mainPageService.getTopicid() - 1 ], true )
-
 			} )
 		}
 ] );
@@ -120,13 +116,10 @@ BankappMainview.controller( 'searchCtrl', [
 				if ( searchService.getSearchColumn() == "" && $scope.clicked ) {
 					return $scope.search = ""
 				}
-
 			} );
-
 			$scope.$watch( 'search', function ( newValue, oldValue ) {
 				searchService.setSearchColumn( $scope.search );
 			} );
-
 		}
 ] );
 
@@ -156,7 +149,9 @@ BankappMainview.controller( 'subpageComponentCtrl', [
 			$scope.$watch( function () {
 				return $scope.topic = mainPageService.getData();
 			} );
+			
 		}
+		
 ] );
 
 BankappMainview.factory( 'mainPageService', function () {
@@ -167,7 +162,6 @@ BankappMainview.factory( 'mainPageService', function () {
 			data = str;
 			topicid = str.id;
 		},
-
 		getData : function () {
 			return data;
 		},

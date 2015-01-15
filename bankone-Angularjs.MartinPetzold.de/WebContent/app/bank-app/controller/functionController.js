@@ -21,7 +21,6 @@ BankappFunctions.factory( 'arreyspliceByObjectId', function () {
 				if ( !toSplice ) {
 					newArrey.push( spliceObject )
 				}
-
 			} )
 			return newArrey;
 		}else{
