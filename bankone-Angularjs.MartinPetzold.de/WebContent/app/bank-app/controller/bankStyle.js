@@ -62,4 +62,7 @@ BankappStyle.controller('bankStyles',['$scope', function($scope) {
 		$scope.bigbuttonStyle={'height':'13.2vw','width':'13.2vw',
 				'margin' : '30px','margin-left' : '-15px'}
 		$scope.bigbuttonClass="col-xs-6 col-sm-5 col-md-4 col-lg-4"
+		$scope.tempStyle={"value" : ""}
+		$scope.tempClass={"value" : ""}
+
 }])

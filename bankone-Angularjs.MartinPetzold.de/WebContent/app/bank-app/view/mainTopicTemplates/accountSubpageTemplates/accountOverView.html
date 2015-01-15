@@ -15,8 +15,14 @@
 						<span>Account Hinzuf&uuml;gen</span>
 					</div>
 				</div>
+				<div ng-if="!hasSub" >
+				{{tempClass.value=tileClass;""}}
+				</div>
+				<div ng-if="hasSub" >
+				{{tempClass.value=tileAlternateClass;""}}
+				</div>
 				<div ng-repeat="account in accounts | orderBy:orderProp | filter:query" ng-click="click(account.id)">
-					<div ng-if="!hasSub" ng-class="tileClass">
+					<div ng-class="tempClass.value">
 						<div class="btn btn-default" ng-style="tileStyle">
 							<span>Balance: {{account.balance}}</span>
 							<p>id: {{account.id}}</p>
@@ -27,17 +33,7 @@
 							
 						</div>
 					</div>
-					<div ng-if="hasSub" ng-class="tileAlternateClass">
-						<div class="btn btn-default" ng-style="tileStyle">
-							<span>Balance: {{account.balance}}</span>
-							<p>id: {{account.id}}</p>
-							<p ng-if="account.accountType=='CheckingAccount'">Type: Girokonto</p>
-							<p ng-if="account.accountType=='SavingsAccount'">Type: Sparkonto</p>
-							<p ng-if="account.accountType=='FlexibleSavingsAccount'">Type: TagesgeldKonto</p>
-							
-							
-						</div>
-					</div>
+					
 				</div>
 			</div>
 		</div>

@@ -58,7 +58,7 @@ BankappTransfer.controller( 'transferType', [
 		'$scope', '$http', 'subComponentService', 'BreadcrumbService', 'searchService', function ( $scope, $http, subComponentService, BreadcrumbService, searchService ) {
 			$scope.hasSub=true
 
-			$scope.transferway = "transfer";
+			$scope.transferway = "";
 			$scope.tempids = searchService.getAccountIds();
 			$scope.filter = [];
 
