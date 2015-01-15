@@ -1,34 +1,25 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-
 <html ng-app="bankapp.customerview">
 <div ng-class="transfertemplClass">
-
 	<div ng-style="lStyle" class="input-group">
-		<span ng-style="outputStyle" class="input-group-addon"><span
-			ng-style="rStyle">ID <span></span>:
+		<span ng-style="outputStyle" class="input-group-addon"><span ng-style="rStyle">ID <span></span>:
 		</span> </span>
 		<p ng-style="outputStyle" class="form-control" placeholder="0">{{accountTwo.id}}</p>
 	</div>
 	<div ng-style="lStyle" class="input-group">
-		<span ng-style="outputStyle" class="input-group-addon"><span
-			ng-style="rStyle">Betrag <span></span>:
+		<span ng-style="outputStyle" class="input-group-addon"><span ng-style="rStyle">Betrag <span></span>:
 		</span> </span>
 		<p ng-style="outputStyle" class="form-control" placeholder="0">{{accountTwo.balance}}</p>
 	</div>
 	<div ng-style="lStyle" class="input-group">
-		<span ng-style="outputStyle" class="input-group-addon"><span
-			ng-style="rStyle">Type <span></span>:
+		<span ng-style="outputStyle" class="input-group-addon"><span ng-style="rStyle">Type <span></span>:
 		</span> </span>
-		<p ng-if="accountTwo.accountType=='CheckingAccount'"
-			ng-style="outputStyle" class="form-control" placeholder="0">Girokonto</p>
-		<p ng-if="accountTwo.accountType=='SavingsAccount'"
-			ng-style="outputStyle" class="form-control" placeholder="0">Sparkonto</p>
-		<p ng-if="accountTwo.accountType=='FlexibleSavingsAccount'"
-			ng-style="outputStyle" class="form-control" placeholder="0">
+		<p ng-if="accountTwo.accountType=='CheckingAccount'" ng-style="outputStyle" class="form-control" placeholder="0">Girokonto</p>
+		<p ng-if="accountTwo.accountType=='SavingsAccount'" ng-style="outputStyle" class="form-control" placeholder="0">Sparkonto</p>
+		<p ng-if="accountTwo.accountType=='FlexibleSavingsAccount'" ng-style="outputStyle" class="form-control" placeholder="0">
 			TagesgeldKonto</p>
 	</div>
-
 	<button ng-if="accChoosen" ng-click="accoverview()">AccountÜbersicht</button>
 </div>
 </html>

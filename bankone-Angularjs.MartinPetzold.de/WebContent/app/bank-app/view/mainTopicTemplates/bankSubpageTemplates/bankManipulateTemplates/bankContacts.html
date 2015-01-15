@@ -5,8 +5,7 @@
 <div class="controllClass">
 	<h3>
 		Filialen
-		<hr
-			ng-style="headerUnderlineStyle">
+		<hr ng-style="headerUnderlineStyle">
 	</h3>
 	<div ng-repeat="contact in bank.contacts">
 		<div ng-class="contactClass">
@@ -16,21 +15,17 @@
 						<span ng-click="deleteContact($index)" class="glyphicon glyphicon-trash" ng-style="nio"></span>
 					</button>
 				</th>
-				<td ng-include="'mainTopicTemplates/bankSubpageTemplates/bankManipulateTemplates/contactRow.html'">
-				</td>
-				
+				<td ng-include="'mainTopicTemplates/bankSubpageTemplates/bankManipulateTemplates/contactRow.html'"></td>
+
 			</table>
 		</div>
 	</div>
-	<table >
-	<th ng-style="contactAlignClass">
-	<button ng-click="triggerAddNew()">
-		<span class="glyphicon glyphicon-plus" ng-style="ok"></span>
-	</button>
-	
-	</th>	
-		</table>
-
-
+	<table>
+		<th ng-style="contactAlignClass">
+			<button ng-click="triggerAddNew()">
+				<span class="glyphicon glyphicon-plus" ng-style="ok"></span>
+			</button>
+		</th>
+	</table>
 </div>
 </html>

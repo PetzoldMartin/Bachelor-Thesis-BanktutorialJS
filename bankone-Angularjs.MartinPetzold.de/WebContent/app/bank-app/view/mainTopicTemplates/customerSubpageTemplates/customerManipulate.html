@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-
 <html ng-app="bankapp.customerview">
 <head>
 <title>Insert title here</title>
@@ -13,24 +12,16 @@
 					<colgroup></colgroup>
 					<tr ng-style="{'vertical-align': 'top'}">
 						<td>
-							<div
-								ng-include="'mainTopicTemplates/customerSubpageTemplates/customerManipulateTemplates/customerInAndOut.html'"></div>
-							<div
-								ng-include="'mainTopicTemplates/customerSubpageTemplates/customerManipulateTemplates/customerContact.html'"></div>
+							<div ng-include="'mainTopicTemplates/customerSubpageTemplates/customerManipulateTemplates/customerInAndOut.html'"></div>
+							<div ng-include="'mainTopicTemplates/customerSubpageTemplates/customerManipulateTemplates/customerContact.html'"></div>
 						</td>
 						<td width="65%">
-						
-						<button class="panel panel-success" ng-style="{'width': '78.5%','height':'40px'}" ng-if="acd" ng-click="accback()">Accountübersicht</button>
-							<div ng-include='accountByCustomer'>
-							</div>
-						
+							<button class="panel panel-success" ng-style="{'width': '78.5%','height':'40px'}" ng-if="acd" ng-click="accback()">Accountübersicht</button>
+							<div ng-include='accountByCustomer'></div>
 						</td>
-						
 					</tr>
 				</table>
-
-				<div
-					ng-include="'mainTopicTemplates/customerSubpageTemplates/customerManipulateTemplates/customerControl.html'"></div>
+				<div ng-include="'mainTopicTemplates/customerSubpageTemplates/customerManipulateTemplates/customerControl.html'"></div>
 			</div>
 		</div>
 	</div>

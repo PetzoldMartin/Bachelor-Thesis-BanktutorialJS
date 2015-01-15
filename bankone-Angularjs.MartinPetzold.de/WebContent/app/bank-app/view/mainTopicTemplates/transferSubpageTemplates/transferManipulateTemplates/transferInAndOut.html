@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html ng-app="bankapp.transfer">
 <meta charset="utf-8">
-
 <div ng-class="manipulateTemplateClass">
-
 	<h2>Transferoptionen</h2>
 	<hr ng-style="headerUnderlineStyle">
 	<div class="row">
 		<div ng-class="bigbuttonClass" ng-click="settype('withdraw')">
 			<div class="btn btn-default" ng-style="bigbuttonStyle">
-				<span ng-style="bigGlyphStyle"
-					class="glyphicon glyphicon-circle-arrow-down"></span>
+				<span ng-style="bigGlyphStyle" class="glyphicon glyphicon-circle-arrow-down"></span>
 			</div>
 		</div>
 		<div ng-class="bigbuttonClass" ng-click="settype('deposit')">
 			<div class="btn btn-default" ng-style="bigbuttonStyle">
-				<span ng-style="bigGlyphStyle"
-					class="glyphicon glyphicon-circle-arrow-up"></span>
+				<span ng-style="bigGlyphStyle" class="glyphicon glyphicon-circle-arrow-up"></span>
 			</div>
 		</div>
 		<div ng-class="bigbuttonClass" ng-click="settype('transfer')">
@@ -28,26 +24,19 @@
 	<h2 ng-if="transferway=='transfer'">Überweisung</h2>
 	<h2 ng-if="transferway=='withdraw'">Abheben</h2>
 	<h2 ng-if="transferway=='deposit'">Einzahlen</h2>
-
 	<hr ng-style="headerUnderlineStyle">
-
 	<div ng-style="rStyle" class="input-group">
-		<span ng-style="outputStyle" class="input-group-addon"><span
-			ng-style="rStyle">Kontonummer : </span> </span>
+		<span ng-style="outputStyle" class="input-group-addon"><span ng-style="rStyle">Kontonummer : </span> </span>
 		<p ng-style="outputStyle" class="form-control" placeholder="0">{{account.id}}</p>
 	</div>
 	<div ng-style="rStyle" class="input-group">
-		<span ng-style="outputStyle" class="input-group-addon"><span
-			ng-style="rStyle">Guthaben : </span> </span>
+		<span ng-style="outputStyle" class="input-group-addon"><span ng-style="rStyle">Guthaben : </span> </span>
 		<p ng-style="outputStyle" class="form-control" placeholder="0">{{account.balance}}</p>
 	</div>
 	<div ng-style="rStyle" class="input-group">
-		<span ng-style="outputStyle" class="input-group-addon"><span
-			ng-style="rStyle">Betrag <span
+		<span ng-style="outputStyle" class="input-group-addon"><span ng-style="rStyle">Betrag <span
 				class="glyphicon glyphicon-asterisk" ng-style="nio"></span>:
-		</span> </span> <input ng-style="outputStyle" class="form-control" placeholder="0"
-			ng-model="ammount.value">
-
+		</span> </span> <input ng-style="outputStyle" class="form-control" placeholder="0" ng-model="ammount.value">
 	</div>
 </div>
 </html>

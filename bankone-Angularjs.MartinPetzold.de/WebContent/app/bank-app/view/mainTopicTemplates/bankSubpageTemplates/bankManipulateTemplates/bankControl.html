@@ -3,14 +3,9 @@
 
 <html ng-app="bankapp.bankview">
 <div ng-class="controllClass">
-	
-		<hr
-			ng-style="headerUnderlineStyle">
+	<hr ng-style="headerUnderlineStyle">
 	<button ng-click="saveBank()">Speichern</button>
 	<button ng-click="setSubComponentLvl2()">Abrechen</button>
 	<button ng-if="(iddata.id) != 'undefined'" ng-click="deleteBank()">Löschen</button>
-	
-
-
 </div>
 </html>

@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-
 <html ng-app="bankapp.customerview">
 <head>
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="container-fluid" >
+	<div class="container-fluid">
 		<div ng-controller="customerListCtrl">
 			<div class="row">
 				<div ng-if="newAvaible" ng-class="tileClass" ng-click="click('undefined')">
-					<div  class="btn btn-default" ng-style="tileStyle">
-						<span>Kunde Hinzufügen
-						</span>
+					<div class="btn btn-default" ng-style="tileStyle">
+						<span>Kunde Hinzufügen </span>
 					</div>
 				</div>
 				<div ng-repeat="customer in customers | orderBy:orderProp | filter:query" ng-click="click(customer.id,'customer')">

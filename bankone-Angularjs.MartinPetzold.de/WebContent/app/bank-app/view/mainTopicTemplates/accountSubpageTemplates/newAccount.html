@@ -8,26 +8,21 @@
 <body>
 	<div ng-controller="accountMakeCtrl">
 		<h2>Wähle den Kunden</h2>
-		<hr
-			ng-style="headerUnderlineStyle">
+		<hr ng-style="headerUnderlineStyle">
 		<div ng-include="customer"></div>
-				<h2>Wähle die Bank</h2>
-		
-		<hr
-			ng-style="headerUnderlineStyle">
+		<h2>Wähle die Bank</h2>
+
+		<hr ng-style="headerUnderlineStyle">
 
 		<div ng-include="bank"></div>
-				<h2>Wähle den Kontotyp</h2>
-		
-		<hr
-			ng-style="headerUnderlineStyle">
+		<h2>Wähle den Kontotyp</h2>
+
+		<hr ng-style="headerUnderlineStyle">
 		<div class="container-fluid">
 			<div class="row">
-				<div ng-repeat="type in accountType | filter:typeQuery:true" 
-					ng-click="set(type)">
+				<div ng-repeat="type in accountType | filter:typeQuery:true" ng-click="set(type)">
 					<div ng-class="tileClass">
-						<div " class="btn btn-default"
-							ng-style="tileStyle">
+						<div " class="btn btn-default" ng-style="tileStyle">
 							<p ng-if="type=='CheckingAccount'">Girokonto</p>
 							<p ng-if="type=='SavingsAccount'">Sparkonto</p>
 							<p ng-if="type=='FlexibleSavingsAccount'">TagesgeldKonto</p>
@@ -37,8 +32,7 @@
 				</div>
 			</div>
 		</div>
-		<hr
-			ng-style="headerUnderlineStyle">
+		<hr ng-style="headerUnderlineStyle">
 		<button ng-click="newacc()">save</button>
 	</div>
 </body>

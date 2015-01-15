@@ -4,80 +4,59 @@
 <div ng-class="inAndOutClass">
 	<h3>
 		Allgemeine Daten
-		<hr
-			ng-style="headerUnderlineStyle">
+		<hr ng-style="headerUnderlineStyle">
 	</h3>
-
 	<div ng-style="rStyle" class="input-group">
-		<span ng-style="outputGroupStyle" class="input-group-addon"><span
-			ng-style="rStyle">Kontonummer :</span>
-		</span> <p ng-style="outputStyle" class="form-control" placeholder="0" >{{account.id}}</p>
+		<span ng-style="outputGroupStyle" class="input-group-addon"><span ng-style="rStyle">Kontonummer :</span> </span>
+		<p ng-style="outputStyle" class="form-control" placeholder="0">{{account.id}}</p>
 	</div>
-
 	<div ng-style="rStyle" class="input-group">
-		<span ng-style="outputGroupStyle" class="input-group-addon"><span
-			ng-style="rStyle">KontoTyp :
-		</span> </span> 
+		<span ng-style="outputGroupStyle" class="input-group-addon"><span ng-style="rStyle">KontoTyp : </span> </span>
 		<p ng-style="outputStyle" class="form-control" ng-if="account.accountType=='CheckingAccount'">Girokonto</p>
 		<p ng-style="outputStyle" class="form-control" ng-if="account.accountType=='SavingsAccount'">Sparkonto</p>
 		<p ng-style="outputStyle" class="form-control" ng-if="account.accountType=='FlexibleSavingsAccount'">TagesgeldKonto</p>
-		
 	</div>
-
-	
 	<div ng-style="rStyle" class="input-group">
-		<span ng-style="outputGroupStyle" class="input-group-addon"><span
-			ng-style="rStyle">Zinsrate :</span>
-		</span> <p ng-style="outputStyle" class="form-control" placeholder="0" >{{account.interestRate}}%</p>
+		<span ng-style="outputGroupStyle" class="input-group-addon"><span ng-style="rStyle">Zinsrate :</span> </span>
+		<p ng-style="outputStyle" class="form-control" placeholder="0">{{account.interestRate}}%</p>
 	</div>
-	
-	
 	<div ng-style="rStyle" class="input-group">
-		<span ng-style="outputGroupStyle" class="input-group-addon"><span
-			ng-style="rStyle">Zinsdauer :</span>
-		</span> <p ng-style="outputStyle" class="form-control" placeholder="0" >{{account.interestPeriod}} Sekunden</p>
+		<span ng-style="outputGroupStyle" class="input-group-addon"><span ng-style="rStyle">Zinsdauer :</span> </span>
+		<p ng-style="outputStyle" class="form-control" placeholder="0">{{account.interestPeriod}} Sekunden</p>
 	</div>
-	<button ng-style="inputButtonStyle" class="panel panel-success"  ng-click="accountTransfer()">
+	<button ng-style="inputButtonStyle" class="panel panel-success" ng-click="accountTransfer()">
 		<div ng-style="inputButtonmarginStyle" class="panel-body">Geldtransfer ausführen</div>
 	</button>
-	
 	<h3 ng-style="headerSpaceStyle">
 		Kontoführende Bank
-		<hr
-			ng-style="headerUnderlineStyle">
+		<hr ng-style="headerUnderlineStyle">
 	</h3>
 	<div ng-style="rStyle" class="input-group">
-		<span ng-style="outputGroupStyle" class="input-group-addon"><span
-			ng-style="rStyle">Name der Bank :</span>
-		</span> <p ng-style="outputStyle" class="form-control" placeholder="0" >{{account.bank.name}}</p>
+		<span ng-style="outputGroupStyle" class="input-group-addon"><span ng-style="rStyle">Name der Bank :</span> </span>
+		<p ng-style="outputStyle" class="form-control" placeholder="name">{{account.bank.name}}</p>
 	</div>
 	<div ng-style="rStyle" class="input-group">
-		<span ng-style="outputGroupStyle" class="input-group-addon"><span
-			ng-style="rStyle">Bankleitzahl :</span>
-		</span> <p ng-style="outputStyle" class="form-control" placeholder="0" >{{account.bank.sortCode}}</p>
+		<span ng-style="outputGroupStyle" class="input-group-addon"><span ng-style="rStyle">Bankleitzahl :</span> </span>
+		<p ng-style="outputStyle" class="form-control" placeholder="BLZ">{{account.bank.sortCode}}</p>
 	</div>
-	<button ng-style="inputButtonStyle" class="panel panel-success"  ng-click="showBankByAccount()">
+	<button ng-style="inputButtonStyle" class="panel panel-success" ng-click="showBankByAccount()">
 		<div ng-style="inputButtonmarginStyle" class="panel-body">Zur Bank-Seite</div>
 	</button>
-	
 	<h3 ng-style="headerSpaceStyle">
-	<h3>
-		Kontobesitzer
-		<hr
-			ng-style="headerUnderlineStyle">
-	</h3>
-	<div ng-style="rStyle" class="input-group">
-		<span ng-style="outputGroupStyle" class="input-group-addon"><span
-			ng-style="rStyle">Vorname :</span>
-		</span> <p ng-style="outputStyle" class="form-control" placeholder="0" >{{account.owner.firstname}}</p>
-	</div>
-	<div ng-style="rStyle" class="input-group">
-		<span ng-style="outputGroupStyle" class="input-group-addon"><span
-			ng-style="rStyle">Nachname :</span>
-		</span> <p ng-style="outputStyle" class="form-control" placeholder="0" >{{account.owner.surname}}</p>
-	</div>
-	<button ng-style="inputButtonStyle" class="panel panel-success"  ng-click="showCustomerByAccount()">
-		<div ng-style="inputButtonmarginStyle" class="panel-body">Zur Kunden-Seite</div>
-	</button>
+		<h3>
+			Kontobesitzer
+			<hr ng-style="headerUnderlineStyle">
+		</h3>
+		<div ng-style="rStyle" class="input-group">
+			<span ng-style="outputGroupStyle" class="input-group-addon"><span ng-style="rStyle">Vorname :</span> </span>
+			<p ng-style="outputStyle" class="form-control" placeholder="Vorname">{{account.owner.firstname}}</p>
+		</div>
+		<div ng-style="rStyle" class="input-group">
+			<span ng-style="outputGroupStyle" class="input-group-addon"><span ng-style="rStyle">Nachname :</span> </span>
+			<p ng-style="outputStyle" class="form-control" placeholder="Nachname">{{account.owner.surname}}</p>
+		</div>
+		<button ng-style="inputButtonStyle" class="panel panel-success" ng-click="showCustomerByAccount()">
+			<div ng-style="inputButtonmarginStyle" class="panel-body">Zur Kunden-Seite</div>
+		</button>
 </div>
 </html>

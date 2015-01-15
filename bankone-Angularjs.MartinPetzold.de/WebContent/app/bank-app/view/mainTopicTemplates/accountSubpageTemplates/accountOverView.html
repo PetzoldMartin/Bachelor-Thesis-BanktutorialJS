@@ -1,26 +1,20 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-
 <html ng-app="bankapp.accountview">
 <head>
-
 <title>Insert title here</title>
 </head>
 <body>
-<div class="container-fluid" >
+	<div class="container-fluid">
 		<div ng-controller="accountListCtrl">
 			<div class="row">
 				<div ng-if="newAvaible" ng-class="tileClass" ng-click="click('undefined')">
-					<div  class="btn btn-default" ng-style="tileStyle">
+					<div class="btn btn-default" ng-style="tileStyle">
 						<span>Account Hinzuf&uuml;gen</span>
 					</div>
 				</div>
-				<div ng-if="!hasSub" >
-				{{tempClass.value=tileClass;""}}
-				</div>
-				<div ng-if="hasSub" >
-				{{tempClass.value=tileAlternateClass;""}}
-				</div>
+				<div ng-if="!hasSub">{{tempClass.value=tileClass;""}}</div>
+				<div ng-if="hasSub">{{tempClass.value=tileAlternateClass;""}}</div>
 				<div ng-repeat="account in accounts | orderBy:orderProp | filter:query" ng-click="click(account.id)">
 					<div ng-class="tempClass.value">
 						<div class="btn btn-default" ng-style="tileStyle">
@@ -29,11 +23,9 @@
 							<p ng-if="account.accountType=='CheckingAccount'">Type: Girokonto</p>
 							<p ng-if="account.accountType=='SavingsAccount'">Type: Sparkonto</p>
 							<p ng-if="account.accountType=='FlexibleSavingsAccount'">Type: TagesgeldKonto</p>
-							
-							
 						</div>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>

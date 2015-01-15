@@ -6,29 +6,30 @@
 <div ng-class="statementTemplateClass">
 	<h3>
 		Kontoauszüge
-		<hr
-			ng-style="headerUnderlineStyle">
+		<hr ng-style="headerUnderlineStyle">
 	</h3>
 	<div ng-repeat="x in account.statements | limitTo: -10" ng-init="addition(x.content)">
-		<div class="alert alert-success" ng-if="x.content > 0"
-			ng-style="statementBoxstyle">
-			<div ng-style="statementOutputStyle">{{x.date
-				| date:'dd.MM.yyyy - HH:mm :'}}<tab ng-style="statementTextStyle" > <<<+{{x.content}}(Einzahlung)</div>
-				
+		<div class="alert alert-success" ng-if="x.content > 0" ng-style="statementBoxstyle">
+			<div ng-style="statementOutputStyle">
+				{{x.date | date:'dd.MM.yyyy - HH:mm :'}}
+				<tab ng-style="statementTextStyle"> <<<+{{x.content}}(Einzahlung)
+			</div>
+
 		</div>
-		<div class="alert alert-danger" ng-if="x.content < 0"
-			ng-style="statementBoxstyle">
-			<div ng-style="statementOutputStyle">{{x.date
-				| date:'dd.MM.yyyy - HH:mm :'}}<tab ng-style="statementTextStyle" > >>>{{x.content}}(Auszahlung)</div>
+		<div class="alert alert-danger" ng-if="x.content < 0" ng-style="statementBoxstyle">
+			<div ng-style="statementOutputStyle">
+				{{x.date | date:'dd.MM.yyyy - HH:mm :'}}
+				<tab ng-style="statementTextStyle"> >>>{{x.content}}(Auszahlung)
+			</div>
 		</div>
 	</div>
-	<hr
-		ng-style="headerUnderlineStyle">
-		<div ng-style="statementSumStyle">Guthaben<tab ng-style="statementSumTab1Style" > : <tab ng-style="statementSumTab2Style" > {{account.balance | number}}€
-		</div>
-	<hr
-		ng-style="headerUnderlineThinStyle">
-	<hr
-		ng-style="headerUnderlineThinStyle">
+	<hr ng-style="headerUnderlineStyle">
+	<div ng-style="statementSumStyle">
+		Guthaben
+		<tab ng-style="statementSumTab1Style"> : <tab ng-style="statementSumTab2Style"> {{account.balance |
+		number}}€ 
+	</div>
+	<hr ng-style="headerUnderlineThinStyle">
+	<hr ng-style="headerUnderlineThinStyle">
 </div>
 </html>
