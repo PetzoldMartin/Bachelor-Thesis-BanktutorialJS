@@ -174,6 +174,8 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 				} ).success( function () {
 					$scope.setSubComponentLvl2()
 					alert("Kunde gelöscht")
+				} ).error( function ( data, status, headers, config ) {
+					alert("Kunde wird noch von einer Bank genutzt")
 				} )
 			}
 		}

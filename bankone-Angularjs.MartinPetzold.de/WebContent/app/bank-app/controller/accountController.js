@@ -155,11 +155,10 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 				$scope.typeQuery = type
 			}
 			$scope.newacc = function () {
-				if ( $scope.typeQuery == "CheckingAccount" ) {
 					$http( {
 						withCredentials : false,
 						method : 'post',
-						url : '../../../../bankone/rest/abstractAccountREST/CheckingAccount',
+						url : '../../../../bankone/rest/abstractAccountREST/'+$scope.typeQuery,
 						data : $scope.newAccount
 
 					} ).success( function () {
@@ -167,40 +166,10 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 						subComponentService.setComponent_Lvl1( BreadcrumbService.getBreadcrumbLvl2() );
 						BreadcrumbService.setBreadcrumbLvl3( "" );
 						BreadcrumbService.setBreadcrumbLvl4( "" );
+					} ).error( function ( data, status, headers, config ) {
+						alert("eine Auswahl nicht getroffen")
 					} )
-				} else {
-					if ( $scope.typeQuery == "SavingsAccount" ) {
-						$http( {
-							withCredentials : false,
-							method : 'post',
-							url : '../../../../bankone/rest/abstractAccountREST/SavingsAccount',
-							data : $scope.newAccount
-
-						} ).success( function () {
-							$scope.autoregisterCustomerAtBank( $scope.newAccount.bank.id, $scope.newAccount.owner.id );
-							subComponentService.setComponent_Lvl1( BreadcrumbService.getBreadcrumbLvl2() );
-							BreadcrumbService.setBreadcrumbLvl3( "" );
-							BreadcrumbService.setBreadcrumbLvl4( "" );
-						} )
-					} else {
-						if ( $scope.typeQuery == "FlexibleSavingsAccount" ) {
-							$http( {
-								withCredentials : false,
-								method : 'post',
-								url : '../../../../bankone/rest/abstractAccountREST/FlexibleSavingsAccount',
-								data : $scope.newAccount
-
-							} ).success( function () {
-								$scope.autoregisterCustomerAtBank( $scope.newAccount.bank.id, $scope.newAccount.owner.id );
-								subComponentService.setComponent_Lvl1( BreadcrumbService.getBreadcrumbLvl2() );
-								BreadcrumbService.setBreadcrumbLvl3( "" );
-								BreadcrumbService.setBreadcrumbLvl4( "" );
-							} )
-						} else {
-							alert( "kein Accounttype Gewählt" )
-						}
-					}
-				}
+				
 			}
 
 			$scope.click = function ( bid, kind ) {
@@ -241,7 +210,7 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 						$http.get( '../../../../bankone/rest/customerREST' + '/' + customerid ).success( function ( data ) {
 							$scope.customer = data;
 
-							$scope.bank.customers.push( customer )
+							$scope.bank.customers.push( $scope.customer )
 							$http( {
 								withCredentials : false,
 								method : 'put',

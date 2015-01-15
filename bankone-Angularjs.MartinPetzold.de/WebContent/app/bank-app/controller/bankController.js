@@ -182,6 +182,8 @@ BankappBankview.controller( 'bankviewCtrl', [
 				} ).success( function () {
 					$scope.setSubComponentLvl2()
 					alert("Bank wurde gelöscht")
+				} ).error( function ( data, status, headers, config ) {
+					alert("Die Bank hat noch Registrierte Konten")
 				} )
 			}
 			$scope.showCustomerByBank = function () {
