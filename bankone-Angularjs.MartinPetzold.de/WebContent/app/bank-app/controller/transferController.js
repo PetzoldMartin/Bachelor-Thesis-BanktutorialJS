@@ -53,11 +53,11 @@ BankappTransfer.controller( 'transferType', [
 			$scope.tempids = searchService.getAccountIds();
 			$scope.filter = [];
 			// better filter
-			$http.get( 'http://localhost:8080/bankone/rest/abstractAccountREST' + '/' + subComponentService.getComponent_Lvl1().id ).success( function ( data ) {
+			$http.get( '../../../../bankone/rest/abstractAccountREST' + '/' + subComponentService.getComponent_Lvl1().id ).success( function ( data ) {
 				$scope.account = data;
 				$scope.status = true;
 				{
-					$http.get( 'http://localhost:8080/bankone/rest/abstractAccountREST' ).success( function ( data ) {
+					$http.get( '../../../../bankone/rest/abstractAccountREST' ).success( function ( data ) {
 						$scope.accov = data;
 						$scope.status = true;
 					} ).success( function () {
@@ -99,7 +99,7 @@ BankappTransfer.controller( 'transferType', [
 			$scope.click = function ( id ) {
 				$scope.accChoosen = true;
 				$scope.accountto = 'mainTopicTemplates/transferSubpageTemplates/transferManipulateTemplates/ChoosenAcc.html';
-				$http.get( 'http://localhost:8080/bankone/rest/abstractAccountREST' + '/' + id ).success( function ( data ) {
+				$http.get( '../../../../bankone/rest/abstractAccountREST' + '/' + id ).success( function ( data ) {
 					$scope.accountTwo = data;
 					$scope.status = true;
 				} ).error( function ( data, status, headers, config ) {
@@ -122,7 +122,7 @@ BankappTransfer.controller( 'transferType', [
 					$http( {
 						withCredentials : false,
 						method : 'put',
-						url : 'http://localhost:8080/bankone/rest/abstractAccountREST/CheckingAccount',
+						url : '../../../../bankone/rest/abstractAccountREST/CheckingAccount',
 						data : updaccount
 
 					} )
@@ -131,7 +131,7 @@ BankappTransfer.controller( 'transferType', [
 						$http( {
 							withCredentials : false,
 							method : 'put',
-							url : 'http://localhost:8080/bankone/rest/abstractAccountREST/SavingsAccount',
+							url : '../../../../bankone/rest/abstractAccountREST/SavingsAccount',
 							data : updaccount
 
 						} )
@@ -140,7 +140,7 @@ BankappTransfer.controller( 'transferType', [
 							$http( {
 								withCredentials : false,
 								method : 'put',
-								url : 'http://localhost:8080/bankone/rest/abstractAccountREST/FlexibleSavingsAccount',
+								url : '../../../../bankone/rest/abstractAccountREST/FlexibleSavingsAccount',
 								data : updaccount
 
 							} )

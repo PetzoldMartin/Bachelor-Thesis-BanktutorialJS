@@ -53,7 +53,7 @@ BankappAccountview.controller( 'accountListCtrl', [
 				return $scope.query = searchService.getSearchColumn()
 			} );
 			$scope.loadData = function () {
-				$http.get( 'http://localhost:8080/bankone/rest/abstractAccountREST' ).success( function ( data ) {
+				$http.get( '../../../../bankone/rest/abstractAccountREST' ).success( function ( data ) {
 					$scope.accounts = data;
 					$scope.newAvaible = true;
 					// Filter the data by Id's
@@ -76,8 +76,13 @@ BankappAccountview.controller( 'accountViewCtrl', [
 			$scope.iddata = subComponentService.getComponent_Lvl1();
 
 			// Load Function
-			$scope.loadData = function () {			
-						$http.get( 'http://localhost:8080/bankone/rest/abstractAccountREST' + '/' + $scope.iddata.id ).success( function ( data ) {
+			$scope.loadData = function () {	
+				if ( $scope.iddata.name == "Konto bearbeiten" ) {
+					$scope.nid=$scope.iddata.id
+				}else{
+					$scope.nid=BreadcrumbService.getBreadcrumbLvl4().id
+				}
+						$http.get( '../../../../bankone/rest/abstractAccountREST' + '/' + $scope.nid ).success( function ( data ) {
 							$scope.account = data;
 							$scope.status = true;
 						} ).error( function ( data, status, headers, config ) {
@@ -99,7 +104,7 @@ BankappAccountview.controller( 'accountViewCtrl', [
 				$http( {
 					withCredentials : false,
 					method : 'delete',
-					url : 'http://localhost:8080/bankone/rest/abstractAccountREST' + '/' + $scope.account.id,
+					url : '../../../../bankone/rest/abstractAccountREST' + '/' + $scope.account.id,
 
 				} ).success( function () {
 					$scope.setSubComponentLvl2()
@@ -154,7 +159,7 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 					$http( {
 						withCredentials : false,
 						method : 'post',
-						url : 'http://localhost:8080/bankone/rest/abstractAccountREST/CheckingAccount',
+						url : '../../../../bankone/rest/abstractAccountREST/CheckingAccount',
 						data : $scope.newAccount
 
 					} ).success( function () {
@@ -168,7 +173,7 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 						$http( {
 							withCredentials : false,
 							method : 'post',
-							url : 'http://localhost:8080/bankone/rest/abstractAccountREST/SavingsAccount',
+							url : '../../../../bankone/rest/abstractAccountREST/SavingsAccount',
 							data : $scope.newAccount
 
 						} ).success( function () {
@@ -182,7 +187,7 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 							$http( {
 								withCredentials : false,
 								method : 'post',
-								url : 'http://localhost:8080/bankone/rest/abstractAccountREST/FlexibleSavingsAccount',
+								url : '../../../../bankone/rest/abstractAccountREST/FlexibleSavingsAccount',
 								data : $scope.newAccount
 
 							} ).success( function () {
@@ -223,7 +228,7 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 			}
 			$scope.autoregisterCustomerAtBank = function ( bankid, customerid ) {
 
-				$http.get( 'http://localhost:8080/bankone/rest/bankREST' + '/' + bankid ).success( function ( data ) {
+				$http.get( '../../../../bankone/rest/bankREST' + '/' + bankid ).success( function ( data ) {
 					$scope.bank = data;
 					$scope.hit = false
 					angular.forEach( $scope.bank.customers, function ( c ) {
@@ -233,14 +238,14 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 					} )
 
 					if ( $scope.hit == false ) {
-						$http.get( 'http://localhost:8080/bankone/rest/customerREST' + '/' + customerid ).success( function ( data ) {
+						$http.get( '../../../../bankone/rest/customerREST' + '/' + customerid ).success( function ( data ) {
 							$scope.customer = data;
 
 							$scope.bank.customers.push( customer )
 							$http( {
 								withCredentials : false,
 								method : 'put',
-								url : 'http://localhost:8080/bankone/rest/bankREST',
+								url : '../../../../bankone/rest/bankREST',
 								data : $scope.bank
 
 							} )

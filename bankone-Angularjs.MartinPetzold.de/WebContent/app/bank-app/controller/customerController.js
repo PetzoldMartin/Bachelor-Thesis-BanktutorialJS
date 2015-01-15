@@ -46,7 +46,7 @@ BankappCustomerview.controller( 'customerListCtrl', [
 				return $scope.query = searchService.getSearchColumn()
 			} );
 			$scope.loadData = function () {
-				$http.get( 'http://localhost:8080/bankone/rest/customerREST' ).success( function ( data ) {
+				$http.get( '../../../../bankone/rest/customerREST' ).success( function ( data ) {
 					$scope.customers = data;
 					$scope.newAvaible = true;
 					// Filter the data by Id's
@@ -96,9 +96,9 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 				}
 			//Overide of the Click Method from customer for the account subview
 			$scope.click = function ( oid ) {
-				$scope.accountByCustomer='mainTopicTemplates/accountSubpageTemplates/accountManipulate.html'
-					manipulate.id = oid;
+				manipulate.id = oid;
 				BreadcrumbService.setBreadcrumbLvl4( manipulate );
+				$scope.accountByCustomer='mainTopicTemplates/accountSubpageTemplates/accountManipulate.html'	
 				$scope.acd=true;
 			}
 			$scope.accback = function () {
@@ -109,11 +109,11 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 			//Load Function
 			$scope.loadData = function () {
 				if ( ( $scope.iddata.id ) != "undefined" ) {					
-					$http.get( 'http://localhost:8080/bankone/rest/customerREST' + '/' + $scope.iddata.id ).success( function ( data ) {
+					$http.get( '../../../../bankone/rest/customerREST' + '/' + $scope.iddata.id ).success( function ( data ) {
 						$scope.customer = data;
 						$scope.status = true;						
 					} ).success(function(data, status, headers, config) {						
-						$http.get( 'http://localhost:8080/bankone/rest/abstractAccountREST/customer/' + $scope.iddata.id ).success( function ( data ) {
+						$http.get( '../../../../bankone/rest/abstractAccountREST/customer/' + $scope.iddata.id ).success( function ( data ) {
 							$scope.accounts = data;
 							angular.forEach( $scope.accounts, function ( a ) {
 								$scope.accountCount = $scope.accountCount + 1;
@@ -147,7 +147,7 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 					$http( {
 						withCredentials : false,
 						method : 'post',
-						url : 'http://localhost:8080/bankone/rest/customerREST',
+						url : '../../../../bankone/rest/customerREST',
 						data : $scope.customer
 					} ).success( function () {						
 						$scope.setSubComponentLvl2()
@@ -157,7 +157,7 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 					$http( {
 						withCredentials : false,
 						method : 'put',
-						url : 'http://localhost:8080/bankone/rest/customerREST',
+						url : '../../../../bankone/rest/customerREST',
 						data : $scope.customer
 					} ).success( function () {						
 						$scope.loadData();
@@ -170,7 +170,7 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 				$http( {
 					withCredentials : false,
 					method : 'delete',
-					url : 'http://localhost:8080/bankone/rest/customerREST' + '/' + $scope.customer.id,
+					url : '../../../../bankone/rest/customerREST' + '/' + $scope.customer.id,
 				} ).success( function () {
 					$scope.setSubComponentLvl2()
 					alert("Kunde gelöscht")

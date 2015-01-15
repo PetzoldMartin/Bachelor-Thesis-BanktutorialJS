@@ -45,7 +45,7 @@ BankappBankview.controller( 'bankListCtrl', [
 				return $scope.query = searchService.getSearchColumn()
 			} );
 			$scope.loadData = function () {
-				$http.get( 'http://localhost:8080/bankone/rest/bankREST' ).success( function ( data ) {
+				$http.get( '../../../../bankone/rest/bankREST' ).success( function ( data ) {
 					$scope.banks = data;
 					$scope.newAvaible = true;
 
@@ -101,14 +101,14 @@ BankappBankview.controller( 'bankviewCtrl', [
 			// Function for loading Showing Data
 			$scope.loadData = function () {
 				if ( ( $scope.iddata.id ) != "undefined" ) {
-					$http.get( 'http://localhost:8080/bankone/rest/bankREST' + '/' + $scope.iddata.id ).success( function ( data ) {
+					$http.get( '../../../../bankone/rest/bankREST' + '/' + $scope.iddata.id ).success( function ( data ) {
 						$scope.bank = data;
 						$scope.status = true;
 						angular.forEach( $scope.bank.customers, function ( c ) {
 							$scope.customerCount = $scope.customerCount + 1;
 							$scope.customerIds.push( c.id );
 						} );
-						$http.get( 'http://localhost:8080/bankone/rest/abstractAccountREST/bank/' + $scope.iddata.id ).success( function ( data ) {
+						$http.get( '../../../../bankone/rest/abstractAccountREST/bank/' + $scope.iddata.id ).success( function ( data ) {
 							$scope.accounts = data;
 							angular.forEach( $scope.accounts, function ( a ) {
 								$scope.accountCount = $scope.accountCount + 1;
@@ -139,7 +139,7 @@ BankappBankview.controller( 'bankviewCtrl', [
 					$http( {
 						withCredentials : false,
 						method : 'post',
-						url : 'http://localhost:8080/bankone/rest/bankREST',
+						url : '../../../../bankone/rest/bankREST',
 						data : {
 							name : $scope.bank.name,
 							sortCode : $scope.bank.sortCode,
@@ -154,7 +154,7 @@ BankappBankview.controller( 'bankviewCtrl', [
 					$http( {
 						withCredentials : false,
 						method : 'put',
-						url : 'http://localhost:8080/bankone/rest/bankREST',
+						url : '../../../../bankone/rest/bankREST',
 						data : {
 							id : $scope.bank.id,
 							name : $scope.bank.name,
@@ -177,7 +177,7 @@ BankappBankview.controller( 'bankviewCtrl', [
 				$http( {
 					withCredentials : false,
 					method : 'delete',
-					url : 'http://localhost:8080/bankone/rest/bankREST' + '/' + $scope.bank.id,
+					url : '../../../../bankone/rest/bankREST' + '/' + $scope.bank.id,
 
 				} ).success( function () {
 					$scope.setSubComponentLvl2()
