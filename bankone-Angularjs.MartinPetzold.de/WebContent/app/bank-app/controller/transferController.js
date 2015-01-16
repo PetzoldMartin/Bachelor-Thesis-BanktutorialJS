@@ -31,7 +31,6 @@ BankappTransfer.controller( 'transferComponentCtrl', [
 				BreadcrumbService.setBreadcrumbLvl3( manipulate );
 			}
 
-			
 		}
 ] );
 
@@ -48,7 +47,7 @@ BankappTransfer.controller( 'transferAccounts', [
 
 BankappTransfer.controller( 'transferType', [
 		'$scope', '$http', 'subComponentService', 'BreadcrumbService', 'searchService', function ( $scope, $http, subComponentService, BreadcrumbService, searchService ) {
-			$scope.hasSub=true
+			$scope.hasSub = true
 			$scope.transferway = "";
 			$scope.tempids = searchService.getAccountIds();
 			$scope.filter = [];
@@ -74,8 +73,8 @@ BankappTransfer.controller( 'transferType', [
 			} ).error( function ( data, status, headers, config ) {
 				$scope.status = false;
 			} );
-			
-			//$scope.exfilter()
+
+			// $scope.exfilter()
 			//
 			$scope.ammount = {
 				"value" : 0
@@ -85,16 +84,16 @@ BankappTransfer.controller( 'transferType', [
 			$scope.$watch( 'transferway', function () {
 				if ( $scope.transferway == "transfer" ) {
 					$scope.accountto = 'mainTopicTemplates/accountSubpageTemplates/accountOverView.html';
-					$scope.accChoosen=true;
+					$scope.accChoosen = true;
 				} else {
 					$scope.accountto = null;
-					$scope.accChoosen=false;
+					$scope.accChoosen = false;
 				}
 			} )
 
 			$scope.accoverview = function () {
 				$scope.accountto = 'mainTopicTemplates/accountSubpageTemplates/accountOverView.html';
-				$scope.accChoosen=true;
+				$scope.accChoosen = true;
 			}
 			$scope.click = function ( id ) {
 				$scope.accChoosen = true;
@@ -116,41 +115,21 @@ BankappTransfer.controller( 'transferType', [
 				BreadcrumbService.setBreadcrumbLvl3( "" );
 				BreadcrumbService.setBreadcrumbLvl4( "" );
 			}
-			//vereinfachen
+			
 			$scope.newacc = function ( type, updaccount ) {
-				if ( type == "CheckingAccount" ) {
-					$http( {
-						withCredentials : false,
-						method : 'put',
-						url : '../../../../bankone/rest/abstractAccountREST/CheckingAccount',
-						data : updaccount
+				$http( {
+					withCredentials : false,
+					method : 'put',
+					url : '../../../../bankone/rest/abstractAccountREST/' + type,
+					data : updaccount
 
-					} )
-				} else {
-					if ( type == "SavingsAccount" ) {
-						$http( {
-							withCredentials : false,
-							method : 'put',
-							url : '../../../../bankone/rest/abstractAccountREST/SavingsAccount',
-							data : updaccount
+				} )
 
-						} )
-					} else {
-						if ( type == "FlexibleSavingsAccount" ) {
-							$http( {
-								withCredentials : false,
-								method : 'put',
-								url : '../../../../bankone/rest/abstractAccountREST/FlexibleSavingsAccount',
-								data : updaccount
-
-							} )
-						} else {
-							alert( "kein Accounttype Gewählt" )
-						}
-					}
-				}
 			}
-			//vereinfachen renundanz
+			$scope.saveClean=function(){
+				
+			}
+			// vereinfachen renundanz
 			$scope.save = function () {
 				if ( $scope.transferway == "deposit" ) {
 					$scope.account.balance = parseFloat( $scope.account.balance ) + parseFloat( $scope.ammount.value );
@@ -160,7 +139,7 @@ BankappTransfer.controller( 'transferType', [
 					};
 					$scope.account.statements.push( $scope.newStatement );
 					$scope.newacc( $scope.account.accountType, $scope.account );
-					$scope.ammount.value=0;
+					$scope.ammount.value = 0;
 				}
 				if ( $scope.transferway == "withdraw" ) {
 					$scope.account.balance = parseFloat( $scope.account.balance ) - parseFloat( $scope.ammount.value )
@@ -170,29 +149,31 @@ BankappTransfer.controller( 'transferType', [
 					};
 					$scope.account.statements.push( $scope.newStatement );
 					$scope.newacc( $scope.account.accountType, $scope.account );
-					$scope.ammount.value=0;
+					$scope.ammount.value = 0;
 				}
+
 				if ( $scope.transferway == "transfer" ) {
-					if(!$scope.accountTwo){
-						alert("Kein Zielaccount ausgewählt");
-					}else{
-					$scope.account.balance = parseFloat( $scope.account.balance ) - parseFloat( $scope.ammount.value );
-					$scope.newStatement = {
+					if ( !$scope.accountTwo ) {
+						alert( "Kein Zielaccount ausgewählt" );
+					} else {
+						$scope.account.balance = parseFloat( $scope.account.balance ) - parseFloat( $scope.ammount.value );
+						$scope.newStatement = {
 							"date" : Date.now(),
 							"content" : -$scope.ammount.value
 
 						};
 						$scope.account.statements.push( $scope.newStatement );
 						$scope.newacc( $scope.account.accountType, $scope.account );
-					$scope.accountTwo.balance = parseFloat( $scope.accountTwo.balance ) + parseFloat( $scope.ammount.value );
-					$scope.newStatement = {
+						$scope.accountTwo.balance = parseFloat( $scope.accountTwo.balance ) + parseFloat( $scope.ammount.value );
+						$scope.newStatement = {
 							"date" : Date.now(),
 							"content" : $scope.ammount.value
 
 						};
 						$scope.accountTwo.statements.push( $scope.newStatement );
 						$scope.newacc( $scope.accountTwo.accountType, $scope.accountTwo );
-					$scope.ammount.value=0;}
+						$scope.ammount.value = 0;
+					}
 				}
 
 			}
