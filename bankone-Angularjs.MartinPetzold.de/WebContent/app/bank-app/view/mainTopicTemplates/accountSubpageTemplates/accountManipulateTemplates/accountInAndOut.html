@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <html ng-app="bankapp.customerview">
-<div ng-class="inAndOutClass">
+<div ng-if="!hasSub">{{tempClass.value=inAndOutClass;""}}</div>
+<div ng-if="hasSub">{{tempClass.value=controllClass;""}}</div>
+<div ng-class="tempClass.value">
 	<h3>
 		Allgemeine Daten
 		<hr ng-style="headerUnderlineStyle">
@@ -42,6 +44,7 @@
 	<button ng-style="inputButtonStyle" class="panel panel-success" ng-click="showBankByAccount()">
 		<div ng-style="inputButtonmarginStyle" class="panel-body">Zur Bank-Seite</div>
 	</button>
+	<div ng-if="!hasSub">
 	<h3 ng-style="headerSpaceStyle">
 		<h3>
 			Kontobesitzer
@@ -55,8 +58,9 @@
 			<span ng-style="outputGroupStyle" class="input-group-addon"><span ng-style="rStyle">Nachname :</span> </span>
 			<p ng-style="outputStyle" class="form-control" placeholder="Nachname">{{account.owner.surname}}</p>
 		</div>
-		<button ng-style="inputButtonStyle" class="panel panel-success" ng-click="showCustomerByAccount()">
+		<button  ng-style="inputButtonStyle" class="panel panel-success" ng-click="showCustomerByAccount()">
 			<div ng-style="inputButtonmarginStyle" class="panel-body">Zur Kunden-Seite</div>
 		</button>
+		</div>
 </div>
 </html>
