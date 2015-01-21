@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="52cm" height="29cm" viewBox="151 99 1040 572" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffdd88" x="179" y="114" width="117.8" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="179" y="114" width="117.8" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="237.9" y="133">Bank</text>
+    <rect style="fill: #ffdd88" x="179" y="142" width="117.8" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="179" y="142" width="117.8" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="182" y="156">-ID: bigInt</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="182" y="172">-name: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="182" y="188">-sortCode: int</text>
+    <rect style="fill: #ffdd88" x="179" y="194" width="117.8" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="179" y="194" width="117.8" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffdd88" x="519" y="114" width="164" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="519" y="114" width="164" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="601" y="133">Contact</text>
+    <rect style="fill: #ffdd88" x="519" y="142" width="164" height="84"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="519" y="142" width="164" height="84"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="522" y="156">-ID: bigInt</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="522" y="172">-phone: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="522" y="188">-mobilePhone: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="522" y="204">-telefax: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="522" y="220">-email: String</text>
+    <rect style="fill: #ffdd88" x="519" y="226" width="164" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="519" y="226" width="164" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffdd88" x="152" y="376" width="171.7" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="152" y="376" width="171.7" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="237.85" y="395">AbstractAccount</text>
+    <rect style="fill: #ffdd88" x="152" y="404" width="171.7" height="84"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="152" y="404" width="171.7" height="84"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="155" y="418">-ID: bigInt</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="155" y="434">-balance: float</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="155" y="450">-interestRate: float</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="155" y="466">-interestPeriod: long</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="155" y="482">-accountType: String</text>
+    <rect style="fill: #ffdd88" x="152" y="488" width="171.7" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="152" y="488" width="171.7" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffdd88" x="527" y="351" width="148.6" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="527" y="351" width="148.6" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="601.3" y="370">Customer</text>
+    <rect style="fill: #ffdd88" x="527" y="379" width="148.6" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="527" y="379" width="148.6" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="530" y="393">-ID: bigInt</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="530" y="409">-firstname: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="530" y="425">-surename: String</text>
+    <rect style="fill: #ffdd88" x="527" y="431" width="148.6" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="527" y="431" width="148.6" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffdd88" x="914" y="337" width="164" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="914" y="337" width="164" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="996" y="356">Address</text>
+    <rect style="fill: #ffdd88" x="914" y="365" width="164" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="914" y="365" width="164" height="68"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="917" y="379">-street: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="917" y="395">-houseNumber: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="917" y="411">-zipCode: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="917" y="427">-city: String</text>
+    <rect style="fill: #ffdd88" x="914" y="433" width="164" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="914" y="433" width="164" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffdd88" x="920" y="571" width="133.2" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="920" y="571" width="133.2" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="986.6" y="590">Statement</text>
+    <rect style="fill: #ffdd88" x="920" y="599" width="133.2" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="920" y="599" width="133.2" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="923" y="613">-ID: bigInt</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="923" y="629">-date: Date</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="923" y="645">-content: String</text>
+    <rect style="fill: #ffdd88" x="920" y="651" width="133.2" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="920" y="651" width="133.2" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffdd88" x="161" y="626" width="153.45" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="161" y="626" width="153.45" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="237.725" y="645">SavingsAccount</text>
+    <rect style="fill: #ffdd88" x="161" y="654" width="153.45" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="161" y="654" width="153.45" height="8"/>
+    <rect style="fill: #ffdd88" x="161" y="662" width="153.45" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="161" y="662" width="153.45" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffdd88" x="353" y="624" width="224.35" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="353" y="624" width="224.35" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="465.175" y="643">FlexibleSavingsAccount</text>
+    <rect style="fill: #ffdd88" x="353" y="652" width="224.35" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="353" y="652" width="224.35" height="8"/>
+    <rect style="fill: #ffdd88" x="353" y="660" width="224.35" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="353" y="660" width="224.35" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffdd88" x="610" y="623" width="165.35" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="610" y="623" width="165.35" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="692.675" y="642">CheckingAccount</text>
+    <rect style="fill: #ffdd88" x="610" y="651" width="165.35" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="610" y="651" width="165.35" height="8"/>
+    <rect style="fill: #ffdd88" x="610" y="659" width="165.35" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="610" y="659" width="165.35" height="8"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="237.85,514.236 237.85,569 237.725,569 237.725,626 "/>
+    <polygon style="fill: #ffffff" points="245.85,514.236 237.85,498.236 229.85,514.236 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="245.85,514.236 237.85,498.236 229.85,514.236 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="282,514.236 282,568 465.175,568 465.175,624 "/>
+    <polygon style="fill: #ffffff" points="290,514.236 282,498.236 274,514.236 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="290,514.236 282,498.236 274,514.236 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="323.7,514.236 323.7,537 692.675,537 692.675,621.995 "/>
+    <polygon style="fill: #ffffff" points="331.7,514.236 323.7,498.236 315.7,514.236 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="331.7,514.236 323.7,498.236 315.7,514.236 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="601.3,351 601.3,292.5 601,292.5 601,238.472 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="609,252.236 601,236.236 593,252.236 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="601.15" y="289.5"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="605.3" y="347">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="612" y="246"> contact</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="612" y="262">1</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="296.8,152 297.8,152 503,152 514.528,152 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="500.764,160 516.764,152 500.764,144 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="400.4" y="149"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="300.8" y="149">1..*</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="499" y="149"> contacts</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="499" y="165">0..*</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="996,337 996,152 683,152 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="839.5" y="149"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1000" y="317"> contact</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1000" y="333">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="687" y="149"> address</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="687" y="165">1</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="986.6,566.528 986.6,478 323.7,478 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="978.6,552.764 986.6,568.764 994.6,552.764 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="655.15" y="475"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="997.6" y="567">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="327.7" y="475"> statements</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="327.7" y="491">*</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="237.9,206.472 237.9,296.5 237.85,296.5 237.85,376 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="245.9,220.236 237.9,204.236 229.9,220.236 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="237.875" y="293.5"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="248.9" y="214"> bank</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="248.9" y="230">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="241.85" y="372">*</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="296.8,202 411.9,202 411.9,365 527,365 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="413.9" y="280.5"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="300.8" y="199">*</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="523" y="362"> customers</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="523" y="378">*</text>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="394.5,100.4 500.6,100.4 512.6,112.4 512.6,134.4 394.5,134.4 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="394.5,100.4 500.6,100.4 512.6,112.4 512.6,134.4 394.5,134.4 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="500.6,100.4 500.6,112.4 512.6,112.4 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="401.5" y="125.3">
+      <tspan x="401.5" y="125.3">{cascade=ALL}</tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="325,405 426,405 426,405 522.528,405 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="508.764,413 524.764,405 508.764,397 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="426" y="402"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="329" y="402">*</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="507" y="402"> owner</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="507" y="418">1</text>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="621.5,250.4 727.6,250.4 739.6,262.4 739.6,284.4 621.5,284.4 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="621.5,250.4 727.6,250.4 739.6,262.4 739.6,284.4 621.5,284.4 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="727.6,250.4 727.6,262.4 739.6,262.4 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="628.5" y="275.3">
+      <tspan x="628.5" y="275.3">{cascade=ALL}</tspan>
+    </text>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="1014,524.8 1120.1,524.8 1132.1,536.8 1132.1,558.8 1014,558.8 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1014,524.8 1120.1,524.8 1132.1,536.8 1132.1,558.8 1014,558.8 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="1120.1,524.8 1120.1,536.8 1132.1,536.8 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1021" y="549.7">
+      <tspan x="1021" y="549.7">{cascade=ALL}</tspan>
+    </text>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="1071.5,294.4 1177.6,294.4 1189.6,306.4 1189.6,328.4 1071.5,328.4 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1071.5,294.4 1177.6,294.4 1189.6,306.4 1189.6,328.4 1071.5,328.4 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="1177.6,294.4 1177.6,306.4 1189.6,306.4 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1078.5" y="319.3">
+      <tspan x="1078.5" y="319.3">{cascade=ALL}</tspan>
+    </text>
+  </g>
+</svg>

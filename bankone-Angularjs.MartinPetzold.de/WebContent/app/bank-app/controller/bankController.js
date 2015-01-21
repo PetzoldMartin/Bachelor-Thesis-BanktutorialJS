@@ -22,7 +22,9 @@ BankappBankview.controller( 'bankComponentCtrl', [
 			BreadcrumbService.setBreadcrumbLvl2( overview );
 			$scope.Component_Lvl1 = subComponentService.getComponent_Lvl1();
 			$scope.$watch( function () {
-				return $scope.Component_Lvl1 = subComponentService.getComponent_Lvl1();
+				return subComponentService.getComponent_Lvl1();
+			}, function(){
+				$scope.Component_Lvl1 = subComponentService.getComponent_Lvl1();
 			} );
 
 			$scope.click = function ( oid ) {
@@ -42,8 +44,10 @@ BankappBankview.controller( 'bankListCtrl', [
 		'$scope', '$http', 'searchService','arreyspliceByObjectId', function ( $scope, $http, searchService ,arreyspliceByObjectId) {
 			$scope.query = "";
 			$scope.$watch( function () {
-				return $scope.query = searchService.getSearchColumn()
-			} );
+				return searchService.getSearchColumn()
+			} ,function(newValue, oldValue){
+				$scope.query = searchService.getSearchColumn()
+			});
 			$scope.loadData = function () {
 				$http.get( '../../../../bankone/rest/bankREST' ).success( function ( data ) {
 					$scope.banks = data;

@@ -22,8 +22,10 @@ BankappTransfer.controller( 'transferComponentCtrl', [
 			BreadcrumbService.setBreadcrumbLvl2( overview );
 			$scope.Component_Lvl1 = subComponentService.getComponent_Lvl1();
 			$scope.$watch( function () {
-				return $scope.Component_Lvl1 = subComponentService.getComponent_Lvl1();
-			} );
+				return subComponentService.getComponent_Lvl1();
+			} , function(newValue, oldValue){
+				$scope.Component_Lvl1 = subComponentService.getComponent_Lvl1();
+			});
 
 			$scope.click = function ( oid ) {
 				manipulate.id = oid;
