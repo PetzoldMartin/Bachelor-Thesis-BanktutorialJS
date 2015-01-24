@@ -2,7 +2,7 @@
 
 /* Controllers */
 var BankappWelcomeview = angular.module( 'bankapp.welcomeview', [
-		'bankapp.search', 'bankapp.breadcrumb', 'bankapp.subview'
+		 'bankapp.breadcrumb'
 ] );
 
 BankappWelcomeview.controller( 'welcomeComponentCtrl', [

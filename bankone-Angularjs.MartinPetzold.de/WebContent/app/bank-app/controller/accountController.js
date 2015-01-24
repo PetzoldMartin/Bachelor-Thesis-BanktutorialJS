@@ -2,7 +2,7 @@
 
 /* Controllers */
 var BankappAccountview = angular.module( 'bankapp.accountview', [
-		'bankapp.search', 'bankapp.breadcrumb', 'bankapp.subview', 'bankapp.function'
+		 'bankapp.extendet'
 ] );
 
 BankappAccountview.controller( 'accountComponentCtrl', [

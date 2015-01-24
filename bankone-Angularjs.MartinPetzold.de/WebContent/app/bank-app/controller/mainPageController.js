@@ -2,7 +2,7 @@
 
 /* Controllers */
 var BankappMainview = angular.module( 'bankapp.mainview', [
-		'bankapp.breadcrumb', 'bankapp.search'
+		'bankapp.breadcrumb'
 ] );
 
 BankappMainview.controller( 'headerCtrl', [
@@ -112,20 +112,7 @@ BankappMainview.controller( 'titleCtrl', [
 		}
 ] );
 
-BankappMainview.controller( 'searchCtrl', [
-		'$scope', 'searchService', function ( $scope, searchService ) {
-			$scope.search;
-			$scope.clicked = false;
-			$scope.$watch( function () {
-				if ( searchService.getSearchColumn() == "" && $scope.clicked ) {
-					return $scope.search = ""
-				}
-			} );
-			$scope.$watch( 'search', function ( newValue, oldValue ) {
-				searchService.setSearchColumn( $scope.search );
-			} );
-		}
-] );
+
 
 BankappMainview.controller( 'headerComponentCtrl', [
 		'$scope', function ( $scope ) {
