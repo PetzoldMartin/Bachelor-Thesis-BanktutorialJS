@@ -2,11 +2,12 @@
 
 /* Controllers */
 var BankappBankview = angular.module( 'bankapp.bankview', [
-		 'bankapp.extendet'
+		 'bankapp.subview'
+
 ] );
 
 BankappBankview.controller( 'bankComponentCtrl', [
-		'$scope', 'subComponentService', 'BreadcrumbService', function ( $scope, subComponentService, BreadcrumbService ) {
+		'$scope', 'subComponentService', function ( $scope, subComponentService, BreadcrumbService ) {
 
 			var overview = {
 				"id" : 1,
@@ -18,25 +19,21 @@ BankappBankview.controller( 'bankComponentCtrl', [
 				"name" : "Bank bearbeiten",
 				"url" : 'mainTopicTemplates/bankSubpageTemplates/bankManipulate.html'
 			}
+			subComponentService.reset();
 			subComponentService.setComponent_Lvl1( overview );
-			BreadcrumbService.setBreadcrumbLvl2( overview );
-			$scope.Component_Lvl1 = subComponentService.getComponent_Lvl1();
-			$scope.$watch( function () {
-				return subComponentService.getComponent_Lvl1();
-			}, function(){
-				$scope.Component_Lvl1 = subComponentService.getComponent_Lvl1();
-			} );
+			
 
 			$scope.click = function ( oid ) {
 				manipulate.id = oid;
-				subComponentService.setComponent_Lvl1( manipulate );
-				BreadcrumbService.setBreadcrumbLvl3( manipulate );
-
-				$scope.Component_Lvl1 = subComponentService.getComponent_Lvl1();
+				subComponentService.setComponent_Lvl2( manipulate );
 
 			}
 
-			
+			$scope.$watch( function () {
+				return subComponentService.getActuallComponent();
+			}, function(){
+				$scope.Component_Lvl1 = subComponentService.getActuallComponent();
+			} );
 		}
 ] );
 
@@ -57,9 +54,8 @@ BankappBankview.controller( 'bankListCtrl', [
 						$scope.banks = arreyspliceByObjectId.spliceByID( $scope.banks, searchService.getBankIds() );
 						$scope.newAvaible = false;
 					}
-					$scope.status = true;
 				} ).error( function ( data, status, headers, config ) {
-					$scope.status = false;
+					alert("Kein Bankenübersichtservice vorhanden")
 				} );
 			};
 			$scope.orderProp = 'name';
@@ -68,9 +64,9 @@ BankappBankview.controller( 'bankListCtrl', [
 ] );
 
 BankappBankview.controller( 'bankviewCtrl', [
-		'$scope', '$http', 'subComponentService', 'BreadcrumbService', 'mainPageService', 'searchService', function ( $scope, $http, subComponentService, BreadcrumbService, mainPageService, searchService ) {
+		'$scope', '$http', 'subComponentService', 'mainPageService', 'searchService', function ( $scope, $http, subComponentService, mainPageService, searchService ) {
 			// Initialization of the Controller
-			$scope.iddata = subComponentService.getComponent_Lvl1();
+			$scope.iddata = subComponentService.getComponent_Lvl2();
 			$scope.customerCount = 0;
 			$scope.accountCount = 0;
 			$scope.addnew = false;
@@ -107,7 +103,6 @@ BankappBankview.controller( 'bankviewCtrl', [
 				if ( ( $scope.iddata.id ) != "undefined" ) {
 					$http.get( '../../../../bankone/rest/bankREST' + '/' + $scope.iddata.id ).success( function ( data ) {
 						$scope.bank = data;
-						$scope.status = true;
 						angular.forEach( $scope.bank.customers, function ( c ) {
 							$scope.customerCount = $scope.customerCount + 1;
 							$scope.customerIds.push( c.id );
@@ -119,11 +114,11 @@ BankappBankview.controller( 'bankviewCtrl', [
 								$scope.accountIds.push( a.id );
 							} );
 						} ).error( function ( data, status, headers, config ) {
-							$scope.status = false;
+							alert("Kein Service vorhanden um Konten anhand der Bank Auszulesen")
 						} )
 
 					} ).error( function ( data, status, headers, config ) {
-						$scope.status = false;
+						alert("bank nicht vorhanden")
 					} );
 				}
 			};
@@ -132,9 +127,7 @@ BankappBankview.controller( 'bankviewCtrl', [
 			$scope.loadData();
 			// function for cancel
 			$scope.setSubComponentLvl2 = function () {
-				subComponentService.setComponent_Lvl1( BreadcrumbService.getBreadcrumbLvl2() );
-				BreadcrumbService.setBreadcrumbLvl3( "" );
-				BreadcrumbService.setBreadcrumbLvl4( "" );
+				subComponentService.setComponent_Lvl2( "" );
 			}
 			// save Function
 			$scope.saveBank = function () {
@@ -159,14 +152,7 @@ BankappBankview.controller( 'bankviewCtrl', [
 						withCredentials : false,
 						method : 'put',
 						url : '../../../../bankone/rest/bankREST',
-						data : {
-							id : $scope.bank.id,
-							name : $scope.bank.name,
-							sortCode : $scope.bank.sortCode,
-							contacts : $scope.bank.contacts,
-							customers : $scope.bank.customers
-
-						}
+						data : $scope.bank
 
 					} ).success( function () {
 						$scope.loadData();
@@ -191,10 +177,12 @@ BankappBankview.controller( 'bankviewCtrl', [
 				} )
 			}
 			$scope.showCustomerByBank = function () {
+				subComponentService.reset();
 				mainPageService.setTopicid( 3 );
 				searchService.setCustomerIds( $scope.customerIds );
 			}
 			$scope.showAccountByBank = function () {
+				subComponentService.reset();
 				mainPageService.setTopicid( 4 );
 				searchService.setAccountIds( $scope.accountIds );
 			}

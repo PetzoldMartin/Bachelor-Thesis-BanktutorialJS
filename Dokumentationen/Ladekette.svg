@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="56cm" height="27cm" viewBox="139 183 1107 534" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="683" y="679" width="80" height="36" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="683" y="679" width="80" height="36" rx="20" ry="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="723" y="700.9">
+      <tspan x="723" y="700.9">bankapp</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="485" y="465" width="140.7" height="36" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="485" y="465" width="140.7" height="36" rx="20" ry="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="555.35" y="486.9">
+      <tspan x="555.35" y="486.9">bankapp.bankview</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="328" y="464" width="141.15" height="36" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="328" y="464" width="141.15" height="36" rx="20" ry="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="398.575" y="485.9">
+      <tspan x="398.575" y="485.9">bankapp.mainview</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="141" y="462" width="166.35" height="36" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="141" y="462" width="166.35" height="36" rx="20" ry="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="224.175" y="483.9">
+      <tspan x="224.175" y="483.9">bankapp.welcomeview</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="637" y="465" width="169.45" height="36" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="637" y="465" width="169.45" height="36" rx="20" ry="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="721.725" y="486.9">
+      <tspan x="721.725" y="486.9">bankapp.customerview</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="819" y="464" width="160.2" height="36" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="819" y="464" width="160.2" height="36" rx="20" ry="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="899.1" y="485.9">
+      <tspan x="899.1" y="485.9">bankapp.accountview</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="994" y="464" width="130.2" height="36" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="994" y="464" width="130.2" height="36" rx="20" ry="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1059.1" y="485.9">
+      <tspan x="1059.1" y="485.9">bankapp.transfer</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1135" y="463" width="110.4" height="36" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1135" y="463" width="110.4" height="36" rx="20" ry="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1190.2" y="484.9">
+      <tspan x="1190.2" y="484.9">bankapp.style</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="580" y="281" width="158" height="36" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="580" y="281" width="158" height="36" rx="20" ry="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="659" y="302.9">
+      <tspan x="659" y="302.9">bankapp.breadcrumb</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="663" y="184" width="122.5" height="36" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="663" y="184" width="122.5" height="36" rx="20" ry="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="724.25" y="205.9">
+      <tspan x="724.25" y="205.9">bankapp.search</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="765" y="278" width="131.95" height="36" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="765" y="278" width="131.95" height="36" rx="20" ry="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="830.975" y="299.9">
+      <tspan x="830.975" y="299.9">bankapp.function</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="505" y="184" width="132.1" height="36" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="505" y="184" width="132.1" height="36" rx="20" ry="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="571.05" y="205.9">
+      <tspan x="571.05" y="205.9">bankapp.subview</tspan>
+    </text>
+  </g>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="555.35" y1="501" x2="723" y2="679"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="398.575" y1="500" x2="723" y2="679"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="224.175" y1="498" x2="723" y2="679"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="721.725" y1="501" x2="723" y2="679"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="899.1" y1="500" x2="723" y2="679"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="1059.1" y1="500" x2="723" y2="679"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="1190.2" y1="499" x2="723" y2="679"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="659" y1="317" x2="398.575" y2="464"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="659" y1="317" x2="224.175" y2="462"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="571.05" y1="220" x2="659" y2="281"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="724.25" y1="220" x2="659" y2="281"/>
+  <g>
+    <rect style="fill: #ffffff" x="763" y="361" width="137.25" height="36" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="763" y="361" width="137.25" height="36" rx="20" ry="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="831.625" y="382.9">
+      <tspan x="831.625" y="382.9">bankapp.extendet</tspan>
+    </text>
+  </g>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="555.35" y1="465" x2="831.625" y2="397"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="721.725" y1="465" x2="831.625" y2="397"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="899.1" y1="464" x2="831.625" y2="397"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="1059.1" y1="464" x2="831.625" y2="397"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="831.625" y1="361" x2="830.975" y2="314"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="831.625" y1="361" x2="659" y2="317"/>
+</svg>

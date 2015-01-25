@@ -10,12 +10,16 @@ BankappBreadcrum.controller( 'breadcrumbCtrl', [
 
 		function ( $scope, BreadcrumbService, subComponentService,mainPageService ) {
 			$scope.tomain=function(){
+				subComponentService.reset();
 				mainPageService.setTopicid( 1 );
 			}
 			$scope.setSubComponentLvl1 = function () {
-				subComponentService.setComponent_Lvl1( BreadcrumbService.getBreadcrumbLvl1() );
-				BreadcrumbService.setBreadcrumbLvl2( "" );
+				subComponentService.setComponent_Lvl2( '' );
 				BreadcrumbService.setBreadcrumbLvl3( "" );
+			}
+			$scope.setSubComponentLvl2 = function () {
+				subComponentService.setComponent_Lvl3( '' );
+				BreadcrumbService.setBreadcrumbLvl4( "" );
 			}
 			
 			$scope.$watch( function () {

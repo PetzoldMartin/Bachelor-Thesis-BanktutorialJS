@@ -2,11 +2,11 @@
 
 /* Controllers */
 var BankappTransfer = angular.module( 'bankapp.transfer', [
-		 'bankapp.extendet'
+	'bankapp.subview'
 ] );
 
 BankappTransfer.controller( 'transferComponentCtrl', [
-		'$scope', 'subComponentService', 'BreadcrumbService', function ( $scope, subComponentService, BreadcrumbService ) {
+		'$scope', 'subComponentService', function ( $scope, subComponentService ) {
 			var overview = {
 				"id" : 1,
 				"name" : "Verfügbare Konten",
@@ -19,25 +19,22 @@ BankappTransfer.controller( 'transferComponentCtrl', [
 			}
 
 			subComponentService.setComponent_Lvl1( overview );
-			BreadcrumbService.setBreadcrumbLvl2( overview );
-			$scope.Component_Lvl1 = subComponentService.getComponent_Lvl1();
-			$scope.$watch( function () {
-				return subComponentService.getComponent_Lvl1();
-			} , function(newValue, oldValue){
-				$scope.Component_Lvl1 = subComponentService.getComponent_Lvl1();
-			});
 
 			$scope.click = function ( oid ) {
 				manipulate.id = oid;
-				subComponentService.setComponent_Lvl1( manipulate );
-				BreadcrumbService.setBreadcrumbLvl3( manipulate );
+				subComponentService.setComponent_Lvl2( manipulate );
 			}
+			$scope.$watch( function () {
+				return subComponentService.getActuallComponent();
+			}, function ( newValue, oldValue ) {
+				$scope.Component_Lvl1 = subComponentService.getActuallComponent();
+			} );
 
 		}
 ] );
 
 BankappTransfer.controller( 'transferAccounts', [
-		'$scope', '$http', 'subComponentService', 'BreadcrumbService', 'searchService', function ( $scope, $http, subComponentService, BreadcrumbService, searchService ) {
+		'$scope', '$http', 'subComponentService', 'searchService', function ( $scope, $http, subComponentService, searchService ) {
 			if ( searchService.getAccountIds() == "" ) {
 				searchService.setAccountIds( "all" );
 			}
@@ -48,19 +45,17 @@ BankappTransfer.controller( 'transferAccounts', [
 ] )
 
 BankappTransfer.controller( 'transferType', [
-		'$scope', '$http', 'subComponentService', 'BreadcrumbService', 'searchService', function ( $scope, $http, subComponentService, BreadcrumbService, searchService ) {
+		'$scope', '$http', 'subComponentService',  'searchService', function ( $scope, $http, subComponentService, searchService ) {
 			$scope.hasSub = true
 			$scope.transferway = "";
 			$scope.tempids = searchService.getAccountIds();
 			$scope.filter = [];
 			// better filter
-			$http.get( '../../../../bankone/rest/abstractAccountREST' + '/' + subComponentService.getComponent_Lvl1().id ).success( function ( data ) {
+			$http.get( '../../../../bankone/rest/abstractAccountREST' + '/' + subComponentService.getComponent_Lvl2().id ).success( function ( data ) {
 				$scope.account = data;
-				$scope.status = true;
 				{
 					$http.get( '../../../../bankone/rest/abstractAccountREST' ).success( function ( data ) {
 						$scope.accov = data;
-						$scope.status = true;
 					} ).success( function () {
 						angular.forEach( $scope.accov, function ( acc ) {
 							if ( acc.id != $scope.account.id ) {
@@ -68,12 +63,12 @@ BankappTransfer.controller( 'transferType', [
 							}
 						} )
 						searchService.setAccountIds( $scope.filter );
-					} ).error( function ( data, status, headers, config ) {
-						$scope.status = false;
+					} ).error( function () {
+						alert("Server stellt keinen AccountÜbersichtsService zur verfügung")
 					} );
 				}
 			} ).error( function ( data, status, headers, config ) {
-				$scope.status = false;
+				alert("Account nicht vorhanden")
 			} );
 
 			// $scope.exfilter()
@@ -102,10 +97,8 @@ BankappTransfer.controller( 'transferType', [
 				$scope.accountto = 'mainTopicTemplates/transferSubpageTemplates/transferManipulateTemplates/ChoosenAcc.html';
 				$http.get( '../../../../bankone/rest/abstractAccountREST' + '/' + id ).success( function ( data ) {
 					$scope.accountTwo = data;
-					$scope.status = true;
 				} ).error( function ( data, status, headers, config ) {
-
-					$scope.status = false;
+					alert("account nicht vorhanden")
 				} );
 			}
 			$scope.settype = function ( type ) {
@@ -113,11 +106,9 @@ BankappTransfer.controller( 'transferType', [
 			}
 			$scope.setSubComponentLvl2 = function () {
 				searchService.setAccountIds( $scope.tempids );
-				subComponentService.setComponent_Lvl1( BreadcrumbService.getBreadcrumbLvl2() );
-				BreadcrumbService.setBreadcrumbLvl3( "" );
-				BreadcrumbService.setBreadcrumbLvl4( "" );
+				subComponentService.setComponent_Lvl2( "" );
 			}
-			
+
 			$scope.newacc = function ( type, updaccount ) {
 				$http( {
 					withCredentials : false,
@@ -128,8 +119,8 @@ BankappTransfer.controller( 'transferType', [
 				} )
 
 			}
-			$scope.saveClean=function(){
-				
+			$scope.saveClean = function () {
+
 			}
 			// vereinfachen renundanz
 			$scope.save = function () {

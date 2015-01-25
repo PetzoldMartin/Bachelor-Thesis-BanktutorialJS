@@ -2,11 +2,11 @@
 
 /* Controllers */
 var BankappAccountview = angular.module( 'bankapp.accountview', [
-		 'bankapp.extendet'
+		 'bankapp.subview'
 ] );
 
 BankappAccountview.controller( 'accountComponentCtrl', [
-		'$scope', 'subComponentService', 'BreadcrumbService', function ( $scope, subComponentService, BreadcrumbService ) {
+		'$scope', 'subComponentService',  function ( $scope, subComponentService ) {
 			var overview = {
 				"id" : 1,
 				"name" : "Kontenübersicht",
@@ -22,33 +22,28 @@ BankappAccountview.controller( 'accountComponentCtrl', [
 				"name" : "Konto erstellen",
 				"url" : 'mainTopicTemplates/accountSubpageTemplates/newAccount.html'
 			}
+			subComponentService.reset();
 			subComponentService.setComponent_Lvl1( overview );
-			BreadcrumbService.setBreadcrumbLvl2( overview );
-			$scope.Component_Lvl1 = subComponentService.getComponent_Lvl1();
-			$scope.$watch( function () {
-				return subComponentService.getComponent_Lvl1();
-			},function(newValue, oldValue){
-				$scope.Component_Lvl1 = subComponentService.getComponent_Lvl1();
-			} );
-
+			
 			$scope.click = function ( oid ) {
 				manipulate.id = oid;
 				if ( oid != "undefined" ) {
-					subComponentService.setComponent_Lvl1( manipulate );
-					BreadcrumbService.setBreadcrumbLvl3( manipulate );
-					$scope.Component_Lvl1 = subComponentService.getComponent_Lvl1();
+					subComponentService.setComponent_Lvl2( manipulate );
 				} else {
-					subComponentService.setComponent_Lvl1( makeNew );
-					BreadcrumbService.setBreadcrumbLvl3( makeNew );
+					subComponentService.setComponent_Lvl2( makeNew );
 				}
 
 			}
-
+			$scope.$watch( function () {
+				return subComponentService.getActuallComponent();
+			} ,function(newValue, oldValue){
+				$scope.Component_Lvl1 = subComponentService.getActuallComponent();
+			});
 		}
 ] );
 
 BankappAccountview.controller( 'accountListCtrl', [
-		'$scope', '$http', 'searchService', 'arreyspliceByObjectId', 'subComponentService', 'BreadcrumbService', function ( $scope, $http, searchService, arreyspliceByObjectId, subComponentService, BreadcrumbService ) {
+		'$scope', '$http', 'searchService', 'arreyspliceByObjectId', 'subComponentService', function ( $scope, $http, searchService, arreyspliceByObjectId, subComponentService ) {
 			$scope.query = "";
 
 			$scope.$watch( function () {
@@ -60,47 +55,44 @@ BankappAccountview.controller( 'accountListCtrl', [
 				$http.get( '../../../../bankone/rest/abstractAccountREST' ).success( function ( data ) {
 					$scope.accounts = data;
 					$scope.newAvaible = true;
-					// Filter the data by Id's
-					if ( searchService.getAccountIds() != "" ) {
-						$scope.accounts = arreyspliceByObjectId.spliceByID( $scope.accounts, searchService.getAccountIds() );
-						$scope.newAvaible = false;
-					}
-					$scope.status = true;
-				} ).error( function ( data, status, headers, config ) {
-					$scope.status = false;
+				} ).error( function ( ) {
+					alert("Accountsübersichtservice nicht vorhanden")
 				} );
 			};
+			
+			$scope.$watch(function(){
+				if ( searchService.getAccountIds() != "" ) {
+					$scope.accounts = arreyspliceByObjectId.spliceByID( $scope.accounts, searchService.getAccountIds() );
+					$scope.newAvaible = false;
+				}
+			});
 			$scope.orderProp = 'id';
 			$scope.loadData();
 		}
 ] );
 
 BankappAccountview.controller( 'accountViewCtrl', [
-		'$scope', '$http', 'subComponentService', 'BreadcrumbService', 'mainPageService', 'searchService', function ( $scope, $http, subComponentService, BreadcrumbService, mainPageService, searchService ) {
-			$scope.iddata = subComponentService.getComponent_Lvl1();
+		'$scope', '$http', 'subComponentService', 'mainPageService', 'searchService', function ( $scope, $http, subComponentService, mainPageService, searchService ) {
+			$scope.iddata = subComponentService.getComponent_Lvl2();
 
 			// Load Function
 			$scope.loadData = function () {	
 				if ( $scope.iddata.name == "Konto bearbeiten" ) {
 					$scope.nid=$scope.iddata.id
 				}else{
-					$scope.nid=BreadcrumbService.getBreadcrumbLvl4().id
+					$scope.nid=subComponentService.getActuallComponent().id
 				}
 						$http.get( '../../../../bankone/rest/abstractAccountREST' + '/' + $scope.nid ).success( function ( data ) {
 							$scope.account = data;
-							$scope.status = true;
 						} ).error( function ( data, status, headers, config ) {
-
-							$scope.status = false;
+								alert("Konto nicht vorhanden")
 						} )			
 			};
 			$scope.loadData();
 
 			// Cancel Function
 			$scope.setSubComponentLvl2 = function () {
-				subComponentService.setComponent_Lvl1( BreadcrumbService.getBreadcrumbLvl2() );
-				BreadcrumbService.setBreadcrumbLvl3( "" );
-				BreadcrumbService.setBreadcrumbLvl4( "" );
+				subComponentService.setComponent_Lvl2('');
 			}
 
 			// Delete Function
@@ -115,18 +107,21 @@ BankappAccountview.controller( 'accountViewCtrl', [
 				} )
 			}
 			$scope.showCustomerByAccount = function () {
+				subComponentService.reset();
 				mainPageService.setTopicid( 3 );
 				searchService.setCustomerIds( [
 					$scope.account.owner.id
 				] );
 			}
 			$scope.showBankByAccount = function () {
+				subComponentService.reset();
 				mainPageService.setTopicid( 2 );
 				searchService.setBankIds( [
 					$scope.account.bank.id
 				] );
 			}
 			$scope.accountTransfer = function () {
+				subComponentService.reset();
 				mainPageService.setTopicid( 5 );
 				searchService.setAccountIds( [
 					$scope.account.id
@@ -136,7 +131,7 @@ BankappAccountview.controller( 'accountViewCtrl', [
 ] )
 
 BankappAccountview.controller( 'accountMakeCtrl', [
-		'$scope', '$http', 'subComponentService', 'BreadcrumbService', 'searchService', function ( $scope, $http, subComponentService, BreadcrumbService, searchService ) {
+		'$scope', '$http', 'subComponentService',  'searchService', function ( $scope, $http, subComponentService, searchService ) {
 			$scope.customer = 'mainTopicTemplates/customerSubpageTemplates/customerOverView.html'
 			$scope.bank = 'mainTopicTemplates/bankSubpageTemplates/bankOverView.html'
 			$scope.newAccount = {
@@ -167,11 +162,10 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 
 					} ).success( function () {
 						$scope.autoregisterCustomerAtBank( $scope.newAccount.bank.id, $scope.newAccount.owner.id );
-						subComponentService.setComponent_Lvl1( BreadcrumbService.getBreadcrumbLvl2() );
-						BreadcrumbService.setBreadcrumbLvl3( "" );
-						BreadcrumbService.setBreadcrumbLvl4( "" );
+						subComponentService.setComponent_Lvl2("");
+						
 					} ).error( function ( data, status, headers, config ) {
-						alert("eine Auswahl nicht getroffen")
+						alert("eine Auswahl wurde nicht getroffen")
 					} )
 				
 			}

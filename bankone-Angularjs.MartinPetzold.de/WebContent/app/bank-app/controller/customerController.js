@@ -2,11 +2,11 @@
 
 /* Controllers */
 var BankappCustomerview = angular.module( 'bankapp.customerview', [
-		 'bankapp.extendet'
+		 'bankapp.subview'
 ] );
 
 BankappCustomerview.controller( 'customerComponentCtrl', [
-		'$scope', 'subComponentService', 'BreadcrumbService', function ( $scope, subComponentService, BreadcrumbService ) {
+		'$scope', 'subComponentService',  function ( $scope, subComponentService ) {
 			var overview = {
 				"id" : 1,
 				"name" : "Kundenübersicht",
@@ -17,25 +17,18 @@ BankappCustomerview.controller( 'customerComponentCtrl', [
 				"name" : "Kunde bearbeiten",
 				"url" : 'mainTopicTemplates/customerSubpageTemplates/customerManipulate.html'
 			}
-
-			subComponentService.setComponent_Lvl1( overview );
-			BreadcrumbService.setBreadcrumbLvl2( overview );
-			$scope.Component_Lvl1 = subComponentService.getComponent_Lvl1();
-			$scope.$watch( function () {
-				return subComponentService.getComponent_Lvl1();
-			} ,function(newValue, oldValue){
-				$scope.Component_Lvl1 = subComponentService.getComponent_Lvl1();
-			});
+			subComponentService.reset();
+			subComponentService.setComponent_Lvl1( overview );			
 
 			$scope.click = function ( oid ) {
 				manipulate.id = oid;
-				subComponentService.setComponent_Lvl1( manipulate );
-				BreadcrumbService.setBreadcrumbLvl3( manipulate );
-
-				$scope.Component_Lvl1 = subComponentService.getComponent_Lvl1();
-
+				subComponentService.setComponent_Lvl2( manipulate );
 			}
-
+			$scope.$watch( function () {
+				return subComponentService.getActuallComponent();
+			} ,function(newValue, oldValue){
+				$scope.Component_Lvl1 = subComponentService.getActuallComponent();
+			});
 			
 		}
 ] );
@@ -58,9 +51,8 @@ BankappCustomerview.controller( 'customerListCtrl', [
 						$scope.customers = arreyspliceByObjectId.spliceByID( $scope.customers, searchService.getCustomerIds() );
 						$scope.newAvaible = false;
 					}
-					$scope.status = true;
 				} ).error( function ( data, status, headers, config ) {
-					$scope.status = false;
+					alert("Kundenübersichtservice nicht vorhanden");
 				} );
 			};
 			$scope.orderProp = 'name';
@@ -70,8 +62,9 @@ BankappCustomerview.controller( 'customerListCtrl', [
 ] );
 
 BankappCustomerview.controller( 'customerviewCtrl', [
-		'$scope', '$http', 'subComponentService', 'BreadcrumbService', 'searchService', function ( $scope, $http, subComponentService, BreadcrumbService ,searchService) {
-			$scope.iddata = subComponentService.getComponent_Lvl1();
+		'$scope', '$http', 'subComponentService', 'searchService', function ( $scope, $http, subComponentService,searchService) {
+			$scope.accountByCustomer=''
+			$scope.iddata = subComponentService.getComponent_Lvl2();
 			$scope.hasSub=true
 			$scope.accountIds = [
 				     				0
@@ -94,28 +87,33 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 				"surname" : "",
 				"contact" : []
 			};
-			var manipulate = {
-					"name" : "Account des Kunden"
-				
-				}
+			
 			//Overide of the Click Method from customer for the account subview
 			$scope.click = function ( oid ) {
-				manipulate.id = oid;
-				BreadcrumbService.setBreadcrumbLvl4( manipulate );
+				$scope.tc=angular.copy(subComponentService.getComponent_Lvl2())
+				$scope.tc.name="Account "+ oid +" des Kunden"
+				$scope.tc.id = oid;
+				subComponentService.setComponent_Lvl3($scope.tc);
 				$scope.accountByCustomer='mainTopicTemplates/accountSubpageTemplates/accountManipulate.html'	
 				$scope.acd=true;
 			}
 			$scope.accback = function () {
 				$scope.accountByCustomer='mainTopicTemplates/accountSubpageTemplates/accountOverView.html'
 					$scope.acd=false;
-				BreadcrumbService.setBreadcrumbLvl4("");
+				subComponentService.setComponent_Lvl3("");
 			}
+			$scope.$watch( function () {
+				return subComponentService.getComponent_Lvl3();
+			} ,function(newValue, oldValue){
+				if(newValue==''){
+					$scope.accback();
+				}
+			});
 			//Load Function
 			$scope.loadData = function () {
 				if ( ( $scope.iddata.id ) != "undefined" ) {					
 					$http.get( '../../../../bankone/rest/customerREST' + '/' + $scope.iddata.id ).success( function ( data ) {
 						$scope.customer = data;
-						$scope.status = true;						
 					} ).success(function(data, status, headers, config) {						
 						$http.get( '../../../../bankone/rest/abstractAccountREST/customer/' + $scope.iddata.id ).success( function ( data ) {
 							$scope.accounts = data;
@@ -123,13 +121,13 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 								$scope.accountCount = $scope.accountCount + 1;
 								$scope.accountIds.push( a.id );
 							} );
-							searchService.setAccountIds( $scope.accountIds );
+							searchService.setAccountIds( $scope.accountIds )
 							$scope.accountByCustomer='mainTopicTemplates/accountSubpageTemplates/accountOverView.html'
 						} ).error( function ( data, status, headers, config ) {
-							$scope.status = false;
+							alert("Account von kunde service nicht vorhanden")
 						} )
 					}).error( function ( data, status, headers, config ) {
-						$scope.status = false;
+						alert("Kunde nicht vorhanden")
 					} );
 				} else {
 					$scope.customer.contact = $scope.newContact
@@ -140,9 +138,9 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 			
 			// Cancel Function
 			$scope.setSubComponentLvl2 = function () {
-				subComponentService.setComponent_Lvl1( BreadcrumbService.getBreadcrumbLvl2() );
-				BreadcrumbService.setBreadcrumbLvl3( "" );
-				BreadcrumbService.setBreadcrumbLvl4( "" );
+				subComponentService.setComponent_Lvl2( "" );
+				subComponentService.setComponent_Lvl3( "" );
+
 			}
 			
 			//Save Function

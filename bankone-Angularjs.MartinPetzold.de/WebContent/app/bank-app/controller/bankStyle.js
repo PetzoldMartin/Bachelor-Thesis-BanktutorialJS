@@ -14,7 +14,7 @@ BankappStyle.controller('bankStyles',['$scope', function($scope) {
 		$scope.componentStyle={'overflow-y': 'scroll','height': '80vh'}
 		//Overview
 		$scope.tileClass="col-xs-7 col-sm-4 col-md-3 col-lg-3"
-		$scope.tileAlternateClass="col-xs-9 col-sm-7 col-md-5 col-lg-5"
+		$scope.tileAlternateClass="col-xs-10 col-sm-8 col-md-6 col-lg-6"
 
 		$scope.tileStyle={'height':'200px','width':'200px',
 				'margin' : '30px'}
