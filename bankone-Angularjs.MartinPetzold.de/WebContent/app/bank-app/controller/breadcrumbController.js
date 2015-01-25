@@ -83,6 +83,13 @@ BankappBreadcrum.factory( 'BreadcrumbService', [
 
 				getBreadcrumbLvl5 : function () {
 					return breadcrumbLvl5;
+				}, 
+				reset : function(){
+					breadcrumbLvl1 = "";
+					breadcrumbLvl2 = "";
+					breadcrumbLvl3 = "";
+					breadcrumbLvl4 = "";
+					breadcrumbLvl5 = "";
 				}
 			}
 		}

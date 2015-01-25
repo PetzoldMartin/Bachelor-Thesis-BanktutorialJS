@@ -4,19 +4,19 @@
 var BankappSearch = angular.module( 'bankapp.search', [] );
 
 BankappSearch.controller( 'searchCtrl', [
-                                   		'$scope', 'searchService', function ( $scope, searchService ) {
-                                   			$scope.search;
-                                   			$scope.clicked = false;
-                                   			$scope.$watch( function () {
-                                   				if ( searchService.getSearchColumn() == "" && $scope.clicked ) {
-                                   					return $scope.search = ""
-                                   				}
-                                   			} );
-                                   			$scope.$watch( 'search', function ( newValue, oldValue ) {
-                                   				searchService.setSearchColumn( $scope.search );
-                                   			} );
-                                   		}
-                                   ] );
+		'$scope', 'searchService', function ( $scope, searchService ) {
+			$scope.search;
+			$scope.clicked = false;
+			$scope.$watch( function () {
+				if ( searchService.getSearchColumn() == "" && $scope.clicked ) {
+					return $scope.search = ""
+				}
+			} );
+			$scope.$watch( 'search', function ( newValue, oldValue ) {
+				searchService.setSearchColumn( $scope.search );
+			} );
+		}
+] );
 
 BankappSearch.factory( 'searchService', function () {
 
@@ -24,7 +24,7 @@ BankappSearch.factory( 'searchService', function () {
 	var ids = "";
 	var accountIds = "";
 	var customerIds = "";
-	var bankIds="";
+	var bankIds = "";
 	return {
 		setSearchColumn : function ( str ) {
 			searchColumn = str;
@@ -55,6 +55,13 @@ BankappSearch.factory( 'searchService', function () {
 		},
 		getBankIds : function () {
 			return bankIds;
+		},
+		reset : function () {
+			searchColumn = "";
+			ids = "";
+			accountIds = "";
+			customerIds = "";
+			bankIds = "";
 		}
 	}
 } )

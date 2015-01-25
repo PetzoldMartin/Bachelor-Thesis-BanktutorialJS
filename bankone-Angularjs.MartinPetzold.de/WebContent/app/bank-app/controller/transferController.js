@@ -17,9 +17,7 @@ BankappTransfer.controller( 'transferComponentCtrl', [
 				"name" : "Geldtransfer ausführen",
 				"url" : 'mainTopicTemplates/transferSubpageTemplates/transferManipulate.html'
 			}
-
 			subComponentService.setComponent_Lvl1( overview );
-
 			$scope.click = function ( oid ) {
 				manipulate.id = oid;
 				subComponentService.setComponent_Lvl2( manipulate );

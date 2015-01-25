@@ -19,7 +19,7 @@ BankappMainview.controller( 'headerCtrl', [
 ] );
 
 BankappMainview.controller( 'sidebarCtrl', [
-		'$scope', 'mainPageService', 'BreadcrumbService', 'searchService', function ( $scope, mainPageService, BreadcrumbService, searchService ) {
+		'$scope', 'mainPageService', 'searchService', function ( $scope, mainPageService, searchService ) {
 			$scope.topics = [
 					{
 						"id" : 1,
@@ -70,17 +70,9 @@ BankappMainview.controller( 'sidebarCtrl', [
 			};
 			$scope.click = function ( topic, realc ) {
 				if ( !realc ) {
-					searchService.setIds( "" );
-					searchService.setAccountIds( "" );
-					searchService.setBankIds( "" );
-					searchService.setCustomerIds( "" );
+					searchService.reset();
 				}
-				if ( topic.clicked == false ) {
-					BreadcrumbService.setBreadcrumbLvl2( "" );
-					BreadcrumbService.setBreadcrumbLvl3( "" );
-					BreadcrumbService.setBreadcrumbLvl4( "" );
-
-				}
+				
 				angular.forEach( $scope.topics, function ( value, index ) {
 					value.clicked = false;
 					value.class = "list-group-item";
@@ -88,11 +80,9 @@ BankappMainview.controller( 'sidebarCtrl', [
 
 				topic.clicked = true;
 				mainPageService.setData( topic );
-				BreadcrumbService.setBreadcrumbLvl1( topic );
 				return topic.class = "list-group-item active";
 			};
 			mainPageService.setData( $scope.topics[ 0 ] );
-			BreadcrumbService.setBreadcrumbLvl1( $scope.topics[ 0 ] );
 			$scope.$watch( function () {
 				return mainPageService.getTopicid()
 			}, function ( newValue, oldValue ) {
@@ -147,11 +137,13 @@ BankappMainview.controller( 'subpageComponentCtrl', [
 		
 ] );
 
-BankappMainview.factory( 'mainPageService', function () {
+BankappMainview.factory( 'mainPageService',[ 'BreadcrumbService', function (BreadcrumbService) {
 	var data = "";
 	var topicid = 1;
 	return {
 		setData : function ( str ) {
+			BreadcrumbService.reset();
+			BreadcrumbService.setBreadcrumbLvl1( str );
 			data = str;
 			topicid = str.id;
 		},
@@ -166,4 +158,4 @@ BankappMainview.factory( 'mainPageService', function () {
 		},
 	}
 
-} )
+}] )

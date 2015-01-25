@@ -23,8 +23,7 @@ BankappAccountview.controller( 'accountComponentCtrl', [
 				"url" : 'mainTopicTemplates/accountSubpageTemplates/newAccount.html'
 			}
 			subComponentService.reset();
-			subComponentService.setComponent_Lvl1( overview );
-			
+			subComponentService.setComponent_Lvl1( overview );	
 			$scope.click = function ( oid ) {
 				manipulate.id = oid;
 				if ( oid != "undefined" ) {
@@ -32,7 +31,6 @@ BankappAccountview.controller( 'accountComponentCtrl', [
 				} else {
 					subComponentService.setComponent_Lvl2( makeNew );
 				}
-
 			}
 			$scope.$watch( function () {
 				return subComponentService.getActuallComponent();
@@ -45,7 +43,6 @@ BankappAccountview.controller( 'accountComponentCtrl', [
 BankappAccountview.controller( 'accountListCtrl', [
 		'$scope', '$http', 'searchService', 'arreyspliceByObjectId', 'subComponentService', function ( $scope, $http, searchService, arreyspliceByObjectId, subComponentService ) {
 			$scope.query = "";
-
 			$scope.$watch( function () {
 				return searchService.getSearchColumn()
 			},function(newValue, oldValue){
@@ -58,8 +55,7 @@ BankappAccountview.controller( 'accountListCtrl', [
 				} ).error( function ( ) {
 					alert("Accountsübersichtservice nicht vorhanden")
 				} );
-			};
-			
+			};	
 			$scope.$watch(function(){
 				if ( searchService.getAccountIds() != "" ) {
 					$scope.accounts = arreyspliceByObjectId.spliceByID( $scope.accounts, searchService.getAccountIds() );
@@ -74,7 +70,6 @@ BankappAccountview.controller( 'accountListCtrl', [
 BankappAccountview.controller( 'accountViewCtrl', [
 		'$scope', '$http', 'subComponentService', 'mainPageService', 'searchService', function ( $scope, $http, subComponentService, mainPageService, searchService ) {
 			$scope.iddata = subComponentService.getComponent_Lvl2();
-
 			// Load Function
 			$scope.loadData = function () {	
 				if ( $scope.iddata.name == "Konto bearbeiten" ) {
@@ -89,19 +84,16 @@ BankappAccountview.controller( 'accountViewCtrl', [
 						} )			
 			};
 			$scope.loadData();
-
 			// Cancel Function
 			$scope.setSubComponentLvl2 = function () {
 				subComponentService.setComponent_Lvl2('');
 			}
-
 			// Delete Function
 			$scope.deleteAccount = function () {
 				$http( {
 					withCredentials : false,
 					method : 'delete',
 					url : '../../../../bankone/rest/abstractAccountREST' + '/' + $scope.account.id,
-
 				} ).success( function () {
 					$scope.setSubComponentLvl2()
 				} )
@@ -149,7 +141,6 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 			searchService.setCustomerIds( "all" );
 			searchService.setBankIds( "all" );
 			// $scope.typeQuery;
-
 			$scope.set = function ( type ) {
 				$scope.typeQuery = type
 			}
@@ -159,40 +150,30 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 						method : 'post',
 						url : '../../../../bankone/rest/abstractAccountREST/'+$scope.typeQuery,
 						data : $scope.newAccount
-
 					} ).success( function () {
 						$scope.autoregisterCustomerAtBank( $scope.newAccount.bank.id, $scope.newAccount.owner.id );
 						subComponentService.setComponent_Lvl2("");
 						
 					} ).error( function ( data, status, headers, config ) {
 						alert("eine Auswahl wurde nicht getroffen")
-					} )
-				
+					} )	
 			}
-
 			$scope.click = function ( bid, kind ) {
 				if ( kind == "customer" ) {
-					$scope.customer = null
 					searchService.setCustomerIds( [
 						bid
 					] );
 					$scope.newAccount.owner.id = bid;
-					setTimeout( function () {
-						$scope.customer = 'mainTopicTemplates/customerSubpageTemplates/customerOverView.html'
-					}, 1 )
+					
 				}
 				if ( kind == "bank" ) {
-					$scope.bank = null
 					searchService.setBankIds( [
 						bid
 					] );
 					$scope.newAccount.bank.id = bid;
-					setTimeout( function () {
-						$scope.bank = 'mainTopicTemplates/bankSubpageTemplates/bankOverView.html'
-
-					}, 1 )
 				}
 			}
+			
 			$scope.autoregisterCustomerAtBank = function ( bankid, customerid ) {
 
 				$http.get( '../../../../bankone/rest/bankREST' + '/' + bankid ).success( function ( data ) {

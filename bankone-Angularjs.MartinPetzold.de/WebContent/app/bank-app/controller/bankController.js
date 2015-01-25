@@ -20,15 +20,11 @@ BankappBankview.controller( 'bankComponentCtrl', [
 				"url" : 'mainTopicTemplates/bankSubpageTemplates/bankManipulate.html'
 			}
 			subComponentService.reset();
-			subComponentService.setComponent_Lvl1( overview );
-			
-
+			subComponentService.setComponent_Lvl1( overview );		
 			$scope.click = function ( oid ) {
 				manipulate.id = oid;
 				subComponentService.setComponent_Lvl2( manipulate );
-
 			}
-
 			$scope.$watch( function () {
 				return subComponentService.getActuallComponent();
 			}, function(){
@@ -60,6 +56,12 @@ BankappBankview.controller( 'bankListCtrl', [
 			};
 			$scope.orderProp = 'name';
 			$scope.loadData();
+			$scope.$watch(function(){
+				if ( searchService.getBankIds() != "" ) {
+					$scope.banks = arreyspliceByObjectId.spliceByID( $scope.banks, searchService.getBankIds() );
+					$scope.newAvaible = false;
+				}
+			});
 		}
 ] );
 

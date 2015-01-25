@@ -57,7 +57,12 @@ BankappCustomerview.controller( 'customerListCtrl', [
 			};
 			$scope.orderProp = 'name';
 			$scope.loadData();
-			
+			$scope.$watch(function(){
+				if ( searchService.getCustomerIds() != "" ) {
+					$scope.customers = arreyspliceByObjectId.spliceByID( $scope.customers, searchService.getCustomerIds() );
+					$scope.newAvaible = false;
+				}
+			});
 		}
 ] );
 
@@ -140,9 +145,7 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 			$scope.setSubComponentLvl2 = function () {
 				subComponentService.setComponent_Lvl2( "" );
 				subComponentService.setComponent_Lvl3( "" );
-
 			}
-			
 			//Save Function
 			$scope.saveCustomer = function () {
 				if ( ( $scope.iddata.id ) == "undefined" ) {
