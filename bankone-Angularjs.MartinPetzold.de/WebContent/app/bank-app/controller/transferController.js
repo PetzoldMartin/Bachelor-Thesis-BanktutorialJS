@@ -117,56 +117,31 @@ BankappTransfer.controller( 'transferType', [
 				} )
 
 			}
-			$scope.saveClean = function () {
-
+			$scope.make = function(value,acc){
+				acc.balance = parseFloat( acc.balance ) + parseFloat( value );
+				$scope.newStatement = {
+					"date" : Date.now(),
+					"content" : value
+				};
+				acc.statements.push( $scope.newStatement );
+				$scope.newacc( acc.accountType, acc );
 			}
-			// vereinfachen renundanz
 			$scope.save = function () {
 				if ( $scope.transferway == "deposit" ) {
-					$scope.account.balance = parseFloat( $scope.account.balance ) + parseFloat( $scope.ammount.value );
-					$scope.newStatement = {
-						"date" : Date.now(),
-						"content" : $scope.ammount.value
-					};
-					$scope.account.statements.push( $scope.newStatement );
-					$scope.newacc( $scope.account.accountType, $scope.account );
-					$scope.ammount.value = 0;
+					$scope.make(+$scope.ammount.value,$scope.account)
 				}
 				if ( $scope.transferway == "withdraw" ) {
-					$scope.account.balance = parseFloat( $scope.account.balance ) - parseFloat( $scope.ammount.value )
-					$scope.newStatement = {
-						"date" : Date.now(),
-						"content" : -$scope.ammount.value
-					};
-					$scope.account.statements.push( $scope.newStatement );
-					$scope.newacc( $scope.account.accountType, $scope.account );
-					$scope.ammount.value = 0;
+					$scope.make(-$scope.ammount.value,$scope.account)
 				}
-
 				if ( $scope.transferway == "transfer" ) {
 					if ( !$scope.accountTwo ) {
 						alert( "Kein Zielaccount ausgewählt" );
 					} else {
-						$scope.account.balance = parseFloat( $scope.account.balance ) - parseFloat( $scope.ammount.value );
-						$scope.newStatement = {
-							"date" : Date.now(),
-							"content" : -$scope.ammount.value
-
-						};
-						$scope.account.statements.push( $scope.newStatement );
-						$scope.newacc( $scope.account.accountType, $scope.account );
-						$scope.accountTwo.balance = parseFloat( $scope.accountTwo.balance ) + parseFloat( $scope.ammount.value );
-						$scope.newStatement = {
-							"date" : Date.now(),
-							"content" : $scope.ammount.value
-
-						};
-						$scope.accountTwo.statements.push( $scope.newStatement );
-						$scope.newacc( $scope.accountTwo.accountType, $scope.accountTwo );
-						$scope.ammount.value = 0;
+						$scope.make(-$scope.ammount.value,$scope.account)
+						$scope.make(+$scope.ammount.value,$scope.accountTwo)
 					}
 				}
-
+				$scope.ammount.value = 0;
 			}
 
 		}

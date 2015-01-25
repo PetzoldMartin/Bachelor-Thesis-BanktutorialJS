@@ -173,9 +173,7 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 					$scope.newAccount.bank.id = bid;
 				}
 			}
-			
 			$scope.autoregisterCustomerAtBank = function ( bankid, customerid ) {
-
 				$http.get( '../../../../bankone/rest/bankREST' + '/' + bankid ).success( function ( data ) {
 					$scope.bank = data;
 					$scope.hit = false
@@ -184,7 +182,6 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 							$scope.hit = true
 						}
 					} )
-
 					if ( $scope.hit == false ) {
 						$http.get( '../../../../bankone/rest/customerREST' + '/' + customerid ).success( function ( data ) {
 							$scope.customer = data;
@@ -195,7 +192,6 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 								method : 'put',
 								url : '../../../../bankone/rest/bankREST',
 								data : $scope.bank
-
 							} )
 						} )
 					}
