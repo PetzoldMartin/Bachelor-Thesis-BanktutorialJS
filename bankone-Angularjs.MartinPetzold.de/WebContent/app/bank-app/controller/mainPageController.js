@@ -11,9 +11,9 @@ BankappMainview.controller( 'headerCtrl', [
 			$scope.logo_url = '../icons/logo-whz.jpg'
 			$scope.headerText = mainPageService.getData();
 			$scope.$watch( function () {
-				return mainPageService.getData();
+				return mainPageService.getHeader();
 			}, function(newValue,oldValue){
-				$scope.headerText = mainPageService.getData();
+				$scope.headerText = mainPageService.getHeader();
 			});
 		}
 ] );
@@ -93,11 +93,11 @@ BankappMainview.controller( 'sidebarCtrl', [
 
 BankappMainview.controller( 'titleCtrl', [
 		'$scope', 'mainPageService', function ( $scope, mainPageService ) {
-			$scope.name = mainPageService.getData();
+			$scope.name = mainPageService.getHeader();
 			$scope.$watch( function () {
-				return mainPageService.getData();
+				return mainPageService.getHeader();
 			} ,function(newValue,oldValue){
-				$scope.name = mainPageService.getData();
+				$scope.name = mainPageService.getHeader();
 			});
 		}
 ] );
@@ -140,6 +140,8 @@ BankappMainview.controller( 'subpageComponentCtrl', [
 BankappMainview.factory( 'mainPageService',[ 'BreadcrumbService', function (BreadcrumbService) {
 	var data = "";
 	var topicid = 1;
+	var header = "";
+
 	return {
 		setData : function ( str ) {
 			BreadcrumbService.reset();
@@ -156,6 +158,12 @@ BankappMainview.factory( 'mainPageService',[ 'BreadcrumbService', function (Brea
 		getTopicid : function () {
 			return topicid;
 		},
+		setHeader : function ( str ) {
+			header = str;
+		},
+		getHeader : function () {
+			return header;
+		}
 	}
 
 }] )

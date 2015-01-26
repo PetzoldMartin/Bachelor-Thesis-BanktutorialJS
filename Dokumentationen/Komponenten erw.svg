@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="37cm" height="37cm" viewBox="126 106 735 730" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="132" y="107" width="728" height="424"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="132" y="107" width="728" height="424"/>
+  </g>
+  <g>
+    <rect style="fill: #add8e6" x="160" y="160" width="689" height="62" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke-linejoin: round; stroke: #000000" x="160" y="160" width="689" height="62" rx="10" ry="10"/>
+  </g>
+  <g>
+    <rect style="fill: #add8e6" x="161" y="231" width="78" height="164" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke-linejoin: round; stroke: #000000" x="161" y="231" width="78" height="164" rx="10" ry="10"/>
+  </g>
+  <g>
+    <rect style="fill: #add8e6" x="245" y="232" width="604" height="33" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke-linejoin: round; stroke: #000000" x="245" y="232" width="604" height="33" rx="10" ry="10"/>
+  </g>
+  <g>
+    <rect style="fill: #ffdd88" x="244" y="272" width="601" height="251" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke-linejoin: round; stroke: #000000" x="244" y="272" width="601" height="251" rx="10" ry="10"/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="504.5" y="191">
+    <tspan x="504.5" y="191"></tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffdd88" x="294" y="304" width="521" height="204" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke-linejoin: round; stroke: #000000" x="294" y="304" width="521" height="204" rx="10" ry="10"/>
+  </g>
+  <text font-size="22.5778" style="fill: #000000;text-anchor:end;font-family:sans-serif;font-style:normal;font-weight:normal" x="504.5" y="191">
+    <tspan x="504.5" y="191">Kopfleiste</tspan>
+  </text>
+  <text font-size="22.5778" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="547" y="256.325">
+    <tspan x="547" y="256.325">Breadcrumb und Suchleiste</tspan>
+  </text>
+  <g>
+    <rect style="fill: #add8e6" x="139.025" y="292" width="121.95" height="26.35"/>
+    <text font-size="22.5778" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="200" y="313">
+      <tspan x="200" y="313">Navigation</tspan>
+    </text>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="544.5" y="397.5">
+    <tspan x="544.5" y="397.5"></tspan>
+  </text>
+  <text font-size="22.5778" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="538" y="293.65">
+    <tspan x="538" y="293.65">Anwendungskomponentenrahmen</tspan>
+  </text>
+  <text font-size="22.5778" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="554.5" y="406">
+    <tspan x="554.5" y="406">Anwendungskomponenten</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffdd88" x="127.502" y="629" width="261.5" height="204" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke-linejoin: round; stroke: #000000" x="127.502" y="629" width="261.5" height="204" rx="10" ry="10"/>
+  </g>
+  <text font-size="22.5778" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="258.252" y="731">
+    <tspan x="258.252" y="731">Übersichts</tspan>
+    <tspan x="258.252" y="759.222">Komponenten</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffdd88" x="494.502" y="630" width="309.5" height="204" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke-linejoin: round; stroke: #000000" x="494.502" y="630" width="309.5" height="204" rx="10" ry="10"/>
+  </g>
+  <text font-size="22.5778" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="652.252" y="687.492">
+    <tspan x="652.252" y="687.492">Anzeige- </tspan>
+    <tspan x="652.252" y="715.714">und </tspan>
+    <tspan x="652.252" y="743.936">Manipulations-</tspan>
+    <tspan x="652.252" y="772.158">Komponenten</tspan>
+  </text>
+  <g>
+    <polygon style="fill: #ffffff" points="535.002,566 555.002,546 575.002,566 555.002,586 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke-linejoin: round; stroke: #000000" points="535.002,566 555.002,546 575.002,566 555.002,586 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="555.002,546 555.002,527.503 554.5,527.503 554.5,520.006 "/>
+    <polygon style="fill: #000000" points="559.5,520.006 554.5,510.006 549.5,520.006 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="559.5,520.006 554.5,510.006 549.5,520.006 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="649.252,630 649.252,608 555.002,608 555.002,597 "/>
+    <polygon style="fill: #000000" points="560.002,597 555.002,587 550.002,597 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="560.002,597 555.002,587 550.002,597 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="258.252,629 258.252,607.5 555.002,607.5 555.002,597 "/>
+    <polygon style="fill: #000000" points="560.002,597 555.002,587 550.002,597 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="560.002,597 555.002,587 550.002,597 "/>
+  </g>
+  <text font-size="22.5778" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="141" y="140">
+    <tspan x="141" y="140">Mainpage</tspan>
+  </text>
+</svg>

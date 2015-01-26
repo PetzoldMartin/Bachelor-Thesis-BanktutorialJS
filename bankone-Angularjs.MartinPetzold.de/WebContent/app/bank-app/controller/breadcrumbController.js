@@ -28,7 +28,9 @@ BankappBreadcrum.controller( 'breadcrumbCtrl', [
 					$scope.breadcrumbLvl3 = BreadcrumbService.getBreadcrumbLvl3()
 					$scope.breadcrumbLvl4 = BreadcrumbService.getBreadcrumbLvl4()	
 			} );
-			
+			$scope.$watch( function () {
+				mainPageService.setHeader(BreadcrumbService.getHighestBreadcrumb());
+			});
 		}
 ] );
 
@@ -84,6 +86,25 @@ BankappBreadcrum.factory( 'BreadcrumbService', [
 				getBreadcrumbLvl5 : function () {
 					return breadcrumbLvl5;
 				}, 
+				getHighestBreadcrumb : function () {
+					if(breadcrumbLvl2==""){
+						return breadcrumbLvl1
+					}else{
+						if(breadcrumbLvl3==""){
+							return breadcrumbLvl2
+						}else{
+							if(breadcrumbLvl4==""){
+								return breadcrumbLvl3
+							}else{
+								if(breadcrumbLvl5==""){
+									return breadcrumbLvl4
+								}else{
+									
+								}
+							}
+						}
+					}
+				},
 				reset : function(){
 					breadcrumbLvl1 = "";
 					breadcrumbLvl2 = "";
