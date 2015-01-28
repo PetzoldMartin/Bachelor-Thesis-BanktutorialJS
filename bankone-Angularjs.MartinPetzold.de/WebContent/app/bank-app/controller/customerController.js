@@ -18,7 +18,7 @@ BankappCustomerview.controller( 'customerComponentCtrl', [
 				"url" : 'mainTopicTemplates/customerSubpageTemplates/customerManipulate.html'
 			}
 			subComponentService.reset();
-			subComponentService.setComponent( overview );			
+			subComponentService.setComponent( overview ,true);			
 
 			$scope.click = function ( oid ) {
 				manipulate.id = oid;
@@ -96,7 +96,7 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 			//Overide of the Click Method from customer for the account subview
 			$scope.click = function ( oid ) {
 				$scope.tc=angular.copy(subComponentService.getActuallComponent())
-				$scope.tc.name="Account Nr."+ oid +" des Kunden " +$scope.customer.firstname +" "+$scope.customer.surname
+				$scope.tc.name="Account"+ oid +" des Kunden " +$scope.customer.firstname +" "+$scope.customer.surname
 				$scope.tc.id = oid;
 				subComponentService.setComponent($scope.tc);
 				$scope.accountByCustomer='mainTopicTemplates/accountSubpageTemplates/accountManipulate.html'	

@@ -6,15 +6,20 @@ var BankappBreadcrum = angular.module( 'bankapp.breadcrumb', [
 ] );
 
 BankappBreadcrum.controller( 'breadcrumbCtrl', [
-		'$scope', 'BreadcrumbService', 'subComponentService','mainPageService',
+		'$scope', 'BreadcrumbService', 'subComponentService','mainPageService','searchService',
 
-		function ( $scope, BreadcrumbService, subComponentService,mainPageService ) {
+		function ( $scope, BreadcrumbService, subComponentService,mainPageService ,searchService) {
 			$scope.tomain=function(){
-				subComponentService.reset();
+				searchService.reset();
 				mainPageService.setTopicid( 1 );
 			}
 			$scope.setComponent = function (c) {
+				searchService.reset();
+				if(c.class){
+					mainPageService.setTopicid( c.id );	
+				}else{
 				subComponentService.setComponent(c);
+				}
 			}
 
 			$scope.$watch( function () {
@@ -28,7 +33,7 @@ BankappBreadcrum.controller( 'breadcrumbCtrl', [
 ] );
 
 BankappBreadcrum.factory( 'BreadcrumbService', [
-		'searchService', function ( searchService ) {
+		 function () {
 
 			var breadcrumbs = [];
 

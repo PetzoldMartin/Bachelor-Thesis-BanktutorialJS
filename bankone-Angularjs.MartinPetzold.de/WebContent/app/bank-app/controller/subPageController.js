@@ -7,7 +7,7 @@ BankappSubview.factory( 'subComponentService', ['BreadcrumbService',
 	function (BreadcrumbService) {
 		var Components=[]
 		return {
-			setComponent : function(str){
+			setComponent : function(str,y){
 				var CT=[];
 				var x = false;
 				angular.forEach(Components, function(data) {
@@ -19,8 +19,9 @@ BankappSubview.factory( 'subComponentService', ['BreadcrumbService',
 				})
 				Components=angular.copy(CT);
 				Components.push(str);
+				if(!y){
 				BreadcrumbService.setbreadcrumb(str)
-				
+			}
 			},
 			getActuallComponent : function () {
 

@@ -20,7 +20,7 @@ BankappBankview.controller( 'bankComponentCtrl', [
 				"url" : 'mainTopicTemplates/bankSubpageTemplates/bankManipulate.html'
 			}
 			subComponentService.reset();
-			subComponentService.setComponent(overview);
+			subComponentService.setComponent(overview,true);
 			$scope.click = function ( oid ) {
 				manipulate.id = oid;
 				subComponentService.setComponent(manipulate);

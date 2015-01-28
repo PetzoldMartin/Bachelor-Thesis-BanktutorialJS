@@ -23,11 +23,11 @@ BankappAccountview.controller( 'accountComponentCtrl', [
 				"url" : 'mainTopicTemplates/accountSubpageTemplates/newAccount.html'
 			}
 			subComponentService.reset();
-			subComponentService.setComponent( overview );	
+			subComponentService.setComponent( overview ,true);	
 			$scope.click = function ( oid ) {
 				manipulate.id = oid;
 				if ( oid != "undefined" ) {
-					subComponentService.setComponent( manipulate );
+					subComponentService.setComponent( manipulate);
 				} else {
 					subComponentService.setComponent( makeNew );
 				}
@@ -152,7 +152,7 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 						data : $scope.newAccount
 					} ).success( function () {
 						$scope.autoregisterCustomerAtBank( $scope.newAccount.bank.id, $scope.newAccount.owner.id );
-						subComponentService.setComponent_Lvl2("");
+						subComponentService.stepBack();
 						
 					} ).error( function ( data, status, headers, config ) {
 						alert("eine Auswahl wurde nicht getroffen")
