@@ -20,15 +20,16 @@ BankappBankview.controller( 'bankComponentCtrl', [
 				"url" : 'mainTopicTemplates/bankSubpageTemplates/bankManipulate.html'
 			}
 			subComponentService.reset();
-			subComponentService.setComponent_Lvl1( overview );		
+			subComponentService.setComponent(overview);
 			$scope.click = function ( oid ) {
 				manipulate.id = oid;
-				subComponentService.setComponent_Lvl2( manipulate );
+				subComponentService.setComponent(manipulate);
 			}
 			$scope.$watch( function () {
 				return subComponentService.getActuallComponent();
 			}, function(){
 				$scope.Component_Lvl1 = subComponentService.getActuallComponent();
+				
 			} );
 		}
 ] );
@@ -68,7 +69,7 @@ BankappBankview.controller( 'bankListCtrl', [
 BankappBankview.controller( 'bankviewCtrl', [
 		'$scope', '$http', 'subComponentService', 'mainPageService', 'searchService', function ( $scope, $http, subComponentService, mainPageService, searchService ) {
 			// Initialization of the Controller
-			$scope.iddata = subComponentService.getComponent_Lvl2();
+			$scope.iddata = subComponentService.getActuallComponent();
 			$scope.customerCount = 0;
 			$scope.accountCount = 0;
 			$scope.addnew = false;
@@ -129,7 +130,7 @@ BankappBankview.controller( 'bankviewCtrl', [
 			$scope.loadData();
 			// function for cancel
 			$scope.setSubComponentLvl2 = function () {
-				subComponentService.setComponent_Lvl2( "" );
+				subComponentService.stepBack();
 			}
 			// save Function
 			$scope.saveBank = function () {

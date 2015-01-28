@@ -18,11 +18,11 @@ BankappCustomerview.controller( 'customerComponentCtrl', [
 				"url" : 'mainTopicTemplates/customerSubpageTemplates/customerManipulate.html'
 			}
 			subComponentService.reset();
-			subComponentService.setComponent_Lvl1( overview );			
+			subComponentService.setComponent( overview );			
 
 			$scope.click = function ( oid ) {
 				manipulate.id = oid;
-				subComponentService.setComponent_Lvl2( manipulate );
+				subComponentService.setComponent( manipulate );
 			}
 			$scope.$watch( function () {
 				return subComponentService.getActuallComponent();
@@ -69,7 +69,7 @@ BankappCustomerview.controller( 'customerListCtrl', [
 BankappCustomerview.controller( 'customerviewCtrl', [
 		'$scope', '$http', 'subComponentService', 'searchService', function ( $scope, $http, subComponentService,searchService) {
 			$scope.accountByCustomer=''
-			$scope.iddata = subComponentService.getComponent_Lvl2();
+			$scope.iddata = subComponentService.getActuallComponent();
 			$scope.hasSub=true
 			$scope.accountIds = [
 				     				0
@@ -95,20 +95,20 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 			
 			//Overide of the Click Method from customer for the account subview
 			$scope.click = function ( oid ) {
-				$scope.tc=angular.copy(subComponentService.getComponent_Lvl2())
-				$scope.tc.name="Account "+ oid +" des Kunden"
+				$scope.tc=angular.copy(subComponentService.getActuallComponent())
+				$scope.tc.name="Account Nr."+ oid +" des Kunden " +$scope.customer.firstname +" "+$scope.customer.surname
 				$scope.tc.id = oid;
-				subComponentService.setComponent_Lvl3($scope.tc);
+				subComponentService.setComponent($scope.tc);
 				$scope.accountByCustomer='mainTopicTemplates/accountSubpageTemplates/accountManipulate.html'	
 				$scope.acd=true;
 			}
 			$scope.accback = function () {
 				$scope.accountByCustomer='mainTopicTemplates/accountSubpageTemplates/accountOverView.html'
 					$scope.acd=false;
-				subComponentService.setComponent_Lvl3("");
+				subComponentService.stepBack();
 			}
 			$scope.$watch( function () {
-				return subComponentService.getComponent_Lvl3();
+				return subComponentService.getActuallComponent();
 			} ,function(newValue, oldValue){
 				if(newValue==''){
 					$scope.accback();
@@ -143,8 +143,9 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 			
 			// Cancel Function
 			$scope.setSubComponentLvl2 = function () {
-				subComponentService.setComponent_Lvl2( "" );
-				subComponentService.setComponent_Lvl3( "" );
+				subComponentService.stepBack();
+				subComponentService.stepBack();
+
 			}
 			//Save Function
 			$scope.saveCustomer = function () {

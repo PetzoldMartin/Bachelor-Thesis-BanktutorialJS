@@ -7,6 +7,5 @@ var BankappWelcomeview = angular.module( 'bankapp.welcomeview', [
 
 BankappWelcomeview.controller( 'welcomeComponentCtrl', [
 		'$scope', 'subComponentService', 'BreadcrumbService', function ( $scope, subComponentService, BreadcrumbService ) {
-			subComponentService.setComponent_Lvl1('');
 		}
 ] );

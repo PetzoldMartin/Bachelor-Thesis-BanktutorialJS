@@ -23,7 +23,8 @@ BankappFunctions.factory( 'arreyspliceByObjectId', function () {
 			} )
 			return newArrey;
 		}else{
-			return arreyToSplice
+			
+			return arreyToSplice;
 		}
 		}
 	}

@@ -9,7 +9,7 @@ BankappMainview.controller( 'headerCtrl', [
 		'$scope', 'mainPageService', function ( $scope, mainPageService ) {
 			$scope.logoNavyBlue_url = '../icons/logo-whzNavyBlue.jpg'
 			$scope.logo_url = '../icons/logo-whz.jpg'
-			$scope.headerText = mainPageService.getData();
+			$scope.headerText = mainPageService.getHeader();
 			$scope.$watch( function () {
 				return mainPageService.getHeader();
 			}, function(newValue,oldValue){
@@ -145,7 +145,7 @@ BankappMainview.factory( 'mainPageService',[ 'BreadcrumbService', function (Brea
 	return {
 		setData : function ( str ) {
 			BreadcrumbService.reset();
-			BreadcrumbService.setBreadcrumbLvl1( str );
+			BreadcrumbService.setbreadcrumb( str );
 			data = str;
 			topicid = str.id;
 		},

@@ -17,10 +17,10 @@ BankappTransfer.controller( 'transferComponentCtrl', [
 				"name" : "Geldtransfer ausführen",
 				"url" : 'mainTopicTemplates/transferSubpageTemplates/transferManipulate.html'
 			}
-			subComponentService.setComponent_Lvl1( overview );
+			subComponentService.setComponent( overview );
 			$scope.click = function ( oid ) {
 				manipulate.id = oid;
-				subComponentService.setComponent_Lvl2( manipulate );
+				subComponentService.setComponent( manipulate );
 			}
 			$scope.$watch( function () {
 				return subComponentService.getActuallComponent();
@@ -49,7 +49,7 @@ BankappTransfer.controller( 'transferType', [
 			$scope.tempids = searchService.getAccountIds();
 			$scope.filter = [];
 			// better filter
-			$http.get( '../../../../bankone/rest/abstractAccountREST' + '/' + subComponentService.getComponent_Lvl2().id ).success( function ( data ) {
+			$http.get( '../../../../bankone/rest/abstractAccountREST' + '/' + subComponentService.getActuallComponent().id ).success( function ( data ) {
 				$scope.account = data;
 				{
 					$http.get( '../../../../bankone/rest/abstractAccountREST' ).success( function ( data ) {
@@ -104,7 +104,7 @@ BankappTransfer.controller( 'transferType', [
 			}
 			$scope.setSubComponentLvl2 = function () {
 				searchService.setAccountIds( $scope.tempids );
-				subComponentService.setComponent_Lvl2( "" );
+				subComponentService.stepBack();
 			}
 
 			$scope.newacc = function ( type, updaccount ) {

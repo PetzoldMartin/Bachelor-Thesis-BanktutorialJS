@@ -11,22 +11,10 @@
 				<div class="form-group">
 					<ol ng-controller="breadcrumbCtrl" class="breadcrumb">
 						<li><a href=# ng-click="tomain()" >Home</a></li>
-						<li ng-if="breadcrumbLvl1!='' && breadcrumbLvl2!=''"><a
-							href="#" ng-click="setSubComponentLvl1()">{{breadcrumbLvl1.name}}</a></li>
-						<li ng-if="breadcrumbLvl1!='' && breadcrumbLvl2==''"
-							class="active">{{breadcrumbLvl1.name}}</li>
-						<li ng-if="breadcrumbLvl2!='' && breadcrumbLvl3!=''"><a
-							href="#" ng-click="setSubComponentLvl1()">{{breadcrumbLvl2.name}}</a></li>
-						<li ng-if="breadcrumbLvl2!='' && breadcrumbLvl3==''"
-							class="active">{{breadcrumbLvl2.name}}</li>
-						<li ng-if="breadcrumbLvl3!='' && breadcrumbLvl4!=''"><a
-							href="#" ng-click="setSubComponentLvl2()">{{breadcrumbLvl3.name}}</a></li>
-						<li ng-if="breadcrumbLvl3!='' && breadcrumbLvl4==''"
-							class="active">{{breadcrumbLvl3.name}}</li>
-						<li ng-if="breadcrumbLvl4!='' && breadcrumbLvl5==''"><a
-							href="#">{{breadcrumbLvl4.name}}</a></li>
-						<li ng-if="breadcrumbLvl4!='' && breadcrumbLvl5!=''"
-							class="active">{{breadcrumbLvl4.name}}</li>
+						<li ng-repeat="b in Breadcrumbs" ng-click="setComponent(b)">
+						<a ng-if="!$last" href="#">{{b.name}}</a>
+						<span ng-if="$last" class="active">{{b.name}}</span>
+						</li>
 					</ol>
 				</div>
 				<div ng-controller="searchCtrl" class="form-group "

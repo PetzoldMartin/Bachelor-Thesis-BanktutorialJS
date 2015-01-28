@@ -23,13 +23,13 @@ BankappAccountview.controller( 'accountComponentCtrl', [
 				"url" : 'mainTopicTemplates/accountSubpageTemplates/newAccount.html'
 			}
 			subComponentService.reset();
-			subComponentService.setComponent_Lvl1( overview );	
+			subComponentService.setComponent( overview );	
 			$scope.click = function ( oid ) {
 				manipulate.id = oid;
 				if ( oid != "undefined" ) {
-					subComponentService.setComponent_Lvl2( manipulate );
+					subComponentService.setComponent( manipulate );
 				} else {
-					subComponentService.setComponent_Lvl2( makeNew );
+					subComponentService.setComponent( makeNew );
 				}
 			}
 			$scope.$watch( function () {
@@ -69,7 +69,7 @@ BankappAccountview.controller( 'accountListCtrl', [
 
 BankappAccountview.controller( 'accountViewCtrl', [
 		'$scope', '$http', 'subComponentService', 'mainPageService', 'searchService', function ( $scope, $http, subComponentService, mainPageService, searchService ) {
-			$scope.iddata = subComponentService.getComponent_Lvl2();
+			$scope.iddata = subComponentService.getActuallComponent();
 			// Load Function
 			$scope.loadData = function () {	
 				if ( $scope.iddata.name == "Konto bearbeiten" ) {

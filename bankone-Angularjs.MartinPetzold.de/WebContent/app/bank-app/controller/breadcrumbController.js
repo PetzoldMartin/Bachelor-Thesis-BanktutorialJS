@@ -13,20 +13,13 @@ BankappBreadcrum.controller( 'breadcrumbCtrl', [
 				subComponentService.reset();
 				mainPageService.setTopicid( 1 );
 			}
-			$scope.setSubComponentLvl1 = function () {
-				subComponentService.setComponent_Lvl2( '' );
-				BreadcrumbService.setBreadcrumbLvl3( "" );
+			$scope.setComponent = function (c) {
+				subComponentService.setComponent(c);
 			}
-			$scope.setSubComponentLvl2 = function () {
-				subComponentService.setComponent_Lvl3( '' );
-				BreadcrumbService.setBreadcrumbLvl4( "" );
-			}
-			
+
 			$scope.$watch( function () {
-					$scope.breadcrumbLvl1 = BreadcrumbService.getBreadcrumbLvl1()
-					$scope.breadcrumbLvl2 = BreadcrumbService.getBreadcrumbLvl2()
-					$scope.breadcrumbLvl3 = BreadcrumbService.getBreadcrumbLvl3()
-					$scope.breadcrumbLvl4 = BreadcrumbService.getBreadcrumbLvl4()	
+					$scope.Breadcrumbs = BreadcrumbService.getBreadcrumbs()
+						
 			} );
 			$scope.$watch( function () {
 				mainPageService.setHeader(BreadcrumbService.getHighestBreadcrumb());
@@ -36,81 +29,32 @@ BankappBreadcrum.controller( 'breadcrumbCtrl', [
 
 BankappBreadcrum.factory( 'BreadcrumbService', [
 		'searchService', function ( searchService ) {
-			var breadcrumbLvl1 = "";
-			var breadcrumbLvl2 = "";
-			var breadcrumbLvl3 = "";
-			var breadcrumbLvl4 = "";
-			var breadcrumbLvl5 = "";
+
+			var breadcrumbs = [];
+
 			return {
-				setBreadcrumbLvl1 : function ( str ) {
-					breadcrumbLvl1 = str;
-					searchService.setSearchColumn( "" );
-				},
-
-				getBreadcrumbLvl1 : function () {
-					return breadcrumbLvl1;
-				},
-
-				setBreadcrumbLvl2 : function ( str ) {
-					breadcrumbLvl2 = str;
-					searchService.setSearchColumn( "" );
-				},
-
-				getBreadcrumbLvl2 : function () {
-					return breadcrumbLvl2;
-				},
-
-				setBreadcrumbLvl3 : function ( str ) {
-					breadcrumbLvl3 = str;
-					searchService.setSearchColumn( "" );
-				},
-
-				getBreadcrumbLvl3 : function () {
-					return breadcrumbLvl3;
-				},
-
-				setBreadcrumbLvl4 : function ( str ) {
-					breadcrumbLvl4 = str;
-					searchService.setSearchColumn( "" );
-				},
-
-				getBreadcrumbLvl4 : function () {
-					return breadcrumbLvl4;
-				},
-
-				setBreadcrumbLvl5 : function ( str ) {
-					breadcrumbLvl5 = str;
-					searchService.setSearchColumn( "" );
-				},
-
-				getBreadcrumbLvl5 : function () {
-					return breadcrumbLvl5;
-				}, 
-				getHighestBreadcrumb : function () {
-					if(breadcrumbLvl2==""){
-						return breadcrumbLvl1
-					}else{
-						if(breadcrumbLvl3==""){
-							return breadcrumbLvl2
-						}else{
-							if(breadcrumbLvl4==""){
-								return breadcrumbLvl3
+				setbreadcrumb : function (str){
+					var CT=[];
+					var x = false;
+					angular.forEach(breadcrumbs, function(data) {
+							if(data.name!=str.name && x==false){
+								CT.push(data)
 							}else{
-								if(breadcrumbLvl5==""){
-									return breadcrumbLvl4
-								}else{
-									
-								}
-							}
-						}
-					}
+								x=true
+							}	
+					})
+					breadcrumbs=angular.copy(CT);
+					breadcrumbs.push(str);
+				},
+				getHighestBreadcrumb : function () {
+					return breadcrumbs[breadcrumbs.length-1]
+				},
+				getBreadcrumbs : function () {
+					return breadcrumbs
 				},
 				reset : function(){
-					breadcrumbLvl1 = "";
-					breadcrumbLvl2 = "";
-					breadcrumbLvl3 = "";
-					breadcrumbLvl4 = "";
-					breadcrumbLvl5 = "";
+					breadcrumbs=[];
+					
 				}
 			}
 		}
