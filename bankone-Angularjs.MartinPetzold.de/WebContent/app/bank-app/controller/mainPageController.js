@@ -69,10 +69,8 @@ BankappMainview.controller( 'sidebarCtrl', [
 				}
 			};
 			$scope.click = function ( topic, realc ) {
-				var x= true //False für Längere Breadcrumb Nachverfolgung
 				if ( !realc ) {
 					searchService.reset();
-					x=true 
 				}
 				
 				angular.forEach( $scope.topics, function ( value, index ) {
@@ -81,7 +79,7 @@ BankappMainview.controller( 'sidebarCtrl', [
 				} )
 
 				topic.clicked = true;
-				mainPageService.setData( topic,x );
+				mainPageService.setData( topic);
 				return topic.class = "list-group-item active";
 			};
 			mainPageService.setData( $scope.topics[ 0 ] );
@@ -144,8 +142,8 @@ BankappMainview.factory( 'mainPageService',[ 'BreadcrumbService', function (Brea
 	var header = "";
 
 	return {
-		setData : function ( str , x) {
-			if(x){BreadcrumbService.reset();}
+		setData : function ( str ) {
+			BreadcrumbService.reset();
 			BreadcrumbService.setbreadcrumb( str );
 			data = str;
 			topicid = str.id;
