@@ -79,7 +79,7 @@ BankappMainview.controller( 'sidebarCtrl', [
 				} )
 
 				topic.clicked = true;
-				mainPageService.setData( topic);
+				mainPageService.setData(topic);
 				return topic.class = "list-group-item active";
 			};
 			mainPageService.setData( $scope.topics[ 0 ] );
@@ -143,8 +143,9 @@ BankappMainview.factory( 'mainPageService',[ 'BreadcrumbService', function (Brea
 
 	return {
 		setData : function ( str ) {
-			BreadcrumbService.reset();
-			//BreadcrumbService.setbreadcrumb( str );
+			if(data!=str){
+				BreadcrumbService.reset();
+			}
 			data = str;
 			topicid = str.id;
 		},
