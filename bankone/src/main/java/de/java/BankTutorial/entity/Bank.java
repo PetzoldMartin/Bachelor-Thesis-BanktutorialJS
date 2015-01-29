@@ -39,7 +39,7 @@ public class Bank implements IEntityBase, Serializable {
 	private List<Contact> contacts = new LinkedList<Contact>();
 	
 	// Kunden
-	@ManyToMany(cascade = {CascadeType.ALL})
+	@ManyToMany(cascade = {CascadeType.MERGE})
 	
 	private List<Customer> customers = new LinkedList<Customer>();
 	

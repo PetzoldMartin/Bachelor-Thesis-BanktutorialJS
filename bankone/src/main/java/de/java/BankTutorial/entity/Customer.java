@@ -40,7 +40,7 @@ public class Customer implements IEntityBase, Serializable {
 	private Contact contact;
 	
 	// Banken bei der die Person Kunde ist
-	@ManyToMany(mappedBy="customers", cascade=CascadeType.ALL)
+	@ManyToMany(mappedBy="customers", cascade=CascadeType.MERGE)
 	@XmlTransient
 	private List<Bank> banks = new LinkedList<Bank>();
 	
