@@ -86,7 +86,7 @@ BankappAccountview.controller( 'accountViewCtrl', [
 			$scope.loadData();
 			// Cancel Function
 			$scope.setSubComponentLvl2 = function () {
-				subComponentService.setComponent_Lvl2('');
+				subComponentService.stepBack('');
 			}
 			// Delete Function
 			$scope.deleteAccount = function () {
