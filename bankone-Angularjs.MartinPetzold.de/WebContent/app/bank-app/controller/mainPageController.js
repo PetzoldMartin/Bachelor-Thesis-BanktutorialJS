@@ -144,7 +144,7 @@ BankappMainview.factory( 'mainPageService',[ 'BreadcrumbService', function (Brea
 	return {
 		setData : function ( str ) {
 			BreadcrumbService.reset();
-			BreadcrumbService.setbreadcrumb( str );
+			//BreadcrumbService.setbreadcrumb( str );
 			data = str;
 			topicid = str.id;
 		},

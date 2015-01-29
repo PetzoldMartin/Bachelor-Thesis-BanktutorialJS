@@ -23,7 +23,7 @@ BankappAccountview.controller( 'accountComponentCtrl', [
 				"url" : 'mainTopicTemplates/accountSubpageTemplates/newAccount.html'
 			}
 			subComponentService.reset();
-			subComponentService.setComponent( overview ,true);	
+			subComponentService.setComponent( overview);	
 			$scope.click = function ( oid ) {
 				manipulate.id = oid;
 				if ( oid != "undefined" ) {

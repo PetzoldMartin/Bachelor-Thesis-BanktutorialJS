@@ -15,11 +15,9 @@ BankappBreadcrum.controller( 'breadcrumbCtrl', [
 			}
 			$scope.setComponent = function (c) {
 				searchService.reset();
-				if(c.class){
-					mainPageService.setTopicid( c.id );	
-				}else{
+				
 				subComponentService.setComponent(c);
-				}
+				
 			}
 
 			$scope.$watch( function () {
@@ -53,6 +51,11 @@ BankappBreadcrum.factory( 'BreadcrumbService', [
 				},
 				getHighestBreadcrumb : function () {
 					return breadcrumbs[breadcrumbs.length-1]
+				},
+				stepBack : function(){
+					if(Components[Components.length-2]){
+					this.setComponent(Components[Components.length-2])
+					}
 				},
 				getBreadcrumbs : function () {
 					return breadcrumbs

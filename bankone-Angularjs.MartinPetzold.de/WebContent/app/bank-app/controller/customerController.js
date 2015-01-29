@@ -18,7 +18,7 @@ BankappCustomerview.controller( 'customerComponentCtrl', [
 				"url" : 'mainTopicTemplates/customerSubpageTemplates/customerManipulate.html'
 			}
 			subComponentService.reset();
-			subComponentService.setComponent( overview ,true);			
+			subComponentService.setComponent( overview);			
 
 			$scope.click = function ( oid ) {
 				manipulate.id = oid;

@@ -7,19 +7,19 @@ BankappSubview.factory( 'subComponentService', ['BreadcrumbService',
 	function (BreadcrumbService) {
 		var Components=[]
 		return {
-			setComponent : function(str,needsownBreadcrumb){
+			setComponent : function(str,needsNoBreadcrumb){
 				var CT=[];
-				var x = false;
+				var dupplikate = false;
 				angular.forEach(Components, function(data) {
-						if(data.name!=str.name && x==false){
+						if(data.name!=str.name && dupplikate==false){
 							CT.push(data)
 						}else{
-							x=true
+							dupplikate=true
 						}	
 				})
 				Components=angular.copy(CT);
 				Components.push(str);
-				if(!needsownBreadcrumb){
+				if(!needsNoBreadcrumb){
 				BreadcrumbService.setbreadcrumb(str)
 			}
 			},
