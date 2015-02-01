@@ -16,7 +16,7 @@
 				</div>
 				<div ng-repeat="bank in banks | orderBy:orderProp | filter:query" ng-click="click(bank.id,'bank')">
 					<div ng-class="tileClass">
-						<div " class="btn btn-default" ng-style="tileStyle">
+						<div  class="btn btn-default" ng-style="tileStyle">
 							<span>Name: {{bank.name}}</span>
 							<p>id: {{bank.id}}</p>
 							<p>BLZ: {{bank.sortCode}}</p>

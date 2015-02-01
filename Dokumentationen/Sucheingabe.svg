@@ -31,8 +31,8 @@
   </g>
   <g>
     <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="243.1" y1="194.4" x2="243.513" y2="205.408"/>
-    <polygon style="fill: #000000" points="238.516,205.595 243.888,215.401 248.509,205.22 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="238.516,205.595 243.888,215.401 248.509,205.22 "/>
+    <polygon style="fill: #000000" points="238.517,205.595 243.888,215.401 248.51,205.22 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="238.517,205.595 243.888,215.401 248.51,205.22 "/>
   </g>
   <g>
     <rect style="fill: #ffffff" x="180" y="295" width="130.85" height="52" rx="10" ry="10"/>
@@ -43,9 +43,9 @@
     </text>
   </g>
   <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="243.925" y1="268.4" x2="244.806" y2="284.017"/>
-    <polygon style="fill: #000000" points="239.814,284.299 245.369,294.002 249.798,283.736 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="239.814,284.299 245.369,294.002 249.798,283.736 "/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="243.926" y1="268.4" x2="244.807" y2="284.017"/>
+    <polygon style="fill: #000000" points="239.815,284.299 245.37,294.002 249.799,283.736 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="239.815,284.299 245.37,294.002 249.799,283.736 "/>
   </g>
   <g>
     <rect style="fill: #ffffff" x="152" y="377" width="182.8" height="36" rx="10" ry="10"/>
@@ -68,9 +68,9 @@
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="324.7,172.4 314.7,177.4 324.7,182.4 "/>
   </g>
   <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 4; stroke: #000000" x1="245.425" y1="347" x2="244.141" y2="366.025"/>
-    <polygon style="fill: #000000" points="239.152,365.688 243.467,376.002 249.129,366.362 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="239.152,365.688 243.467,376.002 249.129,366.362 "/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 4; stroke: #000000" x1="245.426" y1="347" x2="244.141" y2="366.025"/>
+    <polygon style="fill: #000000" points="239.153,365.688 243.467,376.002 249.13,366.362 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="239.153,365.688 243.467,376.002 249.13,366.362 "/>
   </g>
   <g>
     <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="243.4" y1="413" x2="242.608" y2="432.01"/>
@@ -91,17 +91,17 @@
     <polygon style="fill: #000000" points="583.021,451.665 593,446.622 582.979,441.665 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="583.021,451.665 593,446.622 582.979,441.665 "/>
   </g>
-  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="391.602" y="416">
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="391.602" y="416">
     <tspan x="391.602" y="416">Datensendung</tspan>
   </text>
-  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="394.602" y="450">
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="394.602" y="450">
     <tspan x="394.602" y="450">Datenabfrage</tspan>
   </text>
   <g>
     <rect style="fill: #ffffff" x="386.602" y="357" width="109" height="36"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="386.602" y="357" width="109" height="36"/>
   </g>
-  <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="441.102" y="379.45">
+  <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="441.102" y="379.45">
     <tspan x="441.102" y="379.45">Legende</tspan>
   </text>
 </svg>
