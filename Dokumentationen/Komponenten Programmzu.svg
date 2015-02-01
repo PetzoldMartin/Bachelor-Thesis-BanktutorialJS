@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="34cm" height="30cm" viewBox="297 132 676 581" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="308" y="134" width="82.6" height="36" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="308" y="134" width="82.6" height="36" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="349.3" y="155.9">
+      <tspan x="349.3" y="155.9">Mainpage</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="491" y="135" width="89.1" height="36" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="491" y="135" width="89.1" height="36" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="535.55" y="156.9">
+      <tspan x="535.55" y="156.9">Navigation</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="592" y="136" width="98.95" height="36" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="592" y="136" width="98.95" height="36" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="641.475" y="157.9">
+      <tspan x="641.475" y="157.9">Breadcrumb</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="756" y="133" width="85.95" height="36" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="756" y="133" width="85.95" height="36" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="798.975" y="154.9">
+      <tspan x="798.975" y="154.9">Suchleiste</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="404.002" y="135" width="83.45" height="36" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="404.002" y="135" width="83.45" height="36" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="445.727" y="156.9">
+      <tspan x="445.727" y="156.9">Kopfleiste</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="532" y="378" width="217.35" height="36" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="532" y="378" width="217.35" height="36" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="640.675" y="399.9">
+      <tspan x="640.675" y="399.9">Austauschbaren Komponenten</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #000000" x="381" y="213" width="129.55" height="36" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="381" y="213" width="129.55" height="36" rx="20" ry="20"/>
+    <text font-size="12.8" style="fill: #ffffff;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="445.775" y="234.9">
+      <tspan x="445.775" y="234.9">MainPageService</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #000000" x="557" y="286" width="166.15" height="36" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="557" y="286" width="166.15" height="36" rx="20" ry="20"/>
+    <text font-size="12.8" style="fill: #ffffff;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="640.075" y="307.9">
+      <tspan x="640.075" y="307.9">SubComponentService</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #000000" x="567" y="211" width="146.35" height="36" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="567" y="211" width="146.35" height="36" rx="20" ry="20"/>
+    <text font-size="12.8" style="fill: #ffffff;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="640.175" y="232.9">
+      <tspan x="640.175" y="232.9">BreadcrumbService</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #000000" x="744" y="209" width="110.2" height="36" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="744" y="209" width="110.2" height="36" rx="20" ry="20"/>
+    <text font-size="12.8" style="fill: #ffffff;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="799.1" y="230.9">
+      <tspan x="799.1" y="230.9">Searchservice</tspan>
+    </text>
+  </g>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="445.728" y1="171" x2="445.776" y2="213"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="641.476" y1="172" x2="640.176" y2="211"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="798.974" y1="169" x2="799.1" y2="209"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="640.176" y1="247" x2="640.074" y2="286"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="640.074" y1="322" x2="640.676" y2="378"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 445.776,249 A 351.419,351.419 0 0 0 640.676,378"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 640.676,378 A 277.42,277.42 0 0 0 799.1,245"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 445.776,213 A 119.305,119.305 0 0 0 535.55,171"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 349.3,170 A 110.169,110.169 0 0 0 445.776,213"/>
+  <g>
+    <rect style="fill: #ffffff" x="298.5" y="462.8" width="209.25" height="36" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="298.5" y="462.8" width="209.25" height="36" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="403.125" y="484.7">
+      <tspan x="403.125" y="484.7">Austauschbaren Komponente</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="762.5" y="463.8" width="209.25" height="36" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="762.5" y="463.8" width="209.25" height="36" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="867.125" y="485.7">
+      <tspan x="867.125" y="485.7">Austauschbaren Komponente</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #000000" x="547.5" y="443.8" width="166.15" height="36" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="547.5" y="443.8" width="166.15" height="36" rx="20" ry="20"/>
+    <text font-size="12.8" style="fill: #ffffff;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="630.575" y="465.7">
+      <tspan x="630.575" y="465.7">SubComponentService</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="305" y="569.096" width="260" height="142.2"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="305" y="569.096" width="260" height="142.2"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="322.102" y="549.096" width="109" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="322.102" y="549.096" width="109" height="36"/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="376.602" y="571.546">
+    <tspan x="376.602" y="571.546">Legende</tspan>
+  </text>
+  <g>
+    <rect style="fill: #000000" x="349" y="595.096" width="80" height="36" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="349" y="595.096" width="80" height="36" rx="20" ry="20"/>
+    <text font-size="12.8" style="fill: #ffffff;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="389" y="616.996">
+      <tspan x="389" y="616.996">Service</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="345" y="660.096" width="101.7" height="36" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="345" y="660.096" width="101.7" height="36" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="395.85" y="681.996">
+      <tspan x="395.85" y="681.996">Komponente</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #000000" x="575.5" y="499.8" width="110.2" height="36" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="575.5" y="499.8" width="110.2" height="36" rx="20" ry="20"/>
+    <text font-size="12.8" style="fill: #ffffff;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="630.6" y="521.7">
+      <tspan x="630.6" y="521.7">Searchservice</tspan>
+    </text>
+  </g>
+  <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 547.5,461.8 A 69.9542,69.9542 0 0 0 507.75,480.8"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 507.75,480.8 A 82.2715,82.2715 0 0 0 575.5,517.8"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 762.5,481.8 A 52.0358,52.0358 0 0 0 713.65,461.8"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 685.7,517.8 A 85.1316,85.1316 0 0 0 762.5,481.8"/>
+</svg>
