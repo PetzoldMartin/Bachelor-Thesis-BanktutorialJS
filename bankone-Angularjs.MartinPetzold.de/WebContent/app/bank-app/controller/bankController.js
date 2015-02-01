@@ -37,11 +37,7 @@ BankappBankview.controller( 'bankComponentCtrl', [
 BankappBankview.controller( 'bankListCtrl', [
 		'$scope', '$http', 'searchService','arreyspliceByObjectId', function ( $scope, $http, searchService ,arreyspliceByObjectId) {
 			$scope.query = "";
-			$scope.$watch( function () {
-				return searchService.getSearchColumn()
-			} ,function(newValue, oldValue){
-				$scope.query = searchService.getSearchColumn()
-			});
+			
 			$scope.loadData = function () {
 				$http.get( '../../../../bankone/rest/bankREST' ).success( function ( data ) {
 					$scope.banks = data;
@@ -51,7 +47,7 @@ BankappBankview.controller( 'bankListCtrl', [
 						$scope.banks = arreyspliceByObjectId.spliceByID( $scope.banks, searchService.getBankIds() );
 						$scope.newAvaible = false;
 					}
-				} ).error( function ( data, status, headers, config ) {
+				} ).error( function () {
 					alert("Kein Bankenübersichtservice vorhanden")
 				} );
 			};
@@ -62,6 +58,11 @@ BankappBankview.controller( 'bankListCtrl', [
 					$scope.banks = arreyspliceByObjectId.spliceByID( $scope.banks, searchService.getBankIds() );
 					$scope.newAvaible = false;
 				}
+			});
+			$scope.$watch( function () {
+				return searchService.getSearchColumn()
+			} ,function(newValue, oldValue){
+				$scope.query = searchService.getSearchColumn()
 			});
 		}
 ] );

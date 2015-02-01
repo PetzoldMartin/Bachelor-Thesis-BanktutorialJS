@@ -65,7 +65,7 @@ BankappTransfer.controller( 'transferType', [
 						alert("Server stellt keinen AccountÜbersichtsService zur verfügung")
 					} );
 				}
-			} ).error( function ( data, status, headers, config ) {
+			} ).error( function () {
 				alert("Account nicht vorhanden")
 			} );
 
@@ -95,7 +95,7 @@ BankappTransfer.controller( 'transferType', [
 				$scope.accountto = 'mainTopicTemplates/transferSubpageTemplates/transferManipulateTemplates/ChoosenAcc.html';
 				$http.get( '../../../../bankone/rest/abstractAccountREST' + '/' + id ).success( function ( data ) {
 					$scope.accountTwo = data;
-				} ).error( function ( data, status, headers, config ) {
+				} ).error( function () {
 					alert("account nicht vorhanden")
 				} );
 			}

@@ -35,13 +35,7 @@ BankappCustomerview.controller( 'customerComponentCtrl', [
 
 BankappCustomerview.controller( 'customerListCtrl', [
 		'$scope', '$http', 'searchService', 'arreyspliceByObjectId', function ( $scope, $http, searchService, arreyspliceByObjectId ) {
-			$scope.query = "";
-
-			$scope.$watch( function () {
-				return searchService.getSearchColumn()
-			},function(newValue, oldValue){
-				$scope.query = searchService.getSearchColumn()
-			} );
+			$scope.query = "";	
 			$scope.loadData = function () {
 				$http.get( '../../../../bankone/rest/customerREST' ).success( function ( data ) {
 					$scope.customers = data;
@@ -51,7 +45,7 @@ BankappCustomerview.controller( 'customerListCtrl', [
 						$scope.customers = arreyspliceByObjectId.spliceByID( $scope.customers, searchService.getCustomerIds() );
 						$scope.newAvaible = false;
 					}
-				} ).error( function ( data, status, headers, config ) {
+				} ).error( function () {
 					alert("Kundenübersichtservice nicht vorhanden");
 				} );
 			};
@@ -63,6 +57,11 @@ BankappCustomerview.controller( 'customerListCtrl', [
 					$scope.newAvaible = false;
 				}
 			});
+			$scope.$watch( function () {
+				return searchService.getSearchColumn()
+			},function(newValue, oldValue){
+				$scope.query = searchService.getSearchColumn()
+			} );
 		}
 ] );
 

@@ -1,197 +1,140 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
-<svg width="47cm" height="51cm" viewBox="101 -127 938 1017" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="36cm" height="34cm" viewBox="161 232 703 678" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <g>
-    <polygon style="fill: #ffffff" points="401.022,-45 530.222,-45 542.222,-33 542.222,-11 401.022,-11 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="401.022,-45 530.222,-45 542.222,-33 542.222,-11 401.022,-11 "/>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="530.222,-45 530.222,-33 542.222,-33 "/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="408.022" y="-20.1">
-      <tspan x="408.022" y="-20.1">mainSidebar.html</tspan>
+    <polygon style="fill: #ffffff" points="404.022,296 533.222,296 545.222,308 545.222,330 404.022,330 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="404.022,296 533.222,296 545.222,308 545.222,330 404.022,330 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="533.222,296 533.222,308 545.222,308 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="411.022" y="320.9">
+      <tspan x="411.022" y="320.9">mainSidebar.html</tspan>
     </text>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="399.022" y="-126" width="146.6" height="36" rx="20" ry="20"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="399.022" y="-126" width="146.6" height="36" rx="20" ry="20"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="472.322" y="-104.1">
-      <tspan x="472.322" y="-104.1">Navigation Auswahl</tspan>
+    <rect style="fill: #ffffff" x="402.022" y="233" width="146.6" height="36" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="402.022" y="233" width="146.6" height="36" rx="20" ry="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="475.322" y="254.9">
+      <tspan x="475.322" y="254.9">Navigation Auswahl</tspan>
     </text>
   </g>
   <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="472.322" y1="-90" x2="471.793" y2="-55.9987"/>
-    <polygon style="fill: #000000" points="466.794,-56.0764 471.638,-45.9999 476.792,-55.9209 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="466.794,-56.0764 471.638,-45.9999 476.792,-55.9209 "/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="475.322" y1="269" x2="474.907" y2="285.004"/>
+    <polygon style="fill: #000000" points="469.909,284.874 474.648,295 479.905,285.133 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="469.909,284.874 474.648,295 479.905,285.133 "/>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="398.022" y="36" width="149.5" height="52" rx="10" ry="10"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="398.022" y="36" width="149.5" height="52" rx="10" ry="10"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="472.772" y="57.9">
-      <tspan x="472.772" y="57.9">bankapp.mainview :</tspan>
-      <tspan x="472.772" y="73.9">sidebarCtrl</tspan>
+    <rect style="fill: #ffffff" x="401.022" y="355" width="149.5" height="52" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="401.022" y="355" width="149.5" height="52" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="475.772" y="376.9">
+      <tspan x="475.772" y="376.9">bankapp.mainview :</tspan>
+      <tspan x="475.772" y="392.9">sidebarCtrl</tspan>
     </text>
   </g>
   <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="471.622" y1="-11" x2="472.503" y2="25.0033"/>
-    <polygon style="fill: #000000" points="467.504,25.1256 472.748,35.0003 477.501,24.881 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="467.504,25.1256 472.748,35.0003 477.501,24.881 "/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="474.622" y1="330" x2="475.267" y2="344.012"/>
+    <polygon style="fill: #000000" points="470.272,344.241 475.726,354.001 480.261,343.782 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="470.272,344.241 475.726,354.001 480.261,343.782 "/>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="398.522" y="128.4" width="149.5" height="52" rx="10" ry="10"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="398.522" y="128.4" width="149.5" height="52" rx="10" ry="10"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="473.272" y="150.3">
-      <tspan x="473.272" y="150.3">bankapp.mainview :</tspan>
-      <tspan x="473.272" y="166.3">mainPageService</tspan>
+    <rect style="fill: #ffffff" x="401.522" y="435.4" width="149.5" height="52" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="401.522" y="435.4" width="149.5" height="52" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="476.272" y="457.3">
+      <tspan x="476.272" y="457.3">bankapp.mainview :</tspan>
+      <tspan x="476.272" y="473.3">mainPageService</tspan>
     </text>
   </g>
   <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="472.772" y1="88" x2="473.136" y2="117.401"/>
-    <polygon style="fill: #000000" points="468.136,117.463 473.26,127.4 478.135,117.339 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="468.136,117.463 473.26,127.4 478.135,117.339 "/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="475.772" y1="407" x2="476.078" y2="424.402"/>
+    <polygon style="fill: #000000" points="471.079,424.49 476.254,434.4 481.078,424.314 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="471.079,424.49 476.254,434.4 481.078,424.314 "/>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="589.022" y="201" width="166.35" height="52" rx="10" ry="10"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="589.022" y="201" width="166.35" height="52" rx="10" ry="10"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="672.197" y="222.9">
-      <tspan x="672.197" y="222.9">bankapp.breadcrumb :</tspan>
-      <tspan x="672.197" y="238.9">breadcrumbService</tspan>
+    <polygon style="fill: #ffffff" points="417.022,599 523.122,599 535.122,611 535.122,633 417.022,633 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="417.022,599 523.122,599 535.122,611 535.122,633 417.022,633 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="523.122,599 523.122,611 535.122,611 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="424.022" y="623.9">
+      <tspan x="424.022" y="623.9">*Subpage.html</tspan>
     </text>
   </g>
   <g>
-    <polygon style="fill: #ffffff" points="416.022,419 522.122,419 534.122,431 534.122,453 416.022,453 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="416.022,419 522.122,419 534.122,431 534.122,453 416.022,453 "/>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="522.122,419 522.122,431 534.122,431 "/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="423.022" y="443.9">
-      <tspan x="423.022" y="443.9">*Subpage.html</tspan>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 4; stroke: #000000" x1="476.272" y1="487.4" x2="476.683" y2="511.002"/>
+    <polygon style="fill: #000000" points="471.683,511.089 476.857,521 481.682,510.915 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="471.683,511.089 476.857,521 481.682,510.915 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="550.522,381 571.522,381 571.522,313 556.222,313 "/>
+    <polygon style="fill: #000000" points="556.222,308 546.222,313 556.222,318 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="556.222,308 546.222,313 556.222,318 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="373.522" y="658.4" width="205.05" height="36" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="373.522" y="658.4" width="205.05" height="36" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="476.047" y="680.3">
+      <tspan x="476.047" y="680.3">Topickomponentenkontroller</tspan>
     </text>
   </g>
   <g>
-    <polygon style="fill: #ffffff" points="453.022,227 473.022,207 493.022,227 473.022,247 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="453.022,227 473.022,207 493.022,227 473.022,247 "/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="476.072" y1="633" x2="476.058" y2="647.4"/>
+    <polygon style="fill: #000000" points="471.058,647.395 476.048,657.4 481.058,647.405 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="471.058,647.395 476.048,657.4 481.058,647.405 "/>
   </g>
   <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="473.272" y1="180.4" x2="473.125" y2="196"/>
-    <polygon style="fill: #000000" points="468.126,195.953 473.031,206 478.125,196.047 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="468.126,195.953 473.031,206 478.125,196.047 "/>
-  </g>
-  <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="493.022" y1="227" x2="578.022" y2="227"/>
-    <polygon style="fill: #000000" points="578.022,232 588.022,227 578.022,222 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="578.022,232 588.022,227 578.022,222 "/>
-  </g>
-  <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="473.022" y1="247" x2="473.744" y2="308.001"/>
-    <polygon style="fill: #000000" points="468.744,308.06 473.862,318 478.743,307.942 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="468.744,308.06 473.862,318 478.743,307.942 "/>
-  </g>
-  <g>
-    <polygon style="fill: #ffffff" points="865.022,308 1009.62,308 1021.62,320 1021.62,342 865.022,342 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="865.022,308 1009.62,308 1021.62,320 1021.62,342 865.022,342 "/>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="1009.62,308 1009.62,320 1021.62,320 "/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="872.022" y="332.9">
-      <tspan x="872.022" y="332.9">mainSearchbar.html</tspan>
+    <rect style="fill: #ffffff" x="393.522" y="719.4" width="162.75" height="52" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="393.522" y="719.4" width="162.75" height="52" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="474.897" y="741.3">
+      <tspan x="474.897" y="741.3">bankapp.subview : </tspan>
+      <tspan x="474.897" y="757.3">subcomponentService</tspan>
     </text>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="588.522" y="300.4" width="166.35" height="52" rx="10" ry="10"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="588.522" y="300.4" width="166.35" height="52" rx="10" ry="10"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="671.697" y="322.3">
-      <tspan x="671.697" y="322.3">bankapp.breadcrumb :</tspan>
-      <tspan x="671.697" y="338.3">breadcrumbCtrl</tspan>
+    <rect style="fill: #ffffff" x="596.522" y="719" width="166.35" height="52" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="596.522" y="719" width="166.35" height="52" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="679.697" y="740.9">
+      <tspan x="679.697" y="740.9">bankapp.breadcrumb :</tspan>
+      <tspan x="679.697" y="756.9">breadcrumbService</tspan>
     </text>
   </g>
   <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="754.872" y1="326.4" x2="854.023" y2="325.14"/>
-    <polygon style="fill: #000000" points="854.086,330.139 864.022,325.013 853.959,320.14 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="854.086,330.139 864.022,325.013 853.959,320.14 "/>
-  </g>
-  <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="547.522,62 568.522,62 568.522,-28 553.222,-28 "/>
-    <polygon style="fill: #000000" points="553.222,-33 543.222,-28 553.222,-23 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="553.222,-33 543.222,-28 553.222,-23 "/>
-  </g>
-  <g>
-    <rect style="fill: #ffffff" x="372.522" y="501.4" width="205.05" height="36" rx="10" ry="10"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="372.522" y="501.4" width="205.05" height="36" rx="10" ry="10"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="475.047" y="523.3">
-      <tspan x="475.047" y="523.3">Topickomponentenkontroller</tspan>
+    <polygon style="fill: #ffffff" points="602.522,585 747.122,585 759.122,597 759.122,619 602.522,619 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="602.522,585 747.122,585 759.122,597 759.122,619 602.522,619 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="747.122,585 747.122,597 759.122,597 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="609.522" y="609.9">
+      <tspan x="609.522" y="609.9">mainSearchbar.html</tspan>
     </text>
   </g>
   <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="475.072" y1="453" x2="475.052" y2="490.4"/>
-    <polygon style="fill: #000000" points="470.052,490.397 475.047,500.4 480.052,490.403 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="470.052,490.397 475.047,500.4 480.052,490.403 "/>
-  </g>
-  <g>
-    <rect style="fill: #ffffff" x="393.522" y="575.4" width="162.75" height="52" rx="10" ry="10"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="393.522" y="575.4" width="162.75" height="52" rx="10" ry="10"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="474.897" y="597.3">
-      <tspan x="474.897" y="597.3">bankapp.subview : </tspan>
-      <tspan x="474.897" y="613.3">subcomponentService</tspan>
+    <rect style="fill: #ffffff" x="598.022" y="643.4" width="166.35" height="52" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="598.022" y="643.4" width="166.35" height="52" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="681.197" y="665.3">
+      <tspan x="681.197" y="665.3">bankapp.breadcrumb :</tspan>
+      <tspan x="681.197" y="681.3">breadcrumbCtrl</tspan>
     </text>
   </g>
   <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="474.897" y1="627.4" x2="474.718" y2="637.402"/>
-    <polygon style="fill: #000000" points="469.719,637.312 474.54,647.4 479.718,637.491 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="469.719,637.312 474.54,647.4 479.718,637.491 "/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 4; stroke: #000000" x1="679.697" y1="719" x2="680.499" y2="706.378"/>
+    <polygon style="fill: #000000" points="685.489,706.695 681.134,696.398 675.509,706.061 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="685.489,706.695 681.134,696.398 675.509,706.061 "/>
   </g>
   <g>
-    <polygon style="fill: #ffffff" points="454.522,668.4 474.522,648.4 494.522,668.4 474.522,688.4 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="454.522,668.4 474.522,648.4 494.522,668.4 474.522,688.4 "/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="681.197" y1="643.4" x2="680.991" y2="629.999"/>
+    <polygon style="fill: #000000" points="685.99,629.922 680.837,620 675.992,630.076 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="685.99,629.922 680.837,620 675.992,630.076 "/>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="594.522" y="642" width="166.35" height="52" rx="10" ry="10"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="594.522" y="642" width="166.35" height="52" rx="10" ry="10"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="677.697" y="663.9">
-      <tspan x="677.697" y="663.9">bankapp.breadcrumb :</tspan>
-      <tspan x="677.697" y="679.9">breadcrumbService</tspan>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="476.047" y1="694.4" x2="475.402" y2="708.412"/>
+    <polygon style="fill: #000000" points="470.408,708.182 474.943,718.401 480.397,708.641 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="470.408,708.182 474.943,718.401 480.397,708.641 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="372.522" y="796.4" width="205.05" height="36" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="372.522" y="796.4" width="205.05" height="36" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="475.047" y="818.3">
+      <tspan x="475.047" y="818.3">Topickomponentenkontroller</tspan>
     </text>
   </g>
   <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="494.522" y1="668.4" x2="583.522" y2="668.044"/>
-    <polygon style="fill: #000000" points="583.542,673.044 593.522,668.004 583.502,663.044 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="583.542,673.044 593.522,668.004 583.502,663.044 "/>
-  </g>
-  <g>
-    <polygon style="fill: #ffffff" points="881.522,812 1026.12,812 1038.12,824 1038.12,846 881.522,846 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="881.522,812 1026.12,812 1038.12,824 1038.12,846 881.522,846 "/>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="1026.12,812 1026.12,824 1038.12,824 "/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="888.522" y="836.9">
-      <tspan x="888.522" y="836.9">mainSearchbar.html</tspan>
-    </text>
-  </g>
-  <g>
-    <rect style="fill: #ffffff" x="596.022" y="804.4" width="166.35" height="52" rx="10" ry="10"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="596.022" y="804.4" width="166.35" height="52" rx="10" ry="10"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="679.197" y="826.3">
-      <tspan x="679.197" y="826.3">bankapp.breadcrumb :</tspan>
-      <tspan x="679.197" y="842.3">breadcrumbCtrl</tspan>
-    </text>
-  </g>
-  <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="677.697" y1="694" x2="679.048" y2="793.401"/>
-    <polygon style="fill: #000000" points="674.048,793.469 679.183,803.4 684.047,793.333 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="674.048,793.469 679.183,803.4 684.047,793.333 "/>
-  </g>
-  <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="762.372" y1="830.4" x2="870.523" y2="829.129"/>
-    <polygon style="fill: #000000" points="870.582,834.129 880.522,829.012 870.464,824.13 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="870.582,834.129 880.522,829.012 870.464,824.13 "/>
-  </g>
-  <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="475.046" y1="537.4" x2="474.94" y2="564.4"/>
-    <polygon style="fill: #000000" points="469.94,564.38 474.901,574.4 479.94,564.42 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="469.94,564.38 474.901,574.4 479.94,564.42 "/>
-  </g>
-  <g>
-    <rect style="fill: #ffffff" x="372.522" y="740.4" width="205.05" height="36" rx="10" ry="10"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="372.522" y="740.4" width="205.05" height="36" rx="10" ry="10"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="475.047" y="762.3">
-      <tspan x="475.047" y="762.3">Topickomponentenkontroller</tspan>
-    </text>
-  </g>
-  <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="474.522" y1="688.4" x2="474.935" y2="729.401"/>
-    <polygon style="fill: #000000" points="469.935,729.451 475.036,739.4 479.935,729.35 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="469.935,729.451 475.036,739.4 479.935,729.35 "/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 4; stroke: #000000" x1="474.897" y1="771.4" x2="474.981" y2="785.4"/>
+    <polygon style="fill: #000000" points="469.981,785.43 475.041,795.4 479.981,785.37 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="469.981,785.43 475.041,795.4 479.981,785.37 "/>
   </g>
   <g>
     <polygon style="fill: #ffffff" points="411.522,854.4 525.322,854.4 537.322,866.4 537.322,888.4 411.522,888.4 "/>
@@ -202,158 +145,80 @@
     </text>
   </g>
   <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="475.046" y1="776.4" x2="474.613" y2="842.396"/>
-    <polygon style="fill: #000000" points="469.613,842.364 474.547,852.396 479.612,842.429 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="469.613,842.364 474.547,852.396 479.612,842.429 "/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="475.047" y1="832.4" x2="474.887" y2="842.406"/>
+    <polygon style="fill: #000000" points="469.887,842.326 474.726,852.405 479.886,842.486 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="469.887,842.326 474.726,852.405 479.886,842.486 "/>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="102.521" y="651.4" width="202.3" height="36" rx="10" ry="10"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="102.521" y="651.4" width="202.3" height="36" rx="10" ry="10"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="203.671" y="673.3">
-      <tspan x="203.671" y="673.3">Übersichtsansichtskontroller</tspan>
+    <rect style="fill: #ffffff" x="162.521" y="796.4" width="202.3" height="36" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="162.521" y="796.4" width="202.3" height="36" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="263.671" y="818.3">
+      <tspan x="263.671" y="818.3">Übersichtsansichtskontroller</tspan>
     </text>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="203.671,633.164 203.671,606.9 204.071,606.9 204.071,578.4 "/>
-    <polygon style="fill: #ffffff" points="195.671,633.164 203.671,649.164 211.671,633.164 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="195.671,633.164 203.671,649.164 211.671,633.164 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="263.671,778.164 263.671,765.9 264.071,765.9 264.071,751.4 "/>
+    <polygon style="fill: #ffffff" points="255.671,778.164 263.671,794.164 271.671,778.164 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="255.671,778.164 263.671,794.164 271.671,778.164 "/>
   </g>
   <g>
-    <ellipse style="fill: #ffffff" cx="204.071" cy="546.4" rx="50.55" ry="32"/>
-    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="204.071" cy="546.4" rx="50.55" ry="32"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="204.071" y="542.3">
-      <tspan x="204.071" y="542.3">Rest</tspan>
-      <tspan x="204.071" y="558.3">Abfrage</tspan>
+    <ellipse style="fill: #ffffff" cx="264.071" cy="719.4" rx="50.55" ry="32"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="264.071" cy="719.4" rx="50.55" ry="32"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="264.071" y="715.3">
+      <tspan x="264.071" y="715.3">Rest</tspan>
+      <tspan x="264.071" y="731.3">Abfrage</tspan>
     </text>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="203.671,687.4 203.671,871.4 400.522,871.4 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="263.671,843.4 263.671,871.4 400.522,871.4 "/>
+    <polygon style="fill: #000000" points="268.671,843.4 263.671,833.4 258.671,843.4 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="268.671,843.4 263.671,833.4 258.671,843.4 "/>
     <polygon style="fill: #000000" points="400.522,876.4 410.522,871.4 400.522,866.4 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="400.522,876.4 410.522,871.4 400.522,866.4 "/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="411.522,854.4 358.172,854.4 358.172,687.4 315.821,687.4 "/>
-    <polygon style="fill: #000000" points="315.821,682.4 305.821,687.4 315.821,692.4 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="315.821,682.4 305.821,687.4 315.821,692.4 "/>
-  </g>
-  <g>
-    <rect style="fill: #ffffff" x="446" y="94.1" width="50.05" height="14.9"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="446" y="106">
-      <tspan x="446" y="106">teilt mit</tspan>
+    <rect style="fill: #ffffff" x="386.624" y="522" width="180.5" height="52" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="386.624" y="522" width="180.5" height="52" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="476.874" y="543.9">
+      <tspan x="476.874" y="543.9">bankapp.mainview :</tspan>
+      <tspan x="476.874" y="559.9">subComponentController</tspan>
     </text>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="448.197" y="0.6" width="47.35" height="14.9"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="448.197" y="12.5">
-      <tspan x="448.197" y="12.5">ruft auf</tspan>
-    </text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="476.874" y1="574" x2="476.425" y2="588.006"/>
+    <polygon style="fill: #000000" points="471.427,587.845 476.104,598.001 481.422,588.166 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="471.427,587.845 476.104,598.001 481.422,588.166 "/>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="383.624" y="319" width="180.5" height="52" rx="10" ry="10"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="383.624" y="319" width="180.5" height="52" rx="10" ry="10"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="473.874" y="340.9">
-      <tspan x="473.874" y="340.9">bankapp.mainview :</tspan>
-      <tspan x="473.874" y="356.9">subComponentController</tspan>
-    </text>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="556.272,745.4 576.397,745.4 576.397,745 585.522,745 "/>
+    <polygon style="fill: #000000" points="585.522,750 595.522,745 585.522,740 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="585.522,750 595.522,745 585.522,740 "/>
   </g>
   <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="473.874" y1="371" x2="474.798" y2="408.003"/>
-    <polygon style="fill: #000000" points="469.799,408.128 475.047,418 479.796,407.879 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="469.799,408.128 475.047,418 479.796,407.879 "/>
+    <rect style="fill: #ffffff" x="603" y="806" width="260" height="103"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="603" y="806" width="260" height="103"/>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="401.486" y="277.1" width="149.5" height="14.9"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="401.486" y="289">
-      <tspan x="401.486" y="289">überwacht änderungen</tspan>
-    </text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="737.4" y1="841" x2="815.001" y2="841.876"/>
+    <polygon style="fill: #000000" points="814.944,846.876 825,841.989 815.057,836.876 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="814.944,846.876 825,841.989 815.057,836.876 "/>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="539.124" y="3.1" width="63" height="14.9"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="539.124" y="15">
-      <tspan x="539.124" y="15">verändert</tspan>
-    </text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 4; stroke: #000000" x1="737.4" y1="876" x2="816.5" y2="875.665"/>
+    <polygon style="fill: #000000" points="816.521,880.665 826.5,875.622 816.479,870.665 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="816.521,880.665 826.5,875.622 816.479,870.665 "/>
   </g>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="625.102" y="845">
+    <tspan x="625.102" y="845">Datensendung</tspan>
+  </text>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="628.102" y="879">
+    <tspan x="628.102" y="879">Datenabfrage</tspan>
+  </text>
   <g>
-    <rect style="fill: #ffffff" x="778.624" y="317" width="63" height="14.9"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="778.624" y="328.9">
-      <tspan x="778.624" y="328.9">verändert</tspan>
-    </text>
+    <rect style="fill: #ffffff" x="620.102" y="786" width="109" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="620.102" y="786" width="109" height="36"/>
   </g>
-  <g>
-    <rect style="fill: #ffffff" x="451.124" y="383" width="47.35" height="14.9"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="451.124" y="394.9">
-      <tspan x="451.124" y="394.9">ruft auf</tspan>
-    </text>
-  </g>
-  <g>
-    <rect style="fill: #ffffff" x="464.124" y="461.1" width="24.55" height="14.9"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="464.124" y="473">
-      <tspan x="464.124" y="473">lädt</tspan>
-    </text>
-  </g>
-  <g>
-    <rect style="fill: #ffffff" x="449.624" y="547" width="50.05" height="14.9"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="449.624" y="558.9">
-      <tspan x="449.624" y="558.9">teilt mit</tspan>
-    </text>
-  </g>
-  <g>
-    <rect style="fill: #ffffff" x="409.624" y="707" width="149.5" height="14.9"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="409.624" y="718.9">
-      <tspan x="409.624" y="718.9">überwacht änderungen</tspan>
-    </text>
-  </g>
-  <g>
-    <rect style="fill: #ffffff" x="626.124" y="728" width="149.5" height="14.9"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="626.124" y="739.9">
-      <tspan x="626.124" y="739.9">überwacht änderungen</tspan>
-    </text>
-  </g>
-  <g>
-    <rect style="fill: #ffffff" x="513.624" y="221" width="50.05" height="14.9"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="513.624" y="232.9">
-      <tspan x="513.624" y="232.9">teilt mit</tspan>
-    </text>
-  </g>
-  <g>
-    <rect style="fill: #ffffff" x="516.124" y="660" width="50.05" height="14.9"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="516.124" y="671.9">
-      <tspan x="516.124" y="671.9">teilt mit</tspan>
-    </text>
-  </g>
-  <g>
-    <rect style="fill: #ffffff" x="459.124" y="802" width="24.55" height="14.9"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="459.124" y="813.9">
-      <tspan x="459.124" y="813.9">lädt</tspan>
-    </text>
-  </g>
-  <g>
-    <rect style="fill: #ffffff" x="347.624" y="783" width="24.55" height="14.9"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="347.624" y="794.9">
-      <tspan x="347.624" y="794.9">lädt</tspan>
-    </text>
-  </g>
-  <g>
-    <rect style="fill: #ffffff" x="783.021" y="819" width="63" height="14.9"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="783.021" y="830.9">
-      <tspan x="783.021" y="830.9">verändert</tspan>
-    </text>
-  </g>
-  <g>
-    <rect style="fill: #ffffff" x="167.521" y="817" width="63" height="14.9"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="167.521" y="828.9">
-      <tspan x="167.521" y="828.9">verändert</tspan>
-    </text>
-  </g>
-  <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="672.197" y1="253" x2="671.813" y2="289.401"/>
-    <polygon style="fill: #000000" points="666.813,289.348 671.708,299.4 676.813,289.453 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="666.813,289.348 671.708,299.4 676.813,289.453 "/>
-  </g>
-  <g>
-    <rect style="fill: #ffffff" x="602.021" y="265" width="149.5" height="14.9"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="602.021" y="276.9">
-      <tspan x="602.021" y="276.9">überwacht änderungen</tspan>
-    </text>
-  </g>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="674.602" y="808.45">
+    <tspan x="674.602" y="808.45">Legende</tspan>
+  </text>
 </svg>

@@ -43,27 +43,29 @@ BankappAccountview.controller( 'accountComponentCtrl', [
 BankappAccountview.controller( 'accountListCtrl', [
 		'$scope', '$http', 'searchService', 'arreyspliceByObjectId', 'subComponentService', function ( $scope, $http, searchService, arreyspliceByObjectId, subComponentService ) {
 			$scope.query = "";
-			$scope.$watch( function () {
-				return searchService.getSearchColumn()
-			},function(newValue, oldValue){
-				$scope.query = searchService.getSearchColumn()
-			} );
+			
 			$scope.loadData = function () {
 				$http.get( '../../../../bankone/rest/abstractAccountREST' ).success( function ( data ) {
 					$scope.accounts = data;
 					$scope.newAvaible = true;
-				} ).error( function ( ) {
+				} ).error( function () {
 					alert("Accountsübersichtservice nicht vorhanden")
 				} );
 			};	
+			
+			$scope.orderProp = 'id';
+			$scope.loadData();
 			$scope.$watch(function(){
 				if ( searchService.getAccountIds() != "" ) {
 					$scope.accounts = arreyspliceByObjectId.spliceByID( $scope.accounts, searchService.getAccountIds() );
 					$scope.newAvaible = false;
 				}
 			});
-			$scope.orderProp = 'id';
-			$scope.loadData();
+			$scope.$watch( function () {
+				return searchService.getSearchColumn()
+			},function(newValue, oldValue){
+				$scope.query = searchService.getSearchColumn()
+			} );
 		}
 ] );
 
@@ -129,10 +131,10 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 			$scope.newAccount = {
 				'balance' : 0,
 				'bank' : {
-					'id' : 0
+					'id' : ''
 				},
 				'owner' : {
-					'id' : 0
+					'id' : ''
 				}
 			};
 			$scope.accountType = [
@@ -154,7 +156,7 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 						$scope.autoregisterCustomerAtBank( $scope.newAccount.bank.id, $scope.newAccount.owner.id );
 						subComponentService.stepBack();
 						
-					} ).error( function ( data, status, headers, config ) {
+					} ).error( function () {
 						alert("eine Auswahl wurde nicht getroffen")
 					} )	
 			}
