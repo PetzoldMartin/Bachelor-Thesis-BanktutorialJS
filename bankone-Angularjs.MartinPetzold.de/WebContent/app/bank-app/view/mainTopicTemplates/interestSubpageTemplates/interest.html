@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html ng-app="bankapp.interest">
+<div ng-controller="InterestCtrl">
+<div ng-class="state.item" >
+	<h1 ng-style="state.antistyle" >{{state.text}}</h1>	
+	</div>
+
+<div ng-class="bigbuttonClass" >
+			<div class="btn btn-default" ng-style="bigbuttonStyle" ng-click="click(state.status)">
+				<div ng-style="state.style">
+				<div>{{state.state}}</div>
+				<div ng-style="bigGlyphStyle" ng-class="state.label"></div>
+				</div>
+			</div>
+		</div>
+</div>
+
+</html>

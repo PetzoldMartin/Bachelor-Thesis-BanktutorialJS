@@ -56,6 +56,13 @@ BankappMainview.controller( 'sidebarCtrl', [
 						"icon" : "glyphicon glyphicon-transfer",
 						"clicked" : false,
 						"url" : 'mainTopicTemplates/transferSubpage.html'
+					},{
+						"id" : 6,
+						"name" : "Zinsüberweisung",
+						"class" : "list-group-item",
+						"icon" : "glyphicon glyphicon-dashboard",
+						"clicked" : false,
+						"url" : 'mainTopicTemplates/InterestSubpage.html'
 					}
 			];
 			$scope.hover = function ( topic ) {
