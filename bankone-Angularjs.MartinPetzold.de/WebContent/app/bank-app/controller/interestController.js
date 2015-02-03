@@ -58,12 +58,12 @@ BankappInterest.controller( 'InterestCtrl', ['$scope', '$http','$interval',funct
 	$scope.click=function(is){
 		if(is){
 			$http.get('../../../../bankone/rest/ServiceREST/start').success(function() {
-				$scope.state=$scope.loading;	
 			})
 		}else{
 			$http.get('../../../../bankone/rest/ServiceREST/stop').success(function() {
-				$scope.state=$scope.loading;	
 			})	
+			$scope.state=$scope.loading;	
+
 		}
 		
 	}
