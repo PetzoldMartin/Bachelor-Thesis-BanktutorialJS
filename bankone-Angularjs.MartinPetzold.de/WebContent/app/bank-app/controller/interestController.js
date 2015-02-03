@@ -28,7 +28,13 @@ BankappInterest.controller( 'interestComponentCtrl', [
 ] );
 
 BankappInterest.controller( 'InterestCtrl', ['$scope', '$http','$interval',function ( $scope, $http,$interval){
-	$scope.state={}
+	$scope.state={'state': "Starten",
+			'label': "glyphicon glyphicon-time",
+			'status': '',
+			'text':"Lädt Status",
+			'style':{'color':'orange'},
+			'antistyle':{'color':'orange'},
+			'item': "list-group-item list-group-item-warning"}
 	
 	$scope.inaktive={'state': "Starten",
 			'label': "glyphicon glyphicon-ok",
