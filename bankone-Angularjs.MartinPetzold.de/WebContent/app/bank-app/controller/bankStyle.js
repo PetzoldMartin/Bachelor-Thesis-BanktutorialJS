@@ -58,7 +58,7 @@ BankappStyle.controller('bankStyles',['$scope', function($scope) {
 		$scope.nio={'color':'red'}
 		//buttons
 		$scope.buttonLeftMarginStyle={'margin-left': '15%'}
-		$scope.bigGlyphStyle={'transform': 'scale(5)','margin-top': '50%'}
+		$scope.bigGlyphStyle={'transform': 'scale(4)','margin-top': '50%'}
 		$scope.bigbuttonStyle={'height':'8.2vw','width':'8.2vw',
 				'margin' : '30px','margin-left' : '25px'}
 		$scope.bigbuttonClass="col-xs-6 col-sm-5 col-md-4 col-lg-4"

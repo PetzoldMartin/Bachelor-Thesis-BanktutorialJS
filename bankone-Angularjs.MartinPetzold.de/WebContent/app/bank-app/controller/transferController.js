@@ -141,6 +141,9 @@ BankappTransfer.controller( 'transferType', [
 						$scope.make(+$scope.ammount.value,$scope.accountTwo)
 					}
 				}
+				if ( $scope.transferway == "" ){
+					alert("bitte Transeroption auswählen")
+				}
 				$scope.ammount.value = 0;
 			}
 
