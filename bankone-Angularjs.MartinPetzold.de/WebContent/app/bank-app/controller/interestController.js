@@ -28,13 +28,15 @@ BankappInterest.controller( 'interestComponentCtrl', [
 ] );
 
 BankappInterest.controller( 'InterestCtrl', ['$scope', '$http','$interval',function ( $scope, $http,$interval){
-	$scope.state={'state': "Starten",
+	
+	$scope.loading={'state': "Starten",
 			'label': "glyphicon glyphicon-time",
 			'status': '',
 			'text':"Lädt Status",
 			'style':{'color':'orange'},
 			'antistyle':{'color':'orange'},
 			'item': "list-group-item list-group-item-warning"}
+	$scope.state=$scope.loading
 	
 	$scope.inaktive={'state': "Starten",
 			'label': "glyphicon glyphicon-ok",
@@ -56,9 +58,13 @@ BankappInterest.controller( 'InterestCtrl', ['$scope', '$http','$interval',funct
 		
 	$scope.click=function(is){
 		if(is){
-			$http.get('../../../../bankone/rest/ServiceREST/start')
+			$http.get('../../../../bankone/rest/ServiceREST/start').success(function() {
+				$scope.state=$scope.loading;	
+			})
 		}else{
-			$http.get('../../../../bankone/rest/ServiceREST/stop')	
+			$http.get('../../../../bankone/rest/ServiceREST/stop').success(function() {
+				$scope.state=$scope.loading;	
+			})	
 		}
 		
 	}
