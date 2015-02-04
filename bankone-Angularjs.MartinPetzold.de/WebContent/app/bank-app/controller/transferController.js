@@ -48,8 +48,9 @@ BankappTransfer.controller( 'transferType', [
 			$scope.transferway = "";
 			$scope.tempids = searchService.getAccountIds();
 			$scope.filter = [];
+			$scope.tempid='';
 			// better filter
-			$http.get( '../../../../bankone/rest/abstractAccountREST' + '/' + subComponentService.getActuallComponent().id ).success( function ( data ) {
+			$scope.load= function(){$http.get( '../../../../bankone/rest/abstractAccountREST' + '/' + subComponentService.getActuallComponent().id ).success( function ( data ) {
 				$scope.account = data;
 				{
 					$http.get( '../../../../bankone/rest/abstractAccountREST' ).success( function ( data ) {
@@ -67,7 +68,8 @@ BankappTransfer.controller( 'transferType', [
 				}
 			} ).error( function () {
 				alert("Account nicht vorhanden")
-			} );
+			} );}
+			$scope.load()
 
 			// $scope.exfilter()
 			//
@@ -91,6 +93,7 @@ BankappTransfer.controller( 'transferType', [
 				$scope.accChoosen = true;
 			}
 			$scope.click = function ( id ) {
+				$scope.tempid=id;
 				$scope.accChoosen = true;
 				$scope.accountto = 'mainTopicTemplates/transferSubpageTemplates/transferManipulateTemplates/ChoosenAcc.html';
 				$http.get( '../../../../bankone/rest/abstractAccountREST' + '/' + id ).success( function ( data ) {
@@ -127,6 +130,8 @@ BankappTransfer.controller( 'transferType', [
 				$scope.newacc( acc.accountType, acc );
 			}
 			$scope.save = function () {
+				$scope.load();
+				$scope.click($scope.tempid);
 				if ( $scope.transferway == "deposit" ) {
 					$scope.make(+$scope.ammount.value,$scope.account)
 				}
