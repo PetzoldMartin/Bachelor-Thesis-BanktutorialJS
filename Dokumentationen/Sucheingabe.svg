@@ -48,10 +48,10 @@
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="239.815,284.299 245.37,294.002 249.799,283.736 "/>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="152" y="377" width="182.8" height="36" rx="10" ry="10"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="152" y="377" width="182.8" height="36" rx="10" ry="10"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="243.4" y="398.9">
-      <tspan x="243.4" y="398.9">ÜbersichtseitenKontroller</tspan>
+    <rect style="fill: #ffffff" x="152" y="377" width="181.45" height="36" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="152" y="377" width="181.45" height="36" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="242.725" y="398.9">
+      <tspan x="242.725" y="398.9">Übersichtseitencontroller</tspan>
     </text>
   </g>
   <g>
@@ -68,14 +68,14 @@
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="324.7,172.4 314.7,177.4 324.7,182.4 "/>
   </g>
   <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 4; stroke: #000000" x1="245.426" y1="347" x2="244.141" y2="366.025"/>
-    <polygon style="fill: #000000" points="239.153,365.688 243.467,376.002 249.13,366.362 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="239.153,365.688 243.467,376.002 249.13,366.362 "/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 4; stroke: #000000" x1="245.426" y1="347" x2="243.711" y2="366.044"/>
+    <polygon style="fill: #000000" points="238.732,365.596 242.815,376.004 248.691,366.493 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="238.732,365.596 242.815,376.004 248.691,366.493 "/>
   </g>
   <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="243.4" y1="413" x2="242.608" y2="432.01"/>
-    <polygon style="fill: #000000" points="237.612,431.801 242.192,442.001 247.604,432.218 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="237.612,431.801 242.192,442.001 247.604,432.218 "/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="242.725" y1="413" x2="242.361" y2="432.002"/>
+    <polygon style="fill: #000000" points="237.362,431.906 242.169,442 247.36,432.098 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="237.362,431.906 242.169,442 247.36,432.098 "/>
   </g>
   <g>
     <rect style="fill: #ffffff" x="369.5" y="377" width="260" height="103"/>

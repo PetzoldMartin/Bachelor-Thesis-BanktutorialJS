@@ -28,7 +28,11 @@ import org.hibernate.Hibernate;
 import de.java.BankTutorial.entity.Bank;
 import de.java.BankTutorial.entity.Contact;
 import de.java.BankTutorial.entity.Customer;
-
+/**
+ * 
+ * @author Martin Petzold
+ * REST Service Klasse der Banken
+ */
 @Path("/bankREST")
 @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 @Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
@@ -40,7 +44,11 @@ public class BankService {
 	EntityManager entityManager;
 	@Context
 	private UriInfo uriInfo;
-
+	/**
+	 * REST-Methode zum Speichern einer Bank
+	 * @param bank Bankdaten
+	 * @return Rückantwort der Speicherung
+	 */
 	@POST
 	public Response createBank(Bank bank) {
 		System.out.println("nun in create mit ID=" + bank.getName());
@@ -50,7 +58,11 @@ public class BankService {
 				.path(Long.toString(bank.getId())).build();
 		return Response.created(uri).build();
 	}
-	
+	/**
+	 * REST-Methode zum Updaten einer Bank
+	 * @param bank Bankdaten
+	 * @return Rückantwort des Updates
+	 */
 	@PUT
 	public Response updateBank(Bank bank) {
 		System.out.println("nun in update mit ID=" + bank.getId());
@@ -60,7 +72,11 @@ public class BankService {
 				.path(Long.toString(bank.getId())).build();
 		return Response.created(uri).build();
 	}
-
+	/**
+	 * REST-Methode zum Löschen einer Bank
+	 * @param id Identifikationsnummer der zu löschenden Bank
+	 * @return Rückantwort des Löschvorgangs
+	 */
 	@DELETE
 	@Path("{id}")
 	public Response deleteBank(@PathParam("id") long id) {
@@ -70,7 +86,11 @@ public class BankService {
 		entityManager.remove(bank);
 		return Response.noContent().build();
 	}
-
+	/**
+	 * REST-Methode zur Abfrage der Bankdaten einer bestimmten bank anhand einer Identifikationsnummer 
+	 * @param id Identifikationsnummer der Bank
+	 * @return Rückantwort der Abfrage
+	 */
 	@GET
 	@Path("{id}")
 	public Response getBank(@PathParam("id") long id) {
@@ -85,7 +105,10 @@ public class BankService {
 	
 		return Response.ok(bank).build();
 	}
-
+	/**
+	 * REST-Methode zur Abfrage einer Liste aller Banken
+	 * @return Rückantwort der Abfrage
+	 */
 	@SuppressWarnings("unchecked")
 	@GET
 	public Response getBanks() {

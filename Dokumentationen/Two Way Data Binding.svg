@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="19cm" height="14cm" viewBox="125 136 362 269" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #90ee90" x="254" y="225" width="80" height="36" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="254" y="225" width="80" height="36" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="294" y="246.9">
+      <tspan x="294" y="246.9">View</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffc0cb" x="255" y="137" width="80.6" height="36" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="255" y="137" width="80.6" height="36" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="295.3" y="158.9">
+      <tspan x="295.3" y="158.9">Template</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #add8e6" x="255" y="367" width="80" height="36" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="255" y="367" width="80" height="36" rx="10" ry="10"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="295" y="388.9">
+      <tspan x="295" y="388.9">Model</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="295.3" y1="173" x2="294.275" y2="214.003"/>
+    <polygon style="fill: #000000" points="289.276,213.878 294.025,224 299.273,214.128 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="289.276,213.878 294.025,224 299.273,214.128 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 335,385 A 71.5731,71.5731 0 0 0 344.696,245.12"/>
+    <polygon style="fill: #000000" points="345.517,239.346 334.993,243.119 344.326,249.275 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="345.517,239.346 334.993,243.119 344.326,249.275 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 254,243 A 71.4486,71.4486 0 0 0 244.275,383.035"/>
+    <polygon style="fill: #000000" points="243.537,388.821 254.005,384.895 244.584,378.876 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="243.537,388.821 254.005,384.895 244.584,378.876 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="258" y="183.1" width="76.65" height="14.9"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="258" y="195">
+      <tspan x="258" y="195">Kompilieren</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="344" y="297.727" width="142.423" height="32.0175"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="344" y="310">
+      <tspan x="344" y="310">Model Veränderungen</tspan>
+      <tspan x="344" y="326">updaten die View</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="125" y="293.1" width="134.2" height="30.9"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="125" y="305">
+      <tspan x="125" y="305">View Veränderungen</tspan>
+      <tspan x="125" y="321">updaten das Model</tspan>
+    </text>
+  </g>
+</svg>

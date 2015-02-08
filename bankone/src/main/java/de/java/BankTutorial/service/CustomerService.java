@@ -13,6 +13,7 @@ import de.java.BankTutorial.service.iface.ICustomerService;
 
 /**
  * Service-Klasse mit speziellen Funktionen bzgl. der Customer
+ * 
  * @author MARCEL SCHOTT
  *
  */
@@ -20,17 +21,20 @@ import de.java.BankTutorial.service.iface.ICustomerService;
 @LocalBean
 public class CustomerService implements ICustomerService {
 	@Inject
-	AccountCRUD accountCRUD;   // CRUD-Objekt für Konten
-	
+	AccountCRUD accountCRUD; // CRUD-Objekt für Konten
+
 	/**
 	 * Gibt den Betrag aus den ein Customer insgesamt hat
-	 * @param customer Person
+	 * 
+	 * @param customer
+	 *            Person
 	 * @return Betrag aller Konten
 	 */
 	public float getMoneyOfACustomer(Customer customer) {
-		List<AbstractAccount> accountList = accountCRUD.getListByCustomer(customer);
+		List<AbstractAccount> accountList = accountCRUD
+				.getListByCustomer(customer);
 		float money = 0;
-		for(AbstractAccount account: accountList) {
+		for (AbstractAccount account : accountList) {
 			money += account.getBalance();
 		}
 		return money;

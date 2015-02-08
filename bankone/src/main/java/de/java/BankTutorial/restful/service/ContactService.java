@@ -26,7 +26,11 @@ import javax.ws.rs.core.UriInfo;
 import org.hibernate.Hibernate;
 
 import de.java.BankTutorial.entity.Contact;
-
+/**
+ * 
+ * @author Martin Petzold
+ * REST Service Klasse Contacte
+ */
 @Path("/contactREST")
 @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 @Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
@@ -38,7 +42,11 @@ public class ContactService {
 	EntityManager entityManager;
 	@Context
 	private UriInfo uriInfo;
-
+	/**
+	 * REST-Methode zur Erstellung eines Contacts
+	 * @param contact Contactdaten
+	 * @return Rückantwort der Erstellung
+	 */
 	@POST
 	public Response createContact(Contact contact) {
 		entityManager.persist(contact);
@@ -46,7 +54,11 @@ public class ContactService {
 				.path(Long.toString(contact.getId())).build();
 		return Response.created(uri).build();
 	}
-	
+	/**
+	 * REST-Methode zum Update eines Contacts
+	 * @param contact Contactdaten
+	 * @return Rückantwort des Updates
+	 */
 	@PUT
 	public Response updateContact(Contact contact) {
 		System.out.println("nun in update mit ID=" + contact.getId());
@@ -56,7 +68,11 @@ public class ContactService {
 				.path(Long.toString(contact.getId())).build();
 		return Response.created(uri).build();
 	}
-
+	/**
+	 * REST-Methode zum Löschen eines Contacts anhand einer Identifikationsnummer
+	 * @param id Identifikationsnummer des Contacts
+	 * @return Rückantwort des Löschvorganges
+	 */
 	@DELETE
 	@Path("{id}")
 	public Response deleteContact(@PathParam("id") long id) {
@@ -64,7 +80,11 @@ public class ContactService {
 		entityManager.remove(entityManager.find(Contact.class, id));
 		return Response.noContent().build();
 	}
-
+	/**
+	 * REST-Methode zur Abfrage eines Contacts anhand einer Identifikationsnummer
+	 * @param id Identifikationsnummer des Contacts
+	 * @return Rückantwort der Abfrage
+	 */
 	@GET
 	@Path("{id}")
 	public Response getContact(@PathParam("id") long id) {
@@ -78,7 +98,10 @@ public class ContactService {
 		
 		return Response.ok(contact).build();
 	}
-
+	/**
+	 * REST-Methode zur Abfrage einer Liste aller Contacts
+	 * @return Rückantwort der Abfrage
+	 */
 	@SuppressWarnings("unchecked")
 	@GET
 	public Response getContacts() {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
-<svg width="34cm" height="43cm" viewBox="-160 -241 669 855" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="34cm" height="44cm" viewBox="-160 -241 669 862" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <g>
-    <rect style="fill: #ffffff" x="-10.998" y="523.25" width="460" height="86"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-10.998" y="523.25" width="460" height="86"/>
+    <rect style="fill: #ffffff" x="-145.996" y="523.25" width="594.998" height="86"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-145.996" y="523.25" width="594.998" height="86"/>
   </g>
   <g>
     <rect style="fill: #ffffff" x="-158.996" y="-219.75" width="666.305" height="703"/>
@@ -49,24 +49,24 @@
   <g>
     <rect style="fill: #ffffff" x="-38" y="-111.276" width="180.05" height="72"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-38" y="-111.276" width="180.05" height="72"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="52.025" y="-95.2759">&lt;&lt;module&gt;&gt;</text>
-    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="52.025" y="-76.2759">bankapp.mainview</text>
-    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="52.025" y="-60.7759">with factory as</text>
-    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="52.025" y="-46.7759">service</text>
-    <rect style="fill: #ffffff" x="-38" y="-39.2759" width="180.05" height="8"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-38" y="-39.2759" width="180.05" height="8"/>
-    <rect style="fill: #ffffff" x="-38" y="-31.2759" width="180.05" height="8"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-38" y="-31.2759" width="180.05" height="8"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="52.025" y="-95.276">&lt;&lt;module&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="52.025" y="-76.276">bankapp.mainview</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="52.025" y="-60.776">with factory as</text>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="52.025" y="-46.776">service</text>
+    <rect style="fill: #ffffff" x="-38" y="-39.276" width="180.05" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-38" y="-39.276" width="180.05" height="8"/>
+    <rect style="fill: #ffffff" x="-38" y="-31.276" width="180.05" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-38" y="-31.276" width="180.05" height="8"/>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="-51" y="201.457" width="167.05" height="44"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-51" y="201.457" width="167.05" height="44"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="32.525" y="217.457">&lt;&lt;module&gt;&gt;</text>
-    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="32.525" y="236.457">bankapp.transfer</text>
-    <rect style="fill: #ffffff" x="-51" y="245.457" width="167.05" height="8"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-51" y="245.457" width="167.05" height="8"/>
-    <rect style="fill: #ffffff" x="-51" y="253.457" width="167.05" height="8"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-51" y="253.457" width="167.05" height="8"/>
+    <rect style="fill: #ffffff" x="-51" y="201.456" width="167.05" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-51" y="201.456" width="167.05" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="32.525" y="217.456">&lt;&lt;module&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="32.525" y="236.456">bankapp.transfer</text>
+    <rect style="fill: #ffffff" x="-51" y="245.456" width="167.05" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-51" y="245.456" width="167.05" height="8"/>
+    <rect style="fill: #ffffff" x="-51" y="253.456" width="167.05" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-51" y="253.456" width="167.05" height="8"/>
   </g>
   <g>
     <rect style="fill: #ffffff" x="251" y="279" width="168.9" height="72"/>
@@ -128,35 +128,21 @@
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="218.764,43 234.764,35 218.764,27 "/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="218.764,35 200.004,35 200.004,-75.2759 142.05,-75.2759 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="218.764,35 200.004,35 200.004,-75.276 142.05,-75.276 "/>
     <polygon style="fill: #ffffff" points="218.764,43 234.764,35 218.764,27 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="218.764,43 234.764,35 218.764,27 "/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="308.766,553.25 310.002,553.25 91.002,553.25 90.002,553.25 "/>
-    <polygon style="fill: #ffffff" points="308.766,561.25 324.766,553.25 308.766,545.25 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="308.766,561.25 324.766,553.25 308.766,545.25 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="277.268,547 278.504,547 1.204,547 0.204,547 "/>
+    <polygon style="fill: #ffffff" points="277.268,555 293.268,547 277.268,539 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="277.268,555 293.268,547 277.268,539 "/>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="10.002" y="535.25" width="80" height="36" rx="20" ry="20"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="10.002" y="535.25" width="80" height="36" rx="20" ry="20"/>
-    <text font-size="12.8" style="fill: #ff0000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="50.002" y="557.15">
-      <tspan x="50.002" y="557.15">User</tspan>
-    </text>
-  </g>
-  <g>
-    <rect style="fill: #ffffff" x="327.002" y="535.25" width="80" height="36" rx="20" ry="20"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="327.002" y="535.25" width="80" height="36" rx="20" ry="20"/>
-    <text font-size="12.8" style="fill: #0000ff;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="367.002" y="557.15">
-      <tspan x="367.002" y="557.15">Service</tspan>
-    </text>
-  </g>
-  <g>
-    <polygon style="fill: #ffffff" points="103.002,579.25 332.302,579.25 344.302,591.25 344.302,613.25 103.002,613.25 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="103.002,579.25 332.302,579.25 344.302,591.25 344.302,613.25 103.002,613.25 "/>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="332.302,579.25 332.302,591.25 344.302,591.25 "/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="110.002" y="604.15">
-      <tspan x="110.002" y="604.15">User is Injected with Service</tspan>
+    <polygon style="fill: #ffffff" points="17.002,586.25 269.402,586.25 281.402,598.25 281.402,620.25 17.002,620.25 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="17.002,586.25 269.402,586.25 281.402,598.25 281.402,620.25 17.002,620.25 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="269.402,586.25 269.402,598.25 281.402,598.25 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="24.002" y="611.15">
+      <tspan x="24.002" y="611.15">Modul A ist injected von Modul B</tspan>
     </text>
   </g>
   <g>
@@ -200,9 +186,9 @@
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-12.2301,49.25 3.76993,41.25 -12.2301,33.25 "/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="-56.2361,-75.2759 -92.994,-75.2759 -92.994,19.25 "/>
-    <polygon style="fill: #ffffff" points="-56.2361,-67.2759 -40.2361,-75.2759 -56.2361,-83.2759 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-56.2361,-67.2759 -40.2361,-75.2759 -56.2361,-83.2759 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="-56.2361,-75.276 -92.994,-75.276 -92.994,19.25 "/>
+    <polygon style="fill: #ffffff" points="-56.2361,-67.276 -40.2361,-75.276 -56.2361,-83.276 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-56.2361,-67.276 -40.2361,-75.276 -56.2361,-83.276 "/>
   </g>
   <g>
     <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="-66.2361,312.362 -92.996,312.362 -92.996,79.25 -92.994,79.25 "/>
@@ -210,9 +196,9 @@
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-66.2361,320.362 -50.2361,312.362 -66.2361,304.362 "/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="-69.2361,223.457 -92.994,223.457 -92.994,79.25 "/>
-    <polygon style="fill: #ffffff" points="-69.2361,231.457 -53.2361,223.457 -69.2361,215.457 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-69.2361,231.457 -53.2361,223.457 -69.2361,215.457 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="-69.2361,223.456 -92.994,223.456 -92.994,79.25 "/>
+    <polygon style="fill: #ffffff" points="-69.2361,231.456 -53.2361,223.456 -69.2361,215.456 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-69.2361,231.456 -53.2361,223.456 -69.2361,215.456 "/>
   </g>
   <g>
     <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="-68.2361,391 -92.994,391 -92.994,79.25 "/>
@@ -230,7 +216,7 @@
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="232.768,155.25 248.768,147.25 232.768,139.25 "/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="232.768,147.25 203.004,147.25 203.004,223.457 116.05,223.457 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="232.768,147.25 203.004,147.25 203.004,223.456 116.05,223.456 "/>
     <polygon style="fill: #ffffff" points="232.768,155.25 248.768,147.25 232.768,139.25 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="232.768,155.25 248.768,147.25 232.768,139.25 "/>
   </g>
@@ -253,5 +239,31 @@
     <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="437.286,147 461.45,147 461.45,35 440.45,35 "/>
     <polygon style="fill: #ffffff" points="437.286,139 421.286,147 437.286,155 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="437.286,139 421.286,147 437.286,155 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="-130,498 -70.1,498 -58.1,510 -58.1,532 -130,532 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-130,498 -70.1,498 -58.1,510 -58.1,532 -130,532 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="-70.1,498 -70.1,510 -58.1,510 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-123" y="522.9">
+      <tspan x="-123" y="522.9">Legende</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="-82.996" y="533" width="83.2" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-82.996" y="533" width="83.2" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="-41.396" y="552">Modul A</text>
+    <rect style="fill: #ffffff" x="-82.996" y="561" width="83.2" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-82.996" y="561" width="83.2" height="8"/>
+    <rect style="fill: #ffffff" x="-82.996" y="569" width="83.2" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-82.996" y="569" width="83.2" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="295.504" y="533" width="83" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="295.504" y="533" width="83" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="337.004" y="552">Modul B</text>
+    <rect style="fill: #ffffff" x="295.504" y="561" width="83" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="295.504" y="561" width="83" height="8"/>
+    <rect style="fill: #ffffff" x="295.504" y="569" width="83" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="295.504" y="569" width="83" height="8"/>
   </g>
 </svg>

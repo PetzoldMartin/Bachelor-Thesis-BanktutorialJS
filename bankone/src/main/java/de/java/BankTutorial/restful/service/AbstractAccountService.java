@@ -31,7 +31,11 @@ import de.java.BankTutorial.entity.FlexibleSavingsAccount;
 import de.java.BankTutorial.entity.SavingsAccount;
 
 import javax.xml.bind.annotation.XmlRootElement;
-
+/**
+ * 
+ * @author Martin Petzold
+ * REST Service Klasse der Abstractaccounts und der einzelnen Abstractaccountimplementierungen
+ */
 @Path("/abstractAccountREST")
 @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 @Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
@@ -44,15 +48,12 @@ public class AbstractAccountService {
 	EntityManager entityManager;
 	@Context
 	private UriInfo uriInfo;
-
-	@POST
-	public Response createAbstractAccount(AbstractAccount abstractAccount) {
-		entityManager.persist(abstractAccount);
-		URI uri = uriInfo.getAbsolutePathBuilder()
-				.path(Long.toString(abstractAccount.getId())).build();
-		return Response.created(uri).build();
-	}
 	
+	/**
+	 * REST-Methode zum Speichern eines CheckingAccounts
+	 * @param checkingAccount Daten des Checkingaccounts
+	 * @return Rückantwort der Speicherung
+	 */
 	@POST
 	@Path("CheckingAccount")
 	public Response createCheckingAccount(CheckingAccount checkingAccount) {
@@ -61,7 +62,11 @@ public class AbstractAccountService {
 				.path(Long.toString(checkingAccount.getId())).build();
 		return Response.created(uri).build();
 	}
-	
+	/**
+	 * REST-Methode zum Updaten eines CheckingAccounts
+	 * @param checkingAccount Daten des Checkingaccounts
+	 * @return Rückantwort des Updates
+	 */
 	@PUT
 	@Path("CheckingAccount")
 	public Response updateCheckingAccount(CheckingAccount checkingAccount) {
@@ -72,7 +77,11 @@ public class AbstractAccountService {
 				.path(Long.toString(checkingAccount.getId())).build();
 		return Response.created(uri).build();
 	}
-	
+	/**
+	 * REST-Methode zum Speichern eines savingsAccounts
+	 * @param savingsAccount Daten des SavingAccounts
+	 * @return Rückantwort der Speicherung
+	 */
 	@POST
 	@Path("SavingsAccount")
 	public Response createSavingsAccount(SavingsAccount savingsAccount) {
@@ -81,7 +90,11 @@ public class AbstractAccountService {
 				.path(Long.toString(savingsAccount.getId())).build();
 		return Response.created(uri).build();
 	}
-	
+	/**
+	 * REST-Methode zum Updaten eines savingsAccounts
+	 * @param savingsAccount Daten des SavingAccounts
+	 * @return Rückantwort des Updates
+	 */
 	@PUT
 	@Path("SavingsAccount")
 	public Response updateSavingsAccount(SavingsAccount savingsAccount) {
@@ -92,7 +105,11 @@ public class AbstractAccountService {
 				.path(Long.toString(savingsAccount.getId())).build();
 		return Response.created(uri).build();
 	}
-	
+	/**
+	 * REST-Methode zum Speichern eines flexibleSavingsAccounts
+	 * @param flexibleSavingsAccount
+	 * @return Rückantwort der Speicherung
+	 */
 	@POST
 	@Path("FlexibleSavingsAccount")
 	public Response createFlexibleSavingsAccount(FlexibleSavingsAccount flexibleSavingsAccount) {
@@ -101,7 +118,11 @@ public class AbstractAccountService {
 				.path(Long.toString(flexibleSavingsAccount.getId())).build();
 		return Response.created(uri).build();
 	}
-	
+	/**
+	 * REST-Methode zum Updaten eines flexibleSavingsAccounts
+	 * @param flexibleSavingsAccount
+	 * @return Rückantwort des Updates
+	 */
 	@PUT
 	@Path("FlexibleSavingsAccount")
 	public Response updateFlexibleSavingsAccount(FlexibleSavingsAccount flexibleSavingsAccount) {
@@ -113,17 +134,12 @@ public class AbstractAccountService {
 		return Response.created(uri).build();
 	}
 	
-	@PUT
-	public Response updateAbstractAccount(AbstractAccount abstractAccount) {
-		System.out.println("nun in update mit ID=" + abstractAccount.getId());
-		entityManager.merge(abstractAccount);
-		
-		URI uri = uriInfo.getAbsolutePathBuilder()
-				.path(Long.toString(abstractAccount.getId())).build();
-		return Response.created(uri).build();
-	}
 
-	
+	/**
+	 * REST-Methode zum löschen eines Abstractaccounts
+	 * @param id Identifikationsnummer des Abstractaccounts
+	 * @return Rückantwort	beim Löschen eines AbstractAccounts
+	 */
 	@DELETE
 	@Path("{id}")
 	public Response deleteAbstractAccount(@PathParam("id") long id) {
@@ -131,7 +147,11 @@ public class AbstractAccountService {
 		entityManager.remove(entityManager.find(AbstractAccount.class, id));
 		return Response.noContent().build();
 	}
-
+	/**
+	 * REST-Methode zur Abfrage eines Abstractaccounts anhand seiner Identifikationsnummer
+	 * @param id Identifikationsummer des Abstractaccounts
+	 * @return Rückantwort bei der Abfrage eines Abstractaccounts
+	 */
 	@GET
 	@Path("{id}")
 	public Response getAbstractAccount(@PathParam("id") long id) {
@@ -151,7 +171,10 @@ public class AbstractAccountService {
 	}
 
 	@SuppressWarnings("unchecked")
-	
+	/**
+	 * REST-Methode zur Abfrage einer Liste aller Abstractaccounts
+	 * @return Rückantwort bei der Abfrage
+	 */
 	@GET
 	public Response getAbstractAccounts() {
 
@@ -171,7 +194,11 @@ public class AbstractAccountService {
 	}
 	
 @SuppressWarnings("unchecked")
-	
+	/**
+	 * REST-Methode zur Abfrage einer Liste aller Abstractaccounts die zu einer bestimmten Bank zugeordnet sind
+	 * @param id Identifikationsnummer der Bank zu der die Liste ausgegeben wird
+	 * @return Rückantwort bei der Abfrage
+	 */
 	@GET
 	@Path("bank/{id}")
 	public Response getAbstractAccountsByBankId(@PathParam("id") long id) {
@@ -192,7 +219,11 @@ public class AbstractAccountService {
 	}
 
 @SuppressWarnings("unchecked")
-
+/**
+ *  REST-Methode zur Abfrage einer Liste aller Abstractaccounts die zu einem bestimmten Customer zugeordnet sind
+ * @param id Identifikationsnummer des Customers zu der die Liste ausgegeben wird
+ * @return Rückantwort bei der Abfrage
+ */
 @GET
 @Path("customer/{id}")
 public Response getAbstractAccountsByCustomerId(@PathParam("id") long id) {

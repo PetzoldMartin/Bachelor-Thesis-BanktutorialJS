@@ -56,6 +56,9 @@ public abstract class AbstractAccount implements IEntityBase, Serializable {
 	// -- generated constructors --------------------------------------------
 	/**
 	 * Default-Konstruktor
+	 * Autor: Martin, Petzold
+	 * Konstruktor ordnet dem Abstractaccount einen 
+	 * String zur identifizierung seiner direkten Ausprägung zu
 	 */
 	public AbstractAccount() {
 		accountType=this.getClass().getSimpleName();

@@ -26,7 +26,11 @@ import javax.ws.rs.core.UriInfo;
 import org.hibernate.Hibernate;
 
 import de.java.BankTutorial.entity.Customer;
-
+/**
+ * 
+ * @author Martin Petzold
+ * REST Service Klasse dEr Customer
+ */
 @Path("/customerREST")
 @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 @Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
@@ -38,7 +42,11 @@ public class CustomerServiceREST {
 	EntityManager entityManager;
 	@Context
 	private UriInfo uriInfo;
-
+	/**
+	 * REST-Methode zum Speichern eines Customers
+	 * @param customer Customerdaten
+	 * @return Rückantwort der Speicherung
+	 */
 	@POST
 	public Response createCustomer(Customer customer) {
 		System.out.println("nun in create mit ID=" + customer.getId());
@@ -48,7 +56,11 @@ public class CustomerServiceREST {
 				.path(Long.toString(customer.getId())).build();
 		return Response.created(uri).build();
 	}
-	
+	/**
+	 * REST-Methode zum Update eines Customers
+	 * @param customer Customerdaten
+	 * @return Rückantwort des Updates
+	 */
 	@PUT
 	public Response updateCustomer(Customer customer) {
 		System.out.println("nun in update mit ID=" + customer.getId());
@@ -58,7 +70,11 @@ public class CustomerServiceREST {
 				.path(Long.toString(customer.getId())).build();
 		return Response.created(uri).build();
 	}
-
+	/**
+	 * REST-Methode zum Löschen eines Customers anhand einer Identifikationsnummer
+	 * @param id Identifikationsnummer des Customers
+	 * @return Rückantwort der Speicherung
+	 */
 	@DELETE
 	@Path("{id}")
 	public Response deleteCustomer(@PathParam("id") long id) {
@@ -68,7 +84,11 @@ public class CustomerServiceREST {
 		entityManager.remove(customer);
 		return Response.noContent().build();
 	}
-
+	/**
+	 * REST-Methode zur Abfrage eines Customers anhand einer Identifikationsnummer
+	 * @param id Identifikationsnummer des Customers
+	 * @return Rückantwort der Abfrage
+	 */
 	@GET
 	@Path("{id}")
 	public Response getCustomer(@PathParam("id") long id) {
@@ -83,7 +103,10 @@ public class CustomerServiceREST {
 	
 		return Response.ok(customer).build();
 	}
-
+	/**
+	 * REST-Methode zur Abfrage ener Liste aller Customer
+	 * @return Rückantwort der Abfrage
+	 */
 	@SuppressWarnings("unchecked")
 	@GET
 	public Response getCustomers() {

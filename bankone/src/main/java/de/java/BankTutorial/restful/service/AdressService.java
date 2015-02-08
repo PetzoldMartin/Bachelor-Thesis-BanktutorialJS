@@ -27,7 +27,11 @@ import org.hibernate.Hibernate;
 
 import de.java.BankTutorial.entity.Address;
 import javax.xml.bind.annotation.XmlRootElement;
-
+/**
+ * 
+ * @author Martin Petzold
+ * REST Service Klasse der Adressen
+ */
 @Path("/addressREST")
 @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 @Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
@@ -40,7 +44,11 @@ public class AdressService {
 	EntityManager entityManager;
 	@Context
 	private UriInfo uriInfo;
-
+	/**
+	 * REST-Methode zum erstellen einer Adresse
+	 * @param address Adressdaten
+	 * @return Rückantwort der Adressenerstellung
+	 */
 	@POST
 	public Response createAddress(Address address) {
 		entityManager.persist(address);
@@ -48,7 +56,11 @@ public class AdressService {
 				.path(Long.toString(address.getId())).build();
 		return Response.created(uri).build();
 	}
-	
+	/**
+	 * REST-Methode zum updaten einer Adresse
+	 * @param address Adressdaten
+	 * @return Rückantwort eines Adressenupdates
+	 */
 	@PUT
 	public Response updateAddress(Address address) {
 		System.out.println("nun in update mit ID=" + address.getId());
@@ -58,7 +70,11 @@ public class AdressService {
 				.path(Long.toString(address.getId())).build();
 		return Response.created(uri).build();
 	}
-
+	/**
+	 * REST-Methode zum löschen einer Adresse
+	 * @param id Identifikationsnummer der Adresse
+	 * @return Rückantwort einer Adressenlöschung
+	 */
 	@DELETE
 	@Path("{id}")
 	public Response deleteAddress(@PathParam("id") long id) {
@@ -66,7 +82,11 @@ public class AdressService {
 		entityManager.remove(entityManager.find(Address.class, id));
 		return Response.noContent().build();
 	}
-
+	/**
+	 * Methode zum Abrufen einer speziellen Adresse anhand ihrer Identifikationsummer
+	 * @param id Identifikationsummer der anzuzeigenden Adresse
+	 * @return Rückantwort bei Abfrage einer Adresse
+	 */
 	@GET
 	@Path("{id}")
 	public Response getAddress(@PathParam("id") long id) {
@@ -83,6 +103,10 @@ public class AdressService {
 
 	@SuppressWarnings("unchecked")
 	
+	/**
+	 * REST-Methode zum Abruf einer Liste aller adressen
+	 * @return Rückantwort bei der Abfrage der Adressenliste 
+	 */
 	@GET
 	public Response getAddresss() {
 

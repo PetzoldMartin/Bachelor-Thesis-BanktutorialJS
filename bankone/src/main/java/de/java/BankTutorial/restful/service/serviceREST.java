@@ -19,7 +19,11 @@ import javax.inject.Named;
 import de.java.BankTutorial.service.InterestService;
 import de.java.BankTutorial.entity.Bank;
 import de.java.BankTutorial.service.InterestService;
-
+/**
+ * 
+ * @author Martin Petzold
+ * REST Service Klasse des Zinsüberweisungservice
+ */
 
 
 @Path("/ServiceREST")
@@ -29,6 +33,10 @@ import de.java.BankTutorial.service.InterestService;
 public class serviceREST {
 	@Inject
 	private InterestService interestService;
+	/**
+	 * REST-Methode zum Starten des Zinsüberweisungservice
+	 * @return Rückantwort des Startvorganges
+	 */
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	@Path("/start")
@@ -37,6 +45,10 @@ public class serviceREST {
 		return String.valueOf(true);
 	}
 	
+	/**
+	 * REST-Methode zum Stoppen des Zinsüberweisungservice
+	 * @return Rückantwort des Stopvorganges
+	 */
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	@Path("/stop")
@@ -44,7 +56,10 @@ public class serviceREST {
 		interestService.stopTimers();;
 		return String.valueOf(false);
 	}
-	
+	/**
+	 * REST-Methode zur Abfrage des Status des Zinsüberweisungservice
+	 * @return Status des Zinsüberweisungservice als String
+	 */
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	@Path("/isActive")
