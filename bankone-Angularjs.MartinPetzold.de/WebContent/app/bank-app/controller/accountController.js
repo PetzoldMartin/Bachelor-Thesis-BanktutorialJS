@@ -1,12 +1,17 @@
 'use strict';
 
-/* Controllers */
+/**
+ * Modul zur Verwaltung von Accounts und der Ansichten von Accounts
+ */
 var BankappAccountview = angular.module( 'bankapp.accountview', [
 		 'bankapp.subview'
 ] );
-
+/**
+ * Controller zur Verwaltung des Account(Konten)Komponentenrahmens
+ */
 BankappAccountview.controller( 'accountComponentCtrl', [
 		'$scope', 'subComponentService',  function ( $scope, subComponentService ) {
+			//Models zum Laden der Ausprägungen der Accountanzeige
 			var overview = {
 				"id" : 1,
 				"name" : "Kontenübersicht",
@@ -23,7 +28,11 @@ BankappAccountview.controller( 'accountComponentCtrl', [
 				"url" : 'mainTopicTemplates/accountSubpageTemplates/newAccount.html'
 			}
 			subComponentService.reset();
-			subComponentService.setComponent( overview);	
+			subComponentService.setComponent( overview);
+			//Methode zur Auswahl aus einer Accountübersicht
+			/**
+			 * param oid Identifikationsnummer des Ausgewählten Accounts
+			 */
 			$scope.click = function ( oid ) {
 				manipulate.id = oid;
 				if ( oid != "undefined" ) {
@@ -32,6 +41,7 @@ BankappAccountview.controller( 'accountComponentCtrl', [
 					subComponentService.setComponent( makeNew );
 				}
 			}
+			//Überwachung von Änderungen des subComponentService
 			$scope.$watch( function () {
 				return subComponentService.getActuallComponent();
 			} ,function(newValue, oldValue){
@@ -39,11 +49,13 @@ BankappAccountview.controller( 'accountComponentCtrl', [
 			});
 		}
 ] );
-
+/**
+ * Controller für die Accountübersicht
+ */
 BankappAccountview.controller( 'accountListCtrl', [
 		'$scope', '$http', 'searchService', 'arreyspliceByObjectId', 'subComponentService', function ( $scope, $http, searchService, arreyspliceByObjectId, subComponentService ) {
 			$scope.query = "";
-			
+			//Methode zum Laden der Übersichtsdaten über REST
 			$scope.loadData = function () {
 				$http.get( '../../../../bankone/rest/abstractAccountREST' ).success( function ( data ) {
 					$scope.accounts = data;
@@ -55,12 +67,14 @@ BankappAccountview.controller( 'accountListCtrl', [
 			
 			$scope.orderProp = 'id';
 			$scope.loadData();
+			//Überwachung des Searchservice auf Einschränkung der Übersicht
 			$scope.$watch(function(){
 				if ( searchService.getAccountIds() != "" ) {
 					$scope.accounts = arreyspliceByObjectId.spliceByID( $scope.accounts, searchService.getAccountIds() );
 					$scope.newAvaible = false;
 				}
 			});
+			//Überwachung des Searchservice auf eine Sucheingabe
 			$scope.$watch( function () {
 				return searchService.getSearchColumn()
 			},function(newValue, oldValue){
@@ -68,11 +82,13 @@ BankappAccountview.controller( 'accountListCtrl', [
 			} );
 		}
 ] );
-
+/**
+ * Controller für die Ansicht eines speziellen Accounts
+ */
 BankappAccountview.controller( 'accountViewCtrl', [
 		'$scope', '$http', 'subComponentService', 'mainPageService', 'searchService', function ( $scope, $http, subComponentService, mainPageService, searchService ) {
 			$scope.iddata = subComponentService.getActuallComponent();
-			// Load Function
+			// Load Function zum Laden von Accountdaten über REST
 			$scope.loadData = function () {	
 				if ( $scope.iddata.name == "Konto bearbeiten" ) {
 					$scope.nid=$scope.iddata.id
@@ -86,11 +102,11 @@ BankappAccountview.controller( 'accountViewCtrl', [
 						} )			
 			};
 			$scope.loadData();
-			// Cancel Function
+			// Function zur Rückkehr zur Accountübersicht 
 			$scope.setSubComponentLvl2 = function () {
 				subComponentService.stepBack('');
 			}
-			// Delete Function
+			// Function zum Löschen eines Accounts über REST 
 			$scope.deleteAccount = function () {
 				$http( {
 					withCredentials : false,
@@ -100,6 +116,7 @@ BankappAccountview.controller( 'accountViewCtrl', [
 					$scope.setSubComponentLvl2()
 				} )
 			}
+			//Function zum Aufruf der Übersicht vom des zum Account zuggeordneten Customers
 			$scope.showCustomerByAccount = function () {
 				subComponentService.reset();
 				mainPageService.setTopicid( 3 );
@@ -107,6 +124,7 @@ BankappAccountview.controller( 'accountViewCtrl', [
 					$scope.account.owner.id
 				] );
 			}
+			//Function zum Aufruf der Übersicht vom des zum Account zuggeordneten Bank
 			$scope.showBankByAccount = function () {
 				subComponentService.reset();
 				mainPageService.setTopicid( 2 );
@@ -114,6 +132,7 @@ BankappAccountview.controller( 'accountViewCtrl', [
 					$scope.account.bank.id
 				] );
 			}
+			//Function zum Aufruf der Überweisungsauswahl des Accounts
 			$scope.accountTransfer = function () {
 				subComponentService.reset();
 				mainPageService.setTopicid( 5 );
@@ -123,11 +142,14 @@ BankappAccountview.controller( 'accountViewCtrl', [
 			}
 		}
 ] )
-
+/**
+ * Controller für die Ansicht zur neuerstellung eines Accounts
+ */
 BankappAccountview.controller( 'accountMakeCtrl', [
 		'$scope', '$http', 'subComponentService',  'searchService', function ( $scope, $http, subComponentService, searchService ) {
 			$scope.customer = 'mainTopicTemplates/customerSubpageTemplates/customerOverView.html'
 			$scope.bank = 'mainTopicTemplates/bankSubpageTemplates/bankOverView.html'
+			//Datenstub für einen neuen Account
 			$scope.newAccount = {
 				'balance' : 0,
 				'bank' : {
@@ -137,15 +159,20 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 					'id' : ''
 				}
 			};
+			//Arrey der Accountarten
 			$scope.accountType = [
 					"CheckingAccount", "SavingsAccount", "FlexibleSavingsAccount"
 			];
 			searchService.setCustomerIds( "all" );
 			searchService.setBankIds( "all" );
-			// $scope.typeQuery;
+			// Function zum setzen des Accountypes
+			/**
+			 * param type Accounttype
+			 */
 			$scope.set = function ( type ) {
 				$scope.typeQuery = type
 			}
+			//Function zum erstellen eines neuen Accounts durch REST
 			$scope.newacc = function () {
 					$http( {
 						withCredentials : false,
@@ -160,6 +187,11 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 						alert("eine Auswahl wurde nicht getroffen")
 					} )	
 			}
+			//Function zur Auswertung einer Auswahl bei der Accounterstellung
+			/**
+			 * param bid Identifikationsnummer der Auswahl
+			 * param kind Art der Auswahl
+			 */
 			$scope.click = function ( bid, kind ) {
 				if ( kind == "customer" ) {
 					searchService.setCustomerIds( [
@@ -175,6 +207,11 @@ BankappAccountview.controller( 'accountMakeCtrl', [
 					$scope.newAccount.bank.id = bid;
 				}
 			}
+			//Function zur überprüfung der Registrierung und automatischen Registrierung eines Customers bei einer Bank
+			/**
+			 * param bankid Identifikationsnummer der Bank
+			 * param customerid Identifikationsnummer des Customers
+			 */
 			$scope.autoregisterCustomerAtBank = function ( bankid, customerid ) {
 				$http.get( '../../../../bankone/rest/bankREST' + '/' + bankid ).success( function ( data ) {
 					$scope.bank = data;

@@ -1,12 +1,17 @@
 'use strict';
 
-/* Controllers */
+/**
+ * Modul zur Verwaltung von Customer(Kunden) und der Ansichten von Customern
+ */
 var BankappCustomerview = angular.module( 'bankapp.customerview', [
 		 'bankapp.subview'
 ] );
-
+/**
+ * Controller zur Verwaltung des Customer(Kunden)komponentenrahmens
+ */
 BankappCustomerview.controller( 'customerComponentCtrl', [
 		'$scope', 'subComponentService',  function ( $scope, subComponentService ) {
+			//Models zum Laden der Ausprägungen der Kundenanzeige
 			var overview = {
 				"id" : 1,
 				"name" : "Kundenübersicht",
@@ -19,11 +24,15 @@ BankappCustomerview.controller( 'customerComponentCtrl', [
 			}
 			subComponentService.reset();
 			subComponentService.setComponent( overview);			
-
+			//Methode zur Auswahl aus einer Kundenübersicht
+			/**
+			 * param oid Identifikationsnummer des Ausgewählten Customers
+			 */
 			$scope.click = function ( oid ) {
 				manipulate.id = oid;
 				subComponentService.setComponent( manipulate );
 			}
+			//Überwachung von Änderungen des subComponentService
 			$scope.$watch( function () {
 				return subComponentService.getActuallComponent();
 			} ,function(newValue, oldValue){
@@ -32,10 +41,13 @@ BankappCustomerview.controller( 'customerComponentCtrl', [
 			
 		}
 ] );
-
+/**
+ * Controller für die Kundenübersicht
+ */
 BankappCustomerview.controller( 'customerListCtrl', [
 		'$scope', '$http', 'searchService', 'arreyspliceByObjectId', function ( $scope, $http, searchService, arreyspliceByObjectId ) {
 			$scope.query = "";	
+			//Methode zum Laden der Übersichtsdaten über REST
 			$scope.loadData = function () {
 				$http.get( '../../../../bankone/rest/customerREST' ).success( function ( data ) {
 					$scope.customers = data;
@@ -51,12 +63,14 @@ BankappCustomerview.controller( 'customerListCtrl', [
 			};
 			$scope.orderProp = 'name';
 			$scope.loadData();
+			//Überwachung des Searchservice auf Einschränkung der Übersicht
 			$scope.$watch(function(){
 				if ( searchService.getCustomerIds() != "" ) {
 					$scope.customers = arreyspliceByObjectId.spliceByID( $scope.customers, searchService.getCustomerIds() );
 					$scope.newAvaible = false;
 				}
 			});
+			//Überwachung des Searchservice auf eine Sucheingabe
 			$scope.$watch( function () {
 				return searchService.getSearchColumn()
 			},function(newValue, oldValue){
@@ -64,7 +78,9 @@ BankappCustomerview.controller( 'customerListCtrl', [
 			} );
 		}
 ] );
-
+/**
+ * Controller für die Ansicht zum Erstellen ,Löschen und Updaten eines customers(Kunden)
+ */
 BankappCustomerview.controller( 'customerviewCtrl', [
 		'$scope', '$http', 'subComponentService', 'searchService', function ( $scope, $http, subComponentService,searchService) {
 			$scope.accountByCustomer=''
@@ -75,6 +91,7 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 				     			];
 			$scope.accountByCustomer=''
 			$scope.acd=false;
+			//Datenstub eines Contakts
 			$scope.newContact = {
 				"phone" : "",
 				"mobilePhone" : "",
@@ -86,13 +103,17 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 					"city" : ""
 				}
 			};
+			//Datenstub eines Customers
 			$scope.customer = {
 				"firstname" : "",
 				"surname" : "",
 				"contact" : []
 			};
 			
-			//Overide of the Click Method from customer for the account subview
+			//Überlagerung der Methode zur Auswahl der verwendeten Kontenübersicht
+			/**
+			 * param oid Identifikationsnummer des Ausgewählten Kontos
+			 */
 			$scope.click = function ( oid ) {
 				$scope.tc=angular.copy(subComponentService.getActuallComponent())
 				$scope.tc.name="Account"+ oid +" des Kunden " +$scope.customer.firstname +" "+$scope.customer.surname
@@ -101,11 +122,13 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 				$scope.accountByCustomer='mainTopicTemplates/accountSubpageTemplates/accountManipulate.html'	
 				$scope.acd=true;
 			}
+			//Methode zur Rückkehr zur Anzeige mit Übersicht aller dem Kunden zugeordneten Konten
 			$scope.accback = function () {
 				$scope.accountByCustomer='mainTopicTemplates/accountSubpageTemplates/accountOverView.html'
 					$scope.acd=false;
 				subComponentService.stepBack();
 			}
+			//überwachung des subComponentService auf neue Komponenten
 			$scope.$watch( function () {
 				return subComponentService.getActuallComponent();
 			} ,function(newValue, oldValue){
@@ -113,7 +136,7 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 					$scope.accback();
 				}
 			});
-			//Load Function
+			//Function zum Laden von Customerdaten über REST
 			$scope.loadData = function () {
 				if ( ( $scope.iddata.id ) != "undefined" ) {					
 					$http.get( '../../../../bankone/rest/customerREST' + '/' + $scope.iddata.id ).success( function ( data ) {
@@ -140,13 +163,13 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 			$scope.orderProp = 'name';
 			$scope.loadData();
 			
-			// Cancel Function
+			// Function zur Rückkehr zur Kundenübersicht 
 			$scope.setSubComponentLvl2 = function () {
 				subComponentService.stepBack();
 				subComponentService.stepBack();
 
 			}
-			//Save Function
+			//Function zum Speichern und Updaten von Kundendaten über REST
 			$scope.saveCustomer = function () {
 				if ( ( $scope.iddata.id ) == "undefined" ) {
 					$http( {
@@ -170,7 +193,7 @@ BankappCustomerview.controller( 'customerviewCtrl', [
 				}
 			}
 			
-			//Delete Function
+			//Function zum löschen von Kundendaten über REST
 			$scope.deleteCustomer = function () {
 				$http( {
 					withCredentials : false,

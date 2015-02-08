@@ -1,14 +1,18 @@
 'use strict';
 
-/* Controllers */
+/**
+ * Modul zur Verwaltung von Banken und der Ansichten von Banken
+ */
 var BankappBankview = angular.module( 'bankapp.bankview', [
 		 'bankapp.subview'
 
 ] );
-
+/**
+ * Controller zur Verwaltung des Bankenkomponentenrahmens
+ */
 BankappBankview.controller( 'bankComponentCtrl', [
 		'$scope', 'subComponentService', function ( $scope, subComponentService, BreadcrumbService ) {
-
+			//Models zum Laden der Ausprägungen der Bankenanzeige
 			var overview = {
 				"id" : 1,
 				"name" : "Bankenübersicht",
@@ -21,10 +25,15 @@ BankappBankview.controller( 'bankComponentCtrl', [
 			}
 			subComponentService.reset();
 			subComponentService.setComponent(overview);
+			//Methode zur Auswahl aus einer Bankenübersicht
+			/**
+			 * param oid Identifikationsnummer der Ausgewählten Bank
+			 */
 			$scope.click = function ( oid ) {
 				manipulate.id = oid;
 				subComponentService.setComponent(manipulate);
 			}
+			//Überwachung von Änderungen des subComponentService
 			$scope.$watch( function () {
 				return subComponentService.getActuallComponent();
 			}, function(){
@@ -33,11 +42,13 @@ BankappBankview.controller( 'bankComponentCtrl', [
 			} );
 		}
 ] );
-
+/**
+ * Controller für die Bankenübersicht
+ */
 BankappBankview.controller( 'bankListCtrl', [
 		'$scope', '$http', 'searchService','arreyspliceByObjectId', function ( $scope, $http, searchService ,arreyspliceByObjectId) {
 			$scope.query = "";
-			
+			//Methode zum Laden der Übersichtsdaten über REST
 			$scope.loadData = function () {
 				$http.get( '../../../../bankone/rest/bankREST' ).success( function ( data ) {
 					$scope.banks = data;
@@ -53,12 +64,14 @@ BankappBankview.controller( 'bankListCtrl', [
 			};
 			$scope.orderProp = 'name';
 			$scope.loadData();
+			//Überwachung des Searchservice auf Einschränkung der Übersicht
 			$scope.$watch(function(){
 				if ( searchService.getBankIds() != "" ) {
 					$scope.banks = arreyspliceByObjectId.spliceByID( $scope.banks, searchService.getBankIds() );
 					$scope.newAvaible = false;
 				}
 			});
+			//Überwachung des Searchservice auf eine Sucheingabe
 			$scope.$watch( function () {
 				return searchService.getSearchColumn()
 			} ,function(newValue, oldValue){
@@ -66,10 +79,12 @@ BankappBankview.controller( 'bankListCtrl', [
 			});
 		}
 ] );
-
+/**
+ * Controller für die Ansicht zum Erstellen ,Löschen und Updaten einer Bank
+ */
 BankappBankview.controller( 'bankviewCtrl', [
 		'$scope', '$http', 'subComponentService', 'mainPageService', 'searchService', function ( $scope, $http, subComponentService, mainPageService, searchService ) {
-			// Initialization of the Controller
+			// Initializierung
 			$scope.iddata = subComponentService.getActuallComponent();
 			$scope.customerCount = 0;
 			$scope.accountCount = 0;
@@ -81,13 +96,13 @@ BankappBankview.controller( 'bankviewCtrl', [
 				0
 			];
 
-
+			//Bank Datenstub
 			$scope.bank = {
 				"name" : "",
 				"sortCode" : "",
 				"contacts" : []
 			};
-			// Function for Triggering new Contact View
+			// Function zur Anzeige und Eintragung eines neuen Contacts in die Bandaten
 			$scope.triggerAddNew = function () {
 				$scope.tempContact = {
 					"phone" : "",
@@ -102,7 +117,7 @@ BankappBankview.controller( 'bankviewCtrl', [
 				};
 				$scope.bank.contacts.push( $scope.tempContact );
 			}
-			// Function for loading Showing Data
+			// Function zum Laden von Bankdaten über REST
 			$scope.loadData = function () {
 				if ( ( $scope.iddata.id ) != "undefined" ) {
 					$http.get( '../../../../bankone/rest/bankREST' + '/' + $scope.iddata.id ).success( function ( data ) {
@@ -126,14 +141,14 @@ BankappBankview.controller( 'bankviewCtrl', [
 					} );
 				}
 			};
-			// Initialize and Loaddata
+			// Initializierung
 			$scope.orderProp = 'name';
 			$scope.loadData();
-			// function for cancel
+			// Function zur Rückkehr zur Bankenübersicht 
 			$scope.setSubComponentLvl2 = function () {
 				subComponentService.stepBack();
 			}
-			// save Function
+			// Function zum Speichern und Updaten von Bankdaten über REST
 			$scope.saveBank = function () {
 
 				if ( ( $scope.iddata.id ) == "undefined" ) {
@@ -164,9 +179,14 @@ BankappBankview.controller( 'bankviewCtrl', [
 				}
 
 			}
+			//Function zum Löschen austragen eines Accounts aus den Bankdaten
+			/**
+			 * param $index index des Zu löschenden Accounts in den Bankdaten
+			 */
 			$scope.deleteContact = function ( $index ) {
 				$scope.bank.contacts.splice( $index, 1 );
 			}
+			//Function zum Löschen einer Bank über REST
 			$scope.deleteBank = function () {
 				$http( {
 					withCredentials : false,
@@ -180,11 +200,13 @@ BankappBankview.controller( 'bankviewCtrl', [
 					alert("Die Bank hat noch Registrierte Konten")
 				} )
 			}
+			//Function zum Aufruf der Übersicht von zur Bank zuggeordneten Customers
 			$scope.showCustomerByBank = function () {
 				subComponentService.reset();
 				mainPageService.setTopicid( 3 );
 				searchService.setCustomerIds( $scope.customerIds );
 			}
+			//Function zum Aufruf der Übersicht von zur Bank zuggeordneten Accounts
 			$scope.showAccountByBank = function () {
 				subComponentService.reset();
 				mainPageService.setTopicid( 4 );

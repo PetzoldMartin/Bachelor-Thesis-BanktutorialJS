@@ -1,14 +1,18 @@
 'use strict';
 
-/* Controllers */
+/**
+ * Modul zum Steuern des Zinsüberweisungservice
+ */
 var BankappInterest = angular.module( 'bankapp.interest', [
 		 'bankapp.subview'
 
 ] );
-
+/**
+ * Controller zur Verwaltung des Zinsüberweisungservicekomponentenrahmens
+ */
 BankappInterest.controller( 'interestComponentCtrl', [
 		'$scope', 'subComponentService', function ( $scope, subComponentService, BreadcrumbService ) {
-
+			//Model zum Laden der Zinsüberweisungsteuerung
 			var overview = {
 				"id" : 1,
 				"name" : "Zinsüberweisung",
@@ -17,7 +21,7 @@ BankappInterest.controller( 'interestComponentCtrl', [
 			
 			subComponentService.reset();
 			subComponentService.setComponent(overview);
-			
+			//Überwachung von Änderungen des subComponentService
 			$scope.$watch( function () {
 				return subComponentService.getActuallComponent();
 			}, function(){
@@ -26,9 +30,11 @@ BankappInterest.controller( 'interestComponentCtrl', [
 			} );
 		}
 ] );
-
+/**
+ * Controller der Zinsüberweisungservicesteuerungsansicht
+ */
 BankappInterest.controller( 'InterestCtrl', ['$scope', '$http','$interval',function ( $scope, $http,$interval){
-	
+	//Models der Status der Steuerung
 	$scope.loading={'state': "Laden",
 			'label': "glyphicon glyphicon-time",
 			'status': 'undefined',
@@ -54,7 +60,10 @@ BankappInterest.controller( 'InterestCtrl', ['$scope', '$http','$interval',funct
 			'item': "list-group-item list-group-item-success"} 
 	
 	$scope.serverstate='wird geladen'
-		
+//Function zum Starteb und Stoppen des Zinsüberweisungservice über REST
+		/**
+		 * param is boolean für die Entschedung ob Starten oder Stoppen
+		 */
 	$scope.click=function(is){
 		if(is){
 			$http.get('../../../../bankone/rest/ServiceREST/start').success(function() {
@@ -67,6 +76,7 @@ BankappInterest.controller( 'InterestCtrl', ['$scope', '$http','$interval',funct
 		}
 		
 	}
+	//Function zur Abfrage des Status des Zinsüberweisungservice über REST
 	$scope.lookAtState=function(){
 		$http.get('../../../../bankone/rest/ServiceREST/isActive').
 		success(function(data) {
@@ -78,6 +88,7 @@ BankappInterest.controller( 'InterestCtrl', ['$scope', '$http','$interval',funct
 			}).
 		error(function(){alert("Server nicht erreichbar")})
 	}
+	//Zeitgesteuerte Abarbeitung einer Function
 	$interval(function(){$scope.lookAtState()},500)
 }]
 

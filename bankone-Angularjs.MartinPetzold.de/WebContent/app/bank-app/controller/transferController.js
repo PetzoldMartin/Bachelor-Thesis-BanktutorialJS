@@ -1,12 +1,17 @@
 'use strict';
 
-/* Controllers */
+/**
+ * Modul zur Verwaltung von Überweisungsansichten
+ */
 var BankappTransfer = angular.module( 'bankapp.transfer', [
 	'bankapp.subview'
 ] );
-
+/**
+ * Controller zur Verwaltung des Transferkomponentenrahmens
+ */
 BankappTransfer.controller( 'transferComponentCtrl', [
 		'$scope', 'subComponentService', function ( $scope, subComponentService ) {
+			//Models zum Laden der Ausprägungen der Überweisungsanzeigen
 			var overview = {
 				"id" : 1,
 				"name" : "Verfügbare Konten",
@@ -18,10 +23,15 @@ BankappTransfer.controller( 'transferComponentCtrl', [
 				"url" : 'mainTopicTemplates/transferSubpageTemplates/transferManipulate.html'
 			}
 			subComponentService.setComponent( overview);
+			//Methode zur Auswahl aus einer Kontenübersicht zur Überweisungszuordnung
+			/**
+			 * param oid Identifikationsnummer des Ausgewählten Kontos
+			 */
 			$scope.click = function ( oid ) {
 				manipulate.id = oid;
 				subComponentService.setComponent( manipulate );
 			}
+			//Überwachung von Änderungen des subComponentService
 			$scope.$watch( function () {
 				return subComponentService.getActuallComponent();
 			}, function ( newValue, oldValue ) {
@@ -30,7 +40,9 @@ BankappTransfer.controller( 'transferComponentCtrl', [
 
 		}
 ] );
-
+/**
+ * Controller für die Kontenübersicht zur Überweisungszuordnung
+ */
 BankappTransfer.controller( 'transferAccounts', [
 		'$scope', '$http', 'subComponentService', 'searchService', function ( $scope, $http, subComponentService, searchService ) {
 			if ( searchService.getAccountIds() == "" ) {
@@ -41,7 +53,9 @@ BankappTransfer.controller( 'transferAccounts', [
 		}
 
 ] )
-
+/**
+ * Controller für die Ansicht zur Tätigung einer Überweisung mit den Typen Ein- ,Auszahlung oder Überweisung
+ */
 BankappTransfer.controller( 'transferType', [
 		'$scope', '$http', 'subComponentService',  'searchService', function ( $scope, $http, subComponentService, searchService ) {
 			$scope.hasSub = true
@@ -49,7 +63,7 @@ BankappTransfer.controller( 'transferType', [
 			$scope.tempids = searchService.getAccountIds();
 			$scope.filter = [];
 			$scope.tempid='';
-			// better filter
+			// Function zum Laden des zur überweisung zugeordeneten Accounts und des filters für die möglichen Gegenaccounts
 			$scope.load= function(){$http.get( '../../../../bankone/rest/abstractAccountREST' + '/' + subComponentService.getActuallComponent().id ).success( function ( data ) {
 				$scope.account = data;
 				{
@@ -71,13 +85,14 @@ BankappTransfer.controller( 'transferType', [
 			} );}
 			$scope.load()
 
-			// $scope.exfilter()
-			//
+			// 
+			//Betrag für die Kontenmanipulation 
 			$scope.ammount = {
 				"value" : 0
 			};
 			$scope.accountto = null;
 			$scope.accChoosen = false
+			//überwachung zur Auswahl des Überweisungstyps zum ein und ausblenden der Gegenkontos
 			$scope.$watch( 'transferway', function () {
 				if ( $scope.transferway == "transfer" ) {
 					$scope.accountto = 'mainTopicTemplates/accountSubpageTemplates/accountOverView.html';
@@ -87,11 +102,12 @@ BankappTransfer.controller( 'transferType', [
 					$scope.accChoosen = false;
 				}
 			} )
-
+			//Function zur Rückehr in die Gegenkontoauswahl
 			$scope.accoverview = function () {
 				$scope.accountto = 'mainTopicTemplates/accountSubpageTemplates/accountOverView.html';
 				$scope.accChoosen = true;
 			}
+			//Function bei der Auswahl des Gegenkontos
 			$scope.click = function ( id ) {
 				$scope.tempid=id;
 				$scope.accChoosen = true;
@@ -102,14 +118,20 @@ BankappTransfer.controller( 'transferType', [
 					alert("account nicht vorhanden")
 				} );
 			}
+			//Function zum stezen des Überweisungsypes
 			$scope.settype = function ( type ) {
 				$scope.transferway = type;
 			}
+			//Function zur Rückehr in die auswahl zur auswahl des kontos für die Überweisung
 			$scope.setSubComponentLvl2 = function () {
 				searchService.setAccountIds( $scope.tempids );
 				subComponentService.stepBack();
 			}
-
+			//Function zum Updaten von Accountdaten
+			/**
+			 * param type zu des Upzudatenden Accounts
+			 * param updaccount Daten des upzudatendenden Accounts
+			 */
 			$scope.newacc = function ( type, updaccount ) {
 				$http( {
 					withCredentials : false,
@@ -120,6 +142,11 @@ BankappTransfer.controller( 'transferType', [
 				} )
 
 			}
+			//Function zur eintragung eines Statements einen account
+			/**
+			 * param value wert des Statements
+			 * param acc Account wo das Statement eingetragen wird
+			 */
 			$scope.make = function(value,acc){
 				acc.balance = parseFloat( acc.balance ) + parseFloat( value );
 				$scope.newStatement = {
@@ -129,6 +156,7 @@ BankappTransfer.controller( 'transferType', [
 				acc.statements.push( $scope.newStatement );
 				$scope.newacc( acc.accountType, acc );
 			}
+			//Function zum Auslösen der Überweisung
 			$scope.save = function () {
 				$scope.load();
 				$scope.click($scope.tempid);
@@ -150,6 +178,7 @@ BankappTransfer.controller( 'transferType', [
 					alert("bitte Transeroption auswählen")
 				}
 				$scope.ammount.value = 0;
+				$scope.accoverview();
 			}
 
 		}

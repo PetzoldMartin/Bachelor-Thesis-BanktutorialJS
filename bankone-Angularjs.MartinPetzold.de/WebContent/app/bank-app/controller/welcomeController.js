@@ -1,6 +1,8 @@
 'use strict';
 
-/* Controllers */
+/**
+ * Modul zur steuerung der Willkommenseite
+ */
 var BankappWelcomeview = angular.module( 'bankapp.welcomeview', [
 		 'bankapp.breadcrumb'
 ] );

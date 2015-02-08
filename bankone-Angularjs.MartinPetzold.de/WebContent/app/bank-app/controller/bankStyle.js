@@ -1,8 +1,12 @@
 'use strict';
 
-/* Controllers */
+/**
+ * Modul zur Zentralisierung von CSS Befehlen und zusammengesetzten Bootstrapklassen
+ */
 var BankappStyle= angular.module('bankapp.style',[])
-
+/**
+ * Controller zur Zentralisierung von CSS Befehlen und zusammengesetzten Bootstrapklassen
+ */
 BankappStyle.controller('bankStyles',['$scope', function($scope) {
 		//Main Page Styles
 		$scope.headerTemplateStyle = {'margin-bottom': '0px'}
@@ -62,6 +66,7 @@ BankappStyle.controller('bankStyles',['$scope', function($scope) {
 		$scope.bigbuttonStyle={'height':'8.2vw','width':'8.2vw',
 				'margin' : '30px','margin-left' : '25px'}
 		$scope.bigbuttonClass="col-xs-6 col-sm-5 col-md-4 col-lg-4"
+		//Dynamischer Style und Klasse 
 		$scope.tempStyle={"value" : ""}
 		$scope.tempClass={"value" : ""}
 
